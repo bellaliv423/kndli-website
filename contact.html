@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의하기 | KNDLI - 무료 상담 예약</title>
+    <meta name="description" content="KNDLI 무료 상담 예약 - 카카오톡, LINE, 이메일로 편하게 연락하세요">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2d4a;
+            --navy-dark: #060d18;
+            --gold: #c9a962;
+            --gold-light: #e8d5a3;
+            --gold-dark: #a08339;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --gray-200: #e5e5e5;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --success: #22c55e;
+            --error: #ef4444;
+            --font-display: 'Playfair Display', serif;
+            --font-body-ko: 'Noto Sans KR', sans-serif;
+            --font-body-zh: 'Noto Sans TC', sans-serif;
+            --shadow-md: 0 4px 12px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 8px 30px rgba(10, 22, 40, 0.12);
+            --transition-base: 0.3s ease;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body-ko); background-color: var(--cream); color: var(--navy); line-height: 1.7; overflow-x: hidden; }
+        body.zh { font-family: var(--font-body-zh); }
+
+        /* 언어 전환 시스템 */
+        .lang-ko { display: block; }
+        .lang-zh { display: none; }
+        body.zh .lang-ko { display: none; }
+        body.zh .lang-zh { display: block; }
+        span.lang-ko, a.lang-ko { display: inline; }
+        span.lang-zh, a.lang-zh { display: none; }
+        body.zh span.lang-ko, body.zh a.lang-ko { display: none; }
+        body.zh span.lang-zh, body.zh a.lang-zh { display: inline; }
+
+        img { max-width: 100%; height: auto; }
+        a { text-decoration: none; color: inherit; transition: var(--transition-base); }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; line-height: 1.3; }
+
+        .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+        .section-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); transition: all var(--transition-base); }
+        .header.scrolled { box-shadow: var(--shadow-lg); }
+        .header-container { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1400px; margin: 0 auto; }
+        .logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--white); letter-spacing: 2px; }
+        .logo span { color: var(--gold); }
+        .nav { display: flex; align-items: center; gap: 24px; }
+        .nav-links { display: flex; list-style: none; gap: 32px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: rgba(255, 255, 255, 0.8); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: var(--transition-base); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+        .lang-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 100px; cursor: pointer; transition: var(--transition-base); }
+        .lang-toggle:hover { background: rgba(255, 255, 255, 0.15); border-color: var(--gold); }
+        .lang-toggle svg { width: 16px; height: 16px; color: var(--gold); }
+        .lang-toggle span { font-size: 0.85rem; font-weight: 500; color: var(--white); }
+        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+        .mobile-menu-btn span { width: 24px; height: 2px; background: var(--white); transition: var(--transition-base); }
+
+        /* Page Hero */
+        .page-hero { min-height: 45vh; background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 100px; }
+        .page-hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 200%; background: radial-gradient(ellipse, rgba(201, 169, 98, 0.08) 0%, transparent 70%); pointer-events: none; }
+        .page-hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; margin: 0 auto; }
+        .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); margin-bottom: 20px; }
+        .page-hero h1 span { color: var(--gold); }
+        .page-hero p { font-size: 1.2rem; color: rgba(255, 255, 255, 0.8); line-height: 1.8; }
+        .hero-decorative { position: absolute; width: 300px; height: 300px; border: 1px solid rgba(201, 169, 98, 0.2); border-radius: 50%; animation: float 8s ease-in-out infinite; }
+        .hero-decorative-1 { top: 10%; left: 5%; }
+        .hero-decorative-2 { bottom: 10%; right: 5%; animation-delay: -4s; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+
+        /* Contact Section */
+        .contact-section { background: var(--white); padding: 80px 0; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+        .contact-info { position: sticky; top: 120px; }
+        .contact-info h2 { font-size: 2rem; margin-bottom: 16px; color: var(--navy); }
+        .contact-info > p { font-size: 1.05rem; color: var(--gray-600); margin-bottom: 40px; line-height: 1.8; }
+        .contact-methods { margin-bottom: 40px; }
+        .contact-method { display: flex; align-items: flex-start; gap: 20px; padding: 24px; background: var(--cream); border-radius: 16px; margin-bottom: 16px; transition: var(--transition-base); }
+        .contact-method:hover { transform: translateX(8px); box-shadow: var(--shadow-md); }
+        .contact-method-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-method-icon svg { width: 24px; height: 24px; color: var(--gold); }
+        .contact-method-content h4 { font-family: var(--font-body-ko); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+        body.zh .contact-method-content h4 { font-family: var(--font-body-zh); }
+        .contact-method-content p { font-size: 0.9rem; color: var(--gray-500); margin-bottom: 8px; }
+        .contact-method-content a { color: var(--gold-dark); font-weight: 600; }
+        .contact-method-content a:hover { color: var(--gold); }
+        .response-time { display: flex; align-items: flex-start; gap: 12px; padding: 20px; background: linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, rgba(201, 169, 98, 0.05) 100%); border-radius: 12px; border-left: 4px solid var(--gold); }
+        .response-time svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+        .response-time p { font-size: 0.95rem; color: var(--gray-700); line-height: 1.7; }
+        .response-time strong { color: var(--navy); }
+
+        /* Form */
+        .contact-form-wrapper { background: var(--cream); border-radius: 24px; padding: 40px; box-shadow: var(--shadow-lg); }
+        .form-header { margin-bottom: 32px; }
+        .form-header h3 { font-family: var(--font-body-ko); font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+        body.zh .form-header h3 { font-family: var(--font-body-zh); }
+        .form-header p { font-size: 0.95rem; color: var(--gray-600); }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+        .form-group label .required { color: var(--error); }
+        .form-group input, .form-group select, .form-group textarea { padding: 14px 16px; border: 2px solid var(--gray-200); border-radius: 12px; font-size: 1rem; font-family: inherit; transition: var(--transition-base); background: var(--white); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.15); }
+        .form-group textarea { min-height: 140px; resize: vertical; }
+        .form-group select { cursor: pointer; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 12px; }
+        .checkbox-group input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--gold); }
+        .checkbox-group label { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; cursor: pointer; }
+        .form-submit { margin-top: 16px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 32px; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--transition-base); }
+        .btn-primary { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: var(--navy); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201, 169, 98, 0.4); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-block { width: 100%; }
+        .btn svg { width: 18px; height: 18px; }
+        .form-message { display: none; align-items: flex-start; gap: 16px; padding: 20px; border-radius: 12px; margin-top: 20px; }
+        .form-message.show { display: flex; }
+        .form-message.success { background: rgba(34, 197, 94, 0.1); border: 1px solid var(--success); }
+        .form-message.error { background: rgba(239, 68, 68, 0.1); border: 1px solid var(--error); }
+        .form-message svg { width: 24px; height: 24px; flex-shrink: 0; }
+        .form-message.success svg { color: var(--success); }
+        .form-message.error svg { color: var(--error); }
+        .form-message .message-content { flex: 1; }
+        .form-message .message-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+        .form-message.success .message-title { color: var(--success); }
+        .form-message.error .message-title { color: var(--error); }
+        .form-message .message-detail { font-size: 0.9rem; opacity: 0.9; }
+        .auto-save-indicator { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; color: var(--success); margin-top: 16px; padding: 10px 16px; background: rgba(34, 197, 94, 0.1); border-radius: 8px; border: 1px solid rgba(34, 197, 94, 0.3); opacity: 0; transform: translateY(-5px); transition: all 0.3s ease; }
+        .auto-save-indicator.show { opacity: 1; transform: translateY(0); }
+        .auto-save-indicator svg { width: 16px; height: 16px; }
+
+        /* Map Section */
+        .map-section { background: var(--cream); padding: 80px 0; }
+        .map-header { text-align: center; margin-bottom: 40px; }
+        .map-note { text-align: center; padding: 40px; background: var(--white); border-radius: 20px; max-width: 600px; margin: 0 auto; box-shadow: var(--shadow-md); }
+        .map-note svg { width: 48px; height: 48px; color: var(--gold); margin-bottom: 20px; }
+        .map-note h4 { font-family: var(--font-body-ko); font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+        body.zh .map-note h4 { font-family: var(--font-body-zh); }
+        .map-note p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.8; }
+
+        /* Footer */
+        .footer { background: var(--navy-dark); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+        .footer-brand .logo { margin-bottom: 20px; display: inline-block; }
+        .footer-brand p { font-size: 0.95rem; color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: 24px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 44px; height: 44px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition-base); }
+        .footer-social a:hover { background: var(--gold); }
+        .footer-social a svg { width: 20px; height: 20px; color: var(--white); }
+        .footer-social a:hover svg { color: var(--navy); }
+        .footer-column h5 { font-family: var(--font-body-ko); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 24px; }
+        body.zh .footer-column h5 { font-family: var(--font-body-zh); }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 14px; }
+        .footer-column a { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
+        .footer-column a:hover { color: var(--gold); }
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+        .footer-contact-item svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+        .footer-contact-item span { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .footer-bottom p { font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); margin-bottom: 8px; }
+
+        @media (max-width: 1024px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-info { position: static; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form-wrapper { padding: 24px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .page-hero { min-height: 35vh; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">KND<span>LI</span></a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="lang-ko">홈</a><a href="index.html" class="lang-zh">首頁</a></li>
+                    <li><a href="profile.html" class="lang-ko">대표 소개</a><a href="profile.html" class="lang-zh">代表介紹</a></li>
+                    <li><a href="business.html" class="lang-ko">기업 서비스</a><a href="business.html" class="lang-zh">企業服務</a></li>
+                    <li><a href="life.html" class="lang-ko">개인 서비스</a><a href="life.html" class="lang-zh">個人服務</a></li>
+                    <li><a href="contact.html" class="active lang-ko">문의하기</a><a href="contact.html" class="active lang-zh">聯繫我們</a></li>
+                </ul>
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span class="lang-ko">中文</span>
+                    <span class="lang-zh">한국어</span>
+                </button>
+                <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-decorative hero-decorative-1"></div>
+        <div class="hero-decorative hero-decorative-2"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="lang-ko">무료 상담 <span>예약하기</span></h1>
+                <h1 class="lang-zh">預約 <span>免費諮詢</span></h1>
+                <p class="lang-ko">궁금한 점이 있으신가요? 편하게 연락주세요.<br>24시간 내 답변드립니다.</p>
+                <p class="lang-zh">有任何問題嗎？歡迎隨時聯繫。<br>24小時內回覆您。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="lang-ko">연락 방법</h2>
+                    <h2 class="lang-zh">聯繫方式</h2>
+                    <p class="lang-ko">편하신 방법으로 연락주세요. 카카오톡, LINE, 이메일 모두 가능합니다.</p>
+                    <p class="lang-zh">請以您方便的方式聯繫。KakaoTalk、LINE、Email皆可。</p>
+
+                    <div class="contact-methods">
+                        <!-- Email -->
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 6L2 7"></path></svg>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Email</h4>
+                                <p class="lang-ko">언제든 문의 가능</p>
+                                <p class="lang-zh">隨時可詢問</p>
+                                <a href="mailto:kndli.bella@gmail.com">kndli.bella@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <!-- KakaoTalk ✅ 수정됨! -->
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>KakaoTalk</h4>
+                                <p class="lang-ko">한국 내 가장 빠른 연락</p>
+                                <p class="lang-zh">韓國最快速的聯繫方式</p>
+                                <a href="https://open.kakao.com/me/kndli" target="_blank" class="lang-ko">1:1 채팅하기 →</a>
+                                <a href="https://open.kakao.com/me/kndli" target="_blank" class="lang-zh">開始聊天 →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- LINE ✅ 수정됨! -->
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>LINE</h4>
+                                <p class="lang-ko">대만/일본 고객 추천</p>
+                                <p class="lang-zh">台灣/日本客戶推薦</p>
+                                <a href="https://line.me/R/ti/p/@006prdnj" target="_blank" class="lang-ko">친구 추가하기 →</a>
+                                <a href="https://line.me/R/ti/p/@006prdnj" target="_blank" class="lang-zh">加好友 →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Instagram -->
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Instagram DM</h4>
+                                <p class="lang-ko">포트폴리오도 확인 가능</p>
+                                <p class="lang-zh">也可查看作品集</p>
+                                <a href="https://instagram.com/bellaliv423" target="_blank">@bellaliv423</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="response-time">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <div>
+                            <p class="lang-ko"><strong>24시간 내</strong> 답변을 드립니다. 급한 문의는 카카오톡을 이용해 주세요.</p>
+                            <p class="lang-zh"><strong>24小時內</strong>回覆您。緊急諮詢請使用KakaoTalk。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h3 class="lang-ko">상담 예약 신청</h3>
+                        <h3 class="lang-zh">預約諮詢申請</h3>
+                        <p class="lang-ko">아래 양식을 작성해 주시면 빠르게 연락드리겠습니다.</p>
+                        <p class="lang-zh">請填寫以下表單，我們會盡快與您聯繫。</p>
+                    </div>
+
+                    <form id="consultationForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="lang-ko">이름 <span class="required">*</span></label>
+                                <label class="lang-zh">姓名 <span class="required">*</span></label>
+                                <input type="text" name="name" required placeholder="홍길동 / 王小明">
+                            </div>
+                            <div class="form-group">
+                                <label class="lang-ko">이메일 <span class="required">*</span></label>
+                                <label class="lang-zh">Email <span class="required">*</span></label>
+                                <input type="email" name="email" required placeholder="example@email.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="lang-ko">연락처</label>
+                                <label class="lang-zh">聯絡電話</label>
+                                <input type="tel" name="phone" placeholder="+82 10-0000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label class="lang-ko">국적</label>
+                                <label class="lang-zh">國籍</label>
+                                <select name="nationality">
+                                    <option value="">선택해주세요 / 請選擇</option>
+                                    <option value="taiwan">🇹🇼 Taiwan / 대만</option>
+                                    <option value="china">🇨🇳 China / 중국</option>
+                                    <option value="hongkong">🇭🇰 Hong Kong / 홍콩</option>
+                                    <option value="korea">🇰🇷 Korea / 한국</option>
+                                    <option value="other">Other / 기타</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label class="lang-ko">관심 서비스 <span class="required">*</span></label>
+                                <label class="lang-zh">感興趣的服務 <span class="required">*</span></label>
+                                <select name="service" required>
+                                    <option value="">서비스를 선택해주세요 / 請選擇服務</option>
+                                    <optgroup label="B2B 기업 서비스 / 企業服務">
+                                        <option value="influencer">인플루언서 마케팅 / 網紅行銷</option>
+                                        <option value="translation">통번역 서비스 / 翻譯服務</option>
+                                        <option value="video">영상 번역/편집 / 影片翻譯剪輯</option>
+                                        <option value="distribution">대만 유통 대행 / 台灣通路代理</option>
+                                        <option value="xiaohongshu">샤홍슈 인증 / 小紅書認證</option>
+                                        <option value="import">중국 수입 대행 / 中國進口代理</option>
+                                    </optgroup>
+                                    <optgroup label="B2C 개인 서비스 / 個人服務">
+                                        <option value="job">취업 지원 / 求職支援</option>
+                                        <option value="housing">집 계약 동행 / 租屋陪同</option>
+                                        <option value="school">학교생활 서포트 / 校園生活支援</option>
+                                        <option value="startup">창업 컨설팅 / 創業諮詢</option>
+                                        <option value="lecture">강연/강습 / 講座課程</option>
+                                    </optgroup>
+                                    <option value="other">기타 / 其他</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label class="lang-ko">문의 내용 <span class="required">*</span></label>
+                                <label class="lang-zh">諮詢內容 <span class="required">*</span></label>
+                                <textarea name="message" required placeholder="궁금하신 점이나 원하시는 서비스에 대해 자세히 적어주세요."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label class="lang-ko">선호 연락 방법</label>
+                                <label class="lang-zh">偏好聯繫方式</label>
+                                <select name="contact_preference">
+                                    <option value="email">Email</option>
+                                    <option value="kakaotalk">KakaoTalk</option>
+                                    <option value="line">LINE</option>
+                                    <option value="instagram">Instagram DM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy" class="lang-ko">개인정보 수집 및 이용에 동의합니다. 수집된 정보는 상담 목적으로만 사용됩니다.</label>
+                                <label for="privacy" class="lang-zh">同意收集及使用個人資料。收集的資訊僅用於諮詢目的。</label>
+                            </div>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                                <span class="lang-ko">상담 예약 신청하기</span>
+                                <span class="lang-zh">提交諮詢預約</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </button>
+                            <div id="autoSaveIndicator" class="auto-save-indicator">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span class="lang-ko">임시저장됨</span>
+                                <span class="lang-zh">已自動儲存</span>
+                            </div>
+                        </div>
+
+                        <div id="formMessage" class="form-message">
+                            <svg id="messageIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <div class="message-content">
+                                <div class="message-title"></div>
+                                <div class="message-detail"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="map-header">
+                <span class="section-label lang-ko">Location</span>
+                <span class="section-label lang-zh">位置</span>
+                <h2 class="section-title lang-ko">서비스 지역</h2>
+                <h2 class="section-title lang-zh">服務地區</h2>
+            </div>
+            <div class="map-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <h4 class="lang-ko">서울 및 전국 온라인</h4>
+                <h4 class="lang-zh">首爾及全國線上</h4>
+                <p class="lang-ko">오프라인 동행 서비스는 서울/경기 지역 기준입니다.<br>온라인 상담은 전국 어디서나, 해외에서도 가능합니다.<br><br>📍 서울, 대한민국</p>
+                <p class="lang-zh">線下陪同服務以首爾/京畿地區為準。<br>線上諮詢全國及海外皆可。<br><br>📍 首爾，韓國</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">KND<span>LI</span></a>
+                    <p class="lang-ko">한국-대만-중국을 연결하는 비즈니스 브릿지<br>10년의 한국 경험, 진정성 있는 파트너십</p>
+                    <p class="lang-zh">連結韓國-台灣-中國的商業橋樑<br>10年韓國經驗，真誠的合作夥伴關係</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="mailto:kndli.bella@gmail.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 6L2 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5 class="lang-ko">서비스</h5>
+                    <h5 class="lang-zh">服務</h5>
+                    <ul>
+                        <li><a href="business.html" class="lang-ko">기업 서비스</a><a href="business.html" class="lang-zh">企業服務</a></li>
+                        <li><a href="life.html" class="lang-ko">개인 서비스</a><a href="life.html" class="lang-zh">個人服務</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5 class="lang-ko">회사</h5>
+                    <h5 class="lang-zh">公司</h5>
+                    <ul>
+                        <li><a href="profile.html" class="lang-ko">대표 소개</a><a href="profile.html" class="lang-zh">代表介紹</a></li>
+                        <li><a href="contact.html" class="lang-ko">문의하기</a><a href="contact.html" class="lang-zh">聯繫我們</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5 class="lang-ko">연락처</h5>
+                    <h5 class="lang-zh">聯絡方式</h5>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 6L2 7"></path></svg>
+                        <span>kndli.bella@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <span>@bellaliv423</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span class="lang-ko">서울, 대한민국</span>
+                        <span class="lang-zh">首爾，韓國</span>
+                    </div>
+                </div>
+            </div>
+            <div class="company-info" style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; margin-bottom: 20px;">
+                <p style="color: var(--gold); font-weight: 600; font-size: 14px; margin-bottom: 12px;">한니드레이 유한회사 | 韓妮德來 | KNDLI Co., Ltd.</p>
+                <p class="lang-ko" style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.9;">한국 운영 대표: 황영아 (Bella / 黃鈴雅) | 사업자등록번호: 126-84-00471<br>주소: 서울시 서초구 사임당로8길 13, 4층</p>
+                <p class="lang-zh" style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.9;">韓國營運代表: 黃鈴雅 (Bella / 황영아) | 統一編號: 126-84-00471<br>地址: 首爾市瑞草區思任堂路8街13號 4樓</p>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 KNDLI. All rights reserved.</p>
+                <p class="lang-ko">한니드레이 | 韓妮德來</p>
+                <p class="lang-zh">韓妮德來 | 한니드레이</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('zh');
+            localStorage.setItem('lang', document.body.classList.contains('zh') ? 'zh' : 'ko');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var savedLang = localStorage.getItem('lang');
+            if (savedLang === 'zh') {
+                document.body.classList.add('zh');
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8nNqDWzctx5XKaFe_iBSiZToZF57nP1B23s7hK2RUYfZD8NXAAwtw0-wy8Q3Y3vHh/exec';
+        var form = document.getElementById('consultationForm');
+        var submitBtn = document.getElementById('submitBtn');
+        var formMessage = document.getElementById('formMessage');
+        var autoSaveIndicator = document.getElementById('autoSaveIndicator');
+        var STORAGE_KEY = 'kndli_form_draft';
+        var saveTimeout;
+
+        function loadDraft() {
+            try {
+                var saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    var data = JSON.parse(saved);
+                    var fields = ['name', 'email', 'phone', 'nationality', 'service', 'message', 'contact_preference'];
+                    fields.forEach(function(field) {
+                        var input = form.querySelector('[name="' + field + '"]');
+                        if (input && data[field]) { input.value = data[field]; }
+                    });
+                }
+            } catch (e) {}
+        }
+
+        function saveDraft() {
+            try {
+                var formData = new FormData(form);
+                var data = {
+                    name: formData.get('name') || '',
+                    email: formData.get('email') || '',
+                    phone: formData.get('phone') || '',
+                    nationality: formData.get('nationality') || '',
+                    service: formData.get('service') || '',
+                    message: formData.get('message') || '',
+                    contact_preference: formData.get('contact_preference') || ''
+                };
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                showAutoSaveStatus();
+            } catch (e) {}
+        }
+
+        function showAutoSaveStatus() {
+            if (!autoSaveIndicator) return;
+            autoSaveIndicator.classList.add('show');
+            setTimeout(function() { autoSaveIndicator.classList.remove('show'); }, 2500);
+        }
+
+        form.addEventListener('input', function() {
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(saveDraft, 1500);
+        });
+
+        loadDraft();
+
+        function clearDraft() { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            var isZhLoading = document.body.classList.contains('zh');
+            submitBtn.textContent = isZhLoading ? '傳送中...' : '전송 중...';
+
+            var formData = new FormData(form);
+            var data = {
+                timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
+                name: formData.get('name') || '',
+                email: formData.get('email') || '',
+                phone: formData.get('phone') || '-',
+                nationality: formData.get('nationality') || '-',
+                service: formData.get('service') || '',
+                message: formData.get('message') || '',
+                contact_preference: formData.get('contact_preference') || '',
+                language: document.body.classList.contains('zh') ? '中文' : '한국어'
+            };
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(function() {
+                var isZh = document.body.classList.contains('zh');
+                showMessage('success', {
+                    title: isZh ? '✅ 提交成功！' : '✅ 제출 완료!',
+                    detail: isZh ? '諮詢申請已成功提交！我們會在24小時內聯繫您。' : '상담 신청이 완료되었습니다! 24시간 내 연락드리겠습니다.'
+                });
+                form.reset();
+                clearDraft();
+            }).catch(function() {
+                var isZh = document.body.classList.contains('zh');
+                showMessage('error', {
+                    title: isZh ? '❌ 發生錯誤' : '❌ 오류 발생',
+                    detail: isZh ? '請稍後再試或直接透過Email聯繫' : '잠시 후 다시 시도하거나 이메일로 연락주세요'
+                });
+            }).finally(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span class="lang-ko">상담 예약 신청하기</span><span class="lang-zh">提交諮詢預約</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+            });
+        });
+
+        function showMessage(type, content) {
+            if (!formMessage) { alert(content.detail); return; }
+            var iconSvg = document.getElementById('messageIcon');
+            if (iconSvg) {
+                iconSvg.innerHTML = type === 'success' 
+                    ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'
+                    : '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>';
+            }
+            var titleEl = formMessage.querySelector('.message-title');
+            var detailEl = formMessage.querySelector('.message-detail');
+            if (titleEl) titleEl.textContent = content.title || '';
+            if (detailEl) detailEl.textContent = content.detail || '';
+            formMessage.className = 'form-message ' + type + ' show';
+            if (type === 'success') { setTimeout(function() { formMessage.classList.remove('show'); }, 15000); }
+        }
+    </script>
+</body>
+</html>
