@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인 서비스 | KNDLI - 한국 생활 토털 서포트</title>
+    <meta name="description" content="KNDLI 개인 서비스: 한국 취업 지원, 집 계약 동행, 학교생활, 창업 컨설팅, 강연/강습">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========== CSS Variables ========== */
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2d4a;
+            --navy-dark: #060d18;
+            --gold: #c9a962;
+            --gold-light: #e8d5a3;
+            --gold-dark: #a08339;
+            --cream: #faf8f5;
+            --cream-dark: #f0ebe3;
+            --white: #ffffff;
+            --gray-100: #f7f7f7;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+
+            --font-display: 'Playfair Display', serif;
+            --font-body-ko: 'Noto Sans KR', sans-serif;
+            --font-body-zh: 'Noto Sans TC', sans-serif;
+
+            --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.05);
+            --shadow-md: 0 4px 12px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 8px 30px rgba(10, 22, 40, 0.12);
+            --shadow-xl: 0 20px 50px rgba(10, 22, 40, 0.15);
+
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* ========== Reset & Base ========== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body-ko);
+            background-color: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body.zh {
+            font-family: var(--font-body-zh);
+        }
+
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-base);
+        }
+
+        /* ========== Typography ========== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 600px;
+        }
+
+        /* ========== Layout ========== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* ========== Header ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition-base);
+        }
+
+        .header.scrolled {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.05em;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition-base);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--white);
+        }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--gold);
+        }
+
+        .lang-toggle span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition-base);
+        }
+
+        /* ========== Page Hero ========== */
+        .page-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span {
+            color: var(--gold);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .hero-decorative {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-decorative-1 {
+            top: 10%;
+            left: 5%;
+        }
+
+        .hero-decorative-2 {
+            bottom: 10%;
+            right: 5%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        /* ========== Why Us Section ========== */
+        .why-us-section {
+            background: var(--white);
+        }
+
+        .why-us-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .why-us-card {
+            text-align: center;
+            padding: 40px 24px;
+            background: var(--cream);
+            border-radius: 16px;
+            transition: var(--transition-base);
+        }
+
+        .why-us-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .why-us-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .why-us-icon i {
+            width: 36px;
+            height: 36px;
+            color: var(--gold);
+        }
+
+        .why-us-card h3 {
+            font-family: var(--font-body-ko);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        body.zh .why-us-card h3 {
+            font-family: var(--font-body-zh);
+        }
+
+        .why-us-card p {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* ========== Services Section ========== */
+        .services-section {
+            background: var(--cream);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+            padding: 60px;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-item:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .service-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-content {
+            padding: 20px 0;
+        }
+
+        .service-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            color: var(--navy);
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .service-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .service-content>p {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            margin-bottom: 12px;
+        }
+
+        .service-features li i {
+            width: 18px;
+            height: 18px;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .service-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--cream);
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 100px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .service-visual {
+            position: relative;
+        }
+
+        .service-image-placeholder {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a962' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .service-image-placeholder i {
+            width: 64px;
+            height: 64px;
+            color: var(--gold);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-image-placeholder span {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== Pricing Section ========== */
+        .pricing-section {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a962' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-header .section-title {
+            color: var(--white);
+        }
+
+        .pricing-header .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 auto;
+        }
+
+        .pricing-table {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-table-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            background: var(--navy);
+            padding: 24px 32px;
+        }
+
+        .pricing-table-header span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .pricing-table-header span:first-child {
+            text-align: left;
+        }
+
+        .pricing-table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 20px 32px;
+            border-bottom: 1px solid var(--gray-200);
+            align-items: center;
+            transition: var(--transition-base);
+        }
+
+        .pricing-table-row:hover {
+            background: var(--cream);
+        }
+
+        .pricing-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-service-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pricing-service-name i {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+        }
+
+        .pricing-service-name strong {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .pricing-table-row span {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+
+        .pricing-highlight {
+            background: var(--gold);
+            color: var(--navy) !important;
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem !important;
+        }
+
+        /* ========== FAQ Section ========== */
+        .faq-section {
+            background: var(--white);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--cream);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px 28px;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .faq-question:hover {
+            background: var(--cream-dark);
+        }
+
+        .faq-question h4 {
+            font-family: var(--font-body-ko);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-align: left;
+        }
+
+        body.zh .faq-question h4 {
+            font-family: var(--font-body-zh);
+        }
+
+        .faq-question i {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            transition: var(--transition-base);
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 28px 24px;
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        /* ========== Testimonial Section ========== */
+        .testimonial-section {
+            background: var(--cream);
+        }
+
+        .testimonial-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 24px;
+        }
+
+        .testimonial-content p {
+            font-size: 1.05rem;
+            color: var(--gray-700);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-info h5 {
+            font-family: var(--font-body-ko);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        body.zh .testimonial-info h5 {
+            font-family: var(--font-body-zh);
+        }
+
+        .testimonial-info span {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        /* ========== CTA Section ========== */
+        .cta-section {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 24px;
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(201, 169, 98, 0.15) 0%, transparent 60%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ========== Buttons ========== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-body-ko);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-base);
+            border: none;
+            text-align: center;
+        }
+
+        body.zh .btn {
+            font-family: var(--font-body-zh);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 169, 98, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: var(--white);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            background: var(--navy-dark);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-base);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+        }
+
+        .footer-social a i {
+            width: 20px;
+            height: 20px;
+            color: var(--white);
+        }
+
+        .footer-social a:hover i {
+            color: var(--navy);
+        }
+
+        .footer-column h5 {
+            font-family: var(--font-body-ko);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        body.zh .footer-column h5 {
+            font-family: var(--font-body-zh);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 14px;
+        }
+
+        .footer-column a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-contact-item i {
+            width: 18px;
+            height: 18px;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .footer-contact-item span {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 1024px) {
+            .why-us-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px;
+            }
+
+            .service-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .pricing-table-header,
+            .pricing-table-row {
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 22, 40, 0.98);
+                padding: 20px 0;
+                border-top: 1px solid rgba(201, 169, 98, 0.1);
+                border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+                z-index: 1001;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-table-header {
+                display: none;
+            }
+
+            .pricing-table-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 24px;
+            }
+
+            .pricing-table-row span {
+                text-align: left;
+            }
+
+            .pricing-table-row span::before {
+                content: attr(data-label);
+                font-weight: 600;
+                margin-right: 8px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .service-item {
+                padding: 28px 20px;
+            }
+
+            .cta-box {
+                padding: 50px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        /* ========== Language Toggle System (Fixed) ========== */
+        /* 1. Hide Chinese by default */
+        .lang-zh {
+            display: none !important;
+        }
+
+        /* 2. Hide Korean in Chinese mode */
+        body.zh .lang-ko {
+            display: none !important;
+        }
+
+        /* 3. Show Chinese in Chinese mode */
+        body.zh .lang-zh {
+            display: block !important;
+        }
+
+        body.zh li.lang-zh {
+            display: list-item !important;
+        }
+
+        /* 4. Handle Inline Elements */
+        span.lang-ko {
+            display: inline;
+        }
+
+        span.lang-zh {
+            display: none !important;
+        }
+
+        body.zh span.lang-zh {
+            display: inline !important;
+        }
+
+        /* 5. Handle Buttons (Flex) */
+        /* Ensure hidden state is enforced */
+        a.btn.lang-zh {
+            display: none !important;
+        }
+
+        /* Restore correct display in Chinese mode */
+        body.zh a.btn.lang-zh {
+            display: inline-flex !important;
+        }
+
+        body.zh a.btn-block.lang-zh {
+            display: flex !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">KND<span>LI</span></a>
+
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li>
+                            <a href="index.html">
+                                <span class="lang-ko">홈</span>
+                                <span class="lang-zh">首頁</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="profile.html">
+                                <span class="lang-ko">대표 소개</span>
+                                <span class="lang-zh">代表介紹</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="business.html">
+                                <span class="lang-ko">기업 서비스</span>
+                                <span class="lang-zh">企業服務</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="life.html" class="active">
+                                <span class="lang-ko">개인 서비스</span>
+                                <span class="lang-zh">個人服務</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <span class="lang-ko">문의하기</span>
+                                <span class="lang-zh">聯繫我們</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button class="lang-toggle" onclick="toggleLanguage()">
+                        <i data-lucide="globe" style="width: 16px; height: 16px; color: var(--gold);"></i>
+                        <span class="lang-ko">中文</span>
+                        <span class="lang-zh">한국어</span>
+                    </button>
+
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-decorative hero-decorative-1"></div>
+        <div class="hero-decorative hero-decorative-2"></div>
+
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="lang-ko">한국 생활, <span>처음부터 끝까지</span></h1>
+                <h1 class="lang-zh">韓國生活，<span>從頭到尾陪伴您</span></h1>
+
+                <p class="lang-ko">
+                    취업, 집 구하기, 학교생활, 창업까지<br>
+                    10년 한국 생활 경험자가 직접 도와드립니다
+                </p>
+                <p class="lang-zh">
+                    求職、找房、校園生活、創業<br>
+                    10年韓國生活經驗者親自協助您
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us-section">
+        <div class="container">
+            <div class="why-us-header">
+                <span class="section-label lang-ko">Why KNDLI</span>
+                <span class="section-label lang-zh">為何選擇我們</span>
+                <h2 class="section-title lang-ko">KNDLI만의 차별화</h2>
+                <h2 class="section-title lang-zh">KNDLI的獨特優勢</h2>
+            </div>
+
+            <div class="why-us-grid">
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <h3 class="lang-ko">10년+ 실거주 경험</h3>
+                    <h3 class="lang-zh">10年+實際居住經驗</h3>
+                    <p class="lang-ko">관광객이 아닌 실거주자 관점에서 실질적인 정보를 제공합니다</p>
+                    <p class="lang-zh">非遊客視角，從實際居住者角度提供實用資訊</p>
+                </div>
+
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h3 class="lang-ko">한양대 MBA 재학</h3>
+                    <h3 class="lang-zh">漢陽大學MBA在學</h3>
+                    <p class="lang-ko">한국 대학원 생활, 취업 시장에 대한 최신 정보를 갖추고 있습니다</p>
+                    <p class="lang-zh">掌握韓國研究所生活、就業市場最新資訊</p>
+                </div>
+
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i data-lucide="briefcase"></i>
+                    </div>
+                    <h3 class="lang-ko">한국 기업 근무 경험</h3>
+                    <h3 class="lang-zh">韓國企業工作經驗</h3>
+                    <p class="lang-ko">실제 한국 기업 문화와 업무 스타일을 직접 경험했습니다</p>
+                    <p class="lang-zh">親身體驗韓國企業文化與工作風格</p>
+                </div>
+
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i data-lucide="heart-handshake"></i>
+                    </div>
+                    <h3 class="lang-ko">진정성 있는 동행</h3>
+                    <h3 class="lang-zh">真誠的陪伴</h3>
+                    <p class="lang-ko">같은 외국인으로서 겪은 어려움을 알기에 진심으로 도와드립니다</p>
+                    <p class="lang-zh">因為經歷過相同困難，所以能真心提供幫助</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-header">
+                <span class="section-label lang-ko">Services</span>
+                <span class="section-label lang-zh">服務項目</span>
+                <h2 class="section-title lang-ko">개인 맞춤 서비스</h2>
+                <h2 class="section-title lang-zh">個人客製化服務</h2>
+                <p class="section-subtitle lang-ko">한국 생활의 모든 단계를 함께합니다</p>
+                <p class="section-subtitle lang-zh">陪伴您韓國生活的每一個階段</p>
+            </div>
+
+            <!-- Service 1: Job Support -->
+            <div class="service-item">
+                <div class="service-content">
+                    <div class="service-number">1</div>
+                    <h3 class="lang-ko">취업 지원 서비스</h3>
+                    <h3 class="lang-zh">求職支援服務</h3>
+                    <p class="lang-ko">
+                        한국 기업 취업을 준비하는 외국인을 위한 종합 지원 서비스입니다.
+                        이력서 작성부터 면접 준비, 비자 상담까지 취업의 전 과정을 도와드립니다.
+                    </p>
+                    <p class="lang-zh">
+                        為準備在韓國企業就職的外國人提供全方位支援服務。
+                        從履歷撰寫、面試準備到簽證諮詢，協助您完成就業全過程。
+                    </p>
+                    <ul class="service-features">
+                        <li class="lang-ko"><i data-lucide="check"></i>한국식 이력서/자기소개서 작성 지도</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>면접 준비 및 모의 면접</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>취업 비자(E-7 등) 상담</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>기업 문화 및 비즈니스 매너 교육</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>韓式履歷/自我介紹撰寫指導</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>面試準備及模擬面試</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>工作簽證（E-7等）諮詢</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>企業文化及商務禮儀教育</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag lang-ko">이력서</span>
+                        <span class="service-tag lang-ko">면접</span>
+                        <span class="service-tag lang-ko">비자</span>
+                        <span class="service-tag lang-zh">履歷</span>
+                        <span class="service-tag lang-zh">面試</span>
+                        <span class="service-tag lang-zh">簽證</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-image-placeholder">
+                        <i data-lucide="file-text"></i>
+                        <span class="lang-ko">취업 지원</span>
+                        <span class="lang-zh">求職支援</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Housing -->
+            <div class="service-item">
+                <div class="service-content">
+                    <div class="service-number">2</div>
+                    <h3 class="lang-ko">집 계약 동행</h3>
+                    <h3 class="lang-zh">租屋陪同服務</h3>
+                    <p class="lang-ko">
+                        한국의 복잡한 부동산 계약, 혼자 하기 어려우셨죠?
+                        전세/월세 개념 설명부터 계약서 검토, 현장 동행까지 함께합니다.
+                    </p>
+                    <p class="lang-zh">
+                        韓國複雜的房屋租賃合約，一個人處理很困難吧？
+                        從全租/月租概念說明、合約審核到現場陪同，全程協助。
+                    </p>
+                    <ul class="service-features">
+                        <li class="lang-ko"><i data-lucide="check"></i>전세/월세/보증금 시스템 설명</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>부동산 방문 및 집 보기 동행</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>계약서 검토 및 통역</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>입주 체크리스트 제공</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>全租/月租/押金制度說明</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>房仲拜訪及看房陪同</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>合約審核及翻譯</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>入住檢查清單提供</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag lang-ko">부동산</span>
+                        <span class="service-tag lang-ko">계약</span>
+                        <span class="service-tag lang-ko">동행</span>
+                        <span class="service-tag lang-zh">房屋</span>
+                        <span class="service-tag lang-zh">合約</span>
+                        <span class="service-tag lang-zh">陪同</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-image-placeholder">
+                        <i data-lucide="home"></i>
+                        <span class="lang-ko">집 계약 동행</span>
+                        <span class="lang-zh">租屋陪同</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: School Life -->
+            <div class="service-item">
+                <div class="service-content">
+                    <div class="service-number">3</div>
+                    <h3 class="lang-ko">학교생활 서포트</h3>
+                    <h3 class="lang-zh">校園生活支援</h3>
+                    <p class="lang-ko">
+                        한국 대학/대학원 생활이 처음이신가요?
+                        학사 시스템, 학교생활 팁, 동아리/학생회 참여까지 안내해 드립니다.
+                    </p>
+                    <p class="lang-zh">
+                        第一次體驗韓國大學/研究所生活嗎？
+                        從學籍系統、校園生活技巧到社團/學生會參與，全面指導。
+                    </p>
+                    <ul class="service-features">
+                        <li class="lang-ko"><i data-lucide="check"></i>수강신청 및 학사 시스템 안내</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>교내 시설/서비스 활용법</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>한국 학생들과의 교류 팁</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>MBA/대학원 생활 멘토링</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>選課及學籍系統指南</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>校內設施/服務使用方法</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>與韓國學生交流技巧</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>MBA/研究所生活導師輔導</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag lang-ko">대학원</span>
+                        <span class="service-tag lang-ko">유학</span>
+                        <span class="service-tag lang-ko">멘토링</span>
+                        <span class="service-tag lang-zh">研究所</span>
+                        <span class="service-tag lang-zh">留學</span>
+                        <span class="service-tag lang-zh">輔導</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-image-placeholder">
+                        <i data-lucide="book-open"></i>
+                        <span class="lang-ko">학교생활</span>
+                        <span class="lang-zh">校園生活</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Startup -->
+            <div class="service-item">
+                <div class="service-content">
+                    <div class="service-number">4</div>
+                    <h3 class="lang-ko">창업 컨설팅</h3>
+                    <h3 class="lang-zh">創業諮詢</h3>
+                    <p class="lang-ko">
+                        한국에서 사업을 시작하고 싶으신가요?
+                        사업자 등록부터 비자 변경, 기본 세무까지 창업 초기 단계를 지원합니다.
+                    </p>
+                    <p class="lang-zh">
+                        想在韓國創業嗎？
+                        從公司登記、簽證變更到基本稅務，支援創業初期階段。
+                    </p>
+                    <ul class="service-features">
+                        <li class="lang-ko"><i data-lucide="check"></i>사업자 등록 절차 안내</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>D-8/F-2 창업 비자 상담</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>기본 세무/회계 정보</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>비즈니스 네트워크 연결</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>公司登記流程指南</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>D-8/F-2創業簽證諮詢</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>基本稅務/會計資訊</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>商業人脈連結</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag lang-ko">창업</span>
+                        <span class="service-tag lang-ko">비자</span>
+                        <span class="service-tag lang-ko">사업자</span>
+                        <span class="service-tag lang-zh">創業</span>
+                        <span class="service-tag lang-zh">簽證</span>
+                        <span class="service-tag lang-zh">公司</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-image-placeholder">
+                        <i data-lucide="rocket"></i>
+                        <span class="lang-ko">창업 컨설팅</span>
+                        <span class="lang-zh">創業諮詢</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5: Lecture -->
+            <div class="service-item">
+                <div class="service-content">
+                    <div class="service-number">5</div>
+                    <h3 class="lang-ko">강연 / 강습</h3>
+                    <h3 class="lang-zh">講座 / 課程</h3>
+                    <p class="lang-ko">
+                        한국 생활, 취업, 창업에 관한 경험을 공유합니다.
+                        기업/단체/학교 대상 강연 및 소그룹 강습을 진행합니다.
+                    </p>
+                    <p class="lang-zh">
+                        分享韓國生活、就業、創業的經驗。
+                        為企業/團體/學校進行講座及小組課程。
+                    </p>
+                    <ul class="service-features">
+                        <li class="lang-ko"><i data-lucide="check"></i>외국인의 한국 취업 성공 스토리</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>한국 생활 적응 노하우</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>인플루언서 마케팅 실전 강의</li>
+                        <li class="lang-ko"><i data-lucide="check"></i>AI 활용 업무 자동화</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>外國人韓國就業成功故事</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>韓國生活適應秘訣</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>網紅行銷實戰課程</li>
+                        <li class="lang-zh"><i data-lucide="check"></i>AI應用工作自動化</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag lang-ko">강연</span>
+                        <span class="service-tag lang-ko">교육</span>
+                        <span class="service-tag lang-ko">멘토링</span>
+                        <span class="service-tag lang-zh">講座</span>
+                        <span class="service-tag lang-zh">教育</span>
+                        <span class="service-tag lang-zh">輔導</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-image-placeholder">
+                        <i data-lucide="mic"></i>
+                        <span class="lang-ko">강연 / 강습</span>
+                        <span class="lang-zh">講座 / 課程</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-header">
+                <span class="section-label lang-ko">Pricing</span>
+                <span class="section-label lang-zh">價格方案</span>
+                <h2 class="section-title lang-ko">서비스 요금 안내</h2>
+                <h2 class="section-title lang-zh">服務費用說明</h2>
+                <p class="section-subtitle lang-ko">투명하고 합리적인 가격</p>
+                <p class="section-subtitle lang-zh">透明合理的價格</p>
+            </div>
+
+            <div class="pricing-table">
+                <div class="pricing-table-header">
+                    <span class="lang-ko">서비스</span>
+                    <span class="lang-ko">기본 요금</span>
+                    <span class="lang-ko">소요 시간</span>
+                    <span class="lang-ko">비고</span>
+                    <span class="lang-zh">服務</span>
+                    <span class="lang-zh">基本費用</span>
+                    <span class="lang-zh">所需時間</span>
+                    <span class="lang-zh">備註</span>
+                </div>
+
+                <div class="pricing-table-row">
+                    <div class="pricing-service-name">
+                        <i data-lucide="file-text"></i>
+                        <strong class="lang-ko">취업 컨설팅 (1회)</strong>
+                        <strong class="lang-zh">求職諮詢（單次）</strong>
+                    </div>
+                    <span class="lang-ko" data-label="기본 요금: ">₩100,000</span>
+                    <span class="lang-zh" data-label="基本費用: ">NT$2,500</span>
+                    <span class="lang-ko" data-label="소요 시간: ">1시간</span>
+                    <span class="lang-zh" data-label="所需時間: ">1小時</span>
+                    <span class="lang-ko" data-label="비고: ">온라인/오프라인</span>
+                    <span class="lang-zh" data-label="備註: ">線上/線下</span>
+                </div>
+
+                <div class="pricing-table-row">
+                    <div class="pricing-service-name">
+                        <i data-lucide="file-text"></i>
+                        <strong class="lang-ko">취업 패키지</strong>
+                        <strong class="lang-zh">求職套餐</strong>
+                    </div>
+                    <span class="pricing-highlight lang-ko" data-label="기본 요금: ">₩500,000</span>
+                    <span class="pricing-highlight lang-zh" data-label="基本費用: ">NT$12,000</span>
+                    <span class="lang-ko" data-label="소요 시간: ">4회 세션</span>
+                    <span class="lang-zh" data-label="所需時間: ">4次諮詢</span>
+                    <span class="lang-ko" data-label="비고: ">이력서+면접+비자</span>
+                    <span class="lang-zh" data-label="備註: ">履歷+面試+簽證</span>
+                </div>
+
+                <div class="pricing-table-row">
+                    <div class="pricing-service-name">
+                        <i data-lucide="home"></i>
+                        <strong class="lang-ko">집 계약 동행</strong>
+                        <strong class="lang-zh">租屋陪同</strong>
+                    </div>
+                    <span class="lang-ko" data-label="기본 요금: ">₩150,000</span>
+                    <span class="lang-zh" data-label="基本費用: ">NT$3,500</span>
+                    <span class="lang-ko" data-label="소요 시간: ">반나절</span>
+                    <span class="lang-zh" data-label="所需時間: ">半天</span>
+                    <span class="lang-ko" data-label="비고: ">서울 기준</span>
+                    <span class="lang-zh" data-label="備註: ">首爾地區</span>
+                </div>
+
+                <div class="pricing-table-row">
+                    <div class="pricing-service-name">
+                        <i data-lucide="book-open"></i>
+                        <strong class="lang-ko">학교생활 멘토링</strong>
+                        <strong class="lang-zh">校園生活輔導</strong>
+                    </div>
+                    <span class="lang-ko" data-label="기본 요금: ">₩80,000</span>
+                    <span class="lang-zh" data-label="基本費用: ">NT$2,000</span>
+                    <span class="lang-ko" data-label="소요 시간: ">1시간</span>
+                    <span class="lang-zh" data-label="所需時間: ">1小時</span>
+                    <span class="lang-ko" data-label="비고: ">온라인</span>
+                    <span class="lang-zh" data-label="備註: ">線上</span>
+                </div>
+
+                <div class="pricing-table-row">
+                    <div class="pricing-service-name">
+                        <i data-lucide="rocket"></i>
+                        <strong class="lang-ko">창업 컨설팅</strong>
+                        <strong class="lang-zh">創業諮詢</strong>
+                    </div>
+                    <span class="lang-ko" data-label="기본 요금: ">₩200,000</span>
+                    <span class="lang-zh" data-label="基本費用: ">NT$5,000</span>
+                    <span class="lang-ko" data-label="소요 시간: ">2시간</span>
+                    <span class="lang-zh" data-label="所需時間: ">2小時</span>
+                    <span class="lang-ko" data-label="비고: ">사업자등록 안내 포함</span>
+                    <span class="lang-zh" data-label="備註: ">含公司登記指南</span>
+                </div>
+
+                <div class="pricing-table-row">
+                    <div class="pricing-service-name">
+                        <i data-lucide="mic"></i>
+                        <strong class="lang-ko">강연 (단체)</strong>
+                        <strong class="lang-zh">講座（團體）</strong>
+                    </div>
+                    <span class="lang-ko" data-label="기본 요금: ">별도 협의</span>
+                    <span class="lang-zh" data-label="基本費用: ">另行議價</span>
+                    <span class="lang-ko" data-label="소요 시간: ">1~2시간</span>
+                    <span class="lang-zh" data-label="所需時間: ">1~2小時</span>
+                    <span class="lang-ko" data-label="비고: ">맞춤 주제</span>
+                    <span class="lang-zh" data-label="備註: ">客製主題</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <span class="section-label lang-ko">FAQ</span>
+                <span class="section-label lang-zh">常見問題</span>
+                <h2 class="section-title lang-ko">자주 묻는 질문</h2>
+                <h2 class="section-title lang-zh">常見問題解答</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <h4 class="lang-ko">한국어를 못해도 서비스 이용이 가능한가요?</h4>
+                        <h4 class="lang-zh">不會韓文也可以使用服務嗎？</h4>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="lang-ko">네, 가능합니다! 상담은 중국어(번체/간체), 한국어 모두 가능합니다. 계약서나 서류 번역도 함께 도와드립니다.</p>
+                        <p class="lang-zh">是的，可以！諮詢可使用中文（繁體/簡體）、韓文。合約或文件翻譯也會一併協助。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <h4 class="lang-ko">서울 외 지역도 서비스 가능한가요?</h4>
+                        <h4 class="lang-zh">首爾以外的地區也可以嗎？</h4>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="lang-ko">온라인 상담은 전국 어디서나 가능합니다. 동행 서비스는 서울/경기 지역 기준이며, 그 외 지역은 교통비가 별도 청구될 수 있습니다.</p>
+                        <p class="lang-zh">線上諮詢全國皆可。陪同服務以首爾/京畿地區為準，其他地區可能會另外收取交通費。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <h4 class="lang-ko">결제는 어떻게 하나요?</h4>
+                        <h4 class="lang-zh">如何付款？</h4>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="lang-ko">한국 계좌이체, 대만 계좌이체, PayPal 등 다양한 방법을 지원합니다. 상담 시 편한 방법을 말씀해 주세요.</p>
+                        <p class="lang-zh">支援韓國銀行轉帳、台灣銀行轉帳、PayPal等多種方式。諮詢時請告知您方便的付款方式。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <h4 class="lang-ko">상담 예약은 어떻게 하나요?</h4>
+                        <h4 class="lang-zh">如何預約諮詢？</h4>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="lang-ko">문의하기 페이지의 예약 폼을 작성하시거나, 카카오톡/LINE/이메일로 연락주시면 24시간 내 답변드립니다.</p>
+                        <p class="lang-zh">請填寫聯繫頁面的預約表單，或透過KakaoTalk/LINE/Email聯繫，我們會在24小時內回覆。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <h4 class="lang-ko">취소/환불 정책은 어떻게 되나요?</h4>
+                        <h4 class="lang-zh">取消/退款政策是什麼？</h4>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="lang-ko">예약 48시간 전까지 무료 취소 가능합니다. 24시간 이내 취소 시 50%, 당일 취소 시 환불이 불가합니다.</p>
+                        <p class="lang-zh">預約48小時前可免費取消。24小時內取消收取50%，當日取消則無法退款。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="testimonial-header">
+                <span class="section-label lang-ko">Testimonials</span>
+                <span class="section-label lang-zh">客戶心得</span>
+                <h2 class="section-title lang-ko">고객 후기</h2>
+                <h2 class="section-title lang-zh">客戶評價</h2>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="lang-ko">"한국 취업이 막막했는데, 이력서부터 면접까지 꼼꼼하게 봐주셔서 드디어 합격했어요! 같은 외국인으로서 공감해주시는 점이 좋았습니다."
+                        </p>
+                        <p class="lang-zh">"韓國就業原本很茫然，從履歷到面試都幫我仔細審核，終於錄取了！很感謝作為同樣外國人的理解與共鳴。"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">🇹🇼</div>
+                        <div class="testimonial-info">
+                            <h5>C 님 / C小姐</h5>
+                            <span class="lang-ko">대만, 한국 IT기업 취업 성공</span>
+                            <span class="lang-zh">台灣，成功入職韓國IT企業</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="lang-ko">"집 계약 동행 서비스 덕분에 사기 피해 없이 안전하게 계약했어요. 부동산 용어도 다 설명해 주시고, 계약서도 꼼꼼히 체크해 주셨습니다."
+                        </p>
+                        <p class="lang-zh">"多虧租屋陪同服務，沒有受騙安全地完成簽約。不動產用語都有解釋，合約也幫我仔細檢查了。"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">🇨🇳</div>
+                        <div class="testimonial-info">
+                            <h5>L 님 / L先生</h5>
+                            <span class="lang-ko">중국, 유학생</span>
+                            <span class="lang-zh">中國，留學生</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2 class="lang-ko">한국 생활, 더 이상 혼자 고민하지 마세요</h2>
+                    <h2 class="lang-zh">韓國生活，不再獨自煩惱</h2>
+                    <p class="lang-ko">무료 상담으로 시작하세요. 같은 길을 걸어온 선배가 도와드립니다.</p>
+                    <p class="lang-zh">從免費諮詢開始。走過同樣道路的前輩會幫助您。</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary lang-ko">
+                            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+                            무료 상담 예약
+                        </a>
+                        <a href="contact.html" class="btn btn-primary lang-zh">
+                            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+                            預約免費諮詢
+                        </a>
+                        <a href="https://instagram.com/bellaliv423" target="_blank"
+                            class="btn btn-outline-white lang-ko">
+                            <i data-lucide="instagram" style="width: 18px; height: 18px;"></i>
+                            인스타그램 DM
+                        </a>
+                        <a href="https://instagram.com/bellaliv423" target="_blank"
+                            class="btn btn-outline-white lang-zh">
+                            <i data-lucide="instagram" style="width: 18px; height: 18px;"></i>
+                            Instagram DM
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">KND<span>LI</span></a>
+                    <p class="lang-ko">
+                        한국-대만-중국을 연결하는 비즈니스 브릿지<br>
+                        10년의 한국 경험, 진정성 있는 파트너십
+                    </p>
+                    <p class="lang-zh">
+                        連結韓國-台灣-中國的商業橋樑<br>
+                        10年韓國經驗，真誠的合作夥伴關係
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank" aria-label="Instagram">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="/cdn-cgi/l/email-protection#8ee5e0eae2e7a0ecebe2e2efcee9e3efe7e2a0ede1e3"
+                            aria-label="Email">
+                            <i data-lucide="mail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5 class="lang-ko">서비스</h5>
+                    <h5 class="lang-zh">服務</h5>
+                    <ul>
+                        <li><a href="business.html" class="lang-ko">기업 서비스</a><a href="business.html"
+                                class="lang-zh">企業服務</a></li>
+                        <li><a href="life.html" class="lang-ko">개인 서비스</a><a href="life.html" class="lang-zh">個人服務</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5 class="lang-ko">회사</h5>
+                    <h5 class="lang-zh">公司</h5>
+                    <ul>
+                        <li><a href="profile.html" class="lang-ko">대표 소개</a><a href="profile.html"
+                                class="lang-zh">代表介紹</a></li>
+                        <li><a href="contact.html" class="lang-ko">문의하기</a><a href="contact.html"
+                                class="lang-zh">聯繫我們</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5 class="lang-ko">연락처</h5>
+                    <h5 class="lang-zh">聯絡方式</h5>
+                    <div class="footer-contact-item">
+                        <i data-lucide="mail"></i>
+                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                data-cfemail="0e65606a6267206c6b62626f4e69636f6762206d6163">[email&#160;protected]</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i data-lucide="instagram"></i>
+                        <span>@bellaliv423</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i data-lucide="map-pin"></i>
+                        <span class="lang-ko">서울, 대한민국</span>
+                        <span class="lang-zh">首爾，韓國</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Info -->
+            <div class="company-info"
+                style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; margin-bottom: 20px;">
+                <p style="color: var(--gold); font-weight: 600; font-size: 14px; margin-bottom: 12px;">
+                    한니드레이 유한회사 | 韓妮德來 | KNDLI Co., Ltd.
+                </p>
+                <p class="lang-ko" style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.9;">
+                    한국 운영 대표: 황영아 (Bella / 黃鈴雅) | 사업자등록번호: 126-84-00471<br>
+                    주소: 서울시 서초구 사임당로8길 13, 4층
+                </p>
+                <p class="lang-zh" style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.9;">
+                    韓國營運代表: 黃鈴雅 (Bella / 황영아) | 統一編號: 126-84-00471<br>
+                    地址: 首爾市瑞草區思任堂路8街13號 4樓
+                </p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 KNDLI. All rights reserved.</p>
+                <p class="lang-ko">한니드레이 | 韓妮德來</p>
+                <p class="lang-zh">韓妮德來 | 한니드레이</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons (안정적인 버전) -->
+    <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+
+    <script>
+        // 안전한 Lucide 초기화 함수
+        function initLucideIcons() {
+            try {
+                if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                    lucide.createIcons();
+                }
+            } catch (e) {
+                console.log('Lucide icons initialization skipped');
+            }
+        }
+
+        // Language Toggle
+        function toggleLanguage() {
+            document.body.classList.toggle('zh');
+            localStorage.setItem('lang', document.body.classList.contains('zh') ? 'zh' : 'ko');
+            console.log('Language changed to:', document.body.classList.contains('zh') ? 'zh' : 'ko');
+            initLucideIcons();
+        }
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', function () {
+            // 저장된 언어 설정 불러오기
+            const savedLang = localStorage.getItem('lang');
+            if (savedLang === 'zh') {
+                document.body.classList.add('zh');
+            }
+            initLucideIcons();
+        });
+
+        // 페이지 완전 로드 후에도 아이콘 초기화 (안전장치)
+        window.addEventListener('load', function () {
+            setTimeout(initLucideIcons, 100);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>
