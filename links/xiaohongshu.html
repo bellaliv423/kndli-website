@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>샤홍슈 의료 인증 | KNDLI LINK</title>
+    <meta name="description" content="샤홍슈(小红书) 의료기관 공식 인증 대행. 중국 의료관광 마케팅 전문.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#0a1628;--navy-light:#1a2d4a;--orange:#f97316;--orange-light:#fb923c;--orange-dark:#ea580c;--cream:#faf8f5;--white:#fff;--gray-100:#f3f4f6;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--red:#ef4444;--font-display:'Playfair Display',serif;--font-body-ko:'Noto Sans KR',sans-serif;--font-body-zh:'Noto Sans TC',sans-serif;--shadow-md:0 4px 6px -1px rgba(0,0,0,.1);--shadow-lg:0 10px 15px -3px rgba(0,0,0,.1);--shadow-xl:0 20px 25px -5px rgba(0,0,0,.1);--radius-md:8px;--radius-lg:12px;--radius-xl:16px;--radius-2xl:24px}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--font-body-ko);background:var(--cream);color:var(--navy);line-height:1.6}body.zh{font-family:var(--font-body-zh)}.lang-ko{display:block}.lang-zh{display:none}body.zh .lang-ko{display:none}body.zh .lang-zh{display:block}span.lang-ko{display:inline}span.lang-zh{display:none}body.zh span.lang-ko{display:none}body.zh span.lang-zh{display:inline}h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.3}p{color:var(--gray-600);line-height:1.8}.container{max-width:1200px;margin:0 auto;padding:0 24px}
+        .header{background:var(--navy);position:fixed;top:0;left:0;right:0;z-index:1000;box-shadow:var(--shadow-lg)}.header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1200px;margin:0 auto}.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center}.logo-icon svg{width:24px;height:24px;stroke:var(--white)}.logo-text{display:flex;flex-direction:column}.logo-main{font-family:var(--font-display);font-size:1.25rem;font-weight:600;color:var(--white);letter-spacing:1px}.logo-sub{font-size:.7rem;color:var(--orange);letter-spacing:.5px}.nav{display:flex;align-items:center;gap:32px}.nav-links{display:flex;gap:24px;list-style:none}.nav-links a{color:var(--gray-300);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--orange)}.nav-actions{display:flex;align-items:center;gap:16px}.lang-toggle{background:0 0;border:1px solid var(--gray-600);color:var(--gray-300);padding:6px 12px;border-radius:var(--radius-md);font-size:.85rem;cursor:pointer;transition:all .3s}.lang-toggle:hover{border-color:var(--orange);color:var(--orange)}.btn-quote{background:var(--orange);color:var(--white);padding:10px 20px;border-radius:var(--radius-md);text-decoration:none;font-size:.9rem;font-weight:600;transition:all .3s}.btn-quote:hover{background:var(--orange-light)}.mobile-menu-btn{display:none;background:0 0;border:none;color:var(--white);cursor:pointer;padding:8px}.mobile-menu-btn svg{width:24px;height:24px}
+        .page-hero{background:linear-gradient(135deg,var(--navy),var(--navy-light));padding:140px 0 80px;text-align:center}.page-hero h1{color:var(--white);font-size:3rem;margin-bottom:16px}.page-hero h1 .highlight{color:var(--orange)}.page-hero p{color:var(--gray-300);font-size:1.2rem;max-width:600px;margin:0 auto}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.2);border:1px solid var(--orange);padding:8px 16px;border-radius:50px;margin-bottom:24px}.hero-badge svg{width:20px;height:20px;stroke:var(--orange)}.hero-badge span{color:var(--orange);font-size:.9rem;font-weight:500}
+        .section{padding:80px 0}.section-white{background:var(--white)}.section-cream{background:var(--cream)}.section-header{text-align:center;margin-bottom:48px}.section-label{display:inline-block;font-size:.85rem;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}.section-title{color:var(--navy);margin-bottom:16px}.section-desc{max-width:600px;margin:0 auto;color:var(--gray-500)}
+        .warning-box{background:linear-gradient(135deg,#fef2f2,#fee2e2);border:1px solid #fecaca;border-radius:var(--radius-xl);padding:32px;margin-bottom:48px;display:flex;gap:20px;align-items:flex-start}.warning-icon{width:48px;height:48px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.warning-icon svg{width:24px;height:24px;stroke:var(--white)}.warning-content h4{color:#991b1b;margin-bottom:8px;font-family:var(--font-body-ko)}.warning-content p{color:#7f1d1d;font-size:.95rem}
+        .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.benefit-card{background:var(--white);padding:32px;border-radius:var(--radius-xl);box-shadow:var(--shadow-md);transition:all .3s;border-left:4px solid var(--orange)}.benefit-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-xl)}.benefit-card h4{color:var(--navy);margin-bottom:12px;font-family:var(--font-body-ko)}.benefit-card p{font-size:.95rem;color:var(--gray-500)}
+        .process-timeline{max-width:800px;margin:0 auto;position:relative}.process-timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:var(--orange)}.process-step{display:flex;gap:24px;margin-bottom:32px;position:relative}.process-num{width:48px;height:48px;background:var(--orange);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.25rem;font-weight:700;flex-shrink:0;z-index:1}.process-content{background:var(--white);padding:24px;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);flex:1}.process-content h4{color:var(--navy);margin-bottom:8px;font-family:var(--font-body-ko)}.process-content p{font-size:.95rem;color:var(--gray-500)}.process-duration{display:inline-block;background:var(--cream);padding:4px 12px;border-radius:20px;font-size:.8rem;color:var(--orange);margin-top:8px}
+        .pricing-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:900px;margin:0 auto}.pricing-card{background:var(--white);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);transition:all .3s}.pricing-card:hover{transform:translateY(-8px)}.pricing-card.featured{border:2px solid var(--orange)}.pricing-header{padding:32px;text-align:center;background:var(--cream)}.pricing-card.featured .pricing-header{background:linear-gradient(135deg,var(--orange),var(--orange-dark))}.pricing-card.featured .pricing-header h3,.pricing-card.featured .pricing-header .price,.pricing-card.featured .pricing-header p{color:var(--white)}.pricing-header h3{color:var(--navy);margin-bottom:8px;font-family:var(--font-body-ko)}.price{font-size:2.5rem;font-weight:700;color:var(--orange);margin-bottom:8px}.price span{font-size:1rem;font-weight:400}.pricing-header p{font-size:.9rem;color:var(--gray-500)}.pricing-body{padding:32px}.pricing-body ul{list-style:none;margin-bottom:24px}.pricing-body li{padding:12px 0;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:12px;font-size:.95rem;color:var(--gray-600)}.pricing-body li svg{width:20px;height:20px;stroke:var(--orange);flex-shrink:0}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-md);font-size:1rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none;width:100%;justify-content:center}.btn svg{width:20px;height:20px}.btn-primary{background:var(--orange);color:var(--white)}.btn-primary:hover{background:var(--orange-light)}.btn-secondary{background:var(--cream);color:var(--navy)}.btn-secondary:hover{background:var(--gray-100)}
+        .cta-section{padding:80px 0;background:linear-gradient(135deg,var(--navy),var(--navy-light));text-align:center}.cta-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-2xl);padding:60px 40px;max-width:700px;margin:0 auto}.cta-icon{width:72px;height:72px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}.cta-icon svg{width:36px;height:36px;stroke:var(--white)}.cta-box h2{color:var(--white);margin-bottom:16px}.cta-box p{color:var(--gray-300);margin-bottom:32px;font-size:1.1rem}.cta-buttons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}.cta-buttons .btn{width:auto}
+        .footer{background:var(--navy);padding:60px 0 30px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}.footer-brand .logo{margin-bottom:16px}.footer-brand p{color:var(--gray-400);font-size:.9rem;margin-bottom:20px}.footer-social{display:flex;gap:12px}.footer-social a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--gray-400);transition:all .3s}.footer-social a:hover{background:var(--orange);color:var(--white)}.footer-social a svg{width:20px;height:20px}.footer-col h5{color:var(--white);font-family:var(--font-body-ko);font-weight:600;margin-bottom:20px}.footer-col ul{list-style:none}.footer-col ul li{margin-bottom:12px}.footer-col ul a{color:var(--gray-400);text-decoration:none;font-size:.9rem;transition:color .3s}.footer-col ul a:hover{color:var(--orange)}.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.footer-bottom p{color:var(--gray-500);font-size:.85rem}.footer-legal{display:flex;gap:24px}.footer-legal a{color:var(--gray-500);text-decoration:none;font-size:.85rem}.footer-legal a:hover{color:var(--orange)}
+        .mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px;border-top:1px solid rgba(255,255,255,.1);z-index:999}.mobile-nav.active{display:block}.mobile-nav ul{list-style:none}.mobile-nav ul li{margin-bottom:16px}.mobile-nav ul a{color:var(--gray-300);text-decoration:none;font-size:1rem;display:block;padding:8px 0}.mobile-nav ul a:hover,.mobile-nav ul a.active{color:var(--orange)}.mobile-nav .btn{margin-top:16px;width:100%}
+        @media(max-width:1024px){.benefits-grid{grid-template-columns:1fr}.pricing-cards{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:768px){h1{font-size:2.25rem}h2{font-size:1.75rem}.nav-links{display:none}.mobile-menu-btn{display:block}.btn-quote{display:none}.page-hero{padding:120px 0 60px}.page-hero h1{font-size:2rem}.warning-box{flex-direction:column;text-align:center}.footer-grid{grid-template-columns:1fr;text-align:center}.footer-brand{display:flex;flex-direction:column;align-items:center}.footer-social{justify-content:center}.footer-bottom{flex-direction:column;text-align:center}.footer-legal{justify-content:center}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                <div class="logo-text"><span class="logo-main">KNDLI LINK</span><span class="logo-sub lang-ko">한니링크 | 韓妮連結</span><span class="logo-sub lang-zh">韓妮連結 | 한니링크</span></div>
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a></li>
+                    <li><a href="influencer.html"><span class="lang-ko">인플루언서</span><span class="lang-zh">網紅行銷</span></a></li>
+                    <li><a href="distribution.html"><span class="lang-ko">유통</span><span class="lang-zh">通路</span></a></li>
+                    <li><a href="xiaohongshu.html" class="active"><span class="lang-ko">샤홍슈</span><span class="lang-zh">小紅書</span></a></li>
+                    <li><a href="sourcing.html"><span class="lang-ko">소싱</span><span class="lang-zh">採購</span></a></li>
+                    <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span class="lang-zh">作品集</span></a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="lang-toggle" onclick="toggleLanguage()"><span class="lang-ko">中文</span><span class="lang-zh">한국어</span></button>
+                    <a href="quote.html" class="btn-quote"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+                </div>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a></li>
+                <li><a href="influencer.html"><span class="lang-ko">인플루언서 마케팅</span><span class="lang-zh">網紅行銷</span></a></li>
+                <li><a href="distribution.html"><span class="lang-ko">대만 유통</span><span class="lang-zh">台灣通路</span></a></li>
+                <li><a href="xiaohongshu.html" class="active"><span class="lang-ko">샤홍슈 인증</span><span class="lang-zh">小紅書認證</span></a></li>
+                <li><a href="sourcing.html"><span class="lang-ko">중국 소싱</span><span class="lang-zh">中國採購</span></a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <a href="quote.html" class="btn btn-primary"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg><span><span class="lang-ko">공식 인증 파트너</span><span class="lang-zh">官方認證合作夥伴</span></span></div>
+            <h1><span class="lang-ko"><span class="highlight">샤홍슈</span> 의료 인증</span><span class="lang-zh"><span class="highlight">小紅書</span>醫療認證</span></h1>
+            <p><span class="lang-ko">중국 최대 라이프스타일 플랫폼에서<br>공식 의료기관으로 인증받으세요</span><span class="lang-zh">在中國最大生活方式平台<br>獲得官方醫療機構認證</span></p>
+        </div>
+    </section>
+
+    <section class="section section-cream">
+        <div class="container">
+            <div class="warning-box">
+                <div class="warning-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
+                <div class="warning-content">
+                    <h4><span class="lang-ko">⚠️ 왜 공식 인증이 필요한가요?</span><span class="lang-zh">⚠️ 為什麼需要官方認證？</span></h4>
+                    <p><span class="lang-ko">2024년부터 샤홍슈는 의료/미용 관련 미인증 계정에 대한 단속을 강화하고 있습니다. 인증 없이 운영 시 계정 정지, 콘텐츠 삭제 등의 불이익이 발생할 수 있습니다.</span><span class="lang-zh">自2024年起，小紅書加強了對醫療/美容相關未認證帳號的管控。未經認證運營可能導致帳號停權、內容刪除等處罰。</span></p>
+                </div>
+            </div>
+            <div class="section-header">
+                <span class="section-label">BENEFITS</span>
+                <h2 class="section-title"><span class="lang-ko">공식 인증의 혜택</span><span class="lang-zh">官方認證的優勢</span></h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4><span class="lang-ko">🛡️ 계정 보호</span><span class="lang-zh">🛡️ 帳號保護</span></h4>
+                    <p><span class="lang-ko">공식 인증 마크 부여로 계정 정지 위험 최소화. 플랫폼의 신뢰를 확보합니다.</span><span class="lang-zh">獲得官方認證標誌，最小化帳號停權風險，獲得平台信任。</span></p>
+                </div>
+                <div class="benefit-card">
+                    <h4><span class="lang-ko">📈 노출 증가</span><span class="lang-zh">📈 曝光增加</span></h4>
+                    <p><span class="lang-ko">인증 계정은 알고리즘 우선순위로 더 많은 노출을 받습니다.</span><span class="lang-zh">認證帳號在演算法中獲得優先曝光。</span></p>
+                </div>
+                <div class="benefit-card">
+                    <h4><span class="lang-ko">💬 신뢰도 향상</span><span class="lang-zh">💬 信任度提升</span></h4>
+                    <p><span class="lang-ko">공식 인증 배지로 잠재 고객에게 신뢰감을 주고 전환율을 높입니다.</span><span class="lang-zh">官方認證徽章提升潛在客戶信任感，提高轉換率。</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PROCESS</span>
+                <h2 class="section-title"><span class="lang-ko">인증 진행 절차</span><span class="lang-zh">認證流程</span></h2>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-num">1</div>
+                    <div class="process-content">
+                        <h4><span class="lang-ko">서류 준비 & 검토</span><span class="lang-zh">文件準備&審核</span></h4>
+                        <p><span class="lang-ko">사업자등록증, 의료기관 면허증, 의사 면허증 등 필수 서류를 준비하고 검토합니다.</span><span class="lang-zh">準備並審核營業執照、醫療機構許可證、醫師執照等必要文件。</span></p>
+                        <span class="process-duration"><span class="lang-ko">약 1주</span><span class="lang-zh">約1週</span></span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">2</div>
+                    <div class="process-content">
+                        <h4><span class="lang-ko">중국 파트너사 연결</span><span class="lang-zh">中國合作夥伴對接</span></h4>
+                        <p><span class="lang-ko">샤홍슈 공식 인증 파트너사와 연결하여 인증 신청을 진행합니다.</span><span class="lang-zh">與小紅書官方認證合作夥伴對接，進行認證申請。</span></p>
+                        <span class="process-duration"><span class="lang-ko">약 1주</span><span class="lang-zh">約1週</span></span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">3</div>
+                    <div class="process-content">
+                        <h4><span class="lang-ko">플랫폼 심사</span><span class="lang-zh">平台審核</span></h4>
+                        <p><span class="lang-ko">샤홍슈 플랫폼에서 제출된 서류와 기관 정보를 심사합니다.</span><span class="lang-zh">小紅書平台審核提交的文件和機構資訊。</span></p>
+                        <span class="process-duration"><span class="lang-ko">2-4주</span><span class="lang-zh">2-4週</span></span>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">4</div>
+                    <div class="process-content">
+                        <h4><span class="lang-ko">인증 완료 & 운영 지원</span><span class="lang-zh">認證完成&運營支援</span></h4>
+                        <p><span class="lang-ko">인증 완료 후 계정 셋업과 초기 콘텐츠 운영 가이드를 제공합니다.</span><span class="lang-zh">認證完成後提供帳號設置和初期內容運營指南。</span></p>
+                        <span class="process-duration"><span class="lang-ko">약 1주</span><span class="lang-zh">約1週</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-cream">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PRICING</span>
+                <h2 class="section-title"><span class="lang-ko">서비스 요금</span><span class="lang-zh">服務費用</span></h2>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3><span class="lang-ko">인증 대행</span><span class="lang-zh">認證代辦</span></h3>
+                        <div class="price"><span class="lang-ko">300만원~</span><span class="lang-zh">NT$75,000~</span></div>
+                        <p><span class="lang-ko">의료기관 공식 인증</span><span class="lang-zh">醫療機構官方認證</span></p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">서류 준비 및 번역</span><span class="lang-zh">文件準備及翻譯</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">중국 파트너사 연결</span><span class="lang-zh">中國合作夥伴對接</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">인증 신청 대행</span><span class="lang-zh">認證申請代辦</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">계정 셋업 가이드</span><span class="lang-zh">帳號設置指南</span></li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-secondary"><span class="lang-ko">견적 문의</span><span class="lang-zh">詢價</span></a>
+                    </div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3><span class="lang-ko">인증 + 운영 패키지</span><span class="lang-zh">認證+運營套餐</span></h3>
+                        <div class="price"><span class="lang-ko">맞춤 견적</span><span class="lang-zh">客製報價</span></div>
+                        <p><span class="lang-ko">인증부터 마케팅까지</span><span class="lang-zh">從認證到行銷</span></p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">인증 대행 포함</span><span class="lang-zh">包含認證代辦</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">콘텐츠 기획 & 제작</span><span class="lang-zh">內容企劃&製作</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">인플루언서 협업</span><span class="lang-zh">網紅合作</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">월간 성과 리포트</span><span class="lang-zh">月度成效報告</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span class="lang-ko">전담 매니저 배정</span><span class="lang-zh">專屬經理</span></li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-primary"><span class="lang-ko">무료 상담 신청</span><span class="lang-zh">免費諮詢</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <h2><span class="lang-ko">샤홍슈 인증, 지금 시작하세요</span><span class="lang-zh">小紅書認證，現在開始</span></h2>
+                <p><span class="lang-ko">무료 상담으로 귀 병원에 맞는 최적의 인증 솔루션을 안내해 드립니다.</span><span class="lang-zh">透過免費諮詢，為您的醫院提供最佳認證方案。</span></p>
+                <div class="cta-buttons">
+                    <a href="quote.html" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg><span class="lang-ko">무료 상담 신청</span><span class="lang-zh">免費諮詢申請</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                        <div class="logo-text"><span class="logo-main">KNDLI LINK</span><span class="logo-sub lang-ko">한니링크 | 韓妮連結</span><span class="logo-sub lang-zh">韓妮連結 | 한니링크</span></div>
+                    </a>
+                    <p><span class="lang-ko">한국-중화권 비즈니스 연결 전문<br>비즈니스를 잇다, 성공을 잇다</span><span class="lang-zh">韓國-中華圈商務連結專業<br>連結商務，連結成功</span></p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                        <a href="https://open.kakao.com/me/kndli" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+                        <a href="/cdn-cgi/l/email-protection#85eeebe1e9ecabe7e0e9e9e4c5e2e8e4ece9abe6eae8"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col"><h5><span class="lang-ko">서비스</span><span class="lang-zh">服務</span></h5><ul><li><a href="influencer.html"><span class="lang-ko">인플루언서 마케팅</span><span class="lang-zh">網紅行銷</span></a></li><li><a href="distribution.html"><span class="lang-ko">대만 유통 연결</span><span class="lang-zh">台灣通路連結</span></a></li><li><a href="xiaohongshu.html"><span class="lang-ko">샤홍슈 인증</span><span class="lang-zh">小紅書認證</span></a></li><li><a href="sourcing.html"><span class="lang-ko">중국 소싱</span><span class="lang-zh">中國採購</span></a></li></ul></div>
+                <div class="footer-col"><h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5><ul><li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a></li><li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span class="lang-zh">作品集</span></a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+                <div class="footer-col"><h5><span class="lang-ko">KNDLI 그룹</span><span class="lang-zh">KNDLI 集團</span></h5><ul><li><a href="../index.html">KNDLI <span class="lang-ko">메인</span><span class="lang-zh">首頁</span></a></li><li><a href="../trans/index.html">KNDLI TRANS</a></li><li><a href="../life.html">KNDLI LIFE</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p><span class="lang-ko">© 2024 한니드레이 유한회사 | 사업자등록번호: 126-84-00471</span><span class="lang-zh">© 2024 韓妮德來有限公司 | 統一編號: 126-84-00471</span></p>
+                <div class="footer-legal"><a href="#"><span class="lang-ko">이용약관</span><span class="lang-zh">服務條款</span></a><a href="#"><span class="lang-ko">개인정보처리방침</span><span class="lang-zh">隱私權政策</span></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function toggleLanguage(){document.body.classList.toggle('zh');localStorage.setItem('kndli-lang',document.body.classList.contains('zh')?'zh':'ko')}
+        document.addEventListener('DOMContentLoaded',function(){if(localStorage.getItem('kndli-lang')==='zh')document.body.classList.add('zh')});
+        function toggleMobileMenu(){document.getElementById('mobileNav').classList.toggle('active')}
+        window.addEventListener('scrol
