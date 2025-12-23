@@ -4,43 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>문의하기 | KNDLI - 무료 상담 예약</title>
-    <meta name="description" content="KNDLI 무료 상담 예약 - 카카오톡, LINE, 이메일로 편하게 연락하세요">
+    <title>KNDLI TRANS | 한니트랜스 | 韓妮翻譯 - 한중 통번역 전문</title>
+    <meta name="description" content="한국-중화권 전문 통번역 서비스. 네이티브 품질의 번역과 통역을 제공합니다. 비즈니스, 의료, 마케팅 전문.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
     <style>
+        /* ========== CSS Reset & Variables ========== */
         :root {
             --navy: #0a1628;
             --navy-light: #1a2d4a;
-            --navy-dark: #060d18;
             --gold: #c9a962;
             --gold-light: #e8d5a3;
-            --gold-dark: #a08339;
+            --teal: #2dd4bf;
+            --teal-light: #5eead4;
+            --teal-dark: #14b8a6;
             --cream: #faf8f5;
+            --cream-dark: #f5f0e8;
             --white: #ffffff;
-            --gray-200: #e5e5e5;
-            --gray-500: #737373;
-            --gray-600: #525252;
-            --gray-700: #404040;
-            --success: #22c55e;
-            --error: #ef4444;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+
             --font-display: 'Playfair Display', serif;
             --font-body-ko: 'Noto Sans KR', sans-serif;
             --font-body-zh: 'Noto Sans TC', sans-serif;
-            --shadow-md: 0 4px 12px rgba(10, 22, 40, 0.08);
-            --shadow-lg: 0 8px 30px rgba(10, 22, 40, 0.12);
-            --transition-base: 0.3s ease;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px;
         }
 
-        *,
-        *::before,
-        *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -54,15 +69,14 @@
             font-family: var(--font-body-ko);
             background-color: var(--cream);
             color: var(--navy);
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
         body.zh {
             font-family: var(--font-body-zh);
         }
 
-        /* 언어 전환 시스템 */
+        /* ========== Language Toggle System ========== */
         .lang-ko {
             display: block;
         }
@@ -79,705 +93,844 @@
             display: block;
         }
 
-        span.lang-ko,
-        a.lang-ko {
+        span.lang-ko {
             display: inline;
         }
 
-        span.lang-zh,
-        a.lang-zh {
+        span.lang-zh {
             display: none;
         }
 
-        body.zh span.lang-ko,
-        body.zh a.lang-ko {
+        body.zh span.lang-ko {
             display: none;
         }
 
-        body.zh span.lang-zh,
-        body.zh a.lang-zh {
+        body.zh span.lang-zh {
             display: inline;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition-base);
-        }
-
+        /* ========== Typography ========== */
         h1,
         h2,
         h3,
-        h4,
-        h5,
-        h6 {
+        h4 {
             font-family: var(--font-display);
             font-weight: 600;
             line-height: 1.3;
         }
 
-        .section-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
+        h1 {
+            font-size: 3rem;
         }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 20px;
+        h2 {
+            font-size: 2.25rem;
         }
 
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        /* ========== Container ========== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header */
+        /* ========== Header ========== */
         .header {
+            background: var(--navy);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            transition: all var(--transition-base);
-        }
-
-        .header.scrolled {
             box-shadow: var(--shadow-lg);
         }
 
-        .header-container {
+        .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 16px 24px;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .logo {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        .logo span {
-            color: var(--gold);
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon i {
+            color: var(--white);
+            width: 24px;
+            height: 24px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--teal);
+            letter-spacing: 0.5px;
         }
 
         .nav {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 32px;
         }
 
         .nav-links {
             display: flex;
+            gap: 24px;
             list-style: none;
-            gap: 32px;
         }
 
         .nav-links a {
-            font-size: 0.95rem;
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.8);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: var(--transition-base);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
+            transition: color 0.3s;
+            padding: 8px 0;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--white);
+            color: var(--teal);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
 
         .lang-toggle {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 100px;
+            background: transparent;
+            border: 1px solid var(--gray-600);
+            color: var(--gray-300);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
             cursor: pointer;
-            transition: var(--transition-base);
+            transition: all 0.3s;
         }
 
         .lang-toggle:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--gold);
+            border-color: var(--teal);
+            color: var(--teal);
         }
 
-        .lang-toggle svg {
-            width: 16px;
-            height: 16px;
-            color: var(--gold);
+        .btn-quote {
+            background: var(--teal);
+            color: var(--navy);
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
-        .lang-toggle span {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--white);
+        .btn-quote:hover {
+            background: var(--teal-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
+        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
+            background: transparent;
             border: none;
+            color: var(--white);
             cursor: pointer;
             padding: 8px;
         }
 
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--white);
-            transition: var(--transition-base);
-        }
-
-        /* Page Hero */
-        .page-hero {
-            min-height: 45vh;
-            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 100px;
-        }
-
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 200%;
-            background: radial-gradient(ellipse, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .page-hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .page-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-
-        .page-hero h1 span {
-            color: var(--gold);
-        }
-
-        .page-hero p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-        }
-
-        .hero-decorative {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(201, 169, 98, 0.2);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero-decorative-1 {
-            top: 10%;
-            left: 5%;
-        }
-
-        .hero-decorative-2 {
-            bottom: 10%;
-            right: 5%;
-            animation-delay: -4s;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--white);
-            padding: 80px 0;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .contact-info {
-            position: sticky;
-            top: 120px;
-        }
-
-        .contact-info h2 {
-            font-size: 2rem;
-            margin-bottom: 16px;
-            color: var(--navy);
-        }
-
-        .contact-info>p {
-            font-size: 1.05rem;
-            color: var(--gray-600);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .contact-methods {
-            margin-bottom: 40px;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 24px;
-            background: var(--cream);
-            border-radius: 16px;
-            margin-bottom: 16px;
-            transition: var(--transition-base);
-        }
-
-        .contact-method:hover {
-            transform: translateX(8px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-method-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .contact-method-icon svg {
+        .mobile-menu-btn i {
             width: 24px;
             height: 24px;
-            color: var(--gold);
         }
 
-        .contact-method-content h4 {
-            font-family: var(--font-body-ko);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 4px;
+        /* ========== Hero Section ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
         }
 
-        body.zh .contact-method-content h4 {
-            font-family: var(--font-body-zh);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232dd4bf' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
 
-        .contact-method-content p {
-            font-size: 0.9rem;
-            color: var(--gray-500);
-            margin-bottom: 8px;
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .contact-method-content a {
-            color: var(--gold-dark);
-            font-weight: 600;
-        }
-
-        .contact-method-content a:hover {
-            color: var(--gold);
-        }
-
-        .response-time {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, rgba(201, 169, 98, 0.05) 100%);
-            border-radius: 12px;
-            border-left: 4px solid var(--gold);
-        }
-
-        .response-time svg {
-            width: 20px;
-            height: 20px;
-            color: var(--gold);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .response-time p {
-            font-size: 0.95rem;
-            color: var(--gray-700);
-            line-height: 1.7;
-        }
-
-        .response-time strong {
-            color: var(--navy);
-        }
-
-        /* Form */
-        .contact-form-wrapper {
-            background: var(--cream);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .form-header {
-            margin-bottom: 32px;
-        }
-
-        .form-header h3 {
-            font-family: var(--font-body-ko);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 8px;
-        }
-
-        body.zh .form-header h3 {
-            font-family: var(--font-body-zh);
-        }
-
-        .form-header p {
-            font-size: 0.95rem;
-            color: var(--gray-600);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
             gap: 8px;
+            background: rgba(45, 212, 191, 0.15);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-bottom: 24px;
         }
 
-        .form-group.full-width {
-            grid-column: 1 / -1;
+        .hero-badge i {
+            width: 16px;
+            height: 16px;
+            color: var(--teal);
         }
 
-        .form-group label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        .form-group label .required {
-            color: var(--error);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 14px 16px;
-            border: 2px solid var(--gray-200);
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: var(--transition-base);
-            background: var(--white);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.15);
-        }
-
-        .form-group textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
-
-        .form-group select {
-            cursor: pointer;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
-            cursor: pointer;
-            accent-color: var(--gold);
-        }
-
-        .checkbox-group label {
+        .hero-badge span {
             font-size: 0.85rem;
-            color: var(--gray-600);
-            line-height: 1.6;
-            cursor: pointer;
+            color: var(--teal);
+            font-weight: 500;
         }
 
-        .form-submit {
-            margin-top: 16px;
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 16px;
+            font-size: 3.5rem;
+        }
+
+        .hero h1 .highlight {
+            color: var(--teal);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--teal);
+            display: block;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
             font-size: 1rem;
             font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
             cursor: pointer;
-            transition: var(--transition-base);
+            border: none;
+        }
+
+        .btn i {
+            width: 20px;
+            height: 20px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            background: var(--teal);
             color: var(--navy);
         }
 
         .btn-primary:hover {
+            background: var(--teal-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201, 169, 98, 0.4);
+            box-shadow: var(--shadow-lg);
         }
 
-        .btn-primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--gray-500);
         }
 
-        .btn-block {
-            width: 100%;
+        .btn-secondary:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .btn svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .form-message {
-            display: none;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .form-message.show {
-            display: flex;
-        }
-
-        .form-message.success {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid var(--success);
-        }
-
-        .form-message.error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid var(--error);
-        }
-
-        .form-message svg {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-        }
-
-        .form-message.success svg {
-            color: var(--success);
-        }
-
-        .form-message.error svg {
-            color: var(--error);
-        }
-
-        .form-message .message-content {
-            flex: 1;
-        }
-
-        .form-message .message-title {
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-
-        .form-message.success .message-title {
-            color: var(--success);
-        }
-
-        .form-message.error .message-title {
-            color: var(--error);
-        }
-
-        .form-message .message-detail {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .auto-save-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: var(--success);
-            margin-top: 16px;
-            padding: 10px 16px;
-            background: rgba(34, 197, 94, 0.1);
-            border-radius: 8px;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            opacity: 0;
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-        }
-
-        .auto-save-indicator.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .auto-save-indicator svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Map Section */
-        .map-section {
-            background: var(--cream);
+        /* ========== Why Section ========== */
+        .why-section {
             padding: 80px 0;
-        }
-
-        .map-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .map-note {
-            text-align: center;
-            padding: 40px;
             background: var(--white);
-            border-radius: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: var(--shadow-md);
         }
 
-        .map-note svg {
-            width: 48px;
-            height: 48px;
-            color: var(--gold);
-            margin-bottom: 20px;
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
         }
 
-        .map-note h4 {
-            font-family: var(--font-body-ko);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--navy);
+        .section-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 12px;
         }
 
-        body.zh .map-note h4 {
+        .section-title {
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--gray-500);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .why-card {
+            background: var(--cream);
+            padding: 32px 24px;
+            border-radius: var(--radius-xl);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .why-icon i {
+            width: 32px;
+            height: 32px;
+            color: var(--white);
+        }
+
+        .why-card h4 {
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-family: var(--font-body-ko);
+            font-weight: 600;
+        }
+
+        body.zh .why-card h4 {
             font-family: var(--font-body-zh);
         }
 
-        .map-note p {
-            font-size: 0.95rem;
-            color: var(--gray-600);
-            line-height: 1.8;
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
         }
 
-        /* Footer */
+        /* ========== Services Section ========== */
+        .services-section {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            padding: 32px;
+            position: relative;
+        }
+
+        .service-header::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(45, 212, 191, 0.1);
+            border-radius: 50%;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--teal);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .service-icon i {
+            width: 28px;
+            height: 28px;
+            color: var(--navy);
+        }
+
+        .service-header h3 {
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .service-header p {
+            color: var(--gray-300);
+            font-size: 0.9rem;
+        }
+
+        .service-body {
+            padding: 32px;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list i {
+            width: 20px;
+            height: 20px;
+            color: var(--teal);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .service-list span {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        .service-price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .service-price .from {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        .service-price .amount {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .service-price .unit {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        .btn-block {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* ========== Pricing Preview Section ========== */
+        .pricing-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--cream);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            background: var(--navy);
+            border-color: var(--teal);
+        }
+
+        .pricing-card.featured * {
+            color: var(--white);
+        }
+
+        .pricing-card.featured .pricing-badge {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .pricing-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .pricing-icon i {
+            width: 28px;
+            height: 28px;
+            color: var(--navy);
+        }
+
+        .pricing-card h4 {
+            margin-bottom: 8px;
+            font-family: var(--font-body-ko);
+        }
+
+        body.zh .pricing-card h4 {
+            font-family: var(--font-body-zh);
+        }
+
+        .pricing-card .desc {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        .pricing-card.featured .desc {
+            color: var(--gray-300);
+        }
+
+        .pricing-amount {
+            margin-bottom: 20px;
+        }
+
+        .pricing-amount .value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .pricing-card.featured .pricing-amount .value {
+            color: var(--teal);
+        }
+
+        .pricing-amount .unit {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        .pricing-card.featured .pricing-amount .unit {
+            color: var(--gray-400);
+        }
+
+        .pricing-note {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            margin-top: 16px;
+        }
+
+        /* ========== Loyalty Section ========== */
+        .loyalty-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .loyalty-section .section-label {
+            color: var(--gold);
+        }
+
+        .loyalty-section .section-title {
+            color: var(--white);
+        }
+
+        .loyalty-section .section-desc {
+            color: var(--gray-300);
+        }
+
+        .loyalty-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .loyalty-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+        }
+
+        .loyalty-card h4 {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-family: var(--font-body-ko);
+        }
+
+        body.zh .loyalty-card h4 {
+            font-family: var(--font-body-zh);
+        }
+
+        .loyalty-card h4 i {
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+        }
+
+        .loyalty-list {
+            list-style: none;
+        }
+
+        .loyalty-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            color: var(--gray-300);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .loyalty-list li:last-child {
+            border-bottom: none;
+        }
+
+        .loyalty-list .badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 2px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ========== CTA Section ========== */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .cta-box {
+            background: var(--white);
+            border-radius: var(--radius-2xl);
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .cta-icon i {
+            width: 36px;
+            height: 36px;
+            color: var(--white);
+        }
+
+        .cta-box h2 {
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-contact {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .cta-contact p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .cta-contact a {
+            color: var(--teal-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========== Footer ========== */
         .footer {
-            background: var(--navy-dark);
+            background: var(--navy);
             padding: 60px 0 30px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 50px;
+            gap: 48px;
+            margin-bottom: 40px;
         }
 
         .footer-brand .logo {
-            margin-bottom: 20px;
-            display: inline-block;
+            margin-bottom: 16px;
         }
 
         .footer-brand p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-            margin-bottom: 24px;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
         }
 
         .footer-social {
@@ -786,712 +939,912 @@
         }
 
         .footer-social a {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition-base);
+            color: var(--gray-400);
+            transition: all 0.3s;
         }
 
         .footer-social a:hover {
-            background: var(--gold);
-        }
-
-        .footer-social a svg {
-            width: 20px;
-            height: 20px;
-            color: var(--white);
-        }
-
-        .footer-social a:hover svg {
+            background: var(--teal);
             color: var(--navy);
         }
 
-        .footer-column h5 {
-            font-family: var(--font-body-ko);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 24px;
+        .footer-social a i {
+            width: 20px;
+            height: 20px;
         }
 
-        body.zh .footer-column h5 {
+        .footer-col h5 {
+            color: var(--white);
+            font-family: var(--font-body-ko);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        body.zh .footer-col h5 {
             font-family: var(--font-body-zh);
         }
 
-        .footer-column ul {
+        .footer-col ul {
             list-style: none;
         }
 
-        .footer-column li {
-            margin-bottom: 14px;
+        .footer-col ul li {
+            margin-bottom: 12px;
         }
 
-        .footer-column a {
+        .footer-col ul a {
+            color: var(--gray-400);
+            text-decoration: none;
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s;
         }
 
-        .footer-column a:hover {
-            color: var(--gold);
-        }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .footer-contact-item svg {
-            width: 18px;
-            height: 18px;
-            color: var(--gold);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .footer-contact-item span {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+        .footer-col ul a:hover {
+            color: var(--teal);
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .footer-bottom p {
+            color: var(--gray-500);
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 8px;
         }
 
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--teal);
+        }
+
+        /* ========== Responsive ========== */
         @media (max-width: 1024px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .contact-info {
-                position: static;
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
             }
 
             .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(10, 22, 40, 0.98);
-                padding: 20px 0;
-                border-top: 1px solid rgba(201, 169, 98, 0.1);
-                border-bottom: 1px solid rgba(201, 169, 98, 0.1);
-                z-index: 1001;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            }
-
-            .nav-links.active li {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-            }
-
             .mobile-menu-btn {
-                display: flex;
+                display: block;
             }
 
-            .form-row {
+            .btn-quote {
+                display: none;
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .why-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-form-wrapper {
-                padding: 24px;
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .loyalty-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                text-align: center;
             }
 
-            .page-hero {
-                min-height: 35vh;
+            .footer-brand {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal {
+                justify-content: center;
+            }
+        }
+
+        /* ========== Mobile Menu ========== */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav ul a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+            padding: 8px 0;
+        }
+
+        .mobile-nav ul a:hover,
+        .mobile-nav ul a.active {
+            color: var(--teal);
+        }
+
+        .mobile-nav .btn {
+            margin-top: 16px;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header">
-        <div class="header-container">
-            <a href="index.html" class="logo">KND<span>LI</span></a>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="languages"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">KNDLI TRANS</span>
+                    <span class="logo-sub lang-ko">한니트랜스 | 韓妮翻譯</span>
+                    <span class="logo-sub lang-zh">韓妮翻譯 | 한니트랜스</span>
+                </div>
+            </a>
+
             <nav class="nav">
                 <ul class="nav-links">
-                    <li>
-                        <a href="index.html">
-                            <span class="lang-ko">홈</span>
-                            <span class="lang-zh">首頁</span>
-                        </a>
+                    <li><a href="index.html" class="active"><span class="lang-ko">홈</span><span
+                                class="lang-zh">首頁</span></a></li>
+                    <li><a href="translation.html"><span class="lang-ko">번역</span><span class="lang-zh">翻譯</span></a>
                     </li>
-                    <li>
-                        <a href="profile.html">
-                            <span class="lang-ko">대표 소개</span>
-                            <span class="lang-zh">代表介紹</span>
-                        </a>
+                    <li><a href="interpretation.html"><span class="lang-ko">통역</span><span class="lang-zh">口譯</span></a>
                     </li>
-                    <li>
-                        <a href="business.html">
-                            <span class="lang-ko">기업 서비스</span>
-                            <span class="lang-zh">企業服務</span>
-                        </a>
+                    <li><a href="interpreters.html"><span class="lang-ko">통역사</span><span class="lang-zh">譯者</span></a>
                     </li>
-                    <li>
-                        <a href="life.html">
-                            <span class="lang-ko">개인 서비스</span>
-                            <span class="lang-zh">個人服務</span>
-                        </a>
+                    <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span class="lang-zh">作品集</span></a>
                     </li>
-                    <li>
-                        <a href="contact.html" class="active">
-                            <span class="lang-ko">문의하기</span>
-                            <span class="lang-zh">聯繫我們</span>
-                        </a>
-                    </li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
-                <button class="lang-toggle" onclick="toggleLanguage()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path
-                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                        </path>
-                    </svg>
-                    <span class="lang-ko">中文</span>
-                    <span class="lang-zh">한국어</span>
-                </button>
-                <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
+
+                <div class="nav-actions">
+                    <button class="lang-toggle" onclick="toggleLanguage()">
+                        <span class="lang-ko">中文</span>
+                        <span class="lang-zh">한국어</span>
+                    </button>
+                    <a href="quote.html" class="btn-quote">
+                        <span class="lang-ko">견적 요청</span>
+                        <span class="lang-zh">索取報價</span>
+                    </a>
+                </div>
             </nav>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html" class="active"><span class="lang-ko">홈</span><span
+                            class="lang-zh">首頁</span></a></li>
+                <li><a href="translation.html"><span class="lang-ko">번역 서비스</span><span class="lang-zh">翻譯服務</span></a>
+                </li>
+                <li><a href="interpretation.html"><span class="lang-ko">통역 서비스</span><span
+                            class="lang-zh">口譯服務</span></a></li>
+                <li><a href="interpreters.html"><span class="lang-ko">통역사 소개</span><span class="lang-zh">譯者介紹</span></a>
+                </li>
+                <li><a href="../index.html"><span class="lang-ko">메인 사이트</span><span class="lang-zh">主網站</span></a>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <a href="quote.html" class="btn btn-primary">
+                <span class="lang-ko">견적 요청</span>
+                <span class="lang-zh">索取報價</span>
+            </a>
+        </nav>
     </header>
 
-    <section class="page-hero">
-        <div class="hero-decorative hero-decorative-1"></div>
-        <div class="hero-decorative hero-decorative-2"></div>
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="page-hero-content">
-                <h1 class="lang-ko">무료 상담 <span>예약하기</span></h1>
-                <h1 class="lang-zh">預約 <span>免費諮詢</span></h1>
-                <p class="lang-ko">궁금한 점이 있으신가요? 편하게 연락주세요.<br>24시간 내 답변드립니다.</p>
-                <p class="lang-zh">有任何問題嗎？歡迎隨時聯繫。<br>24小時內回覆您。</p>
-            </div>
-        </div>
-    </section>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i data-lucide="award"></i>
+                    <span class="lang-ko">10년+ 한국 거주 전문가 네트워크</span>
+                    <span class="lang-zh">10年以上韓國居住專家網絡</span>
+                </div>
 
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2 class="lang-ko">연락 방법</h2>
-                    <h2 class="lang-zh">聯繫方式</h2>
-                    <p class="lang-ko">편하신 방법으로 연락주세요. 카카오톡, LINE, 이메일 모두 가능합니다.</p>
-                    <p class="lang-zh">請以您方便的方式聯繫。KakaoTalk、LINE、Email皆可。</p>
+                <h1>
+                    <span class="lang-ko">한중 통번역,<br><span class="highlight">네이티브</span> 품질로</span>
+                    <span class="lang-zh">韓中翻譯，<br><span class="highlight">母語級</span>品質</span>
+                </h1>
 
-                    <div class="contact-methods">
-                        <!-- Email -->
-                        <div class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                                    <path d="M22 7l-10 6L2 7"></path>
-                                </svg>
-                            </div>
-                            <div class="contact-method-content">
-                                <h4>Email</h4>
-                                <p class="lang-ko">언제든 문의 가능</p>
-                                <p class="lang-zh">隨時可詢問</p>
-                                <a href="mailto:kndli.bella@gmail.com">kndli.bella@gmail.com</a>
-                            </div>
-                        </div>
+                <p class="hero-subtitle">
+                    <span class="lang-ko">비즈니스, 마케팅, 의료 분야 전문<br>정확하고 자연스러운 번역과 통역을 제공합니다</span>
+                    <span class="lang-zh">商務、行銷、醫療領域專業<br>提供精準自然的翻譯與口譯服務</span>
+                </p>
 
-                        <!-- KakaoTalk ✅ 수정됨! -->
-                        <div class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="contact-method-content">
-                                <h4>KakaoTalk</h4>
-                                <p class="lang-ko">한국 내 가장 빠른 연락</p>
-                                <p class="lang-zh">韓國最快速的聯繫方式</p>
-                                <a href="https://open.kakao.com/me/kndli" target="_blank" class="lang-ko">1:1 채팅하기 →</a>
-                                <a href="https://open.kakao.com/me/kndli" target="_blank" class="lang-zh">開始聊天 →</a>
-                            </div>
-                        </div>
-
-                        <!-- LINE ✅ 수정됨! -->
-                        <div class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                                </svg>
-                            </div>
-                            <div class="contact-method-content">
-                                <h4>LINE</h4>
-                                <p class="lang-ko">대만/일본 고객 추천</p>
-                                <p class="lang-zh">台灣/日本客戶推薦</p>
-                                <a href="https://line.me/R/ti/p/@006prdnj" target="_blank" class="lang-ko">친구 추가하기 →</a>
-                                <a href="https://line.me/R/ti/p/@006prdnj" target="_blank" class="lang-zh">加好友 →</a>
-                            </div>
-                        </div>
-
-                        <!-- Instagram -->
-                        <div class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </div>
-                            <div class="contact-method-content">
-                                <h4>Instagram DM</h4>
-                                <p class="lang-ko">포트폴리오도 확인 가능</p>
-                                <p class="lang-zh">也可查看作品集</p>
-                                <a href="https://instagram.com/bellaliv423" target="_blank">@bellaliv423</a>
-                            </div>
-                        </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">500+</span>
+                        <span class="hero-stat-label lang-ko">완료 프로젝트</span>
+                        <span class="hero-stat-label lang-zh">完成專案</span>
                     </div>
-
-                    <div class="response-time">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <div>
-                            <p class="lang-ko"><strong>24시간 내</strong> 답변을 드립니다. 급한 문의는 카카오톡을 이용해 주세요.</p>
-                            <p class="lang-zh"><strong>24小時內</strong>回覆您。緊急諮詢請使用KakaoTalk。</p>
-                        </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">98%</span>
+                        <span class="hero-stat-label lang-ko">고객 만족도</span>
+                        <span class="hero-stat-label lang-zh">客戶滿意度</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">24h</span>
+                        <span class="hero-stat-label lang-ko">견적 회신</span>
+                        <span class="hero-stat-label lang-zh">報價回覆</span>
                     </div>
                 </div>
 
-                <div class="contact-form-wrapper">
-                    <div class="form-header">
-                        <h3 class="lang-ko">상담 예약 신청</h3>
-                        <h3 class="lang-zh">預約諮詢申請</h3>
-                        <p class="lang-ko">아래 양식을 작성해 주시면 빠르게 연락드리겠습니다.</p>
-                        <p class="lang-zh">請填寫以下表單，我們會盡快與您聯繫。</p>
-                    </div>
-
-                    <form id="consultationForm" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="lang-ko">이름 <span class="required">*</span></label>
-                                <label class="lang-zh">姓名 <span class="required">*</span></label>
-                                <input type="text" name="name" required placeholder="홍길동 / 王小明">
-                            </div>
-                            <div class="form-group">
-                                <label class="lang-ko">이메일 <span class="required">*</span></label>
-                                <label class="lang-zh">Email <span class="required">*</span></label>
-                                <input type="email" name="email" required placeholder="example@email.com">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="lang-ko">연락처</label>
-                                <label class="lang-zh">聯絡電話</label>
-                                <input type="tel" name="phone" placeholder="+82 10-0000-0000">
-                            </div>
-                            <div class="form-group">
-                                <label class="lang-ko">국적</label>
-                                <label class="lang-zh">國籍</label>
-                                <select name="nationality">
-                                    <option value="">선택해주세요 / 請選擇</option>
-                                    <option value="taiwan">🇹🇼 Taiwan / 대만</option>
-                                    <option value="china">🇨🇳 China / 중국</option>
-                                    <option value="hongkong">🇭🇰 Hong Kong / 홍콩</option>
-                                    <option value="korea">🇰🇷 Korea / 한국</option>
-                                    <option value="other">Other / 기타</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group full-width">
-                                <label class="lang-ko">관심 서비스 <span class="required">*</span></label>
-                                <label class="lang-zh">感興趣的服務 <span class="required">*</span></label>
-                                <select name="service" required>
-                                    <option value="">서비스를 선택해주세요 / 請選擇服務</option>
-                                    <optgroup label="B2B 기업 서비스 / 企業服務">
-                                        <option value="influencer">인플루언서 마케팅 / 網紅行銷</option>
-                                        <option value="translation">통번역 서비스 / 翻譯服務</option>
-                                        <option value="video">영상 번역/편집 / 影片翻譯剪輯</option>
-                                        <option value="distribution">대만 유통 대행 / 台灣通路代理</option>
-                                        <option value="xiaohongshu">샤홍슈 인증 / 小紅書認證</option>
-                                        <option value="import">중국 수입 대행 / 中國進口代理</option>
-                                    </optgroup>
-                                    <optgroup label="B2C 개인 서비스 / 個人服務">
-                                        <option value="job">취업 지원 / 求職支援</option>
-                                        <option value="housing">집 계약 동행 / 租屋陪同</option>
-                                        <option value="school">학교생활 서포트 / 校園生活支援</option>
-                                        <option value="startup">창업 컨설팅 / 創業諮詢</option>
-                                        <option value="lecture">강연/강습 / 講座課程</option>
-                                    </optgroup>
-                                    <option value="other">기타 / 其他</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group full-width">
-                                <label class="lang-ko">문의 내용 <span class="required">*</span></label>
-                                <label class="lang-zh">諮詢內容 <span class="required">*</span></label>
-                                <textarea name="message" required
-                                    placeholder="궁금하신 점이나 원하시는 서비스에 대해 자세히 적어주세요."></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group full-width">
-                                <label class="lang-ko">선호 연락 방법</label>
-                                <label class="lang-zh">偏好聯繫方式</label>
-                                <select name="contact_preference">
-                                    <option value="email">Email</option>
-                                    <option value="kakaotalk">KakaoTalk</option>
-                                    <option value="line">LINE</option>
-                                    <option value="instagram">Instagram DM</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="privacy" name="privacy" required>
-                                <label for="privacy" class="lang-ko">개인정보 수집 및 이용에 동의합니다. 수집된 정보는 상담 목적으로만
-                                    사용됩니다.</label>
-                                <label for="privacy" class="lang-zh">同意收集及使用個人資料。收集的資訊僅用於諮詢目的。</label>
-                            </div>
-                        </div>
-
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-                                <span class="lang-ko">상담 예약 신청하기</span>
-                                <span class="lang-zh">提交諮詢預約</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                </svg>
-                            </button>
-                            <div id="autoSaveIndicator" class="auto-save-indicator">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span class="lang-ko">임시저장됨</span>
-                                <span class="lang-zh">已自動儲存</span>
-                            </div>
-                        </div>
-
-                        <div id="formMessage" class="form-message">
-                            <svg id="messageIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                            <div class="message-content">
-                                <div class="message-title"></div>
-                                <div class="message-detail"></div>
-                            </div>
-                        </div>
-                    </form>
+                <div class="hero-buttons">
+                    <a href="quote.html" class="btn btn-primary">
+                        <i data-lucide="file-text"></i>
+                        <span class="lang-ko">무료 견적 받기</span>
+                        <span class="lang-zh">免費索取報價</span>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i data-lucide="arrow-down"></i>
+                        <span class="lang-ko">서비스 보기</span>
+                        <span class="lang-zh">查看服務</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="map-section">
+    <!-- Why Section -->
+    <section class="why-section">
         <div class="container">
-            <div class="map-header">
-                <span class="section-label lang-ko">Location</span>
-                <span class="section-label lang-zh">位置</span>
-                <h2 class="section-title lang-ko">서비스 지역</h2>
-                <h2 class="section-title lang-zh">服務地區</h2>
+            <div class="section-header">
+                <span class="section-label">WHY KNDLI TRANS</span>
+                <h2 class="section-title">
+                    <span class="lang-ko">왜 한니트랜스인가요?</span>
+                    <span class="lang-zh">為什麼選擇韓妮翻譯？</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="lang-ko">단순한 언어 변환이 아닌, 문화와 맥락을 이해하는 진정한 소통을 제공합니다</span>
+                    <span class="lang-zh">不只是語言轉換，而是理解文化與脈絡的真正溝通</span>
+                </p>
             </div>
-            <div class="map-note">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <h4 class="lang-ko">서울 및 전국 온라인</h4>
-                <h4 class="lang-zh">首爾及全國線上</h4>
-                <p class="lang-ko">오프라인 동행 서비스는 서울/경기 지역 기준입니다.<br>온라인 상담은 전국 어디서나, 해외에서도 가능합니다.<br><br>📍 서울, 대한민국</p>
-                <p class="lang-zh">線下陪同服務以首爾/京畿地區為準。<br>線上諮詢全國及海外皆可。<br><br>📍 首爾，韓國</p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i data-lucide="briefcase"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-ko">비즈니스 전문</span>
+                        <span class="lang-zh">商務專業</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ko">마케팅, 계약, 협상 등 비즈니스 맥락을 정확히 이해합니다</span>
+                        <span class="lang-zh">精準理解行銷、合約、談判等商務脈絡</span>
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i data-lucide="globe"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-ko">한중 네이티브</span>
+                        <span class="lang-zh">韓中雙母語</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ko">10년+ 한국 거주 경험으로 양국 문화를 깊이 이해합니다</span>
+                        <span class="lang-zh">10年以上韓國居住經驗，深度理解兩國文化</span>
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-ko">품질 보증</span>
+                        <span class="lang-zh">品質保證</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ko">전문가 검수 시스템으로 정확성을 보장합니다</span>
+                        <span class="lang-zh">專家審核系統確保精準度</span>
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i data-lucide="wallet"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-ko">합리적 가격</span>
+                        <span class="lang-zh">合理價格</span>
+                    </h4>
+                    <p>
+                        <span class="lang-ko">투명한 가격 + 마일리지 적립으로 더 합리적입니다</span>
+                        <span class="lang-zh">透明價格 + 里程累積更加實惠</span>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">SERVICES</span>
+                <h2 class="section-title">
+                    <span class="lang-ko">서비스 안내</span>
+                    <span class="lang-zh">服務介紹</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="lang-ko">문서 번역부터 비즈니스 통역까지, 모든 한중 소통을 지원합니다</span>
+                    <span class="lang-zh">從文件翻譯到商務口譯，支援所有韓中溝通需求</span>
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Translation Service -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i data-lucide="file-text"></i>
+                        </div>
+                        <h3>
+                            <span class="lang-ko">번역 서비스</span>
+                            <span class="lang-zh">翻譯服務</span>
+                        </h3>
+                        <p>
+                            <span class="lang-ko">문서, 영상, 웹사이트 전문 번역</span>
+                            <span class="lang-zh">文件、影片、網站專業翻譯</span>
+                        </p>
+                    </div>
+                    <div class="service-body">
+                        <ul class="service-list">
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">비즈니스 문서 (계약서, 제안서, 보고서)</span>
+                                <span class="lang-zh">商務文件（合約、提案、報告）</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">마케팅 자료 (상세페이지, 광고, SNS)</span>
+                                <span class="lang-zh">行銷素材（詳情頁、廣告、社群）</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">영상 자막 (유튜브, 틱톡, 기업 영상)</span>
+                                <span class="lang-zh">影片字幕（YouTube、TikTok、企業影片）</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">웹사이트/앱 로컬라이징</span>
+                                <span class="lang-zh">網站/App 在地化</span>
+                            </li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="from lang-ko">기본</span>
+                            <span class="from lang-zh">起</span>
+                            <span class="amount">70<span style="font-size: 1rem;">원~</span></span>
+                            <span class="unit lang-ko">/글자</span>
+                            <span class="unit lang-zh">/字</span>
+                        </div>
+                        <a href="translation.html" class="btn btn-primary btn-block">
+                            <span class="lang-ko">자세히 보기</span>
+                            <span class="lang-zh">了解更多</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interpretation Service -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i data-lucide="mic"></i>
+                        </div>
+                        <h3>
+                            <span class="lang-ko">통역 서비스</span>
+                            <span class="lang-zh">口譯服務</span>
+                        </h3>
+                        <p>
+                            <span class="lang-ko">온라인부터 해외출장까지</span>
+                            <span class="lang-zh">線上到海外出差全方位服務</span>
+                        </p>
+                    </div>
+                    <div class="service-body">
+                        <ul class="service-list">
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">온라인 통역 (Zoom, Teams, Meet)</span>
+                                <span class="lang-zh">線上口譯（Zoom、Teams、Meet）</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">비즈니스 미팅/협상 통역</span>
+                                <span class="lang-zh">商務會議/談判口譯</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">전시회/박람회 동행 통역</span>
+                                <span class="lang-zh">展覽會/博覽會隨行口譯</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">의료/관광 VIP 수행 통역</span>
+                                <span class="lang-zh">醫療/觀光 VIP 隨行口譯</span>
+                            </li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="from lang-ko">기본</span>
+                            <span class="from lang-zh">起</span>
+                            <span class="amount">10<span style="font-size: 1rem;">만원~</span></span>
+                            <span class="unit lang-ko">/시간</span>
+                            <span class="unit lang-zh">/小時</span>
+                        </div>
+                        <a href="interpretation.html" class="btn btn-primary btn-block">
+                            <span class="lang-ko">자세히 보기</span>
+                            <span class="lang-zh">了解更多</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PRICING</span>
+                <h2 class="section-title">
+                    <span class="lang-ko">투명한 가격 정책</span>
+                    <span class="lang-zh">透明價格政策</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="lang-ko">숨겨진 비용 없이, 명확한 가격을 제공합니다</span>
+                    <span class="lang-zh">無隱藏費用，提供明確價格</span>
+                </p>
+            </div>
+
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <span class="pricing-badge lang-ko">번역</span>
+                    <span class="pricing-badge lang-zh">翻譯</span>
+                    <div class="pricing-icon">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-ko">일반 번역</span>
+                        <span class="lang-zh">一般翻譯</span>
+                    </h4>
+                    <p class="desc">
+                        <span class="lang-ko">중→한 기준</span>
+                        <span class="lang-zh">中→韓 基準</span>
+                    </p>
+                    <div class="pricing-amount">
+                        <span class="value">70</span>
+                        <span class="unit lang-ko">원~/자</span>
+                        <span class="unit lang-zh">韓元~/字</span>
+                    </div>
+                    <p class="pricing-note">
+                        <span class="lang-ko">한→중: 100원~/자</span>
+                        <span class="lang-zh">韓→中: 100韓元~/字</span>
+                    </p>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="pricing-badge lang-ko">인기</span>
+                    <span class="pricing-badge lang-zh">熱門</span>
+                    <div class="pricing-icon">
+                        <i data-lucide="monitor"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-ko">온라인 통역</span>
+                        <span class="lang-zh">線上口譯</span>
+                    </h4>
+                    <p class="desc">
+                        <span class="lang-ko">Zoom/Teams/Meet</span>
+                        <span class="lang-zh">Zoom/Teams/Meet</span>
+                    </p>
+                    <div class="pricing-amount">
+                        <span class="value">10</span>
+                        <span class="unit lang-ko">만원/시간</span>
+                        <span class="unit lang-zh">萬韓元/小時</span>
+                    </div>
+                    <p class="pricing-note">
+                        <span class="lang-ko">최소 1시간</span>
+                        <span class="lang-zh">最低1小時</span>
+                    </p>
+                </div>
+
+                <div class="pricing-card">
+                    <span class="pricing-badge lang-ko">통역</span>
+                    <span class="pricing-badge lang-zh">口譯</span>
+                    <div class="pricing-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-ko">오프라인 통역</span>
+                        <span class="lang-zh">現場口譯</span>
+                    </h4>
+                    <p class="desc">
+                        <span class="lang-ko">서울 기준</span>
+                        <span class="lang-zh">首爾基準</span>
+                    </p>
+                    <div class="pricing-amount">
+                        <span class="value">15</span>
+                        <span class="unit lang-ko">만원/시간</span>
+                        <span class="unit lang-zh">萬韓元/小時</span>
+                    </div>
+                    <p class="pricing-note">
+                        <span class="lang-ko">최소 2시간</span>
+                        <span class="lang-zh">最低2小時</span>
+                    </p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="quote.html" class="btn btn-primary">
+                    <i data-lucide="calculator"></i>
+                    <span class="lang-ko">상세 견적 요청하기</span>
+                    <span class="lang-zh">索取詳細報價</span>
+                </a>
+                <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray-500);">
+                    <span class="lang-ko">* 부가세 별도 | 세금계산서 발행 가능</span>
+                    <span class="lang-zh">* 另加營業稅 | 可開立稅務發票</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Section -->
+    <section class="loyalty-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">BENEFITS</span>
+                <h2 class="section-title">
+                    <span class="lang-ko">고객 혜택 프로그램</span>
+                    <span class="lang-zh">客戶優惠方案</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="lang-ko">지속적인 파트너십에 감사드리며, 다양한 혜택을 제공합니다</span>
+                    <span class="lang-zh">感謝您的持續合作，提供多樣優惠</span>
+                </p>
+            </div>
+
+            <div class="loyalty-grid">
+                <div class="loyalty-card">
+                    <h4>
+                        <i data-lucide="ticket"></i>
+                        <span class="lang-ko">쿠폰 혜택</span>
+                        <span class="lang-zh">優惠券</span>
+                    </h4>
+                    <ul class="loyalty-list">
+                        <li>
+                            <span class="lang-ko">첫 거래 고객</span>
+                            <span class="lang-zh">首次客戶</span>
+                            <span class="badge">10% OFF</span>
+                        </li>
+                        <li>
+                            <span class="lang-ko">친구 소개 시 (양쪽)</span>
+                            <span class="lang-zh">推薦朋友（雙方）</span>
+                            <span class="badge">10% OFF</span>
+                        </li>
+                        <li>
+                            <span class="lang-ko">후기 작성 시</span>
+                            <span class="lang-zh">撰寫評價</span>
+                            <span class="badge">5,000원</span>
+                        </li>
+                        <li>
+                            <span class="lang-ko">대량 주문 (50만원+)</span>
+                            <span class="lang-zh">大量訂單（50萬+）</span>
+                            <span class="badge">15% OFF</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="loyalty-card">
+                    <h4>
+                        <i data-lucide="star"></i>
+                        <span class="lang-ko">마일리지 적립</span>
+                        <span class="lang-zh">里程累積</span>
+                    </h4>
+                    <ul class="loyalty-list">
+                        <li>
+                            <span class="lang-ko">일반 회원</span>
+                            <span class="lang-zh">一般會員</span>
+                            <span class="badge">1% 적립</span>
+                        </li>
+                        <li>
+                            <span class="lang-ko">실버 (누적 50만원)</span>
+                            <span class="lang-zh">銀卡（累積50萬）</span>
+                            <span class="badge">2% 적립</span>
+                        </li>
+                        <li>
+                            <span class="lang-ko">골드 (누적 200만원)</span>
+                            <span class="lang-zh">金卡（累積200萬）</span>
+                            <span class="badge">3% 적립</span>
+                        </li>
+                        <li>
+                            <span class="lang-ko">VIP (누적 500만원)</span>
+                            <span class="lang-zh">VIP（累積500萬）</span>
+                            <span class="badge">5% 적립</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-icon">
+                    <i data-lucide="message-square"></i>
+                </div>
+                <h2>
+                    <span class="lang-ko">프로젝트가 있으신가요?</span>
+                    <span class="lang-zh">有專案需求嗎？</span>
+                </h2>
+                <p>
+                    <span class="lang-ko">24시간 내 견적을 보내드립니다.<br>무료 상담으로 시작하세요.</span>
+                    <span class="lang-zh">24小時內回覆報價。<br>從免費諮詢開始。</span>
+                </p>
+                <div class="cta-buttons">
+                    <a href="quote.html" class="btn btn-primary">
+                        <i data-lucide="file-text"></i>
+                        <span class="lang-ko">견적 요청하기</span>
+                        <span class="lang-zh">索取報價</span>
+                    </a>
+                    <a href="https://open.kakao.com/me/kndli" target="_blank" class="btn btn-secondary"
+                        style="border-color: var(--navy); color: var(--navy);">
+                        <i data-lucide="message-circle"></i>
+                        <span class="lang-ko">카카오톡 상담</span>
+                        <span class="lang-zh">KakaoTalk 諮詢</span>
+                    </a>
+                </div>
+                <div class="cta-contact">
+                    <p>
+                        <span class="lang-ko">또는 직접 연락주세요</span>
+                        <span class="lang-zh">或直接聯繫我們</span>
+                    </p>
+                    <a href="mailto:kndli.bella@gmail.com">kndli.bella@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">KND<span>LI</span></a>
-                    <p class="lang-ko">한국-대만-중국을 연결하는 비즈니스 브릿지<br>10년의 한국 경험, 진정성 있는 파트너십</p>
-                    <p class="lang-zh">連結韓國-台灣-中國的商業橋樑<br>10年韓國經驗，真誠的合作夥伴關係</p>
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i data-lucide="languages"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">KNDLI TRANS</span>
+                            <span class="logo-sub lang-ko">한니트랜스 | 韓妮翻譯</span>
+                            <span class="logo-sub lang-zh">韓妮翻譯 | 한니트랜스</span>
+                        </div>
+                    </a>
+                    <p>
+                        <span class="lang-ko">한국-중화권 전문 통번역 서비스<br>말을 잇다, 비즈니스를 잇다</span>
+                        <span class="lang-zh">韓國-中華圈專業翻譯口譯服務<br>連結語言，連結商機</span>
+                    </p>
                     <div class="footer-social">
-                        <a href="https://instagram.com/bellaliv423" target="_blank" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="mailto:kndli.bella@gmail.com" aria-label="Email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                                <path d="M22 7l-10 6L2 7"></path>
-                            </svg>
-                        </a>
+                        <a href="https://instagram.com/bellaliv423" target="_blank"><i data-lucide="instagram"></i></a>
+                        <a href="https://open.kakao.com/me/kndli" target="_blank"><i
+                                data-lucide="message-circle"></i></a>
+                        <a href="mailto:kndli.bella@gmail.com"><i data-lucide="mail"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h5 class="lang-ko">서비스</h5>
-                    <h5 class="lang-zh">服務</h5>
+
+                <div class="footer-col">
+                    <h5>
+                        <span class="lang-ko">서비스</span>
+                        <span class="lang-zh">服務</span>
+                    </h5>
                     <ul>
-                        <li><a href="business.html" class="lang-ko">기업 서비스</a><a href="business.html"
-                                class="lang-zh">企業服務</a></li>
-                        <li><a href="life/index.html">KNDLI LIFE</a></li>
+                        <li><a href="translation.html"><span class="lang-ko">번역 서비스</span><span
+                                    class="lang-zh">翻譯服務</span></a></li>
+                        <li><a href="interpretation.html"><span class="lang-ko">통역 서비스</span><span
+                                    class="lang-zh">口譯服務</span></a></li>
+                        <li><a href="interpreters.html"><span class="lang-ko">통역사 소개</span><span
+                                    class="lang-zh">譯者介紹</span></a></li>
+                        <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span
+                                    class="lang-zh">作品集</span></a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h5 class="lang-ko">KNDLI 그룹</h5>
-                    <h5 class="lang-zh">KNDLI 集團</h5>
+
+                <div class="footer-col">
+                    <h5>
+                        <span class="lang-ko">고객지원</span>
+                        <span class="lang-zh">客戶支援</span>
+                    </h5>
                     <ul>
-                        <li><a href="index.html">KNDLI <span class="lang-ko">메인</span><span
-                                    class="lang-zh">首頁</span></a>
+                        <li><a href="quote.html"><span class="lang-ko">견적 요청</span><span class="lang-zh">索取報價</span></a>
                         </li>
-                        <li><a href="trans/index.html">KNDLI TRANS</a></li>
-                        <li><a href="links/index.html">KNDLI LINK</a></li>
-                        <li><a href="life/index.html">KNDLI LIFE</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="../contact.html"><span class="lang-ko">문의하기</span><span
+                                    class="lang-zh">聯絡我們</span></a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h5 class="lang-ko">회사</h5>
-                    <h5 class="lang-zh">公司</h5>
+
+                <div class="footer-col">
+                    <h5>
+                        <span class="lang-ko">KNDLI 그룹</span>
+                        <span class="lang-zh">KNDLI 集團</span>
+                    </h5>
                     <ul>
-                        <li><a href="profile.html" class="lang-ko">대표 소개</a><a href="profile.html"
-                                class="lang-zh">代表介紹</a></li>
-                        <li><a href="contact.html" class="lang-ko">문의하기</a><a href="contact.html"
-                                class="lang-zh">聯繫我們</a></li>
+                        <li><a href="../index.html">KNDLI <span class="lang-ko">메인</span><span
+                                    class="lang-zh">首頁</span></a></li>
+                        <li><a href="../links/index.html">KNDLI LINK</a></li>
+                        <li><a href="../life/index.html">KNDLI LIFE</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h5 class="lang-ko">연락처</h5>
-                    <h5 class="lang-zh">聯絡方式</h5>
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                            <path d="M22 7l-10 6L2 7"></path>
-                        </svg>
-                        <span>kndli.bella@gmail.com</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                        <span>@bellaliv423</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <span class="lang-ko">서울, 대한민국</span>
-                        <span class="lang-zh">首爾，韓國</span>
-                    </div>
-                </div>
             </div>
-            <div class="company-info"
-                style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; margin-bottom: 20px;">
-                <p style="color: var(--gold); font-weight: 600; font-size: 14px; margin-bottom: 12px;">한니드레이 유한회사 | 韓妮德來
-                    | KNDLI Co., Ltd.</p>
-                <p class="lang-ko" style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.9;">한국 운영 대표:
-                    황영아 (Bella / 黃鈴雅) | 사업자등록번호: 126-84-00471<br>주소: 서울시 서초구 사임당로8길 13, 4층</p>
-                <p class="lang-zh" style="color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.9;">韓國營運代表: 黃鈴雅
-                    (Bella / 황영아) | 統一編號: 126-84-00471<br>地址: 首爾市瑞草區思任堂路8街13號 4樓</p>
-            </div>
+
             <div class="footer-bottom">
-                <p>© 2024 KNDLI. All rights reserved.</p>
-                <p class="lang-ko">한니드레이 | 韓妮德來</p>
-                <p class="lang-zh">韓妮德來 | 한니드레이</p>
+                <p>
+                    <span class="lang-ko">© 2024 한니드레이 유한회사 | 사업자등록번호: 126-84-00471</span>
+                    <span class="lang-zh">© 2024 韓妮德來有限公司 | 統一編號: 126-84-00471</span>
+                </p>
+                <div class="footer-legal">
+                    <a href="#"><span class="lang-ko">이용약관</span><span class="lang-zh">服務條款</span></a>
+                    <a href="#"><span class="lang-ko">개인정보처리방침</span><span class="lang-zh">隱私權政策</span></a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Language Toggle
         function toggleLanguage() {
             document.body.classList.toggle('zh');
-            localStorage.setItem('lang', document.body.classList.contains('zh') ? 'zh' : 'ko');
+            const newLang = document.body.classList.contains('zh') ? 'zh' : 'ko';
+            localStorage.setItem('kndli-lang', newLang);
         }
 
+        // Load saved language preference
         document.addEventListener('DOMContentLoaded', function () {
-            var savedLang = localStorage.getItem('lang');
+            const savedLang = localStorage.getItem('kndli-lang');
             if (savedLang === 'zh') {
                 document.body.classList.add('zh');
             }
         });
 
-        window.addEventListener('scroll', function () {
-            var header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
 
-        var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8nNqDWzctx5XKaFe_iBSiZToZF57nP1B23s7hK2RUYfZD8NXAAwtw0-wy8Q3Y3vHh/exec';
-        var form = document.getElementById('consultationForm');
-        var submitBtn = document.getElementById('submitBtn');
-        var formMessage = document.getElementById('formMessage');
-        var autoSaveIndicator = document.getElementById('autoSaveIndicator');
-        var STORAGE_KEY = 'kndli_form_draft';
-        var saveTimeout;
-
-        function loadDraft() {
-            try {
-                var saved = localStorage.getItem(STORAGE_KEY);
-                if (saved) {
-                    var data = JSON.parse(saved);
-                    var fields = ['name', 'email', 'phone', 'nationality', 'service', 'message', 'contact_preference'];
-                    fields.forEach(function (field) {
-                        var input = form.querySelector('[name="' + field + '"]');
-                        if (input && data[field]) { input.value = data[field]; }
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
-            } catch (e) { }
-        }
-
-        function saveDraft() {
-            try {
-                var formData = new FormData(form);
-                var data = {
-                    name: formData.get('name') || '',
-                    email: formData.get('email') || '',
-                    phone: formData.get('phone') || '',
-                    nationality: formData.get('nationality') || '',
-                    service: formData.get('service') || '',
-                    message: formData.get('message') || '',
-                    contact_preference: formData.get('contact_preference') || ''
-                };
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-                showAutoSaveStatus();
-            } catch (e) { }
-        }
-
-        function showAutoSaveStatus() {
-            if (!autoSaveIndicator) return;
-            autoSaveIndicator.classList.add('show');
-            setTimeout(function () { autoSaveIndicator.classList.remove('show'); }, 2500);
-        }
-
-        form.addEventListener('input', function () {
-            clearTimeout(saveTimeout);
-            saveTimeout = setTimeout(saveDraft, 1500);
-        });
-
-        loadDraft();
-
-        function clearDraft() { try { localStorage.removeItem(STORAGE_KEY); } catch (e) { } }
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            var isZhLoading = document.body.classList.contains('zh');
-            submitBtn.textContent = isZhLoading ? '傳送中...' : '전송 중...';
-
-            var formData = new FormData(form);
-            var data = {
-                timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
-                name: formData.get('name') || '',
-                email: formData.get('email') || '',
-                phone: formData.get('phone') || '-',
-                nationality: formData.get('nationality') || '-',
-                service: formData.get('service') || '',
-                message: formData.get('message') || '',
-                contact_preference: formData.get('contact_preference') || '',
-                language: document.body.classList.contains('zh') ? '中文' : '한국어'
-            };
-
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            }).then(function () {
-                var isZh = document.body.classList.contains('zh');
-                showMessage('success', {
-                    title: isZh ? '✅ 提交成功！' : '✅ 제출 완료!',
-                    detail: isZh ? '諮詢申請已成功提交！我們會在24小時內聯繫您。' : '상담 신청이 완료되었습니다! 24시간 내 연락드리겠습니다.'
-                });
-                form.reset();
-                clearDraft();
-            }).catch(function () {
-                var isZh = document.body.classList.contains('zh');
-                showMessage('error', {
-                    title: isZh ? '❌ 發生錯誤' : '❌ 오류 발생',
-                    detail: isZh ? '請稍後再試或直接透過Email聯繫' : '잠시 후 다시 시도하거나 이메일로 연락주세요'
-                });
-            }).finally(function () {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span class="lang-ko">상담 예약 신청하기</span><span class="lang-zh">提交諮詢預約</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
             });
         });
 
-        function showMessage(type, content) {
-            if (!formMessage) { alert(content.detail); return; }
-            var iconSvg = document.getElementById('messageIcon');
-            if (iconSvg) {
-                iconSvg.innerHTML = type === 'success'
-                    ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'
-                    : '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>';
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 22, 40, 0.98)';
+            } else {
+                header.style.background = 'var(--navy)';
             }
-            var titleEl = formMessage.querySelector('.message-title');
-            var detailEl = formMessage.querySelector('.message-detail');
-            if (titleEl) titleEl.textContent = content.title || '';
-            if (detailEl) detailEl.textContent = content.detail || '';
-            formMessage.className = 'form-message ' + type + ' show';
-            if (type === 'success') { setTimeout(function () { formMessage.classList.remove('show'); }, 15000); }
-        }
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-                mobileMenuBtn.classList.toggle('active');
-            });
-        }
+        });
     </script>
 </body>
 
