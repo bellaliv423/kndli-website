@@ -1530,12 +1530,12 @@
         function toggleLanguage() {
             document.body.classList.toggle('zh');
             const isZh = document.body.classList.contains('zh');
-            localStorage.setItem('kndli-trans-lang', isZh ? 'zh' : 'ko');
+            localStorage.setItem('kndli-lang', isZh ? 'zh' : 'ko');
         }
 
         // Load saved language preference
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('kndli-trans-lang');
+            const savedLang = localStorage.getItem('kndli-lang');
             if (savedLang === 'zh') {
                 document.body.classList.add('zh');
             }
