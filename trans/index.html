@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KNDLI TRANS | 한니트랜스 | 韓妮翻譯 - 한중 통번역 전문</title>
-    <meta name="description" content="한국-중화권 전문 통번역 서비스. 네이티브 품질의 번역과 통역을 제공합니다. 비즈니스, 의료, 마케팅 전문.">
+    <title>KNDLI LINK | 한니링크 | 韓妮連結 - 한중 비즈니스 연결</title>
+    <meta name="description" content="한국-중화권 비즈니스 연결 전문. 인플루언서 마케팅, 대만 유통, 샤홍슈 인증, 중국 소싱까지 원스톱 서비스.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,21 +14,15 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Lucide Icons -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
-
     <style>
-        /* ========== CSS Reset & Variables ========== */
         :root {
             --navy: #0a1628;
             --navy-light: #1a2d4a;
             --gold: #c9a962;
-            --gold-light: #e8d5a3;
-            --teal: #2dd4bf;
-            --teal-light: #5eead4;
-            --teal-dark: #14b8a6;
+            --orange: #f97316;
+            --orange-light: #fb923c;
+            --orange-dark: #ea580c;
             --cream: #faf8f5;
-            --cream-dark: #f5f0e8;
             --white: #ffffff;
             --gray-100: #f3f4f6;
             --gray-200: #e5e7eb;
@@ -36,19 +30,12 @@
             --gray-400: #9ca3af;
             --gray-500: #6b7280;
             --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-
             --font-display: 'Playfair Display', serif;
             --font-body-ko: 'Noto Sans KR', sans-serif;
             --font-body-zh: 'Noto Sans TC', sans-serif;
-
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-
-            --radius-sm: 4px;
             --radius-md: 8px;
             --radius-lg: 12px;
             --radius-xl: 16px;
@@ -67,7 +54,7 @@
 
         body {
             font-family: var(--font-body-ko);
-            background-color: var(--cream);
+            background: var(--cream);
             color: var(--navy);
             line-height: 1.6;
         }
@@ -76,40 +63,58 @@
             font-family: var(--font-body-zh);
         }
 
-        /* ========== Language Toggle System ========== */
         .lang-ko {
             display: block;
         }
 
+        /* ========== Language Toggle System (Fixed) ========== */
+        /* 1. Hide Chinese by default */
         .lang-zh {
-            display: none;
+            display: none !important;
         }
 
+        /* 2. Hide Korean in Chinese mode */
         body.zh .lang-ko {
-            display: none;
+            display: none !important;
         }
 
+        /* 3. Show Chinese in Chinese mode */
+        /* ADDED !important to ensure these override the hide rules */
         body.zh .lang-zh {
-            display: block;
+            display: block !important;
         }
 
+        body.zh li.lang-zh {
+            display: list-item !important;
+        }
+
+        /* 4. Handle Inline Elements */
         span.lang-ko {
             display: inline;
         }
 
         span.lang-zh {
-            display: none;
-        }
-
-        body.zh span.lang-ko {
-            display: none;
+            display: none !important;
         }
 
         body.zh span.lang-zh {
-            display: inline;
+            display: inline !important;
         }
 
-        /* ========== Typography ========== */
+        /* 5. Handle Buttons (Flex) */
+        a.btn.lang-zh {
+            display: none !important;
+        }
+
+        /* Restore correct display in Chinese mode */
+        body.zh a.btn.lang-zh {
+            display: inline-flex !important;
+        }
+
+        body.zh a.btn-block.lang-zh {
+            display: flex !important;
+        }
+
         h1,
         h2,
         h3,
@@ -119,35 +124,18 @@
             line-height: 1.3;
         }
 
-        h1 {
-            font-size: 3rem;
-        }
-
-        h2 {
-            font-size: 2.25rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-        }
-
-        h4 {
-            font-size: 1.25rem;
-        }
-
         p {
             color: var(--gray-600);
             line-height: 1.8;
         }
 
-        /* ========== Container ========== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ========== Header ========== */
+        /* Header */
         .header {
             background: var(--navy);
             position: fixed;
@@ -177,17 +165,17 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .logo-icon i {
-            color: var(--white);
+        .logo-icon svg {
             width: 24px;
             height: 24px;
+            stroke: var(--white);
         }
 
         .logo-text {
@@ -205,7 +193,7 @@
 
         .logo-sub {
             font-size: 0.7rem;
-            color: var(--teal);
+            color: var(--orange);
             letter-spacing: 0.5px;
         }
 
@@ -227,12 +215,11 @@
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 8px 0;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--teal);
+            color: var(--orange);
         }
 
         .nav-actions {
@@ -253,13 +240,13 @@
         }
 
         .lang-toggle:hover {
-            border-color: var(--teal);
-            color: var(--teal);
+            border-color: var(--orange);
+            color: var(--orange);
         }
 
         .btn-quote {
-            background: var(--teal);
-            color: var(--navy);
+            background: var(--orange);
+            color: var(--white);
             padding: 10px 20px;
             border-radius: var(--radius-md);
             text-decoration: none;
@@ -269,12 +256,10 @@
         }
 
         .btn-quote:hover {
-            background: var(--teal-light);
+            background: var(--orange-light);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             background: transparent;
@@ -284,12 +269,12 @@
             padding: 8px;
         }
 
-        .mobile-menu-btn i {
+        .mobile-menu-btn svg {
             width: 24px;
             height: 24px;
         }
 
-        /* ========== Hero Section ========== */
+        /* Hero */
         .hero {
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
             padding: 160px 0 100px;
@@ -300,11 +285,8 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232dd4bf' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23f97316' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.5;
         }
 
@@ -320,22 +302,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(45, 212, 191, 0.15);
-            border: 1px solid rgba(45, 212, 191, 0.3);
+            background: rgba(249, 115, 22, 0.15);
+            border: 1px solid rgba(249, 115, 22, 0.3);
             padding: 8px 16px;
             border-radius: 50px;
             margin-bottom: 24px;
         }
 
-        .hero-badge i {
+        .hero-badge svg {
             width: 16px;
             height: 16px;
-            color: var(--teal);
+            stroke: var(--orange);
         }
 
         .hero-badge span {
             font-size: 0.85rem;
-            color: var(--teal);
+            color: var(--orange);
             font-weight: 500;
         }
 
@@ -346,7 +328,7 @@
         }
 
         .hero h1 .highlight {
-            color: var(--teal);
+            color: var(--orange);
         }
 
         .hero-subtitle {
@@ -371,7 +353,7 @@
             font-family: var(--font-display);
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--teal);
+            color: var(--orange);
             display: block;
         }
 
@@ -401,18 +383,18 @@
             border: none;
         }
 
-        .btn i {
+        .btn svg {
             width: 20px;
             height: 20px;
         }
 
         .btn-primary {
-            background: var(--teal);
-            color: var(--navy);
+            background: var(--orange);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--teal-light);
+            background: var(--orange-light);
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
@@ -428,10 +410,17 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* ========== Why Section ========== */
-        .why-section {
+        /* Sections */
+        .section {
             padding: 80px 0;
+        }
+
+        .section-white {
             background: var(--white);
+        }
+
+        .section-cream {
+            background: var(--cream);
         }
 
         .section-header {
@@ -443,7 +432,7 @@
             display: inline-block;
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--teal);
+            color: var(--orange);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 12px;
@@ -460,6 +449,7 @@
             color: var(--gray-500);
         }
 
+        /* Why Grid */
         .why-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -482,7 +472,7 @@
         .why-icon {
             width: 64px;
             height: 64px;
-            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
@@ -490,10 +480,10 @@
             margin: 0 auto 20px;
         }
 
-        .why-icon i {
+        .why-icon svg {
             width: 32px;
             height: 32px;
-            color: var(--white);
+            stroke: var(--white);
         }
 
         .why-card h4 {
@@ -512,12 +502,7 @@
             color: var(--gray-500);
         }
 
-        /* ========== Services Section ========== */
-        .services-section {
-            padding: 80px 0;
-            background: var(--cream);
-        }
-
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -550,14 +535,14 @@
             top: 20px;
             width: 80px;
             height: 80px;
-            background: rgba(45, 212, 191, 0.1);
+            background: rgba(249, 115, 22, 0.1);
             border-radius: 50%;
         }
 
         .service-icon {
             width: 56px;
             height: 56px;
-            background: var(--teal);
+            background: var(--orange);
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
@@ -565,10 +550,10 @@
             margin-bottom: 16px;
         }
 
-        .service-icon i {
+        .service-icon svg {
             width: 28px;
             height: 28px;
-            color: var(--navy);
+            stroke: var(--white);
         }
 
         .service-header h3 {
@@ -602,10 +587,10 @@
             border-bottom: none;
         }
 
-        .service-list i {
+        .service-list svg {
             width: 20px;
             height: 20px;
-            color: var(--teal);
+            stroke: var(--orange);
             flex-shrink: 0;
             margin-top: 2px;
         }
@@ -615,250 +600,87 @@
             font-size: 0.95rem;
         }
 
-        .service-price {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .service-price .from {
-            font-size: 0.9rem;
-            color: var(--gray-500);
-        }
-
-        .service-price .amount {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--navy);
-        }
-
-        .service-price .unit {
-            font-size: 0.9rem;
-            color: var(--gray-500);
-        }
-
         .btn-block {
             display: flex;
             justify-content: center;
             width: 100%;
         }
 
-        /* ========== Pricing Preview Section ========== */
-        .pricing-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .pricing-cards {
+        /* Partners */
+        .partners-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
 
-        .pricing-card {
+        .partner-card {
             background: var(--cream);
+            padding: 32px 24px;
             border-radius: var(--radius-xl);
-            padding: 32px;
             text-align: center;
             transition: all 0.3s;
             border: 2px solid transparent;
         }
 
-        .pricing-card:hover {
-            border-color: var(--teal);
+        .partner-card:hover {
+            border-color: var(--orange);
             transform: translateY(-4px);
         }
 
-        .pricing-card.featured {
-            background: var(--navy);
-            border-color: var(--teal);
-        }
-
-        .pricing-card.featured * {
-            color: var(--white);
-        }
-
-        .pricing-card.featured .pricing-badge {
-            background: var(--teal);
-            color: var(--navy);
-        }
-
-        .pricing-badge {
-            display: inline-block;
-            background: var(--navy);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .pricing-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--teal);
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 16px;
+            box-shadow: var(--shadow-md);
         }
 
-        .pricing-icon i {
-            width: 28px;
-            height: 28px;
+        .partner-logo svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--orange);
+        }
+
+        .partner-card h4 {
             color: var(--navy);
-        }
-
-        .pricing-card h4 {
             margin-bottom: 8px;
             font-family: var(--font-body-ko);
-        }
-
-        body.zh .pricing-card h4 {
-            font-family: var(--font-body-zh);
-        }
-
-        .pricing-card .desc {
-            font-size: 0.85rem;
-            color: var(--gray-500);
-            margin-bottom: 20px;
-        }
-
-        .pricing-card.featured .desc {
-            color: var(--gray-300);
-        }
-
-        .pricing-amount {
-            margin-bottom: 20px;
-        }
-
-        .pricing-amount .value {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--navy);
-        }
-
-        .pricing-card.featured .pricing-amount .value {
-            color: var(--teal);
-        }
-
-        .pricing-amount .unit {
-            font-size: 0.9rem;
-            color: var(--gray-500);
-        }
-
-        .pricing-card.featured .pricing-amount .unit {
-            color: var(--gray-400);
-        }
-
-        .pricing-note {
-            font-size: 0.8rem;
-            color: var(--gray-400);
-            margin-top: 16px;
-        }
-
-        /* ========== Loyalty Section ========== */
-        .loyalty-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-        }
-
-        .loyalty-section .section-label {
-            color: var(--gold);
-        }
-
-        .loyalty-section .section-title {
-            color: var(--white);
-        }
-
-        .loyalty-section .section-desc {
-            color: var(--gray-300);
-        }
-
-        .loyalty-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-        }
-
-        .loyalty-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-xl);
-            padding: 32px;
-        }
-
-        .loyalty-card h4 {
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            font-family: var(--font-body-ko);
-        }
-
-        body.zh .loyalty-card h4 {
-            font-family: var(--font-body-zh);
-        }
-
-        .loyalty-card h4 i {
-            width: 24px;
-            height: 24px;
-            color: var(--gold);
-        }
-
-        .loyalty-list {
-            list-style: none;
-        }
-
-        .loyalty-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            color: var(--gray-300);
-            font-size: 0.95rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .loyalty-list li:last-child {
-            border-bottom: none;
-        }
-
-        .loyalty-list .badge {
-            background: var(--gold);
-            color: var(--navy);
-            padding: 2px 10px;
-            border-radius: 50px;
-            font-size: 0.8rem;
             font-weight: 600;
         }
 
-        /* ========== CTA Section ========== */
+        body.zh .partner-card h4 {
+            font-family: var(--font-body-zh);
+        }
+
+        .partner-card p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        /* CTA */
         .cta-section {
             padding: 80px 0;
-            background: var(--cream);
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
             text-align: center;
         }
 
         .cta-box {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-2xl);
             padding: 60px 40px;
             max-width: 700px;
             margin: 0 auto;
-            box-shadow: var(--shadow-xl);
         }
 
         .cta-icon {
             width: 72px;
             height: 72px;
-            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -866,17 +688,19 @@
             margin: 0 auto 24px;
         }
 
-        .cta-icon i {
+        .cta-icon svg {
             width: 36px;
             height: 36px;
-            color: var(--white);
+            stroke: var(--white);
         }
 
         .cta-box h2 {
+            color: var(--white);
             margin-bottom: 16px;
         }
 
         .cta-box p {
+            color: var(--gray-300);
             margin-bottom: 32px;
             font-size: 1.1rem;
         }
@@ -891,26 +715,22 @@
         .cta-contact {
             margin-top: 32px;
             padding-top: 24px;
-            border-top: 1px solid var(--gray-200);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .cta-contact p {
             font-size: 0.9rem;
-            color: var(--gray-500);
+            color: var(--gray-400);
             margin-bottom: 8px;
         }
 
         .cta-contact a {
-            color: var(--teal-dark);
+            color: var(--orange);
             text-decoration: none;
             font-weight: 600;
         }
 
-        .cta-contact a:hover {
-            text-decoration: underline;
-        }
-
-        /* ========== Footer ========== */
+        /* Footer */
         .footer {
             background: var(--navy);
             padding: 60px 0 30px;
@@ -951,11 +771,11 @@
         }
 
         .footer-social a:hover {
-            background: var(--teal);
-            color: var(--navy);
+            background: var(--orange);
+            color: var(--white);
         }
 
-        .footer-social a i {
+        .footer-social a svg {
             width: 20px;
             height: 20px;
         }
@@ -987,7 +807,7 @@
         }
 
         .footer-col ul a:hover {
-            color: var(--teal);
+            color: var(--orange);
         }
 
         .footer-bottom {
@@ -1017,19 +837,58 @@
         }
 
         .footer-legal a:hover {
-            color: var(--teal);
+            color: var(--orange);
         }
 
-        /* ========== Responsive ========== */
-        @media (max-width: 1024px) {
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+        }
 
-            .pricing-cards {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto;
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav ul a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+            padding: 8px 0;
+        }
+
+        .mobile-nav ul a:hover,
+        .mobile-nav ul a.active {
+            color: var(--orange);
+        }
+
+        .mobile-nav .btn {
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .why-grid,
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-grid {
@@ -1082,15 +941,9 @@
                 justify-content: center;
             }
 
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .why-grid,
+            .partners-grid,
             .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .loyalty-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1118,49 +971,6 @@
                 justify-content: center;
             }
         }
-
-        /* ========== Mobile Menu ========== */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 72px;
-            left: 0;
-            right: 0;
-            background: var(--navy);
-            padding: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 999;
-        }
-
-        .mobile-nav.active {
-            display: block;
-        }
-
-        .mobile-nav ul {
-            list-style: none;
-        }
-
-        .mobile-nav ul li {
-            margin-bottom: 16px;
-        }
-
-        .mobile-nav ul a {
-            color: var(--gray-300);
-            text-decoration: none;
-            font-size: 1rem;
-            display: block;
-            padding: 8px 0;
-        }
-
-        .mobile-nav ul a:hover,
-        .mobile-nav ul a.active {
-            color: var(--teal);
-        }
-
-        .mobile-nav .btn {
-            margin-top: 16px;
-            width: 100%;
-        }
     </style>
 </head>
 
@@ -1170,4 +980,587 @@
         <div class="header-inner">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
-                    <i data-lucide="
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">KNDLI LINK</span>
+                    <span class="logo-sub lang-ko">한니링크 | 韓妮連結</span>
+                    <span class="logo-sub lang-zh">韓妮連結 | 한니링크</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active"><span class="lang-ko">홈</span><span
+                                class="lang-zh">首頁</span></a></li>
+                    <li><a href="influencer.html"><span class="lang-ko">인플루언서</span><span
+                                class="lang-zh">網紅行銷</span></a></li>
+                    <li><a href="distribution.html"><span class="lang-ko">유통</span><span class="lang-zh">通路</span></a>
+                    </li>
+                    <li><a href="xiaohongshu.html"><span class="lang-ko">샤홍슈</span><span class="lang-zh">小紅書</span></a>
+                    </li>
+                    <li><a href="sourcing.html"><span class="lang-ko">소싱</span><span class="lang-zh">採購</span></a></li>
+                    <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span class="lang-zh">作品集</span></a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="lang-toggle" id="lang-toggle-btn">
+                        <span class="lang-ko">中文</span>
+                        <span class="lang-zh">한국어</span>
+                    </button>
+                    <a href="quote.html" class="btn-quote">
+                        <span class="lang-ko">문의하기</span>
+                        <span class="lang-zh">聯繫我們</span>
+                    </a>
+                </div>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html" class="active"><span class="lang-ko">홈</span><span
+                            class="lang-zh">首頁</span></a></li>
+                <li><a href="influencer.html"><span class="lang-ko">인플루언서 마케팅</span><span
+                            class="lang-zh">網紅行銷</span></a></li>
+                <li><a href="distribution.html"><span class="lang-ko">대만 유통</span><span class="lang-zh">台灣通路</span></a>
+                </li>
+                <li><a href="xiaohongshu.html"><span class="lang-ko">샤홍슈 인증</span><span class="lang-zh">小紅書認證</span></a>
+                </li>
+                <li><a href="sourcing.html"><span class="lang-ko">중국 소싱</span><span class="lang-zh">中國採購</span></a></li>
+                <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span class="lang-zh">作品集</span></a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <a href="quote.html" class="btn btn-primary"><span class="lang-ko">문의하기</span><span
+                    class="lang-zh">聯繫我們</span></a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <circle cx="12" cy="8" r="6" />
+                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                    </svg>
+                    <span class="lang-ko">Just Woman 파트너 | 150K+ 인플루언서 네트워크</span>
+                    <span class="lang-zh">Just Woman 合作夥伴 | 15萬+ 網紅網絡</span>
+                </div>
+                <h1>
+                    <span class="lang-ko">한중 비즈니스,<br><span class="highlight">연결</span>의 힘</span>
+                    <span class="lang-zh">韓中商務，<br><span class="highlight">連結</span>的力量</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="lang-ko">인플루언서 마케팅부터 유통, 소싱까지<br>한국-대만-중국 비즈니스의 모든 것을 연결합니다</span>
+                    <span class="lang-zh">從網紅行銷到通路、採購<br>連結韓國-台灣-中國的所有商務需求</span>
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">150K+</span>
+                        <span class="hero-stat-label lang-ko">인플루언서 네트워크</span>
+                        <span class="hero-stat-label lang-zh">網紅網絡</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">50+</span>
+                        <span class="hero-stat-label lang-ko">성공 프로젝트</span>
+                        <span class="hero-stat-label lang-zh">成功專案</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">10년+</span>
+                        <span class="hero-stat-label lang-ko">한국 비즈니스 경험</span>
+                        <span class="hero-stat-label lang-zh">韓國商務經驗</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="quote.html" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                        <span class="lang-ko">무료 상담 신청</span>
+                        <span class="lang-zh">免費諮詢申請</span>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 5v14" />
+                            <path d="m19 12-7 7-7-7" />
+                        </svg>
+                        <span class="lang-ko">서비스 보기</span>
+                        <span class="lang-zh">查看服務</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">WHY KNDLI LINK</span>
+                <h2 class="section-title">
+                    <span class="lang-ko">왜 한니링크인가요?</span>
+                    <span class="lang-zh">為什麼選擇韓妮連結？</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="lang-ko">10년+ 한국 거주 경험과 검증된 네트워크로 확실한 결과를 만들어 드립니다</span>
+                    <span class="lang-zh">10年以上韓國居住經驗與經過驗證的網絡，創造確實成果</span>
+                </p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <h4><span class="lang-ko">검증된 네트워크</span><span class="lang-zh">經驗證的網絡</span></h4>
+                    <p><span class="lang-ko">Just Woman 파트너십으로 150K+ 대만 인플루언서 접근</span><span class="lang-zh">透過Just
+                            Woman合作夥伴關係接觸15萬+台灣網紅</span></p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                            <path d="M2 12h20" />
+                        </svg>
+                    </div>
+                    <h4><span class="lang-ko">3국 브릿지</span><span class="lang-zh">三國橋樑</span></h4>
+                    <p><span class="lang-ko">한국-대만-중국을 잇는 문화적 이해와 비즈니스 경험</span><span
+                            class="lang-zh">連結韓國-台灣-中國的文化理解與商務經驗</span></p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                    </div>
+                    <h4><span class="lang-ko">검증된 파트너</span><span class="lang-zh">值得信賴的夥伴</span></h4>
+                    <p><span class="lang-ko">성공 사례와 레퍼런스로 증명된 결과</span><span class="lang-zh">以成功案例和參考證明的成果</span></p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                    </div>
+                    <h4><span class="lang-ko">원스톱 서비스</span><span class="lang-zh">一站式服務</span></h4>
+                    <p><span class="lang-ko">마케팅-유통-소싱까지 모든 것을 한 곳에서</span><span class="lang-zh">從行銷到通路、採購全部一站完成</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-cream" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">SERVICES</span>
+                <h2 class="section-title">
+                    <span class="lang-ko">서비스 안내</span>
+                    <span class="lang-zh">服務介紹</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="lang-ko">한국-중화권 비즈니스에 필요한 모든 서비스를 제공합니다</span>
+                    <span class="lang-zh">提供韓國-中華圈商務所需的所有服務</span>
+                </p>
+            </div>
+            <div class="services-grid">
+                <!-- Influencer -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3><span class="lang-ko">인플루언서 마케팅</span><span class="lang-zh">網紅行銷</span></h3>
+                        <p><span class="lang-ko">Just Woman 파트너 | 150K+ 네트워크</span><span class="lang-zh">Just Woman 合作夥伴
+                                | 15萬+ 網絡</span></p>
+                    </div>
+                    <div class="service-body">
+                        <ul class="service-list">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">대만 인플루언서 섭외 및 캠페인</span><span
+                                    class="lang-zh">台灣網紅接洽及活動企劃</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">K-뷰티, K-패션 브랜드 전문</span><span
+                                    class="lang-zh">K-Beauty、K-Fashion品牌專業</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">콘텐츠 기획부터 성과 분석까지</span><span
+                                    class="lang-zh">從內容企劃到成效分析</span></li>
+                        </ul>
+                        <a href="influencer.html" class="btn btn-primary btn-block"><span class="lang-ko">자세히
+                                보기</span><span class="lang-zh">了解更多</span></a>
+                    </div>
+                </div>
+                <!-- Distribution -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" />
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                                <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" />
+                                <path d="M2 7h20" />
+                            </svg>
+                        </div>
+                        <h3><span class="lang-ko">대만 유통 연결</span><span class="lang-zh">台灣通路連結</span></h3>
+                        <p><span class="lang-ko">K-브랜드의 대만 진출 파트너</span><span class="lang-zh">K-品牌的台灣進軍夥伴</span></p>
+                    </div>
+                    <div class="service-body">
+                        <ul class="service-list">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">대만 유통사 연결 및 계약 지원</span><span
+                                    class="lang-zh">台灣通路商連結及合約支援</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">K-뷰티, K-패션 대만 시장 진출</span><span
+                                    class="lang-zh">K-Beauty、K-Fashion台灣市場進軍</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">수입 절차 및 인허가 컨설팅</span><span
+                                    class="lang-zh">進口程序及許可證諮詢</span></li>
+                        </ul>
+                        <a href="distribution.html" class="btn btn-primary btn-block"><span class="lang-ko">자세히
+                                보기</span><span class="lang-zh">了解更多</span></a>
+                    </div>
+                </div>
+                <!-- Xiaohongshu -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
+                        </div>
+                        <h3><span class="lang-ko">샤홍슈 의료 인증</span><span class="lang-zh">小紅書醫療認證</span></h3>
+                        <p><span class="lang-ko">의료관광 마케팅 전문</span><span class="lang-zh">醫療觀光行銷專業</span></p>
+                    </div>
+                    <div class="service-body">
+                        <ul class="service-list">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">샤홍슈 의료기관 인증 대행</span><span
+                                    class="lang-zh">小紅書醫療機構認證代辦</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">더우인 채널 인증 및 운영</span><span class="lang-zh">抖音頻道認證及營運</span>
+                            </li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">중화권 마케팅 교육 프로그램</span><span class="lang-zh">中華圈行銷教育課程</span>
+                            </li>
+                        </ul>
+                        <a href="xiaohongshu.html" class="btn btn-primary btn-block"><span class="lang-ko">자세히
+                                보기</span><span class="lang-zh">了解更多</span></a>
+                    </div>
+                </div>
+                <!-- Sourcing -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m7.5 4.27 9 5.15" />
+                                <path
+                                    d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                                <path d="m3.3 7 8.7 5 8.7-5" />
+                                <path d="M12 22V12" />
+                            </svg>
+                        </div>
+                        <h3><span class="lang-ko">중국 제조/소싱</span><span class="lang-zh">中國製造/採購</span></h3>
+                        <p><span class="lang-ko">OEM/ODM 및 수입 대행</span><span class="lang-zh">OEM/ODM及進口代理</span></p>
+                    </div>
+                    <div class="service-body">
+                        <ul class="service-list">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">중국 공장 소싱 및 품질 관리</span><span
+                                    class="lang-zh">中國工廠採購及品質管理</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">컨테이너 수입 대행 (검증된 성공 사례)</span><span
+                                    class="lang-zh">貨櫃進口代理（經驗證的成功案例）</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg><span class="lang-ko">OEM/ODM 제조 연결</span><span class="lang-zh">OEM/ODM製造連結</span>
+                            </li>
+                        </ul>
+                        <a href="sourcing.html" class="btn btn-primary btn-block"><span class="lang-ko">자세히
+                                보기</span><span class="lang-zh">了解更多</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PARTNERS & NETWORK</span>
+                <h2 class="section-title">
+                    <span class="lang-ko">파트너 & 네트워크</span>
+                    <span class="lang-zh">合作夥伴與網絡</span>
+                </h2>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <h4>Just Woman</h4>
+                    <p><span class="lang-ko">대만 150K+ 인플루언서 플랫폼</span><span class="lang-zh">台灣15萬+網紅平台</span></p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="m22 8-6 4 6 4V8Z" />
+                            <rect width="14" height="12" x="2" y="6" rx="2" ry="2" />
+                        </svg>
+                    </div>
+                    <h4><span class="lang-ko">영상 편집 파트너</span><span class="lang-zh">影片編輯夥伴</span></h4>
+                    <p><span class="lang-ko">한국 전문 영상 편집팀</span><span class="lang-zh">韓國專業影片編輯團隊</span></p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path
+                                d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                        </svg>
+                    </div>
+                    <h4><span class="lang-ko">중국 제조 파트너</span><span class="lang-zh">中國製造夥伴</span></h4>
+                    <p><span class="lang-ko">검증된 중국 공장 네트워크</span><span class="lang-zh">經驗證的中國工廠網絡</span></p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11" />
+                            <path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2" />
+                            <circle cx="7" cy="18" r="2" />
+                            <path d="M15 18H9" />
+                            <circle cx="17" cy="18" r="2" />
+                        </svg>
+                    </div>
+                    <h4><span class="lang-ko">대만 유통 파트너</span><span class="lang-zh">台灣通路夥伴</span></h4>
+                    <p><span class="lang-ko">대만 현지 유통망 연결</span><span class="lang-zh">台灣在地通路網絡連結</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                </div>
+                <h2>
+                    <span class="lang-ko">비즈니스 연결이 필요하신가요?</span>
+                    <span class="lang-zh">需要商務連結嗎？</span>
+                </h2>
+                <p>
+                    <span class="lang-ko">무료 상담으로 시작하세요.<br>맞춤형 솔루션을 제안해 드립니다.</span>
+                    <span class="lang-zh">從免費諮詢開始。<br>為您提供客製化解決方案。</span>
+                </p>
+                <div class="cta-buttons">
+                    <a href="quote.html" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                        <span class="lang-ko">무료 상담 신청</span>
+                        <span class="lang-zh">免費諮詢申請</span>
+                    </a>
+                    <a href="https://open.kakao.com/me/kndli" target="_blank" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                        </svg>
+                        <span class="lang-ko">카카오톡 상담</span>
+                        <span class="lang-zh">KakaoTalk 諮詢</span>
+                    </a>
+                </div>
+                <div class="cta-contact">
+                    <p><span class="lang-ko">또는 직접 연락주세요</span><span class="lang-zh">或直接聯繫我們</span></p>
+                    <a href="mailto:kndli.bella@gmail.com">kndli.bella@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">KNDLI LINK</span>
+                            <span class="logo-sub lang-ko">한니링크 | 韓妮連結</span>
+                            <span class="logo-sub lang-zh">韓妮連結 | 한니링크</span>
+                        </div>
+                    </a>
+                    <p><span class="lang-ko">한국-중화권 비즈니스 연결 전문<br>비즈니스를 잇다, 성공을 잇다</span><span
+                            class="lang-zh">韓國-中華圈商務連結專業<br>連結商務，連結成功</span></p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank"><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg></a>
+                        <a href="https://open.kakao.com/me/kndli" target="_blank"><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                            </svg></a>
+                        <a href="mailto:kndli.bella@gmail.com"><svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5><span class="lang-ko">서비스</span><span class="lang-zh">服務</span></h5>
+                    <ul>
+                        <li><a href="influencer.html"><span class="lang-ko">인플루언서 마케팅</span><span
+                                    class="lang-zh">網紅行銷</span></a></li>
+                        <li><a href="distribution.html"><span class="lang-ko">대만 유통 연결</span><span
+                                    class="lang-zh">台灣通路連結</span></a></li>
+                        <li><a href="xiaohongshu.html"><span class="lang-ko">샤홍슈 인증</span><span
+                                    class="lang-zh">小紅書認證</span></a></li>
+                        <li><a href="sourcing.html"><span class="lang-ko">중국 소싱</span><span
+                                    class="lang-zh">中國採購</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5>
+                    <ul>
+                        <li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+                        </li>
+                        <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span
+                                    class="lang-zh">作品集</span></a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5><span class="lang-ko">KNDLI 그룹</span><span class="lang-zh">KNDLI 集團</span></h5>
+                    <ul>
+                        <li><a href="../index.html">KNDLI <span class="lang-ko">메인</span><span
+                                    class="lang-zh">首頁</span></a></li>
+                        <li><a href="../trans/index.html">KNDLI TRANS</a></li>
+                        <li><a href="../life/index.html">KNDLI LIFE</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><span class="lang-ko">© 2024 한니드레이 유한회사 | 사업자등록번호: 126-84-00471</span><span class="lang-zh">© 2024
+                        韓妮德來有限公司 | 統一編號: 126-84-00471</span></p>
+                <div class="footer-legal">
+                    <a href="#"><span class="lang-ko">이용약관</span><span class="lang-zh">服務條款</span></a>
+                    <a href="#"><span class="lang-ko">개인정보처리방침</span><span class="lang-zh">隱私權政策</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            console.log('Toggle language clicked');
+            document.body.classList.toggle('zh');
+            localStorage.setItem('kndli-lang', document.body.classList.contains('zh') ? 'zh' : 'ko');
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            if (localStorage.getItem('kndli-lang') === 'zh') document.body.classList.add('zh');
+
+            const langBtn = document.getElementById('lang-toggle-btn');
+            if (langBtn) {
+                langBtn.addEventListener('click', toggleLanguage);
+            }
+        });
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 22, 40, 0.98)';
+            } else {
+                header.style.background = 'var(--navy)';
+            }
+        });
+    </script>
+</body>
+
+</html>
