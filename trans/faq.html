@@ -1397,8 +1397,8 @@
                         </li>
                         <li><a href="faq.html"><span class="lang-ko">자주 묻는 질문</span><span
                                     class="lang-zh">常見問題</span></a></li>
-                        <li><a href="../../contact.html"><span class="lang-ko">문의하기</span><span
-                                    class="lang-zh">聯繫我們</span></a></li>
+                        <li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯絡我們</span></a>
+                        </li>
                     </ul>
                 </div>
 
@@ -1433,12 +1433,12 @@
         function toggleLanguage() {
             document.body.classList.toggle('zh');
             const isZh = document.body.classList.contains('zh');
-            localStorage.setItem('kndli-trans-lang', isZh ? 'zh' : 'ko');
+            localStorage.setItem('kndli-lang', isZh ? 'zh' : 'ko');
         }
 
         // Load saved language preference
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('kndli-trans-lang');
+            const savedLang = localStorage.getItem('kndli-lang');
             if (savedLang === 'zh') {
                 document.body.classList.add('zh');
             }
