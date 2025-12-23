@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | KNDLI LIFE</title>
+    <meta name="description" content="KNDLI LIFE 자주 묻는 질문. 한국 생활, 비자, 취업, 집계약 등 외국인이 궁금해하는 모든 것.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#0a1628;--navy-light:#1a2d4a;--green:#22c55e;--green-light:#4ade80;--green-dark:#16a34a;--gold:#c9a227;--white:#ffffff;--gray-100:#f8f9fa;--gray-200:#e9ecef;--gray-300:#dee2e6;--gray-600:#6c757d;--gray-800:#343a40;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow:0 4px 20px rgba(0,0,0,0.15)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans KR','Noto Sans TC',sans-serif;background:var(--navy);color:var(--white);line-height:1.6}
+        .lang-ko{display:block}.lang-zh{display:none !important}body.zh .lang-ko{display:none !important}body.zh .lang-zh{display:block !important}body.zh li.lang-zh{display:list-item !important}span.lang-ko{display:inline}span.lang-zh{display:none !important}body.zh span.lang-zh{display:inline !important}body.zh span.lang-ko{display:none !important}
+        a{color:inherit;text-decoration:none}
+        .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+        .header-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo-icon{width:40px;height:40px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center}
+        .logo-icon svg{width:24px;height:24px;stroke:var(--white)}
+        .logo-text h1{font-size:1.3rem;font-weight:700;color:var(--white)}
+        .logo-text span{font-size:0.7rem;color:var(--green)}
+        .nav{display:flex;align-items:center;gap:2rem}
+        .nav a{color:var(--gray-200);font-size:0.9rem;transition:color 0.3s}
+        .nav a:hover,.nav a.active{color:var(--green)}
+        .btn-lang{background:var(--navy-light);color:var(--white);border:1px solid var(--gray-600);padding:6px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:0.85rem}
+        .btn-quote{background:var(--green);color:var(--white);padding:10px 20px;border-radius:var(--radius-md);font-size:0.9rem;font-weight:600;transition:all 0.3s}
+        .btn-quote:hover{background:var(--green-light);transform:translateY(-2px)}
+        .mobile-toggle{display:none;background:none;border:none;cursor:pointer}
+        .mobile-toggle svg{width:28px;height:28px;stroke:var(--white)}
+        .mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:1.5rem;border-top:1px solid rgba(255,255,255,0.1);flex-direction:column;gap:1rem}
+        .mobile-nav.active{display:flex}
+        .mobile-nav a{color:var(--gray-200);padding:0.5rem 0;font-size:1rem}
+        
+        .main{padding-top:80px}
+        .faq-section{padding:4rem 2rem;max-width:900px;margin:0 auto}
+        .faq-header{text-align:center;margin-bottom:3rem}
+        .faq-header h2{font-size:2rem;margin-bottom:1rem}
+        .faq-header p{color:var(--gray-300)}
+        
+        .faq-category{margin-bottom:2rem}
+        .faq-category h3{font-size:1.2rem;color:var(--green);margin-bottom:1rem;padding-left:1rem;border-left:3px solid var(--green)}
+        .faq-item{background:var(--navy-light);border-radius:var(--radius-md);margin-bottom:1rem;overflow:hidden}
+        .faq-question{padding:1.25rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;transition:background 0.3s}
+        .faq-question:hover{background:rgba(34,197,94,0.1)}
+        .faq-question svg{width:20px;height:20px;stroke:var(--green);transition:transform 0.3s;flex-shrink:0}
+        .faq-item.active .faq-question svg{transform:rotate(180deg)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.3s ease-out}
+        .faq-answer-inner{padding:0 1.5rem 1.5rem;color:var(--gray-300);line-height:1.8}
+        .faq-answer-inner a{color:var(--green);text-decoration:underline}
+        .faq-item.active .faq-answer{max-height:500px}
+        
+        .cta-box{background:linear-gradient(135deg,var(--green-dark),var(--green));padding:3rem;border-radius:var(--radius-lg);text-align:center;margin-top:3rem}
+        .cta-box h3{font-size:1.5rem;margin-bottom:1rem}
+        .cta-box p{margin-bottom:1.5rem;opacity:0.9}
+        .cta-box .btn{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--green-dark);padding:14px 28px;border-radius:var(--radius-md);font-weight:600;transition:all 0.3s}
+        .cta-box .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+        .cta-box .btn svg{width:20px;height:20px;stroke:currentColor}
+        
+        .footer{background:var(--navy-light);padding:3rem 2rem 2rem;margin-top:4rem}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+        .footer-brand .logo{margin-bottom:1rem}
+        .footer-brand p{color:var(--gray-300);font-size:0.9rem;margin-bottom:1rem}
+        .footer-social{display:flex;gap:1rem}
+        .footer-social a{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+        .footer-social a:hover{background:var(--green)}
+        .footer-social svg{width:18px;height:18px;stroke:var(--white)}
+        .footer-col h5{font-size:0.9rem;font-weight:600;margin-bottom:1rem;color:var(--white)}
+        .footer-col ul{list-style:none}
+        .footer-col li{margin-bottom:0.5rem}
+        .footer-col a{color:var(--gray-300);font-size:0.85rem;transition:color 0.3s}
+        .footer-col a:hover{color:var(--green)}
+        .footer-bottom{border-top:1px solid var(--navy);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .footer-bottom p{color:var(--gray-600);font-size:0.8rem}
+        
+        @media(max-width:768px){.nav{display:none}.mobile-toggle{display:block}.footer-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                <div class="logo-text"><h1>KNDLI LIFE</h1><span>한니라이프 | 韓妮生活</span></div>
+            </a>
+            <nav class="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+                <a href="career.html"><span class="lang-ko">취업</span><span class="lang-zh">就業</span></a>
+                <a href="housing.html"><span class="lang-ko">집계약</span><span class="lang-zh">租屋</span></a>
+                <a href="school.html"><span class="lang-ko">학교</span><span class="lang-zh">校園</span></a>
+                <a href="startup.html"><span class="lang-ko">창업</span><span class="lang-zh">創業</span></a>
+                <a href="seminar.html"><span class="lang-ko">강연</span><span class="lang-zh">講座</span></a>
+                <a href="faq.html" class="active">FAQ</a>
+                <button class="btn-lang" id="lang-toggle-btn"><span class="lang-ko">中文</span><span class="lang-zh">한국어</span></button>
+                <a href="quote.html" class="btn-quote"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+            </nav>
+            <button class="mobile-toggle" onclick="toggleMobile()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+            <a href="career.html"><span class="lang-ko">취업 지원</span><span class="lang-zh">就業支援</span></a>
+            <a href="housing.html"><span class="lang-ko">집 계약 동행</span><span class="lang-zh">租屋陪同</span></a>
+            <a href="school.html"><span class="lang-ko">학교생활 지원</span><span class="lang-zh">校園生活</span></a>
+            <a href="startup.html"><span class="lang-ko">창업 컨설팅</span><span class="lang-zh">創業諮詢</span></a>
+            <a href="seminar.html"><span class="lang-ko">강연/강습</span><span class="lang-zh">講座/課程</span></a>
+            <a href="faq.html" class="active">FAQ</a>
+            <a href="quote.html" class="btn-quote"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="faq-section">
+            <div class="faq-header">
+                <h2><span class="lang-ko">❓ 자주 묻는 질문</span><span class="lang-zh">❓ 常見問題</span></h2>
+                <p><span class="lang-ko">한국 생활에 대해 궁금한 점을 확인해보세요</span><span class="lang-zh">了解更多關於韓國生活的資訊</span></p>
+            </div>
+
+            <div class="faq-category">
+                <h3><span class="lang-ko">🌱 서비스 일반</span><span class="lang-zh">🌱 服務一般</span></h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">KNDLI LIFE는 어떤 서비스인가요?</span><span class="lang-zh">KNDLI LIFE 是什麼服務？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">KNDLI LIFE는 한국에서 생활하는 외국인을 위한 종합 생활 지원 서비스입니다. 취업, 집 계약, 학교생활, 창업, 강연 등 한국 생활의 모든 영역에서 전문적인 도움을 제공합니다. 대만 출신으로 10년 이상 한국에서 생활한 경험을 바탕으로 실질적인 조언과 동행 서비스를 제공합니다.</span>
+                        <span class="lang-zh">KNDLI LIFE 是為在韓國生活的外國人提供的綜合生活支援服務。我們在就業、租屋、校園生活、創業、講座等韓國生活的各個領域提供專業協助。我們以來自台灣、在韓國生活超過10年的經驗為基礎，提供實用的建議和陪同服務。</span>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">어떤 언어로 서비스를 받을 수 있나요?</span><span class="lang-zh">可以用什麼語言接受服務？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">한국어, 중국어(번체/간체), 영어로 서비스를 제공합니다. 대만, 중국, 홍콩 등 중화권 고객에게 특히 전문적인 서비스를 제공할 수 있습니다.</span>
+                        <span class="lang-zh">我們提供韓語、中文（繁體/簡體）、英語服務。特別能為來自台灣、中國、香港等華語區的客戶提供專業服務。</span>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">서비스 비용은 어떻게 되나요?</span><span class="lang-zh">服務費用如何計算？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">서비스 종류와 범위에 따라 비용이 다르게 책정됩니다. 무료 상담을 통해 필요한 서비스를 파악한 후 정확한 견적을 안내드립니다. <a href="quote.html">문의하기</a>를 통해 상담을 신청해주세요.</span>
+                        <span class="lang-zh">費用依服務種類和範圍而有所不同。通過免費諮詢了解您需要的服務後，會提供準確的報價。請透過<a href="quote.html">聯繫我們</a>申請諮詢。</span>
+                    </div></div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3><span class="lang-ko">💼 취업 관련</span><span class="lang-zh">💼 就業相關</span></h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">외국인이 한국에서 취업하려면 어떤 비자가 필요한가요?</span><span class="lang-zh">外國人在韓國就業需要什麼簽證？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">일반적으로 E-7(특정활동) 비자가 필요합니다. 직종과 자격에 따라 E-1~E-7까지 다양한 취업비자가 있으며, 유학생의 경우 D-2 비자에서 E-7으로 변경이 가능합니다. 구체적인 비자 상담은 저희가 도와드릴 수 있습니다.</span>
+                        <span class="lang-zh">一般需要 E-7（特定活動）簽證。根據職種和資格，有 E-1 至 E-7 等各種工作簽證。留學生可以從 D-2 簽證轉換為 E-7。我們可以提供具體的簽證諮詢服務。</span>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">이력서/자기소개서 작성을 도와주시나요?</span><span class="lang-zh">可以幫忙撰寫履歷/自我介紹嗎？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">네! 한국식 이력서와 자기소개서 작성, 면접 준비까지 취업 전 과정을 지원합니다. 한국 기업 문화에 맞는 서류 작성과 면접 팁을 제공해드립니다.</span>
+                        <span class="lang-zh">是的！我們支援韓式履歷和自我介紹撰寫、面試準備等整個就業過程。我們會提供符合韓國企業文化的文件撰寫和面試技巧。</span>
+                    </div></div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3><span class="lang-ko">🏠 집 계약 관련</span><span class="lang-zh">🏠 租屋相關</span></h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">전세와 월세의 차이가 무엇인가요?</span><span class="lang-zh">傳貰和月租有什麼區別？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">전세(傳貰)는 큰 보증금을 내고 월세 없이 거주하는 한국 특유의 임대 방식입니다. 월세는 보증금과 함께 매달 임대료를 내는 방식입니다. 외국인의 경우 월세나 반전세가 더 일반적입니다. 저희가 계약 과정을 함께 동행하며 통역과 조언을 제공합니다.</span>
+                        <span class="lang-zh">傳貰是韓國特有的租賃方式，支付大筆保證金後不需要每月付租金。月租則是支付保證金加上每月租金。對外國人來說，月租或半傳貰更為常見。我們會陪同您進行簽約過程，提供翻譯和建議。</span>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">외국인도 부동산 계약이 가능한가요?</span><span class="lang-zh">外國人也可以簽訂房屋租約嗎？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">네, 가능합니다. 다만 외국인등록증과 여권이 필요하며, 일부 집주인은 외국인 계약을 꺼리기도 합니다. 저희가 중개사와 집주인 간 통역 및 협상을 도와드리고, 계약서 검토까지 함께합니다.</span>
+                        <span class="lang-zh">是的，可以的。但需要外國人登錄證和護照，部分房東可能對與外國人簽約有所顧慮。我們會協助您與仲介和房東之間的翻譯及協商，並一起審查合約。</span>
+                    </div></div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3><span class="lang-ko">🎓 학교생활 관련</span><span class="lang-zh">🎓 校園生活相關</span></h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">학교 행정 절차를 도와주시나요?</span><span class="lang-zh">可以幫忙處理學校行政事務嗎？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">네! 입학 서류 준비, 수강신청, 장학금 신청, 기숙사 신청 등 학교생활 전반의 행정 절차를 도와드립니다. 특히 한국어가 익숙하지 않은 유학생들에게 큰 도움이 됩니다.</span>
+                        <span class="lang-zh">是的！我們協助入學文件準備、選課、獎學金申請、宿舍申請等整體校園行政事務。特別對韓語還不熟練的留學生非常有幫助。</span>
+                    </div></div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3><span class="lang-ko">🚀 창업 관련</span><span class="lang-zh">🚀 創業相關</span></h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="lang-ko">외국인이 한국에서 사업을 시작할 수 있나요?</span><span class="lang-zh">外國人可以在韓國創業嗎？</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <span class="lang-ko">네, 가능합니다! D-8(기업투자) 비자를 통해 법인 설립이 가능하며, 1억원 이상 투자 시 비자 발급이 가능합니다. 저희는 법인 설립 절차, 사업자등록, 비자 변경 등 창업 전 과정을 컨설팅합니다.</span>
+                        <span class="lang-zh">是的，可以！通過 D-8（企業投資）簽證可以設立公司，投資1億韓元以上可申請簽證。我們提供公司設立流程、營業登記、簽證變更等創業全過程諮詢。</span>
+                    </div></div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3><span class="lang-ko">더 궁금한 점이 있으신가요?</span><span class="lang-zh">還有其他問題嗎？</span></h3>
+                <p><span class="lang-ko">편하게 문의해주세요. 24시간 내에 답변드립니다.</span><span class="lang-zh">歡迎隨時諮詢，我們會在24小時內回覆。</span></p>
+                <a href="quote.html" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                        <div class="logo-text"><h1>KNDLI LIFE</h1><span>한니라이프 | 韓妮生活</span></div>
+                    </div>
+                    <p><span class="lang-ko">외국인을 위한 한국 생활 지원 전문</span><span class="lang-zh">專為外國人提供韓國生活支援</span></p>
+                    <div class="footer-social">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="mailto:kndli.bella@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col"><h5><span class="lang-ko">서비스</span><span class="lang-zh">服務項目</span></h5><ul><li><a href="career.html"><span class="lang-ko">취업 지원</span><span class="lang-zh">就業支援</span></a></li><li><a href="housing.html"><span class="lang-ko">집 계약 동행</span><span class="lang-zh">租屋陪同</span></a></li><li><a href="school.html"><span class="lang-ko">학교생활 지원</span><span class="lang-zh">校園生活</span></a></li><li><a href="startup.html"><span class="lang-ko">창업 컨설팅</span><span class="lang-zh">創業諮詢</span></a></li><li><a href="seminar.html"><span class="lang-ko">강연/강습</span><span class="lang-zh">講座/課程</span></a></li></ul></div>
+                <div class="footer-col"><h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5><ul><li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+                <div class="footer-col"><h5><span class="lang-ko">KNDLI 그룹</span><span class="lang-zh">KNDLI 集團</span></h5><ul><li><a href="../index.html">KNDLI <span class="lang-ko">메인</span><span class="lang-zh">首頁</span></a></li><li><a href="../trans/index.html">KNDLI TRANS</a></li><li><a href="../links/index.html">KNDLI LINK</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p><span class="lang-ko">© 2024 한니드레이 유한회사 | 사업자등록번호: 126-84-00471</span><span class="lang-zh">© 2024 韓妮德來有限公司 | 統一編號: 126-84-00471</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage(){document.body.classList.toggle('zh');localStorage.setItem('kndli-lang',document.body.classList.contains('zh')?'zh':'ko')}
+        document.addEventListener('DOMContentLoaded',function(){if(localStorage.getItem('kndli-lang')==='zh')document.body.classList.add('zh');const langBtn=document.getElementById('lang-toggle-btn');if(langBtn)langBtn.addEventListener('click',toggleLanguage)});
+        function toggleMobile(){document.getElementById('mobileNav').classList.toggle('active')}
+        function toggleFaq(el){el.closest('.faq-item').classList.toggle('active')}
+    </script>
+</body>
+</html>

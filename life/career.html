@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>취업 지원 | KNDLI LIFE</title>
+    <meta name="description" content="외국인 한국 취업 지원 서비스. 이력서, 자기소개서 작성, 면접 준비, 비자 상담까지.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#0a1628;--navy-light:#1a2d4a;--green:#22c55e;--green-light:#4ade80;--green-dark:#16a34a;--gold:#c9a227;--white:#ffffff;--gray-100:#f8f9fa;--gray-200:#e9ecef;--gray-300:#dee2e6;--gray-600:#6c757d;--gray-800:#343a40;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow:0 4px 20px rgba(0,0,0,0.15)}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans KR','Noto Sans TC',sans-serif;background:var(--navy);color:var(--white);line-height:1.6}
+        .lang-ko{display:block}.lang-zh{display:none !important}body.zh .lang-ko{display:none !important}body.zh .lang-zh{display:block !important}body.zh li.lang-zh{display:list-item !important}span.lang-ko{display:inline}span.lang-zh{display:none !important}body.zh span.lang-zh{display:inline !important}body.zh span.lang-ko{display:none !important}
+        a{color:inherit;text-decoration:none}
+        .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.1)}.header-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.logo{display:flex;align-items:center;gap:12px}.logo-icon{width:40px;height:40px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center}.logo-icon svg{width:24px;height:24px;stroke:var(--white)}.logo-text h1{font-size:1.3rem;font-weight:700;color:var(--white)}.logo-text span{font-size:0.7rem;color:var(--green)}.nav{display:flex;align-items:center;gap:2rem}.nav a{color:var(--gray-200);font-size:0.9rem;transition:color 0.3s}.nav a:hover,.nav a.active{color:var(--green)}.btn-lang{background:var(--navy-light);color:var(--white);border:1px solid var(--gray-600);padding:6px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:0.85rem}.btn-quote{background:var(--green);color:var(--white);padding:10px 20px;border-radius:var(--radius-md);font-size:0.9rem;font-weight:600;transition:all 0.3s}.btn-quote:hover{background:var(--green-light);transform:translateY(-2px)}.mobile-toggle{display:none;background:none;border:none;cursor:pointer}.mobile-toggle svg{width:28px;height:28px;stroke:var(--white)}.mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:1.5rem;border-top:1px solid rgba(255,255,255,0.1);flex-direction:column;gap:1rem}.mobile-nav.active{display:flex}.mobile-nav a{color:var(--gray-200);padding:0.5rem 0;font-size:1rem}
+        .main{padding-top:80px}
+        .page-hero{padding:4rem 2rem;background:linear-gradient(135deg,var(--navy-light),var(--navy));text-align:center}.page-hero-icon{width:80px;height:80px;background:rgba(34,197,94,0.2);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem}.page-hero-icon svg{width:40px;height:40px;stroke:var(--green)}.page-hero h2{font-size:2.2rem;margin-bottom:1rem}.page-hero p{color:var(--gray-300);max-width:600px;margin:0 auto}
+        .section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        .content-block{background:var(--navy-light);border-radius:var(--radius-lg);padding:2.5rem;margin-bottom:2rem}
+        .content-block h3{font-size:1.4rem;margin-bottom:1.5rem;color:var(--green);display:flex;align-items:center;gap:10px}
+        .content-block h3 svg{width:24px;height:24px;stroke:var(--green)}
+        .service-list{display:grid;gap:1rem}
+        .service-item{display:flex;align-items:start;gap:1rem;padding:1rem;background:var(--navy);border-radius:var(--radius-md)}
+        .service-item-icon{width:40px;height:40px;background:rgba(34,197,94,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .service-item-icon svg{width:20px;height:20px;stroke:var(--green)}
+        .service-item h4{font-size:1rem;margin-bottom:0.25rem}
+        .service-item p{font-size:0.9rem;color:var(--gray-300)}
+        .process-steps{display:grid;gap:1rem;counter-reset:step}
+        .step{display:flex;align-items:start;gap:1rem;padding:1rem;background:var(--navy);border-radius:var(--radius-md);counter-increment:step}
+        .step::before{content:counter(step);width:32px;height:32px;background:var(--green);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+        .step-content h4{font-size:1rem;margin-bottom:0.25rem}
+        .step-content p{font-size:0.9rem;color:var(--gray-300)}
+        .cta-box{background:linear-gradient(135deg,var(--green-dark),var(--green));padding:3rem;border-radius:var(--radius-lg);text-align:center;margin-top:2rem}
+        .cta-box h3{font-size:1.5rem;margin-bottom:1rem}
+        .cta-box p{margin-bottom:1.5rem;opacity:0.9}
+        .cta-box .btn{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--green-dark);padding:14px 28px;border-radius:var(--radius-md);font-weight:600;transition:all 0.3s}
+        .cta-box .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+        .cta-box .btn svg{width:20px;height:20px;stroke:currentColor}
+        .footer{background:var(--navy-light);padding:3rem 2rem 2rem;margin-top:4rem}.footer-inner{max-width:1200px;margin:0 auto}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}.footer-brand .logo{margin-bottom:1rem}.footer-brand p{color:var(--gray-300);font-size:0.9rem;margin-bottom:1rem}.footer-social{display:flex;gap:1rem}.footer-social a{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.3s}.footer-social a:hover{background:var(--green)}.footer-social svg{width:18px;height:18px;stroke:var(--white)}.footer-col h5{font-size:0.9rem;font-weight:600;margin-bottom:1rem;color:var(--white)}.footer-col ul{list-style:none}.footer-col li{margin-bottom:0.5rem}.footer-col a{color:var(--gray-300);font-size:0.85rem;transition:color 0.3s}.footer-col a:hover{color:var(--green)}.footer-bottom{border-top:1px solid var(--navy);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}.footer-bottom p{color:var(--gray-600);font-size:0.8rem}
+        @media(max-width:768px){.nav{display:none}.mobile-toggle{display:block}.footer-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="logo-text"><h1>KNDLI LIFE</h1><span>한니라이프 | 韓妮生活</span></div></a>
+            <nav class="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+                <a href="career.html" class="active"><span class="lang-ko">취업</span><span class="lang-zh">就業</span></a>
+                <a href="housing.html"><span class="lang-ko">집계약</span><span class="lang-zh">租屋</span></a>
+                <a href="school.html"><span class="lang-ko">학교</span><span class="lang-zh">校園</span></a>
+                <a href="startup.html"><span class="lang-ko">창업</span><span class="lang-zh">創業</span></a>
+                <a href="seminar.html"><span class="lang-ko">강연</span><span class="lang-zh">講座</span></a>
+                <a href="faq.html">FAQ</a>
+                <button class="btn-lang" id="lang-toggle-btn"><span class="lang-ko">中文</span><span class="lang-zh">한국어</span></button>
+                <a href="quote.html" class="btn-quote"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+            </nav>
+            <button class="mobile-toggle" onclick="toggleMobile()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+            <a href="career.html" class="active"><span class="lang-ko">취업 지원</span><span class="lang-zh">就業支援</span></a>
+            <a href="housing.html"><span class="lang-ko">집 계약 동행</span><span class="lang-zh">租屋陪同</span></a>
+            <a href="school.html"><span class="lang-ko">학교생활 지원</span><span class="lang-zh">校園生活</span></a>
+            <a href="startup.html"><span class="lang-ko">창업 컨설팅</span><span class="lang-zh">創業諮詢</span></a>
+            <a href="seminar.html"><span class="lang-ko">강연/강습</span><span class="lang-zh">講座/課程</span></a>
+            <a href="faq.html">FAQ</a>
+            <a href="quote.html" class="btn-quote"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="page-hero">
+            <div class="page-hero-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <h2><span class="lang-ko">💼 취업 지원</span><span class="lang-zh">💼 就業支援</span></h2>
+            <p><span class="lang-ko">외국인의 한국 취업, 처음부터 끝까지 함께합니다.<br>이력서 작성부터 비자 변경까지 전 과정을 지원합니다.</span><span class="lang-zh">外國人的韓國就業，從頭到尾陪伴您。<br>從履歷撰寫到簽證變更，全程支援。</span></p>
+        </section>
+        <section class="section">
+            <div class="content-block">
+                <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> <span class="lang-ko">서비스 내용</span><span class="lang-zh">服務內容</span></h3>
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                        <div><h4><span class="lang-ko">이력서/자기소개서 작성</span><span class="lang-zh">履歷/自我介紹撰寫</span></h4><p><span class="lang-ko">한국 기업 맞춤형 이력서와 자기소개서를 작성해 드립니다</span><span class="lang-zh">為您撰寫符合韓國企業風格的履歷和自我介紹</span></p></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <div><h4><span class="lang-ko">면접 준비/모의 면접</span><span class="lang-zh">面試準備/模擬面試</span></h4><p><span class="lang-ko">한국 기업 면접 문화와 예상 질문, 답변 연습</span><span class="lang-zh">韓國企業面試文化、預期問題與答案練習</span></p></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                        <div><h4><span class="lang-ko">취업비자(E-7) 상담</span><span class="lang-zh">工作簽證(E-7)諮詢</span></h4><p><span class="lang-ko">D-2에서 E-7 변경, 비자 요건과 준비서류 안내</span><span class="lang-zh">D-2轉E-7、簽證要件與準備文件說明</span></p></div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                        <div><h4><span class="lang-ko">구직 전략 상담</span><span class="lang-zh">求職策略諮詢</span></h4><p><span class="lang-ko">직무 분석, 회사 조사, 지원 전략 수립</span><span class="lang-zh">職務分析、公司調查、求職策略規劃</span></p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-block">
+                <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> <span class="lang-ko">진행 과정</span><span class="lang-zh">服務流程</span></h3>
+                <div class="process-steps">
+                    <div class="step"><div class="step-content"><h4><span class="lang-ko">무료 상담</span><span class="lang-zh">免費諮詢</span></h4><p><span class="lang-ko">현재 상황, 희망 직종, 비자 상태 등 파악</span><span class="lang-zh">了解目前狀況、希望職種、簽證狀態等</span></p></div></div>
+                    <div class="step"><div class="step-content"><h4><span class="lang-ko">서류 작성</span><span class="lang-zh">文件撰寫</span></h4><p><span class="lang-ko">이력서, 자기소개서 작성 및 수정</span><span class="lang-zh">撰寫和修改履歷、自我介紹</span></p></div></div>
+                    <div class="step"><div class="step-content"><h4><span class="lang-ko">면접 준비</span><span class="lang-zh">面試準備</span></h4><p><span class="lang-ko">모의 면접, 예상 질문 준비</span><span class="lang-zh">模擬面試、準備預期問題</span></p></div></div>
+                    <div class="step"><div class="step-content"><h4><span class="lang-ko">비자 지원</span><span class="lang-zh">簽證協助</span></h4><p><span class="lang-ko">취업비자 변경 서류 준비 안내</span><span class="lang-zh">工作簽證變更文件準備指導</span></p></div></div>
+                </div>
+            </div>
+            <div class="cta-box">
+                <h3><span class="lang-ko">한국 취업, 함께 준비해요</span><span class="lang-zh">一起準備韓國就業</span></h3>
+                <p><span class="lang-ko">무료 상담을 통해 취업 전략을 세워드립니다</span><span class="lang-zh">通過免費諮詢為您規劃就業策略</span></p>
+                <a href="quote.html" class="btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> <span class="lang-ko">무료 상담 신청</span><span class="lang-zh">申請免費諮詢</span></a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><div class="logo"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="logo-text"><h1>KNDLI LIFE</h1><span>한니라이프 | 韓妮生活</span></div></div><p><span class="lang-ko">외국인을 위한 한국 생활 지원 전문</span><span class="lang-zh">專為外國人提供韓國生活支援</span></p><div class="footer-social"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="mailto:kndli.bella@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div><div class="footer-col"><h5><span class="lang-ko">서비스</span><span class="lang-zh">服務項目</span></h5><ul><li><a href="career.html"><span class="lang-ko">취업 지원</span><span class="lang-zh">就業支援</span></a></li><li><a href="housing.html"><span class="lang-ko">집 계약 동행</span><span class="lang-zh">租屋陪同</span></a></li><li><a href="school.html"><span class="lang-ko">학교생활 지원</span><span class="lang-zh">校園生活</span></a></li><li><a href="startup.html"><span class="lang-ko">창업 컨설팅</span><span class="lang-zh">創業諮詢</span></a></li><li><a href="seminar.html"><span class="lang-ko">강연/강습</span><span class="lang-zh">講座/課程</span></a></li></ul></div><div class="footer-col"><h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5><ul><li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a></li><li><a href="faq.html">FAQ</a></li></ul></div><div class="footer-col"><h5><span class="lang-ko">KNDLI 그룹</span><span class="lang-zh">KNDLI 集團</span></h5><ul><li><a href="../index.html">KNDLI <span class="lang-ko">메인</span><span class="lang-zh">首頁</span></a></li><li><a href="../trans/index.html">KNDLI TRANS</a></li><li><a href="../links/index.html">KNDLI LINK</a></li></ul></div></div><div class="footer-bottom"><p><span class="lang-ko">© 2024 한니드레이 유한회사 | 사업자등록번호: 126-84-00471</span><span class="lang-zh">© 2024 韓妮德來有限公司 | 統一編號: 126-84-00471</span></p></div></div></footer>
+    <script>function toggleLanguage(){document.body.classList.toggle('zh');localStorage.setItem('kndli-lang',document.body.classList.contains('zh')?'zh':'ko')}document.addEventListener('DOMContentLoaded',function(){if(localStorage.getItem('kndli-lang')==='zh')document.body.classList.add('zh');const langBtn=document.getElementById('lang-toggle-btn');if(langBtn)langBtn.addEventListener('click',toggleLanguage)});function toggleMobile(){document.getElementById('mobileNav').classList.toggle('active')}</script>
+</body>
+</html>
