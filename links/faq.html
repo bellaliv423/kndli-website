@@ -1,0 +1,1093 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | KNDLI LINK</title>
+    <meta name="description" content="KNDLI LINK 자주 묻는 질문. 인플루언서 마케팅, 대만 유통, 샤홍슈 인증, 중국 소싱 관련 FAQ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2d4a;
+            --orange: #f97316;
+            --orange-light: #fb923c;
+            --orange-dark: #ea580c;
+            --cream: #faf8f5;
+            --white: #fff;
+            --gray-100: #f3f4f6;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --font-display: 'Playfair Display', serif;
+            --font-body-ko: 'Noto Sans KR', sans-serif;
+            --font-body-zh: 'Noto Sans TC', sans-serif;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, .1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, .1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, .1);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: var(--font-body-ko);
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6
+        }
+
+        body.zh {
+            font-family: var(--font-body-zh)
+        }
+
+        /* ========== Language Toggle System (Fixed) ========== */
+        /* 1. Hide Chinese by default */
+        .lang-zh {
+            display: none !important;
+        }
+
+        /* 2. Hide Korean in Chinese mode */
+        body.zh .lang-ko {
+            display: none !important;
+        }
+
+        /* 3. Show Chinese in Chinese mode */
+        /* ADDED !important to ensure these override the hide rules */
+        body.zh .lang-zh {
+            display: block !important;
+        }
+
+        body.zh li.lang-zh {
+            display: list-item !important;
+        }
+
+        /* 4. Handle Inline Elements */
+        span.lang-ko {
+            display: inline;
+        }
+
+        span.lang-zh {
+            display: none !important;
+        }
+
+        body.zh span.lang-zh {
+            display: inline !important;
+        }
+
+        /* 5. Handle Buttons (Flex) */
+        a.btn.lang-zh {
+            display: none !important;
+        }
+
+        /* Restore correct display in Chinese mode */
+        body.zh a.btn.lang-zh {
+            display: inline-flex !important;
+        }
+
+        body.zh a.btn-block.lang-zh {
+            display: flex !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.3
+        }
+
+        p {
+            color: var(--gray-600);
+            line-height: 1.8
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .header {
+            background: var(--navy);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--white)
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column
+        }
+
+        .logo-main {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 1px
+        }
+
+        .logo-sub {
+            font-size: .7rem;
+            color: var(--orange);
+            letter-spacing: .5px
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none
+        }
+
+        .nav-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500;
+            transition: color .3s
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--orange)
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .lang-toggle {
+            background: 0 0;
+            border: 1px solid var(--gray-600);
+            color: var(--gray-300);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            font-size: .85rem;
+            cursor: pointer;
+            transition: all .3s
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--orange);
+            color: var(--orange)
+        }
+
+        .btn-quote {
+            background: var(--orange);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: all .3s
+        }
+
+        .btn-quote:hover {
+            background: var(--orange-light)
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: 0 0;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 8px
+        }
+
+        .mobile-menu-btn svg {
+            width: 24px;
+            height: 24px
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            padding: 140px 0 80px;
+            text-align: center
+        }
+
+        .page-hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 16px
+        }
+
+        .page-hero h1 .highlight {
+            color: var(--orange)
+        }
+
+        .page-hero p {
+            color: var(--gray-300);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto
+        }
+
+        .section {
+            padding: 80px 0
+        }
+
+        .section-white {
+            background: var(--white)
+        }
+
+        .section-cream {
+            background: var(--cream)
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px
+        }
+
+        .section-title {
+            color: var(--navy);
+            margin-bottom: 16px
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto
+        }
+
+        .faq-category {
+            margin-bottom: 48px
+        }
+
+        .faq-category h3 {
+            color: var(--navy);
+            font-family: var(--font-body-ko);
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--orange);
+            display: inline-block
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md)
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: all .3s
+        }
+
+        .faq-question:hover {
+            background: var(--gray-100)
+        }
+
+        .faq-question h4 {
+            color: var(--navy);
+            font-family: var(--font-body-ko);
+            font-size: 1rem;
+            font-weight: 500;
+            flex: 1
+        }
+
+        .faq-question svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--orange);
+            transition: transform .3s;
+            flex-shrink: 0
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg)
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease-out
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 20px;
+            color: var(--gray-600);
+            font-size: .95rem;
+            line-height: 1.8
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            text-align: center
+        }
+
+        .cta-box {
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: var(--radius-2xl);
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto
+        }
+
+        .cta-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px
+        }
+
+        .cta-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: var(--white)
+        }
+
+        .cta-box h2 {
+            color: var(--white);
+            margin-bottom: 16px
+        }
+
+        .cta-box p {
+            color: var(--gray-300);
+            margin-bottom: 32px;
+            font-size: 1.1rem
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .3s;
+            cursor: pointer;
+            border: none
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white)
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-light);
+            transform: translateY(-2px)
+        }
+
+        .footer {
+            background: var(--navy);
+            padding: 60px 0 30px
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            font-size: .9rem;
+            margin-bottom: 20px
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, .1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            transition: all .3s
+        }
+
+        .footer-social a:hover {
+            background: var(--orange);
+            color: var(--white)
+        }
+
+        .footer-social a svg {
+            width: 20px;
+            height: 20px
+        }
+
+        .footer-col h5 {
+            color: var(--white);
+            font-family: var(--font-body-ko);
+            font-weight: 600;
+            margin-bottom: 20px
+        }
+
+        .footer-col ul {
+            list-style: none
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px
+        }
+
+        .footer-col ul a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: .9rem;
+            transition: color .3s
+        }
+
+        .footer-col ul a:hover {
+            color: var(--orange)
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px
+        }
+
+        .footer-bottom p {
+            color: var(--gray-500);
+            font-size: .85rem
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px
+        }
+
+        .footer-legal a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: .85rem
+        }
+
+        .footer-legal a:hover {
+            color: var(--orange)
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            z-index: 999
+        }
+
+        .mobile-nav.active {
+            display: block
+        }
+
+        .mobile-nav ul {
+            list-style: none
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 16px
+        }
+
+        .mobile-nav ul a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+            padding: 8px 0
+        }
+
+        .mobile-nav ul a:hover,
+        .mobile-nav ul a.active {
+            color: var(--orange)
+        }
+
+        .mobile-nav .btn {
+            margin-top: 16px;
+            width: 100%
+        }
+
+        @media(max-width:1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:768px) {
+            h1 {
+                font-size: 2.25rem
+            }
+
+            h2 {
+                font-size: 1.75rem
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .mobile-menu-btn {
+                display: block
+            }
+
+            .btn-quote {
+                display: none
+            }
+
+            .page-hero {
+                padding: 120px 0 60px
+            }
+
+            .page-hero h1 {
+                font-size: 2rem
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center
+            }
+
+            .footer-brand {
+                display: flex;
+                flex-direction: column;
+                align-items: center
+            }
+
+            .footer-social {
+                justify-content: center
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center
+            }
+
+            .footer-legal {
+                justify-content: center
+            }
+        }
+    </style>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVNX7HVSQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SVNX7HVSQ');
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg></div>
+                <div class="logo-text"><span class="logo-main">KNDLI LINK</span><span class="logo-sub lang-ko">한니링크 |
+                        韓妮連結</span><span class="logo-sub lang-zh">韓妮連結 | 한니링크</span></div>
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a></li>
+                    <li><a href="influencer.html"><span class="lang-ko">인플루언서</span><span
+                                class="lang-zh">網紅行銷</span></a></li>
+                    <li><a href="distribution.html"><span class="lang-ko">유통</span><span class="lang-zh">通路</span></a>
+                    </li>
+                    <li><a href="xiaohongshu.html"><span class="lang-ko">샤홍슈</span><span class="lang-zh">小紅書</span></a>
+                    </li>
+                    <li><a href="sourcing.html"><span class="lang-ko">소싱</span><span class="lang-zh">採購</span></a></li>
+                    <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span class="lang-zh">作品集</span></a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="lang-toggle" onclick="toggleLanguage()"><span class="lang-ko">中文</span><span
+                            class="lang-zh">한국어</span></button>
+                    <a href="quote.html" class="btn-quote"><span class="lang-ko">문의하기</span><span
+                            class="lang-zh">聯繫我們</span></a>
+                </div>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg></button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a></li>
+                <li><a href="influencer.html"><span class="lang-ko">인플루언서 마케팅</span><span
+                            class="lang-zh">網紅行銷</span></a></li>
+                <li><a href="distribution.html"><span class="lang-ko">대만 유통</span><span class="lang-zh">台灣通路</span></a>
+                </li>
+                <li><a href="xiaohongshu.html"><span class="lang-ko">샤홍슈 인증</span><span class="lang-zh">小紅書認證</span></a>
+                </li>
+                <li><a href="sourcing.html"><span class="lang-ko">중국 소싱</span><span class="lang-zh">中國採購</span></a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+            </ul>
+            <a href="quote.html" class="btn btn-primary"><span class="lang-ko">문의하기</span><span
+                    class="lang-zh">聯繫我們</span></a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1><span class="highlight">FAQ</span></h1>
+            <p><span class="lang-ko">자주 묻는 질문에 대한 답변을 확인하세요</span><span class="lang-zh">查看常見問題的解答</span></p>
+        </div>
+    </section>
+
+    <section class="section section-cream">
+        <div class="container">
+            <div class="faq-container">
+                <!-- 일반 -->
+                <div class="faq-category">
+                    <h3><span class="lang-ko">📌 일반</span><span class="lang-zh">📌 一般問題</span></h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">KNDLI LINK는 어떤 서비스를 제공하나요?</span><span class="lang-zh">KNDLI
+                                    LINK提供什麼服務？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">KNDLI LINK는 한국-중화권 비즈니스 연결 서비스를 제공합니다.
+                                    주요 서비스로는 대만/중국 인플루언서 마케팅, 대만 유통 채널 연결, 샤홍슈(小红书) 의료기관 인증 대행, 중국 OEM/ODM 소싱 및 제조 대행이
+                                    있습니다.</span><span class="lang-zh">KNDLI
+                                    LINK提供韓國-中華圈商務連結服務。主要服務包括台灣/中國網紅行銷、台灣通路連結、小紅書醫療機構認證代辦、中國OEM/ODM採購及製造代辦。</span></div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">어떤 업종의 기업에 적합한가요?</span><span class="lang-zh">適合什麼行業的企業？</span>
+                            </h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">뷰티/화장품, 패션, F&B, 의료/성형, 라이프스타일 등 중화권 시장
+                                    진출을 원하는 모든 한국 기업에 적합합니다. 특히 K-뷰티, K-패션 브랜드와 의료관광 마케팅을 원하는 병원에 강점이 있습니다.</span><span
+                                    class="lang-zh">適合美妝/化妝品、時尚、餐飲、醫療/整形、生活方式等希望進軍中華圈市場的所有韓國企業。特別在K-Beauty、K-Fashion品牌和希望進行醫療觀光行銷的醫院方面具有優勢。</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">상담은 어떻게 받을 수 있나요?</span><span class="lang-zh">如何獲得諮詢？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">웹사이트의 문의 폼, 이메일(<a
+                                        href="mailto:contact@kndli.com">contact@kndli.com</a>), 또는 카카오톡(@kndli)으로 연락주시면
+                                    24시간 내에 답변 드립니다. 초기 상담은 무료입니다.</span><span class="lang-zh">透過網站諮詢表單、電子郵件(<a
+                                        href="mailto:contact@kndli.com">contact@kndli.com</a>)或KakaoTalk(@kndli)聯繫，我們會在24小時內回覆。初次諮詢免費。</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 인플루언서 마케팅 -->
+                <div class="faq-category">
+                    <h3><span class="lang-ko">📱 인플루언서 마케팅</span><span class="lang-zh">📱 網紅行銷</span></h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">인플루언서 마케팅 최소 예산은 얼마인가요?</span><span
+                                    class="lang-zh">網紅行銷最低預算是多少？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">마이크로 인플루언서 패키지는 300만원부터 시작합니다. 캠페인 규모와
+                                    목표에 따라 맞춤 견적을 제공해 드립니다.</span><span
+                                    class="lang-zh">微型網紅套餐從300萬韓元(約NT$75,000)起。根據活動規模和目標提供客製報價。</span></div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">어떤 플랫폼의 인플루언서와 협업 가능한가요?</span><span
+                                    class="lang-zh">可以與哪些平台的網紅合作？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">Instagram, YouTube, 샤홍슈(小红书), 틱톡, 웨이보 등
+                                    주요 플랫폼의 대만 및 중국 인플루언서 네트워크를 보유하고 있습니다.</span><span
+                                    class="lang-zh">我們擁有Instagram、YouTube、小紅書、TikTok、微博等主要平台的台灣及中國網紅網絡。</span></div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">캠페인 기간은 얼마나 걸리나요?</span><span class="lang-zh">活動期間需要多久？</span>
+                            </h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">기획부터 실행까지 보통 4-6주가 소요됩니다. 인플루언서 섭외, 콘텐츠
+                                    제작, 검수, 게시까지 모든 과정을 관리합니다.</span><span
+                                    class="lang-zh">從企劃到執行通常需要4-6週。我們管理從網紅邀約、內容製作、審核到發布的所有流程。</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 대만 유통 -->
+                <div class="faq-category">
+                    <h3><span class="lang-ko">🏪 대만 유통</span><span class="lang-zh">🏪 台灣通路</span></h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">어떤 유통 채널에 입점할 수 있나요?</span><span class="lang-zh">可以進入哪些通路？</span>
+                            </h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">Watsons, Cosmed, 康是美 등 드러그스토어, PChome,
+                                    momo 등 이커머스, 그리고 백화점 및 편집샵까지 다양한 채널에 연결해 드립니다.</span><span
+                                    class="lang-zh">我們可連結Watsons、Cosmed、康是美等藥妝店，PChome、momo等電商平台，以及百貨公司和選品店等多種通路。</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">대만 수입에 필요한 서류는 무엇인가요?</span><span
+                                    class="lang-zh">進口台灣需要什麼文件？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">제품 카테고리에 따라 다르지만, 일반적으로 성분표, MSDS,
+                                    제조증명서, 자유판매증명서 등이 필요합니다. 서류 준비도 지원해 드립니다.</span><span
+                                    class="lang-zh">根據產品類別有所不同，一般需要成分表、MSDS、製造證明、自由銷售證明等。我們也協助準備文件。</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 샤홍슈 인증 -->
+                <div class="faq-category">
+                    <h3><span class="lang-ko">🏥 샤홍슈 인증</span><span class="lang-zh">🏥 小紅書認證</span></h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">샤홍슈 인증은 왜 필요한가요?</span><span class="lang-zh">為什麼需要小紅書認證？</span>
+                            </h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">2024년부터 샤홍슈는 의료/미용 관련 미인증 계정 단속을 강화하고
+                                    있습니다. 인증 없이 운영 시 계정 정지, 콘텐츠 삭제 등의 불이익이 발생할 수 있습니다.</span><span
+                                    class="lang-zh">自2024年起，小紅書加強了對醫療/美容相關未認證帳號的管控。未經認證運營可能導致帳號停權、內容刪除等處罰。</span></div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">인증 기간은 얼마나 걸리나요?</span><span class="lang-zh">認證需要多長時間？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">서류 준비부터 인증 완료까지 총 4-6주가 소요됩니다. 서류 상태에 따라
+                                    기간이 달라질 수 있습니다.</span><span class="lang-zh">從文件準備到認證完成共需4-6週。根據文件狀況，時間可能有所不同。</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 중국 소싱 -->
+                <div class="faq-category">
+                    <h3><span class="lang-ko">📦 중국 소싱</span><span class="lang-zh">📦 中國採購</span></h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">최소 주문 수량(MOQ)은 어떻게 되나요?</span><span
+                                    class="lang-zh">最低訂購量(MOQ)是多少？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">제품과 공장에 따라 다르지만, 일반적으로 OEM/ODM은 1,000개
+                                    이상, 기성품 소싱은 100개 이상부터 가능합니다. 소량 주문도 협의 가능합니다.</span><span
+                                    class="lang-zh">根據產品和工廠有所不同，一般OEM/ODM需1,000個以上，現成品採購需100個以上。小量訂購可另議。</span></div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4><span class="lang-ko">품질 관리는 어떻게 하나요?</span><span class="lang-zh">如何進行品質管理？</span></h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner"><span class="lang-ko">공장 방문 검수, 샘플 확인, 출하 전 검사(QC), 사진/영상 리포트
+                                    제공 등 철저한 품질 관리 프로세스를 운영합니다.</span><span
+                                    class="lang-zh">我們運營嚴格的品質管理流程，包括工廠訪問檢驗、樣品確認、出貨前檢查(QC)、照片/影片報告等。</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <path d="M12 17h.01" />
+                    </svg></div>
+                <h2><span class="lang-ko">더 궁금한 점이 있으신가요?</span><span class="lang-zh">還有其他問題嗎？</span></h2>
+                <p><span class="lang-ko">언제든지 편하게 문의해 주세요. 친절하게 답변 드리겠습니다.</span><span
+                        class="lang-zh">歡迎隨時聯繫我們，我們會親切地為您解答。</span></p>
+                <a href="quote.html" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                            </svg></div>
+                        <div class="logo-text"><span class="logo-main">KNDLI LINK</span><span
+                                class="logo-sub lang-ko">한니링크 | 韓妮連結</span><span class="logo-sub lang-zh">韓妮連結 |
+                                한니링크</span></div>
+                    </a>
+                    <p><span class="lang-ko">한국-중화권 비즈니스 연결 전문<br>비즈니스를 잇다, 성공을 잇다</span><span
+                            class="lang-zh">韓國-中華圈商務連結專業<br>連結商務，連結成功</span></p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank"><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg></a>
+                        <a href="https://open.kakao.com/me/kndli" target="_blank"><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                            </svg></a>
+                        <a href="mailto:contact@kndli.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5><span class="lang-ko">서비스</span><span class="lang-zh">服務</span></h5>
+                    <ul>
+                        <li><a href="influencer.html"><span class="lang-ko">인플루언서 마케팅</span><span
+                                    class="lang-zh">網紅行銷</span></a></li>
+                        <li><a href="distribution.html"><span class="lang-ko">대만 유통 연결</span><span
+                                    class="lang-zh">台灣通路連結</span></a></li>
+                        <li><a href="xiaohongshu.html"><span class="lang-ko">샤홍슈 인증</span><span
+                                    class="lang-zh">小紅書認證</span></a></li>
+                        <li><a href="sourcing.html"><span class="lang-ko">중국 소싱</span><span
+                                    class="lang-zh">中國採購</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5>
+                    <ul>
+                        <li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+                        </li>
+                        <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span
+                                    class="lang-zh">作品集</span></a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5><span class="lang-ko">KNDLI 그룹</span><span class="lang-zh">KNDLI 集團</span></h5>
+                    <ul>
+                        <li><a href="../index.html">KNDLI <span class="lang-ko">메인</span><span
+                                    class="lang-zh">首頁</span></a></li>
+                        <li><a href="../trans/index.html">KNDLI TRANS</a></li>
+                        <li><a href="../life.html">KNDLI LIFE</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><span class="lang-ko">© 2024 한니드레이 유한회사 | 사업자등록번호: 126-84-00471</span><span class="lang-zh">© 2024
+                        韓妮德來有限公司 | 統一編號: 126-84-00471</span></p>
+                <div class="footer-legal"><a href="#"><span class="lang-ko">이용약관</span><span
+                            class="lang-zh">服務條款</span></a><a href="#"><span class="lang-ko">개인정보처리방침</span><span
+                            class="lang-zh">隱私權政策</span></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage() { document.body.classList.toggle('zh'); localStorage.setItem('kndli-lang', document.body.classList.contains('zh') ? 'zh' : 'ko') }
+        document.addEventListener('DOMContentLoaded', function () { if (localStorage.getItem('kndli-lang') === 'zh') document.body.classList.add('zh') });
+        function toggleMobileMenu() { document.getElementById('mobileNav').classList.toggle('active') }
+
+        // Fix truncated script
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 22, 40, 0.98)';
+            } else {
+                header.style.background = 'var(--navy)';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

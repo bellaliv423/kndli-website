@@ -1,0 +1,1400 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통역사 소개 | KNDLI TRANS 한니트랜스</title>
+    <meta name="description" content="KNDLI TRANS의 전문 통역사를 소개합니다. 한국어-중국어 전문 통역 팀.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
+    <style>
+        /* ========== CSS Variables ========== */
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2d4a;
+            --teal: #2dd4bf;
+            --teal-dark: #14b8a6;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gold: #f59e0b;
+
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Noto Sans KR', 'Noto Sans TC', sans-serif;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* ========== Reset & Base ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-700);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Language Toggle */
+        .lang-zh {
+            display: none;
+        }
+
+        body.zh .lang-ko {
+            display: none;
+        }
+
+        body.zh .lang-zh {
+            display: inline;
+        }
+
+        /* ========== Header ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--teal);
+            letter-spacing: 0.5px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--teal);
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .lang-switch i {
+            color: var(--teal);
+            width: 18px;
+            height: 18px;
+        }
+
+        .lang-switch span {
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn i {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            padding: 140px 24px 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(45, 212, 191, 0.1);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge i {
+            color: var(--teal);
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-badge span {
+            color: var(--teal);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== Main Content ========== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== Team Section ========== */
+        .team-section {
+            margin-bottom: 80px;
+        }
+
+        /* Featured (Bella) */
+        .featured-member {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            margin-bottom: 48px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .featured-photo {
+            position: relative;
+        }
+
+        .featured-photo img {
+            width: 280px;
+            height: 280px;
+            border-radius: var(--radius-xl);
+            object-fit: cover;
+            border: 4px solid var(--teal);
+        }
+
+        .featured-photo .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--teal);
+            color: var(--navy);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .featured-photo .badge i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .featured-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .featured-info .title {
+            color: var(--teal);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .featured-info .bio {
+            color: var(--gray-300);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .featured-tags span {
+            background: rgba(45, 212, 191, 0.15);
+            color: var(--teal);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .featured-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .featured-stats .stat {
+            text-align: center;
+        }
+
+        .featured-stats .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--teal);
+        }
+
+        .featured-stats .stat-label {
+            color: var(--gray-400);
+            font-size: 0.85rem;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--teal);
+        }
+
+        .team-card-photo {
+            position: relative;
+            height: 280px;
+            background: var(--gray-100);
+            overflow: hidden;
+        }
+
+        .team-card-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .team-card:hover .team-card-photo img {
+            transform: scale(1.05);
+        }
+
+        .team-card-photo .availability {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #10b981;
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .team-card-photo .availability::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--white);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .team-card-body {
+            padding: 24px;
+        }
+
+        .team-card-body h4 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .team-card-body .role {
+            color: var(--teal-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .team-card-body .bio {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .team-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .team-card-tags span {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .team-card-langs {
+            display: flex;
+            gap: 8px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .lang-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .lang-badge.native {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        /* ========== Why Us Section ========== */
+        .why-section {
+            background: var(--gray-50);
+            padding: 80px 24px;
+            margin: 0 -24px;
+        }
+
+        .why-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .why-card {
+            background: var(--white);
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .why-card .icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .why-card .icon i {
+            width: 32px;
+            height: 32px;
+            color: var(--white);
+        }
+
+        .why-card h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        /* ========== CTA Section ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 24px;
+            margin: 80px -24px 0;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            background: var(--navy);
+            padding: 60px 24px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .footer-social a i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-col h5 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--teal);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 1024px) {
+            .featured-member {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .featured-photo {
+                display: flex;
+                justify-content: center;
+            }
+
+            .featured-tags,
+            .featured-stats {
+                justify-content: center;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .featured-member {
+                padding: 32px 24px;
+            }
+
+            .featured-photo img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .featured-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .featured-stats {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--gray-300);
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            color: var(--teal);
+        }
+    </style>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVNX7HVSQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SVNX7HVSQ');
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">文</div>
+                <div class="logo-text">
+                    <span class="logo-main">KNDLI TRANS</span>
+                    <span class="logo-sub">
+                        <span class="lang-ko">한니트랜스 | 韓妮翻譯</span>
+                        <span class="lang-zh">韓妮翻譯 | 한니트랜스</span>
+                    </span>
+                </div>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+                <a href="translation.html"><span class="lang-ko">번역</span><span class="lang-zh">翻譯</span></a>
+                <a href="interpretation.html"><span class="lang-ko">통역</span><span class="lang-zh">口譯</span></a>
+                <a href="interpreters.html" class="active"><span class="lang-ko">통역사</span><span
+                        class="lang-zh">譯者</span></a>
+                <a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span class="lang-zh">作品集</span></a>
+                <a href="faq.html">FAQ</a>
+                <a href="quote.html"><span class="lang-ko">연락하기</span><span class="lang-zh">聯絡我們</span></a>
+                <div class="lang-switch" onclick="toggleLanguage()">
+                    <i data-lucide="languages"></i>
+                    <span class="lang-ko">中文</span>
+                    <span class="lang-zh">한국어</span>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html"><span class="lang-ko">首頁</span><span class="lang-zh">首頁</span></a>
+        <a href="translation.html"><span class="lang-ko">翻譯</span><span class="lang-zh">翻譯</span></a>
+        <a href="interpretation.html"><span class="lang-ko">口譯</span><span class="lang-zh">口譯</span></a>
+        <a href="interpreters.html" class="active"><span class="lang-ko">譯者</span><span class="lang-zh">譯者</span></a>
+        <a href="portfolio.html"><span class="lang-ko">作品集</span><span class="lang-zh">作品集</span></a>
+        <a href="faq.html">FAQ</a>
+        <a href="javascript:void(0)" onclick="toggleLanguage()">
+            <span class="lang-ko">🌐 中文으로 전환</span>
+            <span class="lang-zh">🌐 切換至韓文</span>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <i data-lucide="users"></i>
+                <span>
+                    <span class="lang-ko">전문 통번역 팀</span>
+                    <span class="lang-zh">專業翻譯口譯團隊</span>
+                </span>
+            </div>
+            <h1>
+                <span class="lang-ko">KNDLI TRANS 통역사 소개</span>
+                <span class="lang-zh">KNDLI TRANS 譯者介紹</span>
+            </h1>
+            <p>
+                <span class="lang-ko">한국어-중국어 전문 통번역 팀을 소개합니다.<br>각 분야의 전문가가 최고의 서비스를 제공합니다.</span>
+                <span class="lang-zh">為您介紹韓語-中文專業翻譯口譯團隊。<br>各領域專家為您提供最優質的服務。</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Team Section -->
+        <section class="team-section">
+            <!-- Featured Member - Bella -->
+            <div class="featured-member">
+                <div class="featured-photo">
+                    <img src="bella-profile-photo.jpg" alt="Bella 황영아">
+                    <div class="badge">
+                        <i data-lucide="crown"></i>
+                        <span class="lang-ko">대표</span>
+                        <span class="lang-zh">代表</span>
+                    </div>
+                </div>
+                <div class="featured-info">
+                    <h3>Bella 황영아 (黃鈴雅)</h3>
+                    <p class="title">
+                        <span class="lang-ko">KNDLI 대표 | 한-중 통번역 전문가</span>
+                        <span class="lang-zh">KNDLI 代表 | 韓-中翻譯口譯專家</span>
+                    </p>
+                    <p class="bio">
+                        <span class="lang-ko">
+                            대만 출신으로 한국에서 10년 이상 거주하며 비즈니스 통번역 분야에서 활동하고 있습니다.
+                            한양대학교 MBA 과정 중이며, 다양한 기업 미팅, 전시회, 마케팅 프로젝트에서 통번역 서비스를 제공했습니다.
+                            한국과 대만/중화권을 연결하는 비즈니스 파트너로서 최고의 커뮤니케이션을 약속드립니다.
+                        </span>
+                        <span class="lang-zh">
+                            來自台灣，在韓國居住超過10年，活躍於商業翻譯口譯領域。
+                            目前就讀漢陽大學MBA課程，曾為眾多企業會議、展覽會、行銷專案提供翻譯口譯服務。
+                            作為連結韓國與台灣/中華圈的商業夥伴，承諾為您提供最優質的溝通服務。
+                        </span>
+                    </p>
+                    <div class="featured-tags">
+                        <span>
+                            <span class="lang-ko">비즈니스 통역</span>
+                            <span class="lang-zh">商務口譯</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">전시회 통역</span>
+                            <span class="lang-zh">展覽會口譯</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">마케팅 번역</span>
+                            <span class="lang-zh">行銷翻譯</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">계약서/문서</span>
+                            <span class="lang-zh">合約/文件</span>
+                        </span>
+                        <span>MBA</span>
+                    </div>
+                    <div class="featured-tags" style="margin-bottom: 24px;">
+                        <span class="lang-badge native">中文 (Native)</span>
+                        <span class="lang-badge">한국어 (TOPIK 6)</span>
+                    </div>
+                    <div class="featured-stats">
+                        <div class="stat">
+                            <div class="stat-value">10+</div>
+                            <div class="stat-label">
+                                <span class="lang-ko">한국 거주 연차</span>
+                                <span class="lang-zh">韓國居住年數</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">
+                                <span class="lang-ko">프로젝트 완료</span>
+                                <span class="lang-zh">完成專案數</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">
+                                <span class="lang-ko">고객 만족도</span>
+                                <span class="lang-zh">客戶滿意度</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2>
+                    <span class="lang-ko">협력 통역사</span>
+                    <span class="lang-zh">合作譯者</span>
+                </h2>
+                <p>
+                    <span class="lang-ko">분야별 전문 통역사가 함께합니다</span>
+                    <span class="lang-zh">各領域專業譯者與您同行</span>
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="team-grid">
+                <!-- Team Member 1 - 한양대 외국인 유학생 -->
+                <div class="team-card">
+                    <div class="team-card-photo"
+                        style="display: flex; align-items: center; justify-content: center; background: #e0f2fe; font-size: 6rem;">
+                        <span>👩‍🎓</span>
+                        <div class="availability">
+                            <span class="lang-ko">예약 가능</span>
+                            <span class="lang-zh">可預約</span>
+                        </div>
+                    </div>
+                    <div class="team-card-body">
+                        <h4>린메이 (林美)</h4>
+                        <p class="role">
+                            <span class="lang-ko">한양대 경영학과 석사</span>
+                            <span class="lang-zh">漢陽大學經營學碩士</span>
+                        </p>
+                        <p class="bio">
+                            <span class="lang-ko">
+                                대만 타이베이 출신. 한양대 경영학과 석사 과정 중이며,
+                                IT/스타트업 분야 통역과 캐주얼한 비즈니스 미팅에 강점이 있습니다.
+                                젊은 감각으로 트렌디한 콘텐츠 번역도 진행합니다.
+                            </span>
+                            <span class="lang-zh">
+                                來自台灣台北。就讀漢陽大學經營學碩士，
+                                擅長IT/新創領域口譯及輕鬆的商務會議。
+                                以年輕感性進行時尚內容翻譯。
+                            </span>
+                        </p>
+                        <div class="team-card-tags">
+                            <span>IT/스타트업</span>
+                            <span>
+                                <span class="lang-ko">콘텐츠</span>
+                                <span class="lang-zh">內容</span>
+                            </span>
+                            <span>SNS</span>
+                        </div>
+                        <div class="team-card-langs">
+                            <span class="lang-badge native">中文 (Native)</span>
+                            <span class="lang-badge">한국어 (TOPIK 6)</span>
+                            <span class="lang-badge">English</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 - 중국어 전공 한국인 -->
+                <div class="team-card">
+                    <div class="team-card-photo"
+                        style="display: flex; align-items: center; justify-content: center; background: #f1f5f9; font-size: 6rem;">
+                        <span>👨‍💼</span>
+                        <div class="availability">
+                            <span class="lang-ko">예약 가능</span>
+                            <span class="lang-zh">可預約</span>
+                        </div>
+                    </div>
+                    <div class="team-card-body">
+                        <h4>김준호 (金俊浩)</h4>
+                        <p class="role">
+                            <span class="lang-ko">중국어 전공 | 베이징 유학 5년</span>
+                            <span class="lang-zh">中文專業 | 北京留學5年</span>
+                        </p>
+                        <p class="bio">
+                            <span class="lang-ko">
+                                한국외대 중국어과 졸업 후 베이징대학에서 5년간 유학.
+                                중국 현지 비즈니스 문화에 정통하며, 공장 통역, 바이어 미팅,
+                                기술 문서 번역을 전문으로 합니다.
+                            </span>
+                            <span class="lang-zh">
+                                韓國外大中文系畢業後，在北京大學留學5年。
+                                精通中國當地商業文化，專精工廠口譯、買家會議、
+                                技術文件翻譯。
+                            </span>
+                        </p>
+                        <div class="team-card-tags">
+                            <span>
+                                <span class="lang-ko">공장 통역</span>
+                                <span class="lang-zh">工廠口譯</span>
+                            </span>
+                            <span>
+                                <span class="lang-ko">기술 번역</span>
+                                <span class="lang-zh">技術翻譯</span>
+                            </span>
+                            <span>
+                                <span class="lang-ko">무역</span>
+                                <span class="lang-zh">貿易</span>
+                            </span>
+                        </div>
+                        <div class="team-card-langs">
+                            <span class="lang-badge native">한국어 (Native)</span>
+                            <span class="lang-badge">中文 (HSK 6)</span>
+                            <span class="lang-badge">English</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 - 통번역 전문가 -->
+                <div class="team-card">
+                    <div class="team-card-photo"
+                        style="display: flex; align-items: center; justify-content: center; background: #fce7f3; font-size: 6rem;">
+                        <span>👩‍⚖️</span>
+                        <div class="availability">
+                            <span class="lang-ko">예약 가능</span>
+                            <span class="lang-zh">可預約</span>
+                        </div>
+                    </div>
+                    <div class="team-card-body">
+                        <h4>왕리홍 (王麗紅)</h4>
+                        <p class="role">
+                            <span class="lang-ko">통번역 경력 15년 | 전문 통역사</span>
+                            <span class="lang-zh">翻譯口譯經歷15年 | 專業譯者</span>
+                        </p>
+                        <p class="bio">
+                            <span class="lang-ko">
+                                중국 상하이 출신. 한국 대기업 및 정부기관 통역 경력 15년.
+                                의료/법률/금융 분야 전문 통역사로, 공식 행사 및 VIP 수행 통역에
+                                풍부한 경험을 보유하고 있습니다.
+                            </span>
+                            <span class="lang-zh">
+                                來自中國上海。韓國大企業及政府機關口譯經歷15年。
+                                醫療/法律/金融領域專業譯者，在正式活動及VIP隨行口譯
+                                擁有豐富經驗。
+                            </span>
+                        </p>
+                        <div class="team-card-tags">
+                            <span>
+                                <span class="lang-ko">의료</span>
+                                <span class="lang-zh">醫療</span>
+                            </span>
+                            <span>
+                                <span class="lang-ko">법률</span>
+                                <span class="lang-zh">法律</span>
+                            </span>
+                            <span>
+                                <span class="lang-ko">금융</span>
+                                <span class="lang-zh">金融</span>
+                            </span>
+                            <span>VIP</span>
+                        </div>
+                        <div class="team-card-langs">
+                            <span class="lang-badge native">中文 (Native)</span>
+                            <span class="lang-badge">한국어 (Native급)</span>
+                            <span class="lang-badge">日本語</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section class="why-section">
+            <div class="why-container">
+                <div class="section-header">
+                    <h2>
+                        <span class="lang-ko">KNDLI TRANS를 선택하는 이유</span>
+                        <span class="lang-zh">選擇 KNDLI TRANS 的理由</span>
+                    </h2>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="icon">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-ko">검증된 전문가</span>
+                            <span class="lang-zh">驗證的專家</span>
+                        </h4>
+                        <p>
+                            <span class="lang-ko">모든 통역사는 엄격한 심사를 거쳐 선발됩니다</span>
+                            <span class="lang-zh">所有譯者皆經過嚴格審查後選拔</span>
+                        </p>
+                    </div>
+                    <div class="why-card">
+                        <div class="icon">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-ko">분야별 매칭</span>
+                            <span class="lang-zh">領域配對</span>
+                        </h4>
+                        <p>
+                            <span class="lang-ko">프로젝트에 최적화된 통역사를 배정합니다</span>
+                            <span class="lang-zh">為專案配置最適合的譯者</span>
+                        </p>
+                    </div>
+                    <div class="why-card">
+                        <div class="icon">
+                            <i data-lucide="headphones"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-ko">전담 매니저</span>
+                            <span class="lang-zh">專屬經理</span>
+                        </h4>
+                        <p>
+                            <span class="lang-ko">Bella가 직접 프로젝트를 관리합니다</span>
+                            <span class="lang-zh">Bella親自管理專案</span>
+                        </p>
+                    </div>
+                    <div class="why-card">
+                        <div class="icon">
+                            <i data-lucide="refresh-ccw"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-ko">무료 재통역</span>
+                            <span class="lang-zh">免費重譯</span>
+                        </h4>
+                        <p>
+                            <span class="lang-ko">만족하지 않으시면 무료로 다시 진행합니다</span>
+                            <span class="lang-zh">不滿意可免費重新進行</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>
+                    <span class="lang-ko">프로젝트에 맞는 통역사를 찾고 계신가요?</span>
+                    <span class="lang-zh">正在尋找適合專案的譯者嗎？</span>
+                </h2>
+                <p>
+                    <span class="lang-ko">프로젝트 내용을 알려주시면 최적의 통역사를 추천해 드립니다</span>
+                    <span class="lang-zh">告訴我們專案內容，我們將為您推薦最適合的譯者</span>
+                </p>
+                <div class="cta-buttons">
+                    <a href="quote.html" class="btn btn-primary">
+                        <i data-lucide="file-text"></i>
+                        <span class="lang-ko">견적 요청하기</span>
+                        <span class="lang-zh">索取報價</span>
+                    </a>
+                    <a href="https://open.kakao.com/me/kndli" target="_blank" class="btn btn-outline">
+                        <i data-lucide="message-circle"></i>
+                        <span class="lang-ko">카카오톡 상담</span>
+                        <span class="lang-zh">KakaoTalk 諮詢</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">文</div>
+                        <div class="logo-text">
+                            <span class="logo-main">KNDLI TRANS</span>
+                            <span class="logo-sub">한니트랜스 | 韓妮翻譯</span>
+                        </div>
+                    </a>
+                    <p>
+                        <span class="lang-ko">한국-중화권 전문 통번역 서비스</span>
+                        <span class="lang-zh">韓國-中華圈專業翻譯口譯服務</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank"><i data-lucide="instagram"></i></a>
+                        <a href="https://open.kakao.com/me/kndli" target="_blank"><i
+                                data-lucide="message-circle"></i></a>
+                        <a href="https://line.me/R/ti/p/@006prdnj" target="_blank"><i
+                                data-lucide="message-square"></i></a>
+                        <a href="mailto:kndli.bella@gmail.com"><i data-lucide="mail"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">서비스</span><span class="lang-zh">服務</span></h5>
+                    <ul>
+                        <li><a href="translation.html"><span class="lang-ko">번역 서비스</span><span
+                                    class="lang-zh">翻譯服務</span></a></li>
+                        <li><a href="interpretation.html"><span class="lang-ko">통역 서비스</span><span
+                                    class="lang-zh">口譯服務</span></a></li>
+                        <li><a href="interpreters.html"><span class="lang-ko">통역사 소개</span><span
+                                    class="lang-zh">譯者介紹</span></a></li>
+                        <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span
+                                    class="lang-zh">作品集</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5>
+                    <ul>
+                        <li><a href="quote.html"><span class="lang-ko">견적 요청</span><span class="lang-zh">索取報價</span></a>
+                        </li>
+                        <li><a href="faq.html"><span class="lang-ko">자주 묻는 질문</span><span
+                                    class="lang-zh">常見問題</span></a></li>
+                        <li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯絡我們</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">KNDLI</span><span class="lang-zh">KNDLI</span></h5>
+                    <ul>
+                        <li><a href="../../index.html"><span class="lang-ko">메인 사이트</span><span
+                                    class="lang-zh">主網站</span></a></li>
+                        <li><a href="../../business.html"><span class="lang-ko">비즈니스</span><span
+                                    class="lang-zh">商務</span></a></li>
+                        <li><a href="../../life.html"><span class="lang-ko">라이프</span><span
+                                    class="lang-zh">生活</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 KNDLI Co., Ltd. All rights reserved. | 사업자등록번호: 126-84-00471</p>
+                <a href="../../profile.html">
+                    <span class="lang-ko">회사 소개</span>
+                    <span class="lang-zh">公司介紹</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Language Toggle
+        function toggleLanguage() {
+            document.body.classList.toggle('zh');
+            const isZh = document.body.classList.contains('zh');
+            localStorage.setItem('kndli-lang', isZh ? 'zh' : 'ko');
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('kndli-lang');
+            if (savedLang === 'zh') {
+                document.body.classList.add('zh');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
