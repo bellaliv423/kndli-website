@@ -1,0 +1,3161 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 | KNDLI TRANS 한니트랜스</title>
+    <meta name="description" content="KNDLI TRANS의 통번역 프로젝트 실적을 확인하세요.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
+    <style>
+        /* ========== CSS Variables ========== */
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2d4a;
+            --teal: #2dd4bf;
+            --teal-dark: #14b8a6;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gold: #f59e0b;
+
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Noto Sans KR', 'Noto Sans TC', sans-serif;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* ========== Reset & Base ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-700);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Language Toggle */
+        .lang-zh {
+            display: none;
+        }
+
+        body.zh .lang-ko {
+            display: none;
+        }
+
+        body.zh .lang-zh {
+            display: inline;
+        }
+
+        /* ========== Header ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--teal);
+            letter-spacing: 0.5px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--teal);
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .lang-switch i {
+            color: var(--teal);
+            width: 18px;
+            height: 18px;
+        }
+
+        .lang-switch span {
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn i {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            padding: 140px 24px 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(45, 212, 191, 0.1);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge i {
+            color: var(--teal);
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-badge span {
+            color: var(--teal);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== Stats Section ========== */
+        .stats-section {
+            background: var(--white);
+            padding: 0 24px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .stat-value span {
+            color: var(--teal);
+        }
+
+        .stat-label {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+        }
+
+        /* ========== Main Content ========== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== Filter Tabs ========== */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 24px;
+            border: 2px solid var(--gray-200);
+            border-radius: 50px;
+            background: var(--white);
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .filter-tab.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+        }
+
+        /* ========== Portfolio Grid ========== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--teal);
+        }
+
+        .portfolio-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-card-image .icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(45, 212, 191, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-card-image .icon i {
+            width: 40px;
+            height: 40px;
+            color: var(--teal);
+        }
+
+        .portfolio-card-image .category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--teal);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .portfolio-card-image .year {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .portfolio-card-body {
+            padding: 24px;
+        }
+
+        .portfolio-card-body h4 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .portfolio-card-body .client {
+            color: var(--teal-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .portfolio-card-body .client i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .portfolio-card-body .description {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .portfolio-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .portfolio-card-tags span {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        /* ========== Testimonials Section ========== */
+        .testimonials-section {
+            background: var(--gray-50);
+            padding: 80px 24px;
+            margin: 80px -24px 0;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 4rem;
+            font-family: var(--font-display);
+            color: var(--gray-100);
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info h5 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .testimonial-author-info p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .testimonial-rating i {
+            width: 16px;
+            height: 16px;
+            color: var(--gold);
+            fill: var(--gold);
+        }
+
+        /* ========== Clients Section ========== */
+        .clients-section {
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .clients-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .clients-section h3 {
+            font-size: 1.2rem;
+            color: var(--gray-500);
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .clients-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+
+        .client-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-400);
+            letter-spacing: 2px;
+        }
+
+        /* ========== CTA Section ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            background: var(--navy);
+            padding: 60px 24px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .footer-social a i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-col h5 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--teal);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 1024px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 24px;
+                gap: 24px;
+            }
+
+            .stat-value {
+                font-size: 1.8rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-logos {
+                gap: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--gray-300);
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            color: var(--teal);
+        }
+    </style>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVNX7HVSQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SVNX7HVSQ');
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">文</div>
+                <div class="logo-text">
+                    <span class="logo-main">KNDLI TRANS</span>
+                    <span class="logo-sub">
+                        <span class="lang-ko">한니트랜스 | 韓妮翻譯</span>
+                        <span class="lang-zh">韓妮翻譯 | 한니트랜스</span>
+                    </span>
+                </div>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+                <a href="translation.html"><span class="lang-ko">번역</span><span class="lang-zh">翻譯</span></a>
+                <a href="interpretation.html"><span class="lang-ko">통역</span><span class="lang-zh">口譯</span></a>
+                <a href="interpreters.html"><span class="lang-ko">통역사</span><span class="lang-zh">譯者</span></a>
+                <a href="portfolio.html" class="active"><span class="lang-ko">포트폴리오</span><span
+                        class="lang-zh">作品集</span></a>
+                <a href="faq.html">FAQ</a>
+                <a href="quote.html"><span class="lang-ko">연락하기</span><span class="lang-zh">聯絡我們</span></a>
+                <div class="lang-switch" onclick="toggleLanguage()">
+                    <i data-lucide="languages"></i>
+                    <span class="lang-ko">中文</span>
+                    <span class="lang-zh">한국어</span>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html"><span class="lang-ko">首頁</span><span class="lang-zh">首頁</span></a>
+        <a href="translation.html"><span class="lang-ko">翻譯</span><span class="lang-zh">翻譯</span></a>
+        <a href="interpretation.html"><span class="lang-ko">口譯</span><span class="lang-zh">口譯</span></a>
+        <a href="interpreters.html"><span class="lang-ko">譯者</span><span class="lang-zh">譯者</span></a>
+        <a href="portfolio.html" class="active"><span class="lang-ko">作品集</span><span class="lang-zh">作品集</span></a>
+        <a href="faq.html">FAQ</a>
+        <a href="javascript:void(0)" onclick="toggleLanguage()">
+            <span class="lang-ko">🌐 中文으로 전환</span>
+            <span class="lang-zh">🌐 切換至韓文</span>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <i data-lucide="briefcase"></i>
+                <span>
+                    <span class="lang-ko">프로젝트 실적</span>
+                    <span class="lang-zh">專案實績</span>
+                </span>
+            </div>
+            <h1>
+                <span class="lang-ko">포트폴리오</span>
+                <span class="lang-zh">作品集</span>
+            </h1>
+            <p>
+                <span class="lang-ko">다양한 분야에서 진행한 통번역 프로젝트를 확인하세요.<br>각 프로젝트마다 최고의 품질을 약속합니다.</span>
+                <span class="lang-zh">查看我們在各領域進行的翻譯口譯專案。<br>每個專案都承諾最高品質。</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value">500<span>+</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">완료 프로젝트</span>
+                    <span class="lang-zh">完成專案</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">200<span>+</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">만족 고객</span>
+                    <span class="lang-zh">滿意客戶</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">1M<span>+</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">번역 글자</span>
+                    <span class="lang-zh">翻譯字數</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">98<span>%</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">재이용률</span>
+                    <span class="lang-zh">回購率</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">
+                <span class="lang-ko">전체</span>
+                <span class="lang-zh">全部</span>
+            </button>
+            <button class="filter-tab" data-filter="translation">
+                <span class="lang-ko">번역</span>
+                <span class="lang-zh">翻譯</span>
+            </button>
+            <button class="filter-tab" data-filter="interpretation">
+                <span class="lang-ko">통역</span>
+                <span class="lang-zh">口譯</span>
+            </button>
+            <button class="filter-tab" data-filter="business">
+                <span class="lang-ko">비즈니스</span>
+                <span class="lang-zh">商務</span>
+            </button>
+            <button class="filter-tab" data-filter="exhibition">
+                <span class="lang-ko">전시회</span>
+                <span class="lang-zh">展覽會</span>
+            </button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="portfolio-card" data-category="interpretation business">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">통역</span>
+                        <span class="lang-zh">口譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">대만 기업 투자 미팅</span>
+                        <span class="lang-zh">台灣企業投資會議</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">글로벌 IT 기업</span>
+                        <span class="lang-zh">全球IT企業</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            대만 기업과 한국 IT 기업 간 투자 협상 통역.
+                            3일간 총 24시간 진행, 계약 성사 완료.
+                        </span>
+                        <span class="lang-zh">
+                            台灣企業與韓國IT企業投資協商口譯。
+                            3天共24小時進行，成功簽約。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">비즈니스</span>
+                            <span class="lang-zh">商務</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">투자</span>
+                            <span class="lang-zh">投資</span>
+                        </span>
+                        <span>IT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card" data-category="translation">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="shopping-bag"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">번역</span>
+                        <span class="lang-zh">翻譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">쇼핑몰 상품 번역</span>
+                        <span class="lang-zh">購物網站商品翻譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">K-뷰티 브랜드</span>
+                        <span class="lang-zh">K-Beauty品牌</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            K-뷰티 브랜드의 대만 쇼핑몰 진출을 위한
+                            상품 설명 500건 이상 번역 완료.
+                        </span>
+                        <span class="lang-zh">
+                            為K-Beauty品牌進軍台灣購物網站，
+                            完成500件以上商品說明翻譯。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">쇼핑몰</span>
+                            <span class="lang-zh">購物網站</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">뷰티</span>
+                            <span class="lang-zh">美妝</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">마케팅</span>
+                            <span class="lang-zh">行銷</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-card" data-category="interpretation exhibition">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="presentation"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">통역</span>
+                        <span class="lang-zh">口譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">COEX 전시회 통역</span>
+                        <span class="lang-zh">COEX展覽會口譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">대만 무역협회</span>
+                        <span class="lang-zh">台灣貿易協會</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            서울 COEX에서 열린 국제 전시회에서
+                            대만 기업 부스 통역 4일간 진행.
+                        </span>
+                        <span class="lang-zh">
+                            在首爾COEX舉辦的國際展覽會中，
+                            為台灣企業展位進行4天口譯服務。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">전시회</span>
+                            <span class="lang-zh">展覽會</span>
+                        </span>
+                        <span>COEX</span>
+                        <span>
+                            <span class="lang-ko">무역</span>
+                            <span class="lang-zh">貿易</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="portfolio-card" data-category="translation">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">번역</span>
+                        <span class="lang-zh">翻譯</span>
+                    </span>
+                    <span class="year">2023</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">계약서 번역</span>
+                        <span class="lang-zh">合約翻譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">법률사무소</span>
+                        <span class="lang-zh">法律事務所</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            한-대만 간 합작 투자 계약서,
+                            NDA, 라이선스 계약서 번역.
+                        </span>
+                        <span class="lang-zh">
+                            韓-台合資投資合約、
+                            NDA、授權合約翻譯。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">법률</span>
+                            <span class="lang-zh">法律</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">계약서</span>
+                            <span class="lang-zh">合約</span>
+                        </span>
+                        <span>NDA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="portfolio-card" data-category="interpretation business">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="factory"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">통역</span>
+                        <span class="lang-zh">口譯</span>
+                    </span>
+                    <span class="year">2023</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">공장 시찰 통역</span>
+                        <span class="lang-zh">工廠考察口譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">제조업체</span>
+                        <span class="lang-zh">製造業者</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            한국 공장 시찰을 위해 방문한 대만 바이어 대상
+                            기술 설명 및 협상 통역 진행.
+                        </span>
+                        <span class="lang-zh">
+                            為考察韓國工廠的台灣買家進行
+                            技術說明及協商口譯。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">공장</span>
+                            <span class="lang-zh">工廠</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">기술</span>
+                            <span class="lang-zh">技術</span>
+                        </span>
+                        <span>B2B</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="portfolio-card" data-category="translation">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="youtube"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">번역</span>
+                        <span class="lang-zh">翻譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">유튜브 자막 번역</span>
+                        <span class="lang-zh">YouTube字幕翻譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">K-콘텐츠 크리에이터</span>
+                        <span class="lang-zh">K-內容創作者</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            인기 유튜버의 대만 진출을 위한
+                            영상 50편 자막 번역 및 현지화.
+                        </span>
+                        <span class="lang-zh">
+                            為人氣YouTuber進軍台灣，
+                            完成50部影片字幕翻譯及在地化。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>YouTube</span>
+                        <span>
+                            <span class="lang-ko">자막</span>
+                            <span class="lang-zh">字幕</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">콘텐츠</span>
+                            <span class="lang-zh">內容</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <h2>
+                    <span class="lang-ko">고객 후기</span>
+                    <span class="lang-zh">客戶評價</span>
+                </h2>
+                <p>
+                    <span class="lang-ko">실제 고객들의 생생한 후기를 확인하세요</span>
+                    <span class="lang-zh">查看真實客戶的評價</span>
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        <span class="lang-ko">
+                            "대만 파트너와의 중요한 미팅에서 Bella님의 통역 덕분에
+                            원활한 소통이 가능했습니다. 비즈니스 용어도 정확하게
+                            전달해주셔서 계약까지 성공적으로 마무리했습니다."
+                        </span>
+                        <span class="lang-zh">
+                            「在與台灣合作夥伴的重要會議中，多虧Bella的口譯，
+                            溝通非常順暢。商業用語也準確傳達，
+                            成功完成簽約。」
+                        </span>
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="김OO 대표.jpg" alt="김대표">
+                        <div class="testimonial-author-info">
+                            <h5>
+                                <span class="lang-ko">김OO 대표</span>
+                                <span class="lang-zh">金OO 代表</span>
+                            </h5>
+                            <p>
+                                <span class="lang-ko">IT 스타트업</span>
+                                <span class="lang-zh">IT新創公司</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        <span class="lang-ko">
+                            "쇼핑몰 상품 번역을 맡겼는데, 단순 번역이 아니라
+                            대만 소비자 입장에서 자연스럽게 번역해주셔서
+                            매출이 30% 이상 증가했어요!"
+                        </span>
+                        <span class="lang-zh">
+                            「委託購物網站商品翻譯，不是單純翻譯，
+                            而是站在台灣消費者立場自然翻譯，
+                            銷售額增加了30%以上！」
+                        </span>
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="박OO 매니저.png" alt="박매니저">
+                        <div class="testimonial-author-info">
+                            <h5>
+                                <span class="lang-ko">박OO 매니저</span>
+                                <span class="lang-zh">朴OO 經理</span>
+                            </h5>
+                            <p>
+                                <span class="lang-ko">K-뷰티 브랜드</span>
+                                <span class="lang-zh">K-Beauty品牌</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        <span class="lang-ko">
+                            "전시회 통역으로 여러 번 함께했는데, 항상
+                            프로페셔널하고 친절하세요. 바이어들과의
+                            소통을 완벽하게 연결해주십니다."
+                        </span>
+                        <span class="lang-zh">
+                            「展覽會口譯合作多次，總是
+                            專業又親切。與買家的溝通
+                            完美連結。」
+                        </span>
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="이OO 팀장.png" alt="이팀장">
+                        <div class="testimonial-author-info">
+                            <h5>
+                                <span class="lang-ko">이OO 팀장</span>
+                                <span class="lang-zh">李OO 組長</span>
+                            </h5>
+                            <p>
+                                <span class="lang-ko">무역회사</span>
+                                <span class="lang-zh">貿易公司</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients-section">
+        <div class="clients-container">
+            <h3>
+                <span class="lang-ko">신뢰하는 파트너사</span>
+                <span class="lang-zh">信賴的合作夥伴</span>
+            </h3>
+            <div class="clients-logos">
+                <span class="client-logo">COMPANY A</span>
+                <span class="client-logo">BRAND B</span>
+                <span class="client-logo">CORP C</span>
+                <span class="client-logo">GROUP D</span>
+                <span class="client-logo">FIRM E</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>
+                <span class="lang-ko">다음 프로젝트도 함께하세요</span>
+                <span class="lang-zh">下一個專案也請一起合作</span>
+            </h2>
+            <p>
+                <span class="lang-ko">귀사의 프로젝트에 최적화된 통번역 서비스를 제공합니다</span>
+                <span class="lang-zh">為貴公司專案提供最優化的翻譯口譯服務</span>
+            </p>
+            <div class="cta-buttons">
+                <a href="quote.html" class="btn btn-primary">
+                    <i data-lucide="file-text"></i>
+                    <span class="lang-ko">견적 요청하기</span>
+                    <span class="lang-zh">索取報價</span>
+                </a>
+                <a href="https://open.kakao.com/me/kndli" target="_blank" class="btn btn-outline">
+                    <i data-lucide="message-circle"></i>
+                    <span class="lang-ko">카카오톡 상담</span>
+                    <span class="lang-zh">KakaoTalk 諮詢</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">文</div>
+                        <div class="logo-text">
+                            <span class="logo-main">KNDLI TRANS</span>
+                            <span class="logo-sub">한니트랜스 | 韓妮翻譯</span>
+                        </div>
+                    </a>
+                    <p>
+                        <span class="lang-ko">한국-중화권 전문 통번역 서비스</span>
+                        <span class="lang-zh">韓國-中華圈專業翻譯口譯服務</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank"><i data-lucide="instagram"></i></a>
+                        <a href="https://open.kakao.com/me/kndli" target="_blank"><i
+                                data-lucide="message-circle"></i></a>
+                        <a href="https://line.me/R/ti/p/@006prdnj" target="_blank"><i
+                                data-lucide="message-square"></i></a>
+                        <a href="mailto:kndli.bella@gmail.com"><i data-lucide="mail"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">서비스</span><span class="lang-zh">服務</span></h5>
+                    <ul>
+                        <li><a href="translation.html"><span class="lang-ko">번역 서비스</span><span
+                                    class="lang-zh">翻譯服務</span></a></li>
+                        <li><a href="interpretation.html"><span class="lang-ko">통역 서비스</span><span
+                                    class="lang-zh">口譯服務</span></a></li>
+                        <li><a href="interpreters.html"><span class="lang-ko">통역사 소개</span><span
+                                    class="lang-zh">譯者介紹</span></a></li>
+                        <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span
+                                    class="lang-zh">作品集</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5>
+                    <ul>
+                        <li><a href="quote.html"><span class="lang-ko">견적 요청</span><span class="lang-zh">索取報價</span></a>
+                        </li>
+                        <li><a href="faq.html"><span class="lang-ko">자주 묻는 질문</span><span
+                                    class="lang-zh">常見問題</span></a></li>
+                        <li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯絡我們</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">KNDLI</span><span class="lang-zh">KNDLI</span></h5>
+                    <ul>
+                        <li><a href="../../index.html"><span class="lang-ko">메인 사이트</span><span
+                                    class="lang-zh">主網站</span></a></li>
+                        <li><a href="../../business.html"><span class="lang-ko">비즈니스</span><span
+                                    class="lang-zh">商務</span></a></li>
+                        <li><a href="../../life.html"><span class="lang-ko">라이프</span><span
+                                    class="lang-zh">生活</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 KNDLI Co., Ltd. All rights reserved. | 사업자등록번호: 126-84-00471</p>
+                <a href="../../profile.html">
+                    <span class="lang-ko">회사 소개</span>
+                    <span class="lang-zh">公司介紹</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Language Toggle
+        function toggleLanguage() {
+            document.body.classList.toggle('zh');
+            const isZh = document.body.classList.contains('zh');
+            localStorage.setItem('kndli-lang', isZh ? 'zh' : 'ko');
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('kndli-lang');
+            if (savedLang === 'zh') {
+                document.body.classList.add('zh');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+
+        // Filter Tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                // Update active tab
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter cards
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.portfolio-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 | KNDLI TRANS 한니트랜스</title>
+    <meta name="description" content="KNDLI TRANS의 통번역 프로젝트 실적을 확인하세요.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
+    <style>
+        /* ========== CSS Variables ========== */
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2d4a;
+            --teal: #2dd4bf;
+            --teal-dark: #14b8a6;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gold: #f59e0b;
+
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Noto Sans KR', 'Noto Sans TC', sans-serif;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* ========== Reset & Base ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-700);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Language Toggle */
+        .lang-zh {
+            display: none;
+        }
+
+        body.zh .lang-ko {
+            display: none;
+        }
+
+        body.zh .lang-zh {
+            display: inline;
+        }
+
+        /* ========== Header ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--teal);
+            letter-spacing: 0.5px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--teal);
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .lang-switch i {
+            color: var(--teal);
+            width: 18px;
+            height: 18px;
+        }
+
+        .lang-switch span {
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn i {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            padding: 140px 24px 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(45, 212, 191, 0.1);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge i {
+            color: var(--teal);
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-badge span {
+            color: var(--teal);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== Stats Section ========== */
+        .stats-section {
+            background: var(--white);
+            padding: 0 24px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .stat-value span {
+            color: var(--teal);
+        }
+
+        .stat-label {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+        }
+
+        /* ========== Main Content ========== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== Filter Tabs ========== */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 10px 24px;
+            border: 2px solid var(--gray-200);
+            border-radius: 50px;
+            background: var(--white);
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .filter-tab.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+        }
+
+        /* ========== Portfolio Grid ========== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--teal);
+        }
+
+        .portfolio-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-card-image .icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(45, 212, 191, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-card-image .icon i {
+            width: 40px;
+            height: 40px;
+            color: var(--teal);
+        }
+
+        .portfolio-card-image .category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--teal);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .portfolio-card-image .year {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .portfolio-card-body {
+            padding: 24px;
+        }
+
+        .portfolio-card-body h4 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .portfolio-card-body .client {
+            color: var(--teal-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .portfolio-card-body .client i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .portfolio-card-body .description {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .portfolio-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .portfolio-card-tags span {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        /* ========== Testimonials Section ========== */
+        .testimonials-section {
+            background: var(--gray-50);
+            padding: 80px 24px;
+            margin: 80px -24px 0;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 4rem;
+            font-family: var(--font-display);
+            color: var(--gray-100);
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info h5 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .testimonial-author-info p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .testimonial-rating i {
+            width: 16px;
+            height: 16px;
+            color: var(--gold);
+            fill: var(--gold);
+        }
+
+        /* ========== Clients Section ========== */
+        .clients-section {
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .clients-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .clients-section h3 {
+            font-size: 1.2rem;
+            color: var(--gray-500);
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .clients-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+
+        .client-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-400);
+            letter-spacing: 2px;
+        }
+
+        /* ========== CTA Section ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            background: var(--navy);
+            padding: 60px 24px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .footer-social a i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-col h5 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--teal);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 1024px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 24px;
+                gap: 24px;
+            }
+
+            .stat-value {
+                font-size: 1.8rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-logos {
+                gap: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--gray-300);
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            color: var(--teal);
+        }
+    </style>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVNX7HVSQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SVNX7HVSQ');
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">文</div>
+                <div class="logo-text">
+                    <span class="logo-main">KNDLI TRANS</span>
+                    <span class="logo-sub">
+                        <span class="lang-ko">한니트랜스 | 韓妮翻譯</span>
+                        <span class="lang-zh">韓妮翻譯 | 한니트랜스</span>
+                    </span>
+                </div>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+                <a href="translation.html"><span class="lang-ko">번역</span><span class="lang-zh">翻譯</span></a>
+                <a href="interpretation.html"><span class="lang-ko">통역</span><span class="lang-zh">口譯</span></a>
+                <a href="interpreters.html"><span class="lang-ko">통역사</span><span class="lang-zh">譯者</span></a>
+                <a href="portfolio.html" class="active"><span class="lang-ko">포트폴리오</span><span
+                        class="lang-zh">作品集</span></a>
+                <a href="faq.html">FAQ</a>
+                <a href="quote.html"><span class="lang-ko">연락하기</span><span class="lang-zh">聯絡我們</span></a>
+                <div class="lang-switch" onclick="toggleLanguage()">
+                    <i data-lucide="languages"></i>
+                    <span class="lang-ko">中文</span>
+                    <span class="lang-zh">한국어</span>
+                </div>
+            </nav>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html"><span class="lang-ko">首頁</span><span class="lang-zh">首頁</span></a>
+        <a href="translation.html"><span class="lang-ko">翻譯</span><span class="lang-zh">翻譯</span></a>
+        <a href="interpretation.html"><span class="lang-ko">口譯</span><span class="lang-zh">口譯</span></a>
+        <a href="interpreters.html"><span class="lang-ko">譯者</span><span class="lang-zh">譯者</span></a>
+        <a href="portfolio.html" class="active"><span class="lang-ko">作品集</span><span class="lang-zh">作品集</span></a>
+        <a href="faq.html">FAQ</a>
+        <a href="javascript:void(0)" onclick="toggleLanguage()">
+            <span class="lang-ko">🌐 中文으로 전환</span>
+            <span class="lang-zh">🌐 切換至韓文</span>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <i data-lucide="briefcase"></i>
+                <span>
+                    <span class="lang-ko">프로젝트 실적</span>
+                    <span class="lang-zh">專案實績</span>
+                </span>
+            </div>
+            <h1>
+                <span class="lang-ko">포트폴리오</span>
+                <span class="lang-zh">作品集</span>
+            </h1>
+            <p>
+                <span class="lang-ko">다양한 분야에서 진행한 통번역 프로젝트를 확인하세요.<br>각 프로젝트마다 최고의 품질을 약속합니다.</span>
+                <span class="lang-zh">查看我們在各領域進行的翻譯口譯專案。<br>每個專案都承諾最高品質。</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value">500<span>+</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">완료 프로젝트</span>
+                    <span class="lang-zh">完成專案</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">200<span>+</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">만족 고객</span>
+                    <span class="lang-zh">滿意客戶</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">1M<span>+</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">번역 글자</span>
+                    <span class="lang-zh">翻譯字數</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">98<span>%</span></div>
+                <div class="stat-label">
+                    <span class="lang-ko">재이용률</span>
+                    <span class="lang-zh">回購率</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">
+                <span class="lang-ko">전체</span>
+                <span class="lang-zh">全部</span>
+            </button>
+            <button class="filter-tab" data-filter="translation">
+                <span class="lang-ko">번역</span>
+                <span class="lang-zh">翻譯</span>
+            </button>
+            <button class="filter-tab" data-filter="interpretation">
+                <span class="lang-ko">통역</span>
+                <span class="lang-zh">口譯</span>
+            </button>
+            <button class="filter-tab" data-filter="business">
+                <span class="lang-ko">비즈니스</span>
+                <span class="lang-zh">商務</span>
+            </button>
+            <button class="filter-tab" data-filter="exhibition">
+                <span class="lang-ko">전시회</span>
+                <span class="lang-zh">展覽會</span>
+            </button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="portfolio-card" data-category="interpretation business">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">통역</span>
+                        <span class="lang-zh">口譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">대만 기업 투자 미팅</span>
+                        <span class="lang-zh">台灣企業投資會議</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">글로벌 IT 기업</span>
+                        <span class="lang-zh">全球IT企業</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            대만 기업과 한국 IT 기업 간 투자 협상 통역.
+                            3일간 총 24시간 진행, 계약 성사 완료.
+                        </span>
+                        <span class="lang-zh">
+                            台灣企業與韓國IT企業投資協商口譯。
+                            3天共24小時進行，成功簽約。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">비즈니스</span>
+                            <span class="lang-zh">商務</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">투자</span>
+                            <span class="lang-zh">投資</span>
+                        </span>
+                        <span>IT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card" data-category="translation">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="shopping-bag"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">번역</span>
+                        <span class="lang-zh">翻譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">쇼핑몰 상품 번역</span>
+                        <span class="lang-zh">購物網站商品翻譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">K-뷰티 브랜드</span>
+                        <span class="lang-zh">K-Beauty品牌</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            K-뷰티 브랜드의 대만 쇼핑몰 진출을 위한
+                            상품 설명 500건 이상 번역 완료.
+                        </span>
+                        <span class="lang-zh">
+                            為K-Beauty品牌進軍台灣購物網站，
+                            完成500件以上商品說明翻譯。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">쇼핑몰</span>
+                            <span class="lang-zh">購物網站</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">뷰티</span>
+                            <span class="lang-zh">美妝</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">마케팅</span>
+                            <span class="lang-zh">行銷</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-card" data-category="interpretation exhibition">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="presentation"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">통역</span>
+                        <span class="lang-zh">口譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">COEX 전시회 통역</span>
+                        <span class="lang-zh">COEX展覽會口譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">대만 무역협회</span>
+                        <span class="lang-zh">台灣貿易協會</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            서울 COEX에서 열린 국제 전시회에서
+                            대만 기업 부스 통역 4일간 진행.
+                        </span>
+                        <span class="lang-zh">
+                            在首爾COEX舉辦的國際展覽會中，
+                            為台灣企業展位進行4天口譯服務。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">전시회</span>
+                            <span class="lang-zh">展覽會</span>
+                        </span>
+                        <span>COEX</span>
+                        <span>
+                            <span class="lang-ko">무역</span>
+                            <span class="lang-zh">貿易</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="portfolio-card" data-category="translation">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">번역</span>
+                        <span class="lang-zh">翻譯</span>
+                    </span>
+                    <span class="year">2023</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">계약서 번역</span>
+                        <span class="lang-zh">合約翻譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">법률사무소</span>
+                        <span class="lang-zh">法律事務所</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            한-대만 간 합작 투자 계약서,
+                            NDA, 라이선스 계약서 번역.
+                        </span>
+                        <span class="lang-zh">
+                            韓-台合資投資合約、
+                            NDA、授權合約翻譯。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">법률</span>
+                            <span class="lang-zh">法律</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">계약서</span>
+                            <span class="lang-zh">合約</span>
+                        </span>
+                        <span>NDA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="portfolio-card" data-category="interpretation business">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="factory"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">통역</span>
+                        <span class="lang-zh">口譯</span>
+                    </span>
+                    <span class="year">2023</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">공장 시찰 통역</span>
+                        <span class="lang-zh">工廠考察口譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">제조업체</span>
+                        <span class="lang-zh">製造業者</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            한국 공장 시찰을 위해 방문한 대만 바이어 대상
+                            기술 설명 및 협상 통역 진행.
+                        </span>
+                        <span class="lang-zh">
+                            為考察韓國工廠的台灣買家進行
+                            技術說明及協商口譯。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>
+                            <span class="lang-ko">공장</span>
+                            <span class="lang-zh">工廠</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">기술</span>
+                            <span class="lang-zh">技術</span>
+                        </span>
+                        <span>B2B</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="portfolio-card" data-category="translation">
+                <div class="portfolio-card-image">
+                    <div class="icon">
+                        <i data-lucide="youtube"></i>
+                    </div>
+                    <span class="category">
+                        <span class="lang-ko">번역</span>
+                        <span class="lang-zh">翻譯</span>
+                    </span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="portfolio-card-body">
+                    <h4>
+                        <span class="lang-ko">유튜브 자막 번역</span>
+                        <span class="lang-zh">YouTube字幕翻譯</span>
+                    </h4>
+                    <p class="client">
+                        <i data-lucide="building"></i>
+                        <span class="lang-ko">K-콘텐츠 크리에이터</span>
+                        <span class="lang-zh">K-內容創作者</span>
+                    </p>
+                    <p class="description">
+                        <span class="lang-ko">
+                            인기 유튜버의 대만 진출을 위한
+                            영상 50편 자막 번역 및 현지화.
+                        </span>
+                        <span class="lang-zh">
+                            為人氣YouTuber進軍台灣，
+                            完成50部影片字幕翻譯及在地化。
+                        </span>
+                    </p>
+                    <div class="portfolio-card-tags">
+                        <span>YouTube</span>
+                        <span>
+                            <span class="lang-ko">자막</span>
+                            <span class="lang-zh">字幕</span>
+                        </span>
+                        <span>
+                            <span class="lang-ko">콘텐츠</span>
+                            <span class="lang-zh">內容</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <h2>
+                    <span class="lang-ko">고객 후기</span>
+                    <span class="lang-zh">客戶評價</span>
+                </h2>
+                <p>
+                    <span class="lang-ko">실제 고객들의 생생한 후기를 확인하세요</span>
+                    <span class="lang-zh">查看真實客戶的評價</span>
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        <span class="lang-ko">
+                            "대만 파트너와의 중요한 미팅에서 Bella님의 통역 덕분에
+                            원활한 소통이 가능했습니다. 비즈니스 용어도 정확하게
+                            전달해주셔서 계약까지 성공적으로 마무리했습니다."
+                        </span>
+                        <span class="lang-zh">
+                            「在與台灣合作夥伴的重要會議中，多虧Bella的口譯，
+                            溝通非常順暢。商業用語也準確傳達，
+                            成功完成簽約。」
+                        </span>
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="김OO 대표.jpg" alt="김대표">
+                        <div class="testimonial-author-info">
+                            <h5>
+                                <span class="lang-ko">김OO 대표</span>
+                                <span class="lang-zh">金OO 代表</span>
+                            </h5>
+                            <p>
+                                <span class="lang-ko">IT 스타트업</span>
+                                <span class="lang-zh">IT新創公司</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        <span class="lang-ko">
+                            "쇼핑몰 상품 번역을 맡겼는데, 단순 번역이 아니라
+                            대만 소비자 입장에서 자연스럽게 번역해주셔서
+                            매출이 30% 이상 증가했어요!"
+                        </span>
+                        <span class="lang-zh">
+                            「委託購物網站商品翻譯，不是單純翻譯，
+                            而是站在台灣消費者立場自然翻譯，
+                            銷售額增加了30%以上！」
+                        </span>
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="박OO 매니저.png" alt="박매니저">
+                        <div class="testimonial-author-info">
+                            <h5>
+                                <span class="lang-ko">박OO 매니저</span>
+                                <span class="lang-zh">朴OO 經理</span>
+                            </h5>
+                            <p>
+                                <span class="lang-ko">K-뷰티 브랜드</span>
+                                <span class="lang-zh">K-Beauty品牌</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        <span class="lang-ko">
+                            "전시회 통역으로 여러 번 함께했는데, 항상
+                            프로페셔널하고 친절하세요. 바이어들과의
+                            소통을 완벽하게 연결해주십니다."
+                        </span>
+                        <span class="lang-zh">
+                            「展覽會口譯合作多次，總是
+                            專業又親切。與買家的溝通
+                            完美連結。」
+                        </span>
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="이OO 팀장.png" alt="이팀장">
+                        <div class="testimonial-author-info">
+                            <h5>
+                                <span class="lang-ko">이OO 팀장</span>
+                                <span class="lang-zh">李OO 組長</span>
+                            </h5>
+                            <p>
+                                <span class="lang-ko">무역회사</span>
+                                <span class="lang-zh">貿易公司</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients-section">
+        <div class="clients-container">
+            <h3>
+                <span class="lang-ko">신뢰하는 파트너사</span>
+                <span class="lang-zh">信賴的合作夥伴</span>
+            </h3>
+            <div class="clients-logos">
+                <span class="client-logo">COMPANY A</span>
+                <span class="client-logo">BRAND B</span>
+                <span class="client-logo">CORP C</span>
+                <span class="client-logo">GROUP D</span>
+                <span class="client-logo">FIRM E</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>
+                <span class="lang-ko">다음 프로젝트도 함께하세요</span>
+                <span class="lang-zh">下一個專案也請一起合作</span>
+            </h2>
+            <p>
+                <span class="lang-ko">귀사의 프로젝트에 최적화된 통번역 서비스를 제공합니다</span>
+                <span class="lang-zh">為貴公司專案提供最優化的翻譯口譯服務</span>
+            </p>
+            <div class="cta-buttons">
+                <a href="quote.html" class="btn btn-primary">
+                    <i data-lucide="file-text"></i>
+                    <span class="lang-ko">견적 요청하기</span>
+                    <span class="lang-zh">索取報價</span>
+                </a>
+                <a href="https://open.kakao.com/me/kndli" target="_blank" class="btn btn-outline">
+                    <i data-lucide="message-circle"></i>
+                    <span class="lang-ko">카카오톡 상담</span>
+                    <span class="lang-zh">KakaoTalk 諮詢</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">文</div>
+                        <div class="logo-text">
+                            <span class="logo-main">KNDLI TRANS</span>
+                            <span class="logo-sub">한니트랜스 | 韓妮翻譯</span>
+                        </div>
+                    </a>
+                    <p>
+                        <span class="lang-ko">한국-중화권 전문 통번역 서비스</span>
+                        <span class="lang-zh">韓國-中華圈專業翻譯口譯服務</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/bellaliv423" target="_blank"><i data-lucide="instagram"></i></a>
+                        <a href="https://open.kakao.com/me/kndli" target="_blank"><i
+                                data-lucide="message-circle"></i></a>
+                        <a href="https://line.me/R/ti/p/@006prdnj" target="_blank"><i
+                                data-lucide="message-square"></i></a>
+                        <a href="mailto:kndli.bella@gmail.com"><i data-lucide="mail"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">서비스</span><span class="lang-zh">服務</span></h5>
+                    <ul>
+                        <li><a href="translation.html"><span class="lang-ko">번역 서비스</span><span
+                                    class="lang-zh">翻譯服務</span></a></li>
+                        <li><a href="interpretation.html"><span class="lang-ko">통역 서비스</span><span
+                                    class="lang-zh">口譯服務</span></a></li>
+                        <li><a href="interpreters.html"><span class="lang-ko">통역사 소개</span><span
+                                    class="lang-zh">譯者介紹</span></a></li>
+                        <li><a href="portfolio.html"><span class="lang-ko">포트폴리오</span><span
+                                    class="lang-zh">作品集</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5>
+                    <ul>
+                        <li><a href="quote.html"><span class="lang-ko">견적 요청</span><span class="lang-zh">索取報價</span></a>
+                        </li>
+                        <li><a href="faq.html"><span class="lang-ko">자주 묻는 질문</span><span
+                                    class="lang-zh">常見問題</span></a></li>
+                        <li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯絡我們</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5><span class="lang-ko">KNDLI</span><span class="lang-zh">KNDLI</span></h5>
+                    <ul>
+                        <li><a href="../../index.html"><span class="lang-ko">메인 사이트</span><span
+                                    class="lang-zh">主網站</span></a></li>
+                        <li><a href="../../business.html"><span class="lang-ko">비즈니스</span><span
+                                    class="lang-zh">商務</span></a></li>
+                        <li><a href="../../life.html"><span class="lang-ko">라이프</span><span
+                                    class="lang-zh">生活</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 KNDLI Co., Ltd. All rights reserved. | 사업자등록번호: 126-84-00471</p>
+                <a href="../../profile.html">
+                    <span class="lang-ko">회사 소개</span>
+                    <span class="lang-zh">公司介紹</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Language Toggle
+        function toggleLanguage() {
+            document.body.classList.toggle('zh');
+            const isZh = document.body.classList.contains('zh');
+            localStorage.setItem('kndli-lang', isZh ? 'zh' : 'ko');
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('kndli-lang');
+            if (savedLang === 'zh') {
+                document.body.classList.add('zh');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+
+        // Filter Tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                // Update active tab
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter cards
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.portfolio-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

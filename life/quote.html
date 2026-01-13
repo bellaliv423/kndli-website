@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의하기 | KNDLI LIFE</title>
+    <meta name="description" content="KNDLI LIFE 한국 생활 지원 서비스 문의. 취업, 집계약, 학교생활, 창업, 강연 등 외국인을 위한 맞춤 서비스.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--navy:#0a1628;--navy-light:#1a2d4a;--green:#22c55e;--green-light:#4ade80;--green-dark:#16a34a;--gold:#c9a227;--white:#ffffff;--gray-100:#f8f9fa;--gray-200:#e9ecef;--gray-300:#dee2e6;--gray-600:#6c757d;--gray-800:#343a40;--success:#28a745;--error:#dc3545;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--shadow:0 4px 20px rgba(0,0,0,0.15)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans KR','Noto Sans TC',sans-serif;background:var(--navy);color:var(--white);line-height:1.6}
+        
+        /* ========== Language Toggle System (Fixed) ========== */
+        .lang-ko { display: block; }
+        .lang-zh { display: none !important; }
+        body.zh .lang-ko { display: none !important; }
+        body.zh .lang-zh { display: block !important; }
+        body.zh li.lang-zh { display: list-item !important; }
+        span.lang-ko { display: inline; }
+        span.lang-zh { display: none !important; }
+        body.zh span.lang-zh { display: inline !important; }
+        body.zh span.lang-ko { display: none !important; }
+        a.btn.lang-zh { display: none !important; }
+        body.zh a.btn.lang-zh { display: inline-flex !important; }
+        
+        a{color:inherit;text-decoration:none}
+        .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+        .header-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo-icon{width:40px;height:40px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center}
+        .logo-icon svg{width:24px;height:24px;stroke:var(--white)}
+        .logo-text h1{font-size:1.3rem;font-weight:700;color:var(--white)}
+        .logo-text span{font-size:0.7rem;color:var(--green)}
+        .nav{display:flex;align-items:center;gap:2rem}
+        .nav a{color:var(--gray-200);font-size:0.9rem;transition:color 0.3s}
+        .nav a:hover,.nav a.active{color:var(--green)}
+        .btn-lang{background:var(--navy-light);color:var(--white);border:1px solid var(--gray-600);padding:6px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:0.85rem}
+        .btn-quote{background:var(--green);color:var(--white);padding:10px 20px;border-radius:var(--radius-md);font-size:0.9rem;font-weight:600;transition:all 0.3s}
+        .btn-quote:hover{background:var(--green-light);transform:translateY(-2px)}
+        .mobile-toggle{display:none;background:none;border:none;cursor:pointer}
+        .mobile-toggle svg{width:28px;height:28px;stroke:var(--white)}
+        .mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:1.5rem;border-top:1px solid rgba(255,255,255,0.1);flex-direction:column;gap:1rem}
+        .mobile-nav.active{display:flex}
+        .mobile-nav a{color:var(--gray-200);padding:0.5rem 0;font-size:1rem}
+        
+        .main{padding-top:80px}
+        .quote-section{padding:4rem 2rem;max-width:800px;margin:0 auto}
+        .quote-header{text-align:center;margin-bottom:3rem}
+        .quote-header h2{font-size:2rem;margin-bottom:1rem}
+        .quote-header p{color:var(--gray-300)}
+        .quote-form{background:var(--white);border-radius:var(--radius-lg);padding:2.5rem;color:var(--gray-800)}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
+        .form-group{margin-bottom:1.5rem}
+        .form-group.full{grid-column:1/-1}
+        .form-group label{display:block;font-weight:600;margin-bottom:0.5rem;color:var(--navy)}
+        .form-group label .required{color:var(--green)}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:2px solid var(--gray-200);border-radius:var(--radius-sm);font-size:1rem;font-family:inherit;transition:border-color 0.3s}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--green)}
+        .form-group textarea{min-height:120px;resize:vertical}
+        .checkbox-group{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+        .checkbox-item{display:flex;align-items:center;gap:10px;padding:12px 16px;border:2px solid var(--gray-200);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.3s}
+        .checkbox-item:hover{border-color:var(--green-light)}
+        .checkbox-item.checked{border-color:var(--green);background:rgba(34,197,94,0.1)}
+        .checkbox-item input{display:none}
+        .checkbox-box{width:20px;height:20px;border:2px solid var(--gray-300);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+        .checkbox-item.checked .checkbox-box{background:var(--green);border-color:var(--green)}
+        .checkbox-box svg{width:14px;height:14px;stroke:var(--white);opacity:0;transition:opacity 0.3s}
+        .checkbox-item.checked .checkbox-box svg{opacity:1}
+        .btn-group{display:flex;gap:1rem;margin-top:2rem}
+        .btn{flex:1;padding:14px 24px;border:none;border-radius:var(--radius-md);font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.3s}
+        .btn svg{width:20px;height:20px}
+        .btn-secondary{background:var(--gray-200);color:var(--gray-800)}
+        .btn-secondary:hover{background:var(--gray-300)}
+        .btn-primary{background:var(--green);color:var(--white)}
+        .btn-primary:hover{background:var(--green-light)}
+        .btn-primary:disabled{background:var(--gray-300);cursor:not-allowed}
+        .loading{display:none;align-items:center;gap:8px}
+        .loading.show{display:flex}
+        .spinner{width:20px;height:20px;border:2px solid var(--white);border-top-color:transparent;border-radius:50%;animation:spin 0.8s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .message{padding:1rem 1.5rem;border-radius:var(--radius-sm);margin-bottom:1.5rem;display:none}
+        .message.success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+        .message.error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+        
+        .footer{background:var(--navy-light);padding:3rem 2rem 2rem;margin-top:4rem}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+        .footer-brand .logo{margin-bottom:1rem}
+        .footer-brand p{color:var(--gray-300);font-size:0.9rem;margin-bottom:1rem}
+        .footer-social{display:flex;gap:1rem}
+        .footer-social a{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+        .footer-social a:hover{background:var(--green)}
+        .footer-social svg{width:18px;height:18px;stroke:var(--white)}
+        .footer-col h5{font-size:0.9rem;font-weight:600;margin-bottom:1rem;color:var(--white)}
+        .footer-col ul{list-style:none}
+        .footer-col li{margin-bottom:0.5rem}
+        .footer-col a{color:var(--gray-300);font-size:0.85rem;transition:color 0.3s}
+        .footer-col a:hover{color:var(--green)}
+        .footer-bottom{border-top:1px solid var(--navy);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .footer-bottom p{color:var(--gray-600);font-size:0.8rem}
+        
+        @media(max-width:768px){
+            .nav{display:none}
+            .mobile-toggle{display:block}
+            .form-row,.checkbox-group{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr 1fr}
+            .btn-group{flex-direction:column}
+        }
+        @media(max-width:480px){
+            .footer-grid{grid-template-columns:1fr}
+        }
+    </style>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVNX7HVSQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1SVNX7HVSQ');
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                <div class="logo-text"><h1>KNDLI LIFE</h1><span>한니라이프 | 韓妮生活</span></div>
+            </a>
+            <nav class="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+                <a href="career.html"><span class="lang-ko">취업</span><span class="lang-zh">就業</span></a>
+                <a href="housing.html"><span class="lang-ko">집계약</span><span class="lang-zh">租屋</span></a>
+                <a href="school.html"><span class="lang-ko">학교</span><span class="lang-zh">校園</span></a>
+                <a href="startup.html"><span class="lang-ko">창업</span><span class="lang-zh">創業</span></a>
+                <a href="seminar.html"><span class="lang-ko">강연</span><span class="lang-zh">講座</span></a>
+                <a href="faq.html">FAQ</a>
+                <button class="btn-lang" id="lang-toggle-btn"><span class="lang-ko">中文</span><span class="lang-zh">한국어</span></button>
+                <a href="quote.html" class="btn-quote active"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+            </nav>
+            <button class="mobile-toggle" onclick="toggleMobile()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+            <a href="career.html"><span class="lang-ko">취업 지원</span><span class="lang-zh">就業支援</span></a>
+            <a href="housing.html"><span class="lang-ko">집 계약 동행</span><span class="lang-zh">租屋陪同</span></a>
+            <a href="school.html"><span class="lang-ko">학교생활 지원</span><span class="lang-zh">校園生活</span></a>
+            <a href="startup.html"><span class="lang-ko">창업 컨설팅</span><span class="lang-zh">創業諮詢</span></a>
+            <a href="seminar.html"><span class="lang-ko">강연/강습</span><span class="lang-zh">講座/課程</span></a>
+            <a href="faq.html">FAQ</a>
+            <a href="quote.html" class="btn-quote"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="quote-section">
+            <div class="quote-header">
+                <h2><span class="lang-ko">🌱 한국 생활, 함께 시작해요</span><span class="lang-zh">🌱 韓國生活，一起開始吧</span></h2>
+                <p><span class="lang-ko">외국인을 위한 맞춤형 한국 생활 지원 서비스</span><span class="lang-zh">為外國人量身打造的韓國生活支援服務</span></p>
+            </div>
+
+            <div id="successMessage" class="message success">
+                <span class="lang-ko">✅ 문의가 성공적으로 전송되었습니다! 빠른 시일 내에 연락드리겠습니다.</span>
+                <span class="lang-zh">✅ 諮詢已成功發送！我們將盡快與您聯繫。</span>
+            </div>
+            <div id="errorMessage" class="message error">
+                <span class="lang-ko">❌ 전송 중 오류가 발생했습니다. 다시 시도해주세요.</span>
+                <span class="lang-zh">❌ 發送時發生錯誤，請重試。</span>
+            </div>
+
+            <form class="quote-form" id="quoteForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><span class="lang-ko">이름</span><span class="lang-zh">姓名</span> <span class="required">*</span></label>
+                        <input type="text" name="name" required placeholder="성함을 입력해주세요 / 請輸入姓名">
+                    </div>
+                    <div class="form-group">
+                        <label><span class="lang-ko">이메일</span><span class="lang-zh">電子郵件</span> <span class="required">*</span></label>
+                        <input type="email" name="email" required placeholder="example@email.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><span class="lang-ko">연락처</span><span class="lang-zh">聯絡電話</span> <span class="required">*</span></label>
+                        <input type="tel" name="phone" required placeholder="010-0000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label><span class="lang-ko">국적</span><span class="lang-zh">國籍</span> <span class="required">*</span></label>
+                        <select name="nationality" required>
+                            <option value="">선택해주세요 / 請選擇</option>
+                            <option value="대만">대만 / 台灣</option>
+                            <option value="중국">중국 / 中國</option>
+                            <option value="홍콩">홍콩 / 香港</option>
+                            <option value="일본">일본 / 日本</option>
+                            <option value="베트남">베트남 / 越南</option>
+                            <option value="미국">미국 / 美國</option>
+                            <option value="기타">기타 / 其他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><span class="lang-ko">비자 상태</span><span class="lang-zh">簽證狀態</span> <span class="required">*</span></label>
+                    <select name="visa_status" required>
+                        <option value="">선택해주세요 / 請選擇</option>
+                        <option value="student">유학생 (D-2/D-4) / 留學生</option>
+                        <option value="work">취업비자 (E-7 등) / 工作簽證</option>
+                        <option value="investment">투자비자 (D-8) / 投資簽證</option>
+                        <option value="working_holiday">워킹홀리데이 (H-1) / 打工度假</option>
+                        <option value="marriage">결혼비자 (F-6) / 結婚簽證</option>
+                        <option value="resident">거주비자 (F-2) / 居留簽證</option>
+                        <option value="permanent">영주비자 (F-5) / 永久居留</option>
+                        <option value="tourist">관광비자 (B-1/B-2) / 觀光簽證</option>
+                        <option value="other">기타 / 其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><span class="lang-ko">관심 서비스</span><span class="lang-zh">感興趣的服務</span> <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item" onclick="toggleCheck(this)">
+                            <input type="checkbox" name="services" value="취업 지원">
+                            <span class="checkbox-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span><span class="lang-ko">취업 지원</span><span class="lang-zh">就業支援</span></span>
+                        </div>
+                        <div class="checkbox-item" onclick="toggleCheck(this)">
+                            <input type="checkbox" name="services" value="집 계약 동행">
+                            <span class="checkbox-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span><span class="lang-ko">집 계약 동행</span><span class="lang-zh">租屋陪同</span></span>
+                        </div>
+                        <div class="checkbox-item" onclick="toggleCheck(this)">
+                            <input type="checkbox" name="services" value="학교생활 지원">
+                            <span class="checkbox-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span><span class="lang-ko">학교생활 지원</span><span class="lang-zh">校園生活支援</span></span>
+                        </div>
+                        <div class="checkbox-item" onclick="toggleCheck(this)">
+                            <input type="checkbox" name="services" value="창업 컨설팅">
+                            <span class="checkbox-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span><span class="lang-ko">창업 컨설팅</span><span class="lang-zh">創業諮詢</span></span>
+                        </div>
+                        <div class="checkbox-item" onclick="toggleCheck(this)">
+                            <input type="checkbox" name="services" value="강연/강습">
+                            <span class="checkbox-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span><span class="lang-ko">강연/강습</span><span class="lang-zh">講座/課程</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><span class="lang-ko">문의 내용</span><span class="lang-zh">諮詢內容</span> <span class="required">*</span></label>
+                    <textarea name="message" required placeholder="궁금한 점이나 필요한 서비스에 대해 자세히 알려주세요.&#10;請詳細說明您的問題或需要的服務。"></textarea>
+                </div>
+                <div class="form-group">
+                    <label><span class="lang-ko">알게 된 경로</span><span class="lang-zh">如何得知我們</span></label>
+                    <select name="source">
+                        <option value="">선택해주세요 / 請選擇</option>
+                        <option value="검색">검색 / 搜尋</option>
+                        <option value="SNS">SNS / 社群媒體</option>
+                        <option value="지인추천">지인 추천 / 朋友推薦</option>
+                        <option value="학교">학교/기관 / 學校/機構</option>
+                        <option value="기타">기타 / 其他</option>
+                    </select>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" onclick="saveDraft()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                        <span class="lang-ko">임시저장</span><span class="lang-zh">暫存</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <span id="btnText">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                            <span class="lang-ko">문의 보내기</span><span class="lang-zh">發送諮詢</span>
+                        </span>
+                        <span class="loading" id="loading">
+                            <span class="spinner"></span>
+                            <span class="lang-ko">전송 중...</span><span class="lang-zh">發送中...</span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                        <div class="logo-text"><h1>KNDLI LIFE</h1><span>한니라이프 | 韓妮生活</span></div>
+                    </div>
+                    <p><span class="lang-ko">외국인을 위한 한국 생활 지원 전문</span><span class="lang-zh">專為外國人提供韓國生活支援</span></p>
+                    <div class="footer-social">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="mailto:kndli.bella@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col"><h5><span class="lang-ko">서비스</span><span class="lang-zh">服務項目</span></h5><ul><li><a href="career.html"><span class="lang-ko">취업 지원</span><span class="lang-zh">就業支援</span></a></li><li><a href="housing.html"><span class="lang-ko">집 계약 동행</span><span class="lang-zh">租屋陪同</span></a></li><li><a href="school.html"><span class="lang-ko">학교생활 지원</span><span class="lang-zh">校園生活</span></a></li><li><a href="startup.html"><span class="lang-ko">창업 컨설팅</span><span class="lang-zh">創業諮詢</span></a></li><li><a href="seminar.html"><span class="lang-ko">강연/강습</span><span class="lang-zh">講座/課程</span></a></li></ul></div>
+                <div class="footer-col"><h5><span class="lang-ko">고객지원</span><span class="lang-zh">客戶支援</span></h5><ul><li><a href="quote.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+                <div class="footer-col"><h5><span class="lang-ko">KNDLI 그룹</span><span class="lang-zh">KNDLI 集團</span></h5><ul><li><a href="../index.html">KNDLI <span class="lang-ko">메인</span><span class="lang-zh">首頁</span></a></li><li><a href="../trans/index.html">KNDLI TRANS</a></li><li><a href="../links/index.html">KNDLI LINK</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p><span class="lang-ko">© 2024 한니드레이 유한회사 | 사업자등록번호: 126-84-00471</span><span class="lang-zh">© 2024 韓妮德來有限公司 | 統一編號: 126-84-00471</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Toggle
+        function toggleLanguage(){
+            document.body.classList.toggle('zh');
+            localStorage.setItem('kndli-lang',document.body.classList.contains('zh')?'zh':'ko');
+        }
+        document.addEventListener('DOMContentLoaded',function(){
+            if(localStorage.getItem('kndli-lang')==='zh') document.body.classList.add('zh');
+            const langBtn=document.getElementById('lang-toggle-btn');
+            if(langBtn) langBtn.addEventListener('click',toggleLanguage);
+            loadDraft();
+        });
+        
+        // Mobile Menu
+        function toggleMobile(){document.getElementById('mobileNav').classList.toggle('active')}
+        
+        // Checkbox Toggle
+        function toggleCheck(el){el.classList.toggle('checked');el.querySelector('input').checked=el.classList.contains('checked')}
+        
+        // Draft Save/Load
+        const DRAFT_KEY='kndli-life-quote-draft';
+        function saveDraft(){
+            const form=document.getElementById('quoteForm');
+            const data=new FormData(form);
+            const draft={};
+            data.forEach((v,k)=>{if(k==='services'){if(!draft.services)draft.services=[];draft.services.push(v)}else{draft[k]=v}});
+            localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));
+            alert(document.body.classList.contains('zh')?'已暫存！':'임시저장 되었습니다!');
+        }
+        function loadDraft(){
+            const saved=localStorage.getItem(DRAFT_KEY);
+            if(!saved)return;
+            const draft=JSON.parse(saved);
+            const form=document.getElementById('quoteForm');
+            Object.keys(draft).forEach(k=>{
+                if(k==='services'){
+                    draft.services.forEach(s=>{
+                        const cb=form.querySelector('input[name="services"][value="'+s+'"]');
+                        if(cb){cb.checked=true;cb.closest('.checkbox-item').classList.add('checked')}
+                    });
+                }else{
+                    const el=form.querySelector('[name="'+k+'"]');
+                    if(el)el.value=draft[k];
+                }
+            });
+        }
+
+        // Form Submit
+        const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbzMnHe87eqn4aJX4hWDGLJSzwrBUr8BIC1JiVMF5leBlG84K9YEPWPG068WtxJ56OI3/exec';
+        
+        document.getElementById('quoteForm').addEventListener('submit',async function(e){
+            e.preventDefault();
+            const btn=document.getElementById('submitBtn');
+            const btnText=document.getElementById('btnText');
+            const loading=document.getElementById('loading');
+            const successMsg=document.getElementById('successMessage');
+            const errorMsg=document.getElementById('errorMessage');
+            
+            successMsg.style.display='none';
+            errorMsg.style.display='none';
+            
+            btn.disabled=true;
+            btnText.style.display='none';
+            loading.classList.add('show');
+            
+            const formData=new FormData(this);
+            const data={};
+            formData.forEach((v,k)=>{
+                if(k==='services'){if(!data.services)data.services=[];data.services.push(v)}
+                else{data[k]=v}
+            });
+            data.services=data.services?data.services.join(', '):'';
+            data.timestamp=new Date().toISOString();
+            data.source_page='KNDLI LIFE Quote';
+            
+            try{
+                await fetch(APPS_SCRIPT_URL,{
+                    method:'POST',
+                    mode:'no-cors',
+                    headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify(data)
+                });
+                
+                successMsg.style.display='block';
+                this.reset();
+                document.querySelectorAll('.checkbox-item.checked').forEach(el=>el.classList.remove('checked'));
+                localStorage.removeItem(DRAFT_KEY);
+                window.scrollTo({top:successMsg.offsetTop-100,behavior:'smooth'});
+            }catch(error){
+                console.error('Submit error:',error);
+                errorMsg.style.display='block';
+            }finally{
+                btn.disabled=false;
+                btnText.style.display='flex';
+                loading.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
