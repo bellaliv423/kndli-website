@@ -1,0 +1,26 @@
+# KNDLI Website Robots.txt
+# https://kndli.com
+
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://kndli.com/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
+
+# Block backup and test directories
+Disallow: /backup_*/
+Disallow: /test/
+Disallow: /*.bak$
+
+# Allow all main content
+Allow: /index.html
+Allow: /profile.html
+Allow: /business.html
+Allow: /life.html
+Allow: /contact.html
+Allow: /trans/
+Allow: /links/
+Allow: /life/
