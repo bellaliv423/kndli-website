@@ -635,6 +635,15 @@
             document.querySelector('.header').style.boxShadow =
                 window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.15)' : 'none';
         });
+
+        // bella-ai 링크에 현재 언어 파라미터 자동 추가
+        document.querySelectorAll('a[href*="bella-ai"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                var lang = document.body.classList.contains('zh') ? 'zh' : 'ko';
+                var url = this.href.split('?')[0] + '?lang=' + lang;
+                this.href = url;
+            });
+        });
     </script>
 </body>
 </html>
