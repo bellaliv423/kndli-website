@@ -115,6 +115,18 @@
             font-size: 1.05rem; font-weight: 600; color: var(--navy);
             margin-bottom: 0.5rem;
         }
+        .curriculum-card h3.lang-zh,
+        .curriculum-card .topic.lang-zh,
+        .ba-card h3.lang-zh,
+        .case-card h3.lang-zh { display: none; }
+        body.zh .curriculum-card h3.lang-ko,
+        body.zh .curriculum-card .topic.lang-ko,
+        body.zh .ba-card h3.lang-ko,
+        body.zh .case-card h3.lang-ko { display: none; }
+        body.zh .curriculum-card h3.lang-zh,
+        body.zh .curriculum-card .topic.lang-zh,
+        body.zh .ba-card h3.lang-zh,
+        body.zh .case-card h3.lang-zh { display: block; }
         .curriculum-card .topic {
             font-size: 0.85rem; color: var(--gold-dark); font-weight: 600;
             margin-bottom: 0.75rem;
@@ -321,7 +333,7 @@
 <!-- Instructor -->
 <section class="section fade-in" id="instructor">
     <div class="section-header">
-        <div class="section-tag">Instructor</div>
+        <div class="section-tag"><span class="lang-ko">강사 소개</span><span class="lang-zh">講師介紹</span></div>
         <h2 class="section-title lang-ko">강사 소개</h2>
         <h2 class="section-title lang-zh">講師介紹</h2>
     </div>
@@ -348,7 +360,7 @@
 <!-- Curriculum -->
 <section class="section fade-in" id="curriculum">
     <div class="section-header">
-        <div class="section-tag">Curriculum</div>
+        <div class="section-tag"><span class="lang-ko">커리큘럼</span><span class="lang-zh">課程大綱</span></div>
         <h2 class="section-title lang-ko">커리큘럼</h2>
         <h2 class="section-title lang-zh">課程大綱</h2>
         <p class="section-desc lang-ko">90분 | 이론 + 실습 | 노트북 지참</p>
@@ -363,15 +375,17 @@
             <div class="topic lang-zh">什麼是AI？開始使用Claude</div>
             <h3 class="lang-ko">AI 개념 이해 + 첫 대화</h3>
             <h3 class="lang-zh">理解AI概念 + 第一次對話</h3>
-            <ul>
-                <li class="lang-ko">AI/LLM이 뭔지 쉽게 이해하기</li>
-                <li class="lang-ko">Claude 계정 생성 + 인터페이스 탐색</li>
-                <li class="lang-ko">첫 대화: "내 업무를 설명해보기"</li>
-                <li class="lang-ko">과제/레포트에 바로 활용하는 법</li>
-                <li class="lang-zh">輕鬆理解AI/LLM是什麼</li>
-                <li class="lang-zh">創建Claude帳號 + 介面探索</li>
-                <li class="lang-zh">第一次對話：「描述我的工作」</li>
-                <li class="lang-zh">在作業/報告中立即活用的方法</li>
+            <ul class="lang-ko">
+                <li>AI/LLM이 뭔지 쉽게 이해하기</li>
+                <li>Claude 계정 생성 + 인터페이스 탐색</li>
+                <li>첫 대화: "내 업무를 설명해보기"</li>
+                <li>과제/레포트에 바로 활용하는 법</li>
+            </ul>
+            <ul class="lang-zh">
+                <li>輕鬆理解AI/LLM是什麼</li>
+                <li>創建Claude帳號 + 介面探索</li>
+                <li>第一次對話：「描述我的工作」</li>
+                <li>在作業/報告中立即活用的方法</li>
             </ul>
         </div>
         <!-- 2~4회: 심화 과정 예고 -->
@@ -381,15 +395,17 @@
             <div class="topic lang-zh">進階課程（稍後公告）</div>
             <h3 class="lang-ko">이어지는 3회 실전 과정</h3>
             <h3 class="lang-zh">接續3堂實戰課程</h3>
-            <ul>
-                <li class="lang-ko">프롬프트 작성법 + 실습</li>
-                <li class="lang-ko">업무 자동화 실전 (Before/After 데모)</li>
-                <li class="lang-ko">나만의 자동화 설계</li>
-                <li class="lang-ko" style="color:var(--gold-dark);font-weight:600">1회 체험 후 안내드립니다</li>
-                <li class="lang-zh">提示詞撰寫法 + 實作</li>
-                <li class="lang-zh">工作自動化實戰（Before/After 演示）</li>
-                <li class="lang-zh">設計我的自動化</li>
-                <li class="lang-zh" style="color:var(--gold-dark);font-weight:600">體驗第1堂後將另行通知</li>
+            <ul class="lang-ko">
+                <li>프롬프트 작성법 + 실습</li>
+                <li>업무 자동화 실전 (Before/After 데모)</li>
+                <li>나만의 자동화 설계</li>
+                <li style="color:var(--gold-dark);font-weight:600">1회 체험 후 안내드립니다</li>
+            </ul>
+            <ul class="lang-zh">
+                <li>提示詞撰寫法 + 實作</li>
+                <li>工作自動化實戰（Before/After 演示）</li>
+                <li>設計我的自動化</li>
+                <li style="color:var(--gold-dark);font-weight:600">體驗第1堂後將另行通知</li>
             </ul>
         </div>
     </div>
@@ -398,7 +414,7 @@
 <!-- Before / After -->
 <section class="section fade-in" id="before-after">
     <div class="section-header">
-        <div class="section-tag">Before & After</div>
+        <div class="section-tag"><span class="lang-ko">Before &amp; After</span><span class="lang-zh">前後對比</span></div>
         <h2 class="section-title lang-ko">수작업 vs 자동화</h2>
         <h2 class="section-title lang-zh">手動 vs 自動化</h2>
         <p class="section-desc lang-ko">같은 업무를 사람이 하면 30분, AI가 하면 6분</p>
@@ -444,7 +460,7 @@
 <!-- Hanyang Bot Case -->
 <section class="section fade-in" id="case">
     <div class="section-header">
-        <div class="section-tag">Case Study</div>
+        <div class="section-tag"><span class="lang-ko">사례 연구</span><span class="lang-zh">案例研究</span></div>
         <h2 class="section-title lang-ko">한양봇 실제 사례</h2>
         <h2 class="section-title lang-zh">漢陽Bot 實際案例</h2>
     </div>
@@ -468,7 +484,7 @@
 <!-- Apply Form -->
 <section class="section fade-in" id="apply">
     <div class="section-header">
-        <div class="section-tag">Apply</div>
+        <div class="section-tag"><span class="lang-ko">신청</span><span class="lang-zh">報名</span></div>
         <h2 class="section-title lang-ko">무료 체험 수업 신청</h2>
         <h2 class="section-title lang-zh">免費體驗課報名</h2>
         <p class="section-desc lang-ko">1회 무료 체험 수업에 참여해보세요! 일정을 이메일로 안내해드립니다</p>
