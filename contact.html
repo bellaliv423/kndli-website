@@ -121,12 +121,38 @@
         }
         .contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
         .contact-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .contact-card .icon-img { width: 40px; height: 40px; object-fit: contain; margin-bottom: 0.75rem; border-radius: 8px; }
         .contact-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
         .contact-card p { font-size: 0.9rem; color: var(--gray-600); }
         .contact-card a {
             color: var(--gold-dark); text-decoration: none; font-weight: 500;
         }
         .contact-card a:hover { text-decoration: underline; }
+
+        /* QR Code Section */
+        .qr-section {
+            margin-bottom: 3rem;
+        }
+        .qr-section h2 {
+            text-align: center; font-family: var(--font-display);
+            font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem;
+        }
+        .qr-section .qr-sub {
+            text-align: center; color: var(--gray-600); font-size: 0.9rem; margin-bottom: 2rem;
+        }
+        .qr-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem; max-width: 800px; margin: 0 auto;
+        }
+        .qr-card {
+            background: var(--white); border-radius: 12px; padding: 1.25rem;
+            text-align: center; box-shadow: var(--shadow-md);
+            border: 1px solid rgba(10,22,40,0.05); transition: var(--transition);
+        }
+        .qr-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .qr-card img { width: 120px; height: 120px; object-fit: contain; border-radius: 8px; margin-bottom: 0.75rem; }
+        .qr-card .qr-label { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+        .qr-card .qr-id { font-size: 0.8rem; color: var(--gray-600); margin-top: 0.25rem; }
 
         /* Form */
         .form-card {
@@ -239,24 +265,54 @@
         <!-- Contact Cards -->
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="icon">&#128231;</div>
+                <img src="images/sns image/메일.jpg" alt="Email" class="icon-img">
                 <h3>Email</h3>
                 <p><a href="mailto:kndli.210@gmail.com">kndli.210@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+                <img src="images/sns image/insta logo.jpg" alt="Instagram" class="icon-img">
+                <h3>Instagram</h3>
+                <p><a href="https://instagram.com/bellaliv423" target="_blank">@bellaliv423</a></p>
+            </div>
+            <div class="contact-card">
+                <img src="images/sns image/thread logo.png" alt="Threads" class="icon-img">
+                <h3>Threads</h3>
+                <p><a href="https://threads.net/@bellaliv423" target="_blank">@bellaliv423</a></p>
             </div>
             <div class="contact-card">
                 <div class="icon">&#128172;</div>
                 <h3>KakaoTalk / LINE</h3>
                 <p>bellaliv423</p>
             </div>
-            <div class="contact-card">
-                <div class="icon">&#128247;</div>
-                <h3>Instagram</h3>
-                <p><a href="https://instagram.com/bellaliv423" target="_blank">@bellaliv423</a></p>
-            </div>
-            <div class="contact-card">
-                <div class="icon">&#128241;</div>
-                <h3>Threads</h3>
-                <p><a href="https://threads.net/@bellaliv423" target="_blank">@bellaliv423</a></p>
+        </div>
+
+        <!-- QR Codes -->
+        <div class="qr-section">
+            <h2 class="lang-ko">QR 코드로 바로 연결</h2>
+            <h2 class="lang-zh">掃描 QR Code 直接聯繫</h2>
+            <p class="qr-sub lang-ko">스마트폰으로 스캔하면 바로 연결됩니다</p>
+            <p class="qr-sub lang-zh">用手機掃描即可直接聯繫</p>
+            <div class="qr-grid">
+                <div class="qr-card">
+                    <img src="images/sns image/kndli_line.png" alt="LINE QR">
+                    <div class="qr-label">LINE</div>
+                    <div class="qr-id">bellaliv423</div>
+                </div>
+                <div class="qr-card">
+                    <img src="images/sns image/kndli_kakaotalk.png" alt="KakaoTalk QR">
+                    <div class="qr-label">KakaoTalk</div>
+                    <div class="qr-id">bellaliv423</div>
+                </div>
+                <div class="qr-card">
+                    <img src="images/sns image/wechat_bella.jpg" alt="WeChat QR">
+                    <div class="qr-label">WeChat</div>
+                    <div class="qr-id">Bella</div>
+                </div>
+                <div class="qr-card">
+                    <img src="images/sns image/what app_bella.jpg" alt="WhatsApp QR">
+                    <div class="qr-label">WhatsApp</div>
+                    <div class="qr-id">Bella</div>
+                </div>
             </div>
         </div>
 
