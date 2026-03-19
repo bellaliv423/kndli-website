@@ -361,51 +361,104 @@
 <section class="section fade-in" id="curriculum">
     <div class="section-header">
         <div class="section-tag"><span class="lang-ko">커리큘럼</span><span class="lang-zh">課程大綱</span></div>
-        <h2 class="section-title lang-ko">커리큘럼</h2>
-        <h2 class="section-title lang-zh">課程大綱</h2>
-        <p class="section-desc lang-ko">90분 | 이론 + 실습 | 노트북 지참</p>
-        <p class="section-desc lang-zh">90分鐘 | 理論 + 實作 | 請自備筆電</p>
+        <h2 class="section-title lang-ko">커리큘럼 (1회 무료 + 심화 3회)</h2>
+        <h2 class="section-title lang-zh">課程大綱（第1堂免費 + 進階3堂）</h2>
+        <p class="section-desc lang-ko">매 회차 90분 | 이론 + 실습 | 노트북 지참 | 심화 과정은 추후 공지</p>
+        <p class="section-desc lang-zh">每堂90分鐘 | 理論 + 實作 | 請自備筆電 | 進階課程稍後公告</p>
     </div>
     <div class="curriculum-grid">
         <!-- 1회: 무료 체험 -->
         <div class="curriculum-card" style="border:2px solid var(--gold);position:relative">
             <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);padding:4px 16px;border-radius:12px;font-size:0.75rem;font-weight:700;white-space:nowrap"><span class="lang-ko">무료 재능기부</span><span class="lang-zh">免費公益課</span></div>
             <div class="curriculum-num">01</div>
-            <div class="topic lang-ko">AI란? Claude 시작하기</div>
-            <div class="topic lang-zh">什麼是AI？開始使用Claude</div>
-            <h3 class="lang-ko">AI 개념 이해 + 첫 대화</h3>
-            <h3 class="lang-zh">理解AI概念 + 第一次對話</h3>
+            <div class="topic lang-ko">Claude Code 쉽게 배우기</div>
+            <div class="topic lang-zh">輕鬆學會 Claude Code</div>
+            <h3 class="lang-ko">AI 개념 이해 + Claude 실습</h3>
+            <h3 class="lang-zh">理解AI概念 + Claude 實作</h3>
             <ul class="lang-ko">
-                <li>AI/LLM이 뭔지 쉽게 이해하기</li>
+                <li>AI/LLM이란? — 비개발자 눈높이로 쉽게 설명</li>
+                <li>Claude vs ChatGPT — 뭐가 다를까?</li>
                 <li>Claude 계정 생성 + 인터페이스 탐색</li>
-                <li>첫 대화: "내 업무를 설명해보기"</li>
-                <li>과제/레포트에 바로 활용하는 법</li>
+                <li>실습: "내 업무를 AI에게 설명해보기"</li>
+                <li>과제/레포트/이메일에 바로 활용하는 법</li>
+                <li>라이브 데모: 1줄 입력 → AI가 자동 완성</li>
             </ul>
             <ul class="lang-zh">
-                <li>輕鬆理解AI/LLM是什麼</li>
+                <li>AI/LLM是什麼？— 用非工程師的角度輕鬆說明</li>
+                <li>Claude vs ChatGPT — 有什麼不同？</li>
                 <li>創建Claude帳號 + 介面探索</li>
-                <li>第一次對話：「描述我的工作」</li>
-                <li>在作業/報告中立即活用的方法</li>
+                <li>實作：「向AI描述我的工作」</li>
+                <li>在作業/報告/郵件中立即活用的方法</li>
+                <li>現場演示：一行指令 → AI自動完成</li>
             </ul>
         </div>
-        <!-- 2~4회: 심화 과정 예고 -->
-        <div class="curriculum-card" style="opacity:0.75;border:1px dashed var(--gray-400)">
-            <div class="curriculum-num" style="color:rgba(201,169,98,0.25)">02-04</div>
-            <div class="topic lang-ko">심화 과정 (추후 공지)</div>
-            <div class="topic lang-zh">進階課程（稍後公告）</div>
-            <h3 class="lang-ko">이어지는 3회 실전 과정</h3>
-            <h3 class="lang-zh">接續3堂實戰課程</h3>
+        <!-- 2회: 심화 -->
+        <div class="curriculum-card" style="position:relative">
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--gold-light);padding:4px 16px;border-radius:12px;font-size:0.75rem;font-weight:700;white-space:nowrap"><span class="lang-ko">심화 과정</span><span class="lang-zh">進階課程</span></div>
+            <div class="curriculum-num">02</div>
+            <div class="topic lang-ko">프롬프트 작성법 + 실습</div>
+            <div class="topic lang-zh">提示詞撰寫法 + 實作</div>
+            <h3 class="lang-ko">AI에게 잘 지시하는 기술</h3>
+            <h3 class="lang-zh">有效指示AI的技術</h3>
             <ul class="lang-ko">
-                <li>프롬프트 작성법 + 실습</li>
-                <li>업무 자동화 실전 (Before/After 데모)</li>
-                <li>나만의 자동화 설계</li>
-                <li style="color:var(--gold-dark);font-weight:600">1회 체험 후 안내드립니다</li>
+                <li>좋은 프롬프트의 구조 (역할/목표/조건/예시)</li>
+                <li>실습: 이메일 작성, 번역, 데이터 정리</li>
+                <li>프롬프트 체이닝 — 복잡한 작업 단계별 분리</li>
+                <li>자주 하는 실수 TOP 5 + 해결법</li>
+                <li>나만의 프롬프트 템플릿 만들기</li>
             </ul>
             <ul class="lang-zh">
-                <li>提示詞撰寫法 + 實作</li>
-                <li>工作自動化實戰（Before/After 演示）</li>
-                <li>設計我的自動化</li>
-                <li style="color:var(--gold-dark);font-weight:600">體驗第1堂後將另行通知</li>
+                <li>好的提示詞結構（角色/目標/條件/範例）</li>
+                <li>實作：撰寫郵件、翻譯、整理數據</li>
+                <li>提示詞鏈接 — 複雜任務的分步拆解</li>
+                <li>常見錯誤 TOP 5 + 解決方法</li>
+                <li>打造我的提示詞模板</li>
+            </ul>
+        </div>
+        <!-- 3회: 심화 -->
+        <div class="curriculum-card" style="position:relative">
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--gold-light);padding:4px 16px;border-radius:12px;font-size:0.75rem;font-weight:700;white-space:nowrap"><span class="lang-ko">심화 과정</span><span class="lang-zh">進階課程</span></div>
+            <div class="curriculum-num">03</div>
+            <div class="topic lang-ko">업무 자동화 실전</div>
+            <div class="topic lang-zh">工作自動化實戰</div>
+            <h3 class="lang-ko">한양봇 사례 + Before/After 라이브</h3>
+            <h3 class="lang-zh">漢陽Bot案例 + Before/After 現場演示</h3>
+            <ul class="lang-ko">
+                <li>실제 사례: 30분 수작업 → 6분 자동화</li>
+                <li>한양봇 라이브 시연 (교수님 수업에서 검증!)</li>
+                <li>바이어 375명 자동 발굴 프로세스 공개</li>
+                <li>자동화 가능한 업무 유형 분류법</li>
+                <li>도구 소개: Claude Code, Playwright, Google API</li>
+            </ul>
+            <ul class="lang-zh">
+                <li>實際案例：30分鐘手動 → 6分鐘自動</li>
+                <li>漢陽Bot現場演示（教授課堂上驗證過！）</li>
+                <li>公開375位買家自動發掘流程</li>
+                <li>可自動化的工作類型分類法</li>
+                <li>工具介紹：Claude Code、Playwright、Google API</li>
+            </ul>
+        </div>
+        <!-- 4회: 심화 -->
+        <div class="curriculum-card" style="position:relative">
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--gold-light);padding:4px 16px;border-radius:12px;font-size:0.75rem;font-weight:700;white-space:nowrap"><span class="lang-ko">심화 과정</span><span class="lang-zh">進階課程</span></div>
+            <div class="curriculum-num">04</div>
+            <div class="topic lang-ko">나만의 자동화 설계</div>
+            <div class="topic lang-zh">設計我的自動化</div>
+            <h3 class="lang-ko">내 업무 분석 → 자동화 설계 워크숍</h3>
+            <h3 class="lang-zh">分析我的工作 → 自動化設計工作坊</h3>
+            <ul class="lang-ko">
+                <li>내 업무 프로세스 맵핑 실습</li>
+                <li>자동화 우선순위 정하기 (시간/반복/실수 기준)</li>
+                <li>에이전트 시스템 설계 기초</li>
+                <li>수강생 발표 + 1:1 피드백</li>
+                <li style="color:var(--gold-dark);font-weight:600">수료증 + 에이전트 패키지 제공</li>
+            </ul>
+            <ul class="lang-zh">
+                <li>我的工作流程繪製實作</li>
+                <li>確定自動化優先順序（時間/重複/錯誤基準）</li>
+                <li>Agent系統設計基礎</li>
+                <li>學員發表 + 1對1回饋</li>
+                <li style="color:var(--gold-dark);font-weight:600">結業證書 + Agent套件提供</li>
             </ul>
         </div>
     </div>
