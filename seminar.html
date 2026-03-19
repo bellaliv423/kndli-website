@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="슬기로운 클로드 마법 — 코딩 없이 시작하는 AI 활용법. 학업부터 업무까지, 누구나 바로 시작할 수 있는 무료 세미나.">
+    <meta name="keywords" content="AI 세미나, Claude, 자동화, 외국인, MBA, 무료 강의, Bella, KNDLI">
+    <meta property="og:title" content="슬기로운 클로드 마법 | KNDLI">
+    <meta property="og:description" content="코딩 없이 시작하는 AI 활용법 — 학업부터 업무까지 4회 무료 과정">
+    <title>슬기로운 클로드 마법 | KNDLI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Hero */
+        .seminar-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-medium) 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .seminar-hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(201,169,98,0.08) 0%, transparent 60%);
+        }
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy); padding: 6px 20px; border-radius: 20px;
+            font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem; font-weight: 700; color: var(--white);
+            margin-bottom: 0.5rem; line-height: 1.3;
+        }
+        .hero-sub {
+            font-size: 1.15rem; color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem; line-height: 1.8;
+        }
+        .hero-stats {
+            display: flex; justify-content: center; gap: 2.5rem;
+            flex-wrap: wrap; margin-bottom: 2rem;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat .num {
+            font-family: var(--font-display);
+            font-size: 2rem; font-weight: 700; color: var(--gold);
+        }
+        .hero-stat .label {
+            font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;
+        }
+
+        /* Instructor */
+        .instructor-card {
+            display: flex; align-items: center; gap: 2rem;
+            background: var(--white); border-radius: 16px;
+            padding: 2rem; box-shadow: var(--shadow-md);
+            border: 1px solid rgba(10,22,40,0.05);
+            max-width: 800px; margin: 0 auto;
+        }
+        .instructor-avatar {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; flex-shrink: 0;
+        }
+        .instructor-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem; color: var(--navy); margin-bottom: 0.25rem;
+        }
+        .instructor-info .title {
+            font-size: 0.9rem; color: var(--gold-dark); font-weight: 600; margin-bottom: 0.75rem;
+        }
+        .instructor-info p {
+            font-size: 0.9rem; color: var(--gray-600); line-height: 1.7;
+        }
+        .instructor-tags {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;
+        }
+        .instructor-tag {
+            background: var(--cream); color: var(--navy);
+            padding: 4px 12px; border-radius: 6px;
+            font-size: 0.8rem; font-weight: 500;
+        }
+
+        /* Curriculum */
+        .curriculum-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .curriculum-card {
+            background: var(--white); border-radius: 12px;
+            padding: 1.75rem; box-shadow: var(--shadow-md);
+            border: 1px solid rgba(10,22,40,0.05);
+            transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .curriculum-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .curriculum-num {
+            position: absolute; top: 12px; right: 16px;
+            font-family: var(--font-display);
+            font-size: 3rem; font-weight: 700;
+            color: rgba(201,169,98,0.15); line-height: 1;
+        }
+        .curriculum-card h3 {
+            font-size: 1.05rem; font-weight: 600; color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        .curriculum-card .topic {
+            font-size: 0.85rem; color: var(--gold-dark); font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .curriculum-card ul {
+            list-style: none; padding: 0;
+        }
+        .curriculum-card li {
+            font-size: 0.85rem; color: var(--gray-600);
+            padding: 0.3rem 0; padding-left: 1.2rem;
+            position: relative; line-height: 1.5;
+        }
+        .curriculum-card li::before {
+            content: '\2713'; position: absolute; left: 0;
+            color: var(--gold-dark); font-weight: 700;
+        }
+
+        /* Before/After */
+        .ba-grid {
+            display: grid; grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem; align-items: stretch;
+        }
+        .ba-card {
+            background: var(--white); border-radius: 12px;
+            padding: 2rem; box-shadow: var(--shadow-md);
+            border: 1px solid rgba(10,22,40,0.05);
+        }
+        .ba-card h3 {
+            font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem;
+        }
+        .ba-card.before h3 { color: var(--red); }
+        .ba-card.after h3 { color: var(--green); }
+        .ba-list { list-style: none; padding: 0; }
+        .ba-list li {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            font-size: 0.9rem; color: var(--gray-600);
+            padding: 0.5rem 0; line-height: 1.5;
+        }
+        .ba-list li span:first-child { font-size: 1.1rem; flex-shrink: 0; }
+        .ba-arrow {
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: var(--gold);
+        }
+
+        /* Hanyang Case */
+        .case-card {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 16px; padding: 2.5rem;
+            color: var(--white); text-align: center;
+            max-width: 800px; margin: 0 auto;
+        }
+        .case-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem; color: var(--gold-light); margin-bottom: 1rem;
+        }
+        .case-card p {
+            font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .case-quote {
+            font-style: italic; font-size: 1rem;
+            color: var(--gold-light); border-left: 3px solid var(--gold);
+            padding-left: 1rem; margin: 1.5rem auto;
+            max-width: 500px; text-align: left;
+        }
+
+        /* Form */
+        .form-card {
+            background: var(--white); border-radius: 16px;
+            padding: 2.5rem; box-shadow: var(--shadow-md);
+            border: 1px solid rgba(10,22,40,0.05);
+            max-width: 600px; margin: 0 auto;
+        }
+        .form-card h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem; color: var(--navy);
+            text-align: center; margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block; font-size: 0.85rem; font-weight: 600;
+            color: var(--navy); margin-bottom: 0.4rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%; padding: 12px 16px;
+            border: 1px solid var(--gray-200); border-radius: 8px;
+            font-family: inherit; font-size: 0.9rem;
+            background: var(--cream); color: var(--gray-800);
+            transition: var(--transition);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none; border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201,169,98,0.15);
+        }
+        .form-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+        .submit-btn {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy); border: none; border-radius: 8px;
+            font-size: 1rem; font-weight: 700; cursor: pointer;
+            transition: var(--transition); margin-top: 0.5rem;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201,169,98,0.35);
+        }
+
+        /* Fade-in */
+        .fade-in {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1; transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .hero-stats { gap: 1.5rem; }
+            .instructor-card { flex-direction: column; text-align: center; }
+            .instructor-tags { justify-content: center; }
+            .ba-grid { grid-template-columns: 1fr; }
+            .ba-arrow { transform: rotate(90deg); }
+            .form-row { grid-template-columns: 1fr; }
+            .curriculum-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .seminar-hero { padding: 6rem 1rem 3rem; }
+            .hero-title { font-size: 1.6rem; }
+            .hero-stat .num { font-size: 1.5rem; }
+            .section { padding: 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">KNDLI</a>
+        <nav class="nav">
+            <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
+            <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span></a>
+            <a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span></a>
+            <a href="#curriculum"><span class="lang-ko">커리큘럼</span><span class="lang-zh">課程大綱</span></a>
+            <a href="#apply"><span class="lang-ko">신청</span><span class="lang-zh">報名</span></a>
+            <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span></a>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('ko')">KO</button>
+                <button class="lang-btn" onclick="setLang('zh')">中文</button>
+            </div>
+        </nav>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="seminar-hero">
+    <div style="position:relative;z-index:1">
+        <div class="hero-badge"><span class="lang-ko">무료 세미나</span><span class="lang-zh">免費講座</span></div>
+        <h1 class="hero-title lang-ko">슬기로운 클로드 마법</h1>
+        <h1 class="hero-title lang-zh">聰明的Claude魔法</h1>
+        <p class="hero-sub lang-ko" style="font-size:1.3rem;color:rgba(255,255,255,0.85);margin-bottom:0.75rem;font-weight:500">코딩 없이 시작하는 AI 활용법</p>
+        <p class="hero-sub lang-zh" style="font-size:1.3rem;color:rgba(255,255,255,0.85);margin-bottom:0.75rem;font-weight:500">零程式碼開始的AI活用法</p>
+        <p class="hero-sub lang-ko" style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.55);margin-bottom:0.5rem">"비개발자가 Claude로 수출 업무 전체를 자동화한 실화"</p>
+        <p class="hero-sub lang-zh" style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.55);margin-bottom:0.5rem">「非開發者用Claude將出口業務全面自動化的真實故事」</p>
+        <p class="hero-sub lang-ko" style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:2rem">학업부터 업무까지, 누구나 바로 시작할 수 있습니다</p>
+        <p class="hero-sub lang-zh" style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:2rem">從學業到工作，任何人都能立即開始</p>
+
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="num">375+</div>
+                <div class="label lang-ko">자동 발굴 바이어</div>
+                <div class="label lang-zh">自動發掘買家</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">32,000</div>
+                <div class="label lang-ko">행 데이터 자동 처리</div>
+                <div class="label lang-zh">行數據自動處理</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">1,015</div>
+                <div class="label lang-ko">알리바바 자동 등록</div>
+                <div class="label lang-zh">阿里巴巴自動上架</div>
+            </div>
+        </div>
+
+        <a href="#apply" class="btn-primary"><span class="lang-ko">무료 체험 수업 신청하기</span><span class="lang-zh">免費體驗課報名</span> &rarr;</a>
+    </div>
+</section>
+
+<!-- Instructor -->
+<section class="section fade-in" id="instructor">
+    <div class="section-header">
+        <div class="section-tag">Instructor</div>
+        <h2 class="section-title lang-ko">강사 소개</h2>
+        <h2 class="section-title lang-zh">講師介紹</h2>
+    </div>
+    <div class="instructor-card">
+        <div class="instructor-avatar">&#128105;&#8205;&#128187;</div>
+        <div class="instructor-info">
+            <h3>Bella (벨라)</h3>
+            <div class="title lang-ko">한양대 MBA 경영전략/벤처창업 | KNDLI Co., Ltd.</div>
+            <div class="title lang-zh">漢陽大學 MBA 經營策略/創業 | KNDLI Co., Ltd.</div>
+            <p class="lang-ko">비개발자로서 Claude Code만으로 수출 회사의 재고 관리, 바이어 발굴, 주문 처리, 이메일 발송까지 전체 업무를 자동화한 실전 전문가입니다.</p>
+            <p class="lang-zh">非工程師背景，僅用 Claude Code 就實現了出口公司的庫存管理、買家開發、訂單處理、郵件發送等全部業務自動化。</p>
+            <div class="instructor-tags">
+                <span class="instructor-tag lang-ko">비개발자 AI 자동화</span>
+                <span class="instructor-tag lang-ko">한양대 MBA</span>
+                <span class="instructor-tag lang-zh">非開發者 AI 自動化</span>
+                <span class="instructor-tag lang-zh">漢陽大學 MBA</span>
+                <span class="instructor-tag">3 Languages (KO/中/EN)</span>
+                <span class="instructor-tag">Instagram 1.1K+</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Curriculum -->
+<section class="section fade-in" id="curriculum">
+    <div class="section-header">
+        <div class="section-tag">Curriculum</div>
+        <h2 class="section-title lang-ko">커리큘럼</h2>
+        <h2 class="section-title lang-zh">課程大綱</h2>
+        <p class="section-desc lang-ko">90분 | 이론 + 실습 | 노트북 지참</p>
+        <p class="section-desc lang-zh">90分鐘 | 理論 + 實作 | 請自備筆電</p>
+    </div>
+    <div class="curriculum-grid">
+        <!-- 1회: 무료 체험 -->
+        <div class="curriculum-card" style="border:2px solid var(--gold);position:relative">
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);padding:4px 16px;border-radius:12px;font-size:0.75rem;font-weight:700;white-space:nowrap"><span class="lang-ko">무료 재능기부</span><span class="lang-zh">免費公益課</span></div>
+            <div class="curriculum-num">01</div>
+            <div class="topic lang-ko">AI란? Claude 시작하기</div>
+            <div class="topic lang-zh">什麼是AI？開始使用Claude</div>
+            <h3 class="lang-ko">AI 개념 이해 + 첫 대화</h3>
+            <h3 class="lang-zh">理解AI概念 + 第一次對話</h3>
+            <ul>
+                <li class="lang-ko">AI/LLM이 뭔지 쉽게 이해하기</li>
+                <li class="lang-ko">Claude 계정 생성 + 인터페이스 탐색</li>
+                <li class="lang-ko">첫 대화: "내 업무를 설명해보기"</li>
+                <li class="lang-ko">과제/레포트에 바로 활용하는 법</li>
+                <li class="lang-zh">輕鬆理解AI/LLM是什麼</li>
+                <li class="lang-zh">創建Claude帳號 + 介面探索</li>
+                <li class="lang-zh">第一次對話：「描述我的工作」</li>
+                <li class="lang-zh">在作業/報告中立即活用的方法</li>
+            </ul>
+        </div>
+        <!-- 2~4회: 심화 과정 예고 -->
+        <div class="curriculum-card" style="opacity:0.75;border:1px dashed var(--gray-400)">
+            <div class="curriculum-num" style="color:rgba(201,169,98,0.25)">02-04</div>
+            <div class="topic lang-ko">심화 과정 (추후 공지)</div>
+            <div class="topic lang-zh">進階課程（稍後公告）</div>
+            <h3 class="lang-ko">이어지는 3회 실전 과정</h3>
+            <h3 class="lang-zh">接續3堂實戰課程</h3>
+            <ul>
+                <li class="lang-ko">프롬프트 작성법 + 실습</li>
+                <li class="lang-ko">업무 자동화 실전 (Before/After 데모)</li>
+                <li class="lang-ko">나만의 자동화 설계</li>
+                <li class="lang-ko" style="color:var(--gold-dark);font-weight:600">1회 체험 후 안내드립니다</li>
+                <li class="lang-zh">提示詞撰寫法 + 實作</li>
+                <li class="lang-zh">工作自動化實戰（Before/After 演示）</li>
+                <li class="lang-zh">設計我的自動化</li>
+                <li class="lang-zh" style="color:var(--gold-dark);font-weight:600">體驗第1堂後將另行通知</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Before / After -->
+<section class="section fade-in" id="before-after">
+    <div class="section-header">
+        <div class="section-tag">Before & After</div>
+        <h2 class="section-title lang-ko">수작업 vs 자동화</h2>
+        <h2 class="section-title lang-zh">手動 vs 自動化</h2>
+        <p class="section-desc lang-ko">같은 업무를 사람이 하면 30분, AI가 하면 6분</p>
+        <p class="section-desc lang-zh">同樣的工作，人做要30分鐘，AI只要6分鐘</p>
+    </div>
+    <div class="ba-grid">
+        <div class="ba-card before">
+            <h3 class="lang-ko">&#10060; Before (수작업)</h3>
+            <h3 class="lang-zh">&#10060; Before（手動作業）</h3>
+            <ul class="ba-list">
+                <li class="lang-ko"><span>&#128337;</span><span>매일 30분 ERP 수동 로그인 + 다운로드</span></li>
+                <li class="lang-ko"><span>&#128221;</span><span>엑셀 수동 데이터 가공 + 복사/붙여넣기</span></li>
+                <li class="lang-ko"><span>&#9888;&#65039;</span><span>사람 실수 → 재고 불일치, 잘못된 견적</span></li>
+                <li class="lang-ko"><span>&#128176;</span><span>연간 120시간 단순 반복에 투입</span></li>
+                <li class="lang-zh"><span>&#128337;</span><span>每天30分鐘手動登入ERP + 下載</span></li>
+                <li class="lang-zh"><span>&#128221;</span><span>Excel手動處理數據 + 複製貼上</span></li>
+                <li class="lang-zh"><span>&#9888;&#65039;</span><span>人為失誤 → 庫存不一致、報價錯誤</span></li>
+                <li class="lang-zh"><span>&#128176;</span><span>每年120小時投入簡單重複工作</span></li>
+            </ul>
+        </div>
+        <div class="ba-arrow">&rarr;</div>
+        <div class="ba-card after">
+            <h3 class="lang-ko">&#10004;&#65039; After (자동화)</h3>
+            <h3 class="lang-zh">&#10004;&#65039; After（自動化）</h3>
+            <ul class="ba-list">
+                <li class="lang-ko"><span>&#129302;</span><span>매일 09:10 자동 실행 (PC 켜면 자동)</span></li>
+                <li class="lang-ko"><span>&#9889;</span><span>32,000행 데이터 6분 만에 처리 완료</span></li>
+                <li class="lang-ko"><span>&#128170;</span><span>3중 안전장치 → 실패 시 자동 알림</span></li>
+                <li class="lang-ko"><span>&#128176;</span><span>연간 120시간 절약 → 핵심 업무 집중</span></li>
+                <li class="lang-zh"><span>&#129302;</span><span>每天09:10自動執行（開機自動補執行）</span></li>
+                <li class="lang-zh"><span>&#9889;</span><span>32,000行數據6分鐘內處理完成</span></li>
+                <li class="lang-zh"><span>&#128170;</span><span>三重安全機制 → 失敗時自動通知</span></li>
+                <li class="lang-zh"><span>&#128176;</span><span>每年節省120小時 → 專注核心業務</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Hanyang Bot Case -->
+<section class="section fade-in" id="case">
+    <div class="section-header">
+        <div class="section-tag">Case Study</div>
+        <h2 class="section-title lang-ko">한양봇 실제 사례</h2>
+        <h2 class="section-title lang-zh">漢陽Bot 實際案例</h2>
+    </div>
+    <div class="case-card">
+        <h3 class="lang-ko">&#127891; 한양대 MBA 수업에서 실제 시연된 AI 봇</h3>
+        <h3 class="lang-zh">&#127891; 在漢陽大學MBA課堂上實際演示的AI Bot</h3>
+        <p class="lang-ko">최성진 교수님 협업으로 개발된 한양봇은<br>중국 MBA 학생 120명을 위한 학습 도우미입니다.<br>수업 자료 검색, 과제 도움, PPT 자동 생성까지 — AI가 학업을 서포트합니다.</p>
+        <p class="lang-zh">與崔成振教授合作開發的漢陽Bot<br>是為120名中國MBA學生打造的學習助手。<br>搜尋課程資料、作業輔助、自動生成PPT — AI全面支援學業。</p>
+        <div class="case-quote lang-ko">
+            "1줄 명령어 → AI가 자동 완성하는 모습을 라이브로 보여드립니다"
+        </div>
+        <div class="case-quote lang-zh">
+            「一行指令 → AI自動完成，現場為您演示」
+        </div>
+        <div style="margin-top:1.5rem">
+            <a href="#apply" class="btn-gold"><span class="lang-ko">세미나에서 직접 체험하기</span><span class="lang-zh">在講座中親身體驗</span> &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- Apply Form -->
+<section class="section fade-in" id="apply">
+    <div class="section-header">
+        <div class="section-tag">Apply</div>
+        <h2 class="section-title lang-ko">무료 체험 수업 신청</h2>
+        <h2 class="section-title lang-zh">免費體驗課報名</h2>
+        <p class="section-desc lang-ko">1회 무료 체험 수업에 참여해보세요! 일정을 이메일로 안내해드립니다</p>
+        <p class="section-desc lang-zh">歡迎參加第1堂免費體驗課！我們將透過Email通知您上課時間</p>
+    </div>
+    <div class="form-card">
+        <form id="seminarForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label><span class="lang-ko">이름</span><span class="lang-zh">姓名</span> *</label>
+                    <input type="text" name="name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" name="email" required placeholder="you@example.com">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><span class="lang-ko">소속 (학교/회사)</span><span class="lang-zh">所屬（學校/公司）</span></label>
+                    <input type="text" name="affiliation" placeholder="Hanyang Univ. / Company name">
+                </div>
+                <div class="form-group">
+                    <label><span class="lang-ko">언어 선호</span><span class="lang-zh">偏好語言</span></label>
+                    <select name="language">
+                        <option value="ko">한국어 Korean</option>
+                        <option value="zh">中文 Chinese</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><span class="lang-ko">하고 싶은 말 (선택)</span><span class="lang-zh">想說的話（選填）</span></label>
+                <textarea name="message" rows="3" id="messageField" placeholder="자동화하고 싶은 업무, 궁금한 점 등"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+                <span class="lang-ko">&#127891; 무료 체험 수업 신청하기</span>
+                <span class="lang-zh">&#127891; 免費體驗課報名</span>
+            </button>
+        </form>
+        <div id="formSuccess" style="display:none;text-align:center;padding:2rem;">
+            <div style="font-size:3rem;margin-bottom:1rem;">&#127881;</div>
+            <h3 class="lang-ko" style="color:var(--navy);margin-bottom:0.5rem;">신청이 완료되었습니다!</h3>
+            <h3 class="lang-zh" style="color:var(--navy);margin-bottom:0.5rem;">報名已完成！</h3>
+            <p class="lang-ko" style="color:var(--gray-600);">세미나 일정을 이메일로 안내해드리겠습니다.</p>
+            <p class="lang-zh" style="color:var(--gray-600);">我們將透過Email通知您講座時間。</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" style="background:var(--navy);color:rgba(255,255,255,0.7);padding:2rem;text-align:center;">
+    <div style="max-width:800px;margin:0 auto;">
+        <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem;">
+            <a href="index.html" style="color:var(--gold-light);text-decoration:none;font-size:0.9rem;">
+                <span class="lang-ko">KNDLI 홈</span><span class="lang-zh">KNDLI 首頁</span>
+            </a>
+            <a href="profile.html" style="color:var(--gold-light);text-decoration:none;font-size:0.9rem;">
+                <span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span>
+            </a>
+            <a href="https://bellaliv423.github.io/bella-ai/" target="_blank" style="color:var(--gold-light);text-decoration:none;font-size:0.9rem;">
+                <span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span>
+            </a>
+            <a href="https://instagram.com/bellaliv423" target="_blank" style="color:var(--gold-light);text-decoration:none;font-size:0.9rem;">
+                Instagram @bellaliv423
+            </a>
+        </div>
+        <p style="font-size:0.8rem;">&copy; 2024-2026 KNDLI Co., Ltd. | <span class="lang-ko">한국-대만-중국 비즈니스 브릿지</span><span class="lang-zh">韓國-台灣-中國 商業橋樑</span></p>
+    </div>
+</footer>
+
+<script>
+    // Language toggle
+    function setLang(lang) {
+        document.body.classList.toggle('zh', lang === 'zh');
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.trim() === (lang === 'zh' ? '中文' : 'KO'));
+        });
+        localStorage.setItem('kndli-lang', lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'ko';
+        var msg = document.getElementById('messageField');
+        if (msg) msg.placeholder = lang === 'zh' ? '想自動化的工作、想了解的事項等' : '자동화하고 싶은 업무, 궁금한 점 등';
+    }
+    const saved = localStorage.getItem('kndli-lang');
+    if (saved === 'zh') setLang('zh');
+
+    // Fade-in on scroll
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // Form submission (placeholder — connect to Google Forms/Apps Script later)
+    document.getElementById('seminarForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        this.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
