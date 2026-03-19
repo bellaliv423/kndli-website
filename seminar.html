@@ -630,11 +630,43 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-    // Form submission (placeholder — connect to Google Forms/Apps Script later)
+    // ★ Apps Script 웹앱 URL (배포 후 교체!)
+    var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVrqKCCcZGKdfKDT6xwEzBmtyj2Uguvpy-8akRt030QsSxx45z6MSJilooBJpWFIyExw/exec';
+
+    // Form submission → Google Sheets + 자동응답
     document.getElementById('seminarForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        this.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
+        var form = this;
+        var btn = form.querySelector('.submit-btn');
+        var origText = btn.innerHTML;
+        var isZh = document.body.classList.contains('zh');
+        btn.innerHTML = isZh ? '傳送中...' : '전송 중...';
+        btn.disabled = true;
+
+        var formData = new FormData(form);
+        var data = Object.fromEntries(formData);
+        data.formType = 'seminar';
+        data.lang = isZh ? 'zh' : 'ko';
+
+        fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+            if (res.result === 'success') {
+                form.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            } else {
+                throw new Error(res.message);
+            }
+        })
+        .catch(function(err) {
+            console.error('Form error:', err);
+            btn.innerHTML = isZh ? '❌ 發送失敗，請稍後再試' : '❌ 전송 실패, 다시 시도해주세요';
+            btn.disabled = false;
+            setTimeout(function() { btn.innerHTML = origText; }, 3000);
+        });
     });
 
     // bella-ai 링크에 현재 언어 파라미터 자동 추가
