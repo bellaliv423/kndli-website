@@ -56,8 +56,8 @@ function handleContact(ss, data, lang) {
       + '類型: ' + data.type + '\n'
       + '訊息: ' + data.message + '\n\n'
       + '如有緊急事項，請透過以下方式聯繫：\n'
-      + '📧 kndli.210@gmail.com\n'
-      + '📷 Instagram @bellaliv423\n\n'
+      + 'Email: kndli.210@gmail.com\n'
+      + 'Instagram: @bellaliv423\n\n'
       + '韓妮德來有限公司 KNDLI Co., Ltd.\n'
       + 'Bella (류영아)';
   } else {
@@ -69,8 +69,8 @@ function handleContact(ss, data, lang) {
       + '유형: ' + data.type + '\n'
       + '메시지: ' + data.message + '\n\n'
       + '급한 사항은 아래로 연락주세요:\n'
-      + '📧 kndli.210@gmail.com\n'
-      + '📷 Instagram @bellaliv423\n\n'
+      + 'Email: kndli.210@gmail.com\n'
+      + 'Instagram: @bellaliv423\n\n'
       + '한니드레이 유한회사 KNDLI Co., Ltd.\n'
       + 'Bella (류영아)';
   }
@@ -82,7 +82,7 @@ function handleContact(ss, data, lang) {
 
   // 벨라님에게 알림
   GmailApp.sendEmail(NOTIFY_EMAIL,
-    '📩 [KNDLI 문의] ' + data.name + ' — ' + data.type,
+    '[KNDLI 문의] ' + data.name + ' - ' + data.type,
     '새 문의가 접수되었습니다.\n\n'
       + '이름: ' + data.name + '\n'
       + '이메일: ' + data.email + '\n'
@@ -119,8 +119,8 @@ function handleSeminar(ss, data, lang) {
       + (data.affiliation ? '所屬: ' + data.affiliation + '\n' : '')
       + (data.message ? '備註: ' + data.message + '\n' : '')
       + '\n如有問題，歡迎隨時聯繫：\n'
-      + '📧 kndli.210@gmail.com\n'
-      + '📷 Instagram @bellaliv423\n\n'
+      + 'Email: kndli.210@gmail.com\n'
+      + 'Instagram: @bellaliv423\n\n'
       + '韓妮德來有限公司 KNDLI Co., Ltd.\n'
       + 'Bella (류영아)';
   } else {
@@ -134,8 +134,8 @@ function handleSeminar(ss, data, lang) {
       + (data.affiliation ? '소속: ' + data.affiliation + '\n' : '')
       + (data.message ? '메시지: ' + data.message + '\n' : '')
       + '\n문의사항은 아래로 연락주세요:\n'
-      + '📧 kndli.210@gmail.com\n'
-      + '📷 Instagram @bellaliv423\n\n'
+      + 'Email: kndli.210@gmail.com\n'
+      + 'Instagram: @bellaliv423\n\n'
       + '한니드레이 유한회사 KNDLI Co., Ltd.\n'
       + 'Bella (류영아)';
   }
@@ -147,7 +147,7 @@ function handleSeminar(ss, data, lang) {
 
   // 벨라님에게 알림
   GmailApp.sendEmail(NOTIFY_EMAIL,
-    '🎓 [KNDLI 세미나] ' + data.name + ' 신청',
+    '[KNDLI 세미나] ' + data.name + ' 신청',
     '새 세미나 신청이 접수되었습니다.\n\n'
       + '이름: ' + data.name + '\n'
       + '이메일: ' + data.email + '\n'

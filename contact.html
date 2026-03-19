@@ -408,6 +408,9 @@
 
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
+            // select의 표시 텍스트를 전송 (value "ai" 대신 "AI 자동화 상담")
+            var typeSelect = document.getElementById('contactType');
+            data.type = typeSelect.options[typeSelect.selectedIndex].textContent;
             data.formType = 'contact';
             data.lang = isZh ? 'zh' : 'ko';
 
