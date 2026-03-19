@@ -59,7 +59,7 @@ function handleContact(ss, data, lang) {
       + 'Email: kndli.210@gmail.com\n'
       + 'Instagram: @bellaliv423\n\n'
       + '韓妮德來有限公司 KNDLI Co., Ltd.\n'
-      + 'Bella (류영아)';
+      + 'Bella (黃鈴雅)';
   } else {
     subject = '[KNDLI] 문의해 주셔서 감사합니다';
     body = data.name + '님, 안녕하세요.\n\n'
@@ -72,7 +72,7 @@ function handleContact(ss, data, lang) {
       + 'Email: kndli.210@gmail.com\n'
       + 'Instagram: @bellaliv423\n\n'
       + '한니드레이 유한회사 KNDLI Co., Ltd.\n'
-      + 'Bella (류영아)';
+      + 'Bella (황영아)';
   }
 
   GmailApp.sendEmail(data.email, subject, body, {
@@ -122,7 +122,7 @@ function handleSeminar(ss, data, lang) {
       + 'Email: kndli.210@gmail.com\n'
       + 'Instagram: @bellaliv423\n\n'
       + '韓妮德來有限公司 KNDLI Co., Ltd.\n'
-      + 'Bella (류영아)';
+      + 'Bella (黃鈴雅)';
   } else {
     subject = '[KNDLI] 세미나 신청이 접수되었습니다';
     body = data.name + '님, 안녕하세요.\n\n'
@@ -137,7 +137,7 @@ function handleSeminar(ss, data, lang) {
       + 'Email: kndli.210@gmail.com\n'
       + 'Instagram: @bellaliv423\n\n'
       + '한니드레이 유한회사 KNDLI Co., Ltd.\n'
-      + 'Bella (류영아)';
+      + 'Bella (황영아)';
   }
 
   GmailApp.sendEmail(data.email, subject, body, {
