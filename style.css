@@ -50,6 +50,15 @@ span.lang-ko, a.lang-ko { display: inline; }
 span.lang-zh, a.lang-zh { display: none; }
 body.zh span.lang-ko, body.zh a.lang-ko { display: none; }
 body.zh span.lang-zh, body.zh a.lang-zh { display: inline; }
+.lang-en { display: none; }
+body.en .lang-ko { display: none; }
+body.en .lang-zh { display: none; }
+body.en .lang-en { display: block; }
+span.lang-en, a.lang-en { display: none; }
+body.en span.lang-ko, body.en a.lang-ko { display: none; }
+body.en span.lang-zh, body.en a.lang-zh { display: none; }
+body.en span.lang-en, body.en a.lang-en { display: inline; }
+body.en { font-family: 'Noto Sans KR', sans-serif; }
 
 /* ===== Header ===== */
 .header {

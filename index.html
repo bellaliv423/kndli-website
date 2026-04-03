@@ -63,6 +63,15 @@
         span.lang-zh, a.lang-zh { display: none; }
         body.zh span.lang-ko, body.zh a.lang-ko { display: none; }
         body.zh span.lang-zh, body.zh a.lang-zh { display: inline; }
+        .lang-en { display: none; }
+        body.en .lang-ko { display: none; }
+        body.en .lang-zh { display: none; }
+        body.en .lang-en { display: block; }
+        span.lang-en, a.lang-en { display: none; }
+        body.en span.lang-ko, body.en a.lang-ko { display: none; }
+        body.en span.lang-zh, body.en a.lang-zh { display: none; }
+        body.en span.lang-en, body.en a.lang-en { display: inline; }
+        body.en { font-family: 'Noto Sans KR', sans-serif; }
 
         /* ========== Header ========== */
         .header {
@@ -368,16 +377,17 @@
         <div class="header-inner">
             <a href="index.html" class="logo">KNDLI</a>
             <nav class="nav" id="nav">
-                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
-                <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span></a>
-                <a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span></a>
-                <a href="#ai-tools"><span class="lang-ko">AI 도구</span><span class="lang-zh">AI 工具</span></a>
-                <a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">Dream Team</span><span class="lang-zh">Dream Team</span></a>
-                <a href="seminar.html"><span class="lang-ko">세미나</span><span class="lang-zh">講座</span></a>
-                <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span></a>
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span><span class="lang-en">Home</span></a>
+                <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span><span class="lang-en">Profile</span></a>
+                <a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span><span class="lang-en">AI Automation</span></a>
+                <a href="#ai-tools"><span class="lang-ko">AI 도구</span><span class="lang-zh">AI 工具</span><span class="lang-en">AI Tools</span></a>
+                <a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">Dream Team</span><span class="lang-zh">Dream Team</span><span class="lang-en">Dream Team</span></a>
+                <a href="seminar.html"><span class="lang-ko">세미나</span><span class="lang-zh">講座</span><span class="lang-en">Seminar</span></a>
+                <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span><span class="lang-en">Contact</span></a>
                 <div class="lang-toggle">
                     <button class="lang-btn active" data-lang="ko">KO</button>
                     <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
                 </div>
             </nav>
             <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴">
@@ -392,29 +402,35 @@
             <div class="hero-badge">
                 <span class="lang-ko">KNDLI Co., Ltd. | 한니드레이</span>
                 <span class="lang-zh">KNDLI Co., Ltd. | 韓妮德來</span>
+                <span class="lang-en">KNDLI Co., Ltd.</span>
             </div>
 
             <h1 class="lang-ko">AI 시대의<br><span class="gold">비즈니스 브릿지</span></h1>
             <h1 class="lang-zh">AI 時代的<br><span class="gold">商業橋樑</span></h1>
+            <h1 class="lang-en">Business Bridge<br>for the <span class="gold">AI Era</span></h1>
 
             <p class="hero-sub lang-ko">AI 자동화 전문가 + 한국-대만-중국 비즈니스 브릿지<br>반복 업무를 AI로 완전 자동화합니다</p>
             <p class="hero-sub lang-zh">AI 自動化專家 + 韓國-台灣-中國商業橋樑<br>用AI將重複工作完全自動化</p>
+            <p class="hero-sub lang-en">AI Automation Expert + Korea-Taiwan-China Business Bridge<br>Fully automate repetitive work with AI</p>
 
             <div class="hero-stats">
                 <div class="stat-item">
                     <span class="stat-number">375</span>
                     <span class="stat-label lang-ko">바이어 자동 발굴</span>
                     <span class="stat-label lang-zh">自動發掘買家</span>
+                    <span class="stat-label lang-en">Buyers Discovered</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">1,015</span>
                     <span class="stat-label lang-ko">알리바바 리스팅</span>
                     <span class="stat-label lang-zh">阿里巴巴上架</span>
+                    <span class="stat-label lang-en">Alibaba Listings</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">32,000</span>
                     <span class="stat-label lang-ko">행 매일 자동 처리</span>
                     <span class="stat-label lang-zh">每日自動處理</span>
+                    <span class="stat-label lang-en">Daily Auto-processed</span>
                 </div>
             </div>
 
@@ -422,11 +438,13 @@
                 <a href="https://bellaliv423.github.io/bella-ai/" class="btn-primary" target="_blank">
                     <span class="lang-ko">AI 자동화 상담</span>
                     <span class="lang-zh">AI 自動化諮詢</span>
+                    <span class="lang-en">AI Automation Consulting</span>
                     &#10132;
                 </a>
                 <a href="profile.html" class="btn-outline">
                     <span class="lang-ko">프로필 보기</span>
                     <span class="lang-zh">查看個人檔案</span>
+                    <span class="lang-en">View Profile</span>
                 </a>
             </div>
         </div>
@@ -438,8 +456,10 @@
             <div class="section-tag">AI AUTOMATION</div>
             <h2 class="section-title lang-ko">AI 자동화 컨설팅</h2>
             <h2 class="section-title lang-zh">AI 自動化顧問</h2>
+            <h2 class="section-title lang-en">AI Automation Consulting</h2>
             <p class="section-desc lang-ko">비개발자가 직접 구축한 실전 자동화. 당신의 반복 업무도 자동화할 수 있습니다.</p>
             <p class="section-desc lang-zh">非開發者親手打造的實戰自動化。您的重複工作也能自動化。</p>
+            <p class="section-desc lang-en">Real-world automation by non-developers. Your repetitive work can be automated too.</p>
         </div>
 
         <div class="cards-grid">
@@ -447,37 +467,49 @@
                 <div class="card-icon">&#128202;</div>
                 <h3 class="lang-ko">ERP 데이터 자동 수집</h3>
                 <h3 class="lang-zh">ERP 數據自動收集</h3>
+                <h3 class="lang-en">ERP Inventory Automation</h3>
                 <p class="lang-ko">ERP/관리자 페이지에서 매일 자동으로 데이터를 수집하고 Google Sheets에 정리합니다.</p>
                 <p class="lang-zh">每日自動從ERP/管理後台收集數據，整理至Google Sheets。</p>
+                <p class="lang-en">Auto-collect data daily from ERP/admin pages and organize in Google Sheets.</p>
                 <span class="card-highlight lang-ko">재고 32,000행 매일 처리</span>
                 <span class="card-highlight lang-zh">每日處理32,000行庫存</span>
+                <span class="card-highlight lang-en">32,000 rows processed daily</span>
             </div>
             <div class="card">
                 <div class="card-icon">&#127758;</div>
                 <h3 class="lang-ko">바이어/고객 자동 발굴</h3>
                 <h3 class="lang-zh">買家/客戶自動發掘</h3>
+                <h3 class="lang-en">Buyer Discovery Automation</h3>
                 <p class="lang-ko">AI 웹 검색으로 잠재 바이어를 찾고, 다국어 이메일을 자동 발송합니다.</p>
                 <p class="lang-zh">透過AI網路搜尋尋找潛在買家，自動發送多語言郵件。</p>
+                <p class="lang-en">Find potential buyers via AI web search and auto-send multilingual emails.</p>
                 <span class="card-highlight lang-ko">6개국 375명 발굴</span>
                 <span class="card-highlight lang-zh">6國375名買家</span>
+                <span class="card-highlight lang-en">375 buyers from 6 countries</span>
             </div>
             <div class="card">
                 <div class="card-icon">&#128203;</div>
                 <h3 class="lang-ko">보고서 자동 생성</h3>
                 <h3 class="lang-zh">報告自動生成</h3>
+                <h3 class="lang-en">Report Generation</h3>
                 <p class="lang-ko">광고 데이터, 매출, 재고를 분석하여 주간/월간 보고서를 자동으로 생성합니다.</p>
                 <p class="lang-zh">分析廣告數據、營收、庫存，自動生成週報/月報。</p>
+                <p class="lang-en">Analyze ad data, sales, and inventory to auto-generate weekly/monthly reports.</p>
                 <span class="card-highlight lang-ko">Amazon ACOS/ROAS 자동 분석</span>
                 <span class="card-highlight lang-zh">Amazon ACOS/ROAS 自動分析</span>
+                <span class="card-highlight lang-en">Amazon ACOS/ROAS auto-analysis</span>
             </div>
             <div class="card">
                 <div class="card-icon">&#128172;</div>
                 <h3 class="lang-ko">채팅 자동 응답</h3>
                 <h3 class="lang-zh">聊天自動回覆</h3>
+                <h3 class="lang-en">Chat Auto-response</h3>
                 <p class="lang-ko">LINE, WhatsApp, 카카오톡 메시지를 AI가 자동 분류하고 응답합니다.</p>
                 <p class="lang-zh">AI自動分類並回覆LINE、WhatsApp、KakaoTalk訊息。</p>
+                <p class="lang-en">AI auto-classifies and responds to LINE, WhatsApp, and KakaoTalk messages.</p>
                 <span class="card-highlight lang-ko">LINE + WhatsApp 통합</span>
                 <span class="card-highlight lang-zh">LINE + WhatsApp 整合</span>
+                <span class="card-highlight lang-en">LINE + WhatsApp integrated</span>
             </div>
         </div>
 
@@ -485,11 +517,13 @@
             <a href="https://bellaliv423.github.io/bella-ai/" class="btn-gold" target="_blank">
                 <span class="lang-ko">서비스 자세히 보기</span>
                 <span class="lang-zh">查看服務詳情</span>
+                <span class="lang-en">View Services</span>
                 &#10132;
             </a>
             <a href="https://bellaliv423.github.io/bella-ai/" class="btn-navy" target="_blank">
                 <span class="lang-ko">무료 상담 신청</span>
                 <span class="lang-zh">申請免費諮詢</span>
+                <span class="lang-en">Free Consultation</span>
             </a>
         </div>
     </section>
@@ -500,8 +534,10 @@
             <div class="section-tag">AI TOOLS & DASHBOARDS</div>
             <h2 class="section-title lang-ko">AI 도구 & 대시보드</h2>
             <h2 class="section-title lang-zh">AI 工具 & 儀表板</h2>
+            <h2 class="section-title lang-en">AI Tools & Dashboards</h2>
             <p class="section-desc lang-ko">실시간 운영 중인 AI 자동화 도구들. 직접 확인해보세요.</p>
             <p class="section-desc lang-zh">正在運行的AI自動化工具。歡迎親自體驗。</p>
+            <p class="section-desc lang-en">Live AI automation tools. Try them yourself.</p>
         </div>
 
         <div class="cards-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
@@ -511,10 +547,13 @@
                     <div class="card-icon">&#129504;</div>
                     <h3 class="lang-ko">AI Intelligence Dashboard</h3>
                     <h3 class="lang-zh">AI 情報儀表板</h3>
+                    <h3 class="lang-en">AI Intelligence Dashboard</h3>
                     <p class="lang-ko">Claude, AI 트렌드를 매일 자동 수집 + 프로젝트 적용 분석. 드림팀이 추천하는 신기능, 업그레이드 포인트, 콘텐츠 소재.</p>
                     <p class="lang-zh">每日自動收集Claude、AI趨勢 + 專案應用分析。夢幻團隊推薦的新功能、升級要點、內容素材。</p>
+                    <p class="lang-en">Daily auto-collected Claude & AI trends + project application analysis. New features, upgrades, and content ideas recommended by the Dream Team.</p>
                     <span class="card-highlight lang-ko">매일 자동 수집 · KO/中文</span>
                     <span class="card-highlight lang-zh">每日自動收集 · KO/中文</span>
+                    <span class="card-highlight lang-en">Daily auto-collected · KO/中文</span>
                 </div>
             </a>
 
@@ -524,10 +563,13 @@
                     <div class="card-icon">&#128218;</div>
                     <h3 class="lang-ko">Knowledge Dashboard</h3>
                     <h3 class="lang-zh">知識資產儀表板</h3>
+                    <h3 class="lang-en">Knowledge Dashboard</h3>
                     <p class="lang-ko">1,001개 문서, 20개 카테고리, 30가지 태그로 분류된 AI 지식 자산. 자동 태깅 97.7% 완료.</p>
                     <p class="lang-zh">1,001份文件、20個類別、30種標籤分類的AI知識資產。自動標記完成97.7%。</p>
+                    <p class="lang-en">1,001 documents across 20 categories and 30 tags. Auto-tagging 97.7% complete.</p>
                     <span class="card-highlight lang-ko">1,001개 문서 · 자동 분류</span>
                     <span class="card-highlight lang-zh">1,001份文件 · 自動分類</span>
+                    <span class="card-highlight lang-en">1,001 docs · Auto-classified</span>
                 </div>
             </a>
 
@@ -537,10 +579,13 @@
                     <div class="card-icon">&#129718;</div>
                     <h3 class="lang-ko">AI Dream Team</h3>
                     <h3 class="lang-zh">AI 夢幻團隊</h3>
+                    <h3 class="lang-en">AI Dream Team</h3>
                     <p class="lang-ko">16개 AI 에이전트가 운영하는 드림팀 허브. 아티클, 업무일지, 회의록, 갤러리를 공개합니다.</p>
                     <p class="lang-zh">16個AI代理人運營的夢幻團隊中心。文章、工作日誌、會議紀錄、相簿公開中。</p>
+                    <p class="lang-en">Dream Team hub powered by 16 AI agents. Articles, work logs, meeting notes, and gallery.</p>
                     <span class="card-highlight lang-ko">아티클 · 업무일지 · 갤러리</span>
                     <span class="card-highlight lang-zh">文章 · 工作日誌 · 相簿</span>
+                    <span class="card-highlight lang-en">Articles · Work logs · Gallery</span>
                 </div>
             </a>
 
@@ -550,10 +595,13 @@
                     <div class="card-icon">&#9889;</div>
                     <h3 class="lang-ko">AI 자동화 컨설팅</h3>
                     <h3 class="lang-zh">AI 自動化顧問</h3>
+                    <h3 class="lang-en">AI Automation Consulting</h3>
                     <p class="lang-ko">재고 자동화, 바이어 발굴, 마켓 리스팅, 메신저 통합 등 실전 자동화 서비스와 무료 세미나.</p>
                     <p class="lang-zh">庫存自動化、買家發掘、市場上架、通訊整合等實戰自動化服務與免費講座。</p>
+                    <p class="lang-en">Inventory automation, buyer discovery, market listing, messenger integration, and free seminars.</p>
                     <span class="card-highlight lang-ko">6개 실전 사례 · 무료 세미나</span>
                     <span class="card-highlight lang-zh">6個實戰案例 · 免費講座</span>
+                    <span class="card-highlight lang-en">6 real cases · Free seminar</span>
                 </div>
             </a>
         </div>
@@ -566,8 +614,10 @@
                 <div class="section-tag">BUSINESS BRIDGE</div>
                 <h2 class="section-title lang-ko">한국-대만-중국 비즈니스 브릿지</h2>
                 <h2 class="section-title lang-zh">韓國-台灣-中國 商業橋樑</h2>
+                <h2 class="section-title lang-en">Korea-Taiwan-China Business Bridge</h2>
                 <p class="section-desc lang-ko">10년+ 한국 거주 경험과 3개 국어 능력으로 크로스보더 비즈니스를 지원합니다.</p>
                 <p class="section-desc lang-zh">憑藉10年+韓國居住經驗與三語能力，支援跨境商務。</p>
+                <p class="section-desc lang-en">10+ years in Korea with trilingual capabilities supporting cross-border business.</p>
             </div>
 
             <div class="bridge-cards">
@@ -575,27 +625,34 @@
                     <div class="bridge-card-icon">&#127760;</div>
                     <h3 class="lang-ko">통번역 서비스</h3>
                     <h3 class="lang-zh">翻譯口譯服務</h3>
+                    <h3 class="lang-en">Translation Services</h3>
                     <p class="lang-ko">한국어-중국어-영어 비즈니스 통번역. 계약서, 마케팅 자료, 영상 자막 등.</p>
                     <p class="lang-zh">韓中英商務翻譯口譯。合約、行銷資料、影片字幕等。</p>
+                    <p class="lang-en">Korean-Chinese-English business translation. Contracts, marketing materials, video subtitles.</p>
                 </div>
                 <div class="bridge-card">
                     <div class="bridge-card-icon">&#128666;</div>
                     <h3 class="lang-ko">유통 대행</h3>
                     <h3 class="lang-zh">代理經銷</h3>
+                    <h3 class="lang-en">Distribution Services</h3>
                     <p class="lang-ko">한국 브랜드의 대만/중국 진출, 중국 제조 수입 대행. OzKiz 아동복 7년+ 실무.</p>
                     <p class="lang-zh">韓國品牌進入台灣/中國市場、中國製造進口代理。OzKiz童裝7年+實務。</p>
+                    <p class="lang-en">Korean brand expansion to Taiwan/China, import agency. 7+ years with OzKiz children's wear.</p>
                 </div>
                 <div class="bridge-card">
                     <div class="bridge-card-icon">&#128241;</div>
                     <h3 class="lang-ko">마케팅 & 인플루언서</h3>
                     <h3 class="lang-zh">行銷 & 網紅</h3>
+                    <h3 class="lang-en">Marketing & Influencer</h3>
                     <p class="lang-ko">인스타그램 1.1만 팔로워 보유. 샤홍슈 인증, 인플루언서 마케팅 대행.</p>
                     <p class="lang-zh">Instagram 1.1萬粉絲。小紅書認證、網紅行銷代理。</p>
+                    <p class="lang-en">11K Instagram followers. Xiaohongshu certified, influencer marketing agency.</p>
                 </div>
             </div>
 
             <p class="bridge-note lang-ko">기존 서비스 실적이 있으며, 필요 시 제공 가능합니다.</p>
             <p class="bridge-note lang-zh">具有既有服務實績，如有需要可提供服務。</p>
+            <p class="bridge-note lang-en">Proven track record available. Services provided upon request.</p>
         </div>
     </section>
 
@@ -605,6 +662,7 @@
             <div class="section-tag">ABOUT</div>
             <h2 class="section-title lang-ko">대표 소개</h2>
             <h2 class="section-title lang-zh">代表介紹</h2>
+            <h2 class="section-title lang-en">About</h2>
         </div>
 
         <div class="profile-preview">
@@ -613,18 +671,21 @@
                 <h3>Bella 黃鈴雅</h3>
                 <div class="subtitle lang-ko">KNDLI Co., Ltd. 한국 영업소장</div>
                 <div class="subtitle lang-zh">KNDLI Co., Ltd. 韓國營業所長</div>
+                <div class="subtitle lang-en">KNDLI Co., Ltd. Korea Branch Manager</div>
                 <p class="lang-ko">대만 출신, 한국 11년 거주. 한양대 MBA 경영전략&벤처 트랙.<br>비개발자로 Claude Code 활용 8개 프로젝트 자동화 구축. 학과 최초 외국인 운영진.</p>
                 <p class="lang-zh">台灣出身，韓國居住11年。漢陽大學MBA經營策略&創業課程。<br>以非開發者身份運用Claude Code建構8個自動化專案。學科首位外籍運營團隊成員。</p>
+                <p class="lang-en">From Taiwan, 11 years in Korea. Hanyang MBA Strategy & Venture track.<br>Built 8 automation projects with Claude Code as a non-developer. First international student on department leadership.</p>
                 <div class="profile-tags">
-                    <span class="profile-tag lang-ko">AI 자동화</span><span class="profile-tag lang-zh">AI 自動化</span>
-                    <span class="profile-tag lang-ko">한양대 MBA</span><span class="profile-tag lang-zh">漢陽MBA</span>
-                    <span class="profile-tag lang-ko">3개 국어</span><span class="profile-tag lang-zh">三語能力</span>
-                    <span class="profile-tag lang-ko">크로스보더</span><span class="profile-tag lang-zh">跨境商務</span>
+                    <span class="profile-tag lang-ko">AI 자동화</span><span class="profile-tag lang-zh">AI 自動化</span><span class="profile-tag lang-en">AI Automation</span>
+                    <span class="profile-tag lang-ko">한양대 MBA</span><span class="profile-tag lang-zh">漢陽MBA</span><span class="profile-tag lang-en">Hanyang MBA</span>
+                    <span class="profile-tag lang-ko">3개 국어</span><span class="profile-tag lang-zh">三語能力</span><span class="profile-tag lang-en">Trilingual</span>
+                    <span class="profile-tag lang-ko">크로스보더</span><span class="profile-tag lang-zh">跨境商務</span><span class="profile-tag lang-en">Cross-border</span>
                     <span class="profile-tag">OzKiz 7Y+</span>
                 </div>
                 <a href="profile.html" class="btn-gold">
                     <span class="lang-ko">프로필 자세히 보기</span>
                     <span class="lang-zh">查看詳細檔案</span>
+                    <span class="lang-en">View Full Profile</span>
                     &#10132;
                 </a>
             </div>
@@ -639,28 +700,33 @@
                 <p style="font-size:0.85rem; margin-bottom:0.5rem;">
                     <span class="lang-ko">한니드레이 유한회사</span>
                     <span class="lang-zh">韓妮德來有限公司</span>
+                    <span class="lang-en">KNDLI Co., Ltd.</span>
                 </p>
                 <p style="font-size:0.8rem; line-height:1.6;">
                     <span class="lang-ko">서울시 서초구 사임당로8길 13, 4층</span>
-                    <span class="lang-zh">首爾市瑞草區師任堂路8街13號 4樓</span><br>
+                    <span class="lang-zh">首爾市瑞草區師任堂路8街13號 4樓</span>
+                    <span class="lang-en">13, Saimdang-ro 8-gil, Seocho-gu, Seoul, 4F</span><br>
                     <span class="lang-ko">사업자등록번호: 126-84-00471</span>
                     <span class="lang-zh">統一編號: 126-84-00471</span>
+                    <span class="lang-en">Business Reg: 126-84-00471</span>
                 </p>
             </div>
             <div>
                 <h4 class="lang-ko">바로가기</h4>
                 <h4 class="lang-zh">快速連結</h4>
+                <h4 class="lang-en">Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span></a></li>
-                    <li><a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span></a></li>
-                    <li><a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 상담 신청</span><span class="lang-zh">AI 諮詢申請</span></a></li>
-                    <li><a href="contact.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span></a></li>
-                    <li><a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">AI Dream Team</span><span class="lang-zh">AI 夢幻團隊</span></a></li>
+                    <li><a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span><span class="lang-en">Profile</span></a></li>
+                    <li><a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span><span class="lang-en">AI Automation</span></a></li>
+                    <li><a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 상담 신청</span><span class="lang-zh">AI 諮詢申請</span><span class="lang-en">AI Consultation</span></a></li>
+                    <li><a href="contact.html"><span class="lang-ko">문의하기</span><span class="lang-zh">聯繫我們</span><span class="lang-en">Contact Us</span></a></li>
+                    <li><a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">AI Dream Team</span><span class="lang-zh">AI 夢幻團隊</span><span class="lang-en">AI Dream Team</span></a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="lang-ko">연락처</h4>
                 <h4 class="lang-zh">聯絡方式</h4>
+                <h4 class="lang-en">Contact</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:kndli.210@gmail.com">kndli.210@gmail.com</a></li>
                     <li><a href="https://instagram.com/bellaliv423" target="_blank">Instagram @bellaliv423</a></li>
@@ -674,6 +740,7 @@
             <span>
                 <span class="lang-ko">한국-대만-중국 비즈니스 브릿지</span>
                 <span class="lang-zh">韓國-台灣-中國 商業橋樑</span>
+                <span class="lang-en">Korea-Taiwan-China Business Bridge</span>
             </span>
         </div>
     </footer>
@@ -682,7 +749,8 @@
         // Language Toggle
         const langBtns = document.querySelectorAll('.lang-btn');
         function setLang(lang) {
-            document.body.classList.toggle('zh', lang === 'zh');
+            document.body.classList.remove('zh', 'en');
+            if (lang !== 'ko') document.body.classList.add(lang);
             langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
             localStorage.setItem('kndli-lang', lang);
         }
@@ -707,7 +775,7 @@
         // bella-ai 링크에 현재 언어 파라미터 자동 추가
         document.querySelectorAll('a[href*="bella-ai"]').forEach(a => {
             a.addEventListener('click', function(e) {
-                var lang = document.body.classList.contains('zh') ? 'zh' : 'ko';
+                var lang = document.body.classList.contains('zh') ? 'zh' : document.body.classList.contains('en') ? 'en' : 'ko';
                 var url = this.href.split('?')[0] + '?lang=' + lang;
                 this.href = url;
             });
