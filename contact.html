@@ -7,35 +7,48 @@
     <title>문의하기 | KNDLI</title>
     <meta name="description" content="KNDLI 문의 - 이메일, 카카오톡, LINE으로 편하게 연락하세요.">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SVNX7HVSQ"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1SVNX7HVSQ');</script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
     <style>
         :root {
-            --navy: #0a1628;
-            --navy-light: #1a2d4a;
-            --navy-medium: #142238;
-            --gold: #c9a962;
-            --gold-light: #dfc88a;
-            --gold-dark: #a8893f;
-            --white: #ffffff;
-            --cream: #faf8f5;
-            --gray-200: #e5e5e5;
-            --gray-400: #9ca3af;
-            --gray-600: #4b5563;
-            --gray-800: #1f2937;
+            /* Surface — Anthropic Warm */
+            --bg-primary: #FBF8F3;
+            --bg-secondary: #F5F1EB;
+            --bg-tertiary: #E8DFD3;
+
+            /* Brand Accent */
+            --accent: #C45A2C;
+            --accent-hover: #A04820;
+
+            /* Text */
+            --text-primary: #2C1810;
+            --text-secondary: #5C4737;
+            --text-muted: #8B7765;
+
+            /* Legacy aliases */
+            --navy: #2C1810;
+            --navy-light: #5C4737;
+            --navy-medium: #8B7765;
+            --gold: #C45A2C;
+            --gold-light: #D4843D;
+            --gold-dark: #A04820;
+            --cream: #FBF8F3;
+            --white: #FBF8F3;
+            --gray-200: #E8DFD3;
+            --gray-400: #8B7765;
+            --gray-600: #5C4737;
+            --gray-800: #2C1810;
             --green: #22c55e;
             --red: #ef4444;
-            --font-display: 'Playfair Display', serif;
-            --font-ko: 'Noto Sans KR', sans-serif;
-            --font-zh: 'Noto Sans TC', sans-serif;
-            --shadow-md: 0 4px 12px rgba(10,22,40,0.1);
-            --shadow-lg: 0 8px 30px rgba(10,22,40,0.14);
+
+            --font-display: 'Playfair Display', 'Noto Serif KR', serif;
+            --font-ko: 'Pretendard', 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+            --font-zh: 'Noto Sans TC', system-ui, sans-serif;
+            --shadow-md: 0 2px 8px rgba(44,24,16,0.06);
+            --shadow-lg: 0 8px 24px rgba(44,24,16,0.10);
             --transition: 0.3s ease;
         }
 
@@ -62,9 +75,10 @@
         /* Header */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(10,22,40,0.95);
+            background: rgba(251,248,243,0.95);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(201,169,98,0.15);
+            border-bottom: 1px solid rgba(44,24,16,0.08);
+            box-shadow: 0 1px 4px rgba(44,24,16,0.06);
         }
         .header-inner {
             max-width: 1200px; margin: 0 auto;
@@ -74,27 +88,27 @@
         .logo {
             font-family: var(--font-display);
             font-size: 1.5rem; font-weight: 700;
-            color: var(--gold); text-decoration: none; letter-spacing: 2px;
+            color: var(--navy); text-decoration: none; letter-spacing: 2px;
         }
         .nav { display: flex; align-items: center; gap: 1.5rem; }
         .nav a {
-            color: rgba(255,255,255,0.8); text-decoration: none;
+            color: var(--gray-600); text-decoration: none;
             font-size: 0.9rem; transition: var(--transition);
         }
         .nav a:hover { color: var(--gold); }
         .lang-toggle {
             display: flex; gap: 0.25rem;
-            background: rgba(255,255,255,0.08); border-radius: 6px;
+            background: rgba(44,24,16,0.06); border-radius: 6px;
             padding: 2px; margin-left: 0.5rem;
         }
         .lang-btn {
             padding: 4px 10px; border: none; border-radius: 4px;
-            background: transparent; color: rgba(255,255,255,0.6);
+            background: transparent; color: var(--gray-400);
             font-size: 0.8rem; cursor: pointer; transition: var(--transition);
         }
-        .lang-btn.active { background: var(--gold); color: var(--navy); font-weight: 600; }
+        .lang-btn.active { background: var(--gold); color: #FBF8F3; font-weight: 600; }
         .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-        .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--white); margin: 5px 0; transition: var(--transition); }
+        .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; transition: var(--transition); }
 
         /* Main */
         .main {
@@ -119,12 +133,11 @@
         .contact-card {
             background: var(--white); border-radius: 12px; padding: 1.5rem;
             text-align: center; box-shadow: var(--shadow-md);
-            border: 1px solid rgba(10,22,40,0.05);
+            border: 1px solid rgba(44,24,16,0.05);
             transition: var(--transition);
         }
         .contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
         .contact-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
-        .contact-card .icon-img { width: 40px; height: 40px; object-fit: contain; margin-bottom: 0.75rem; border-radius: 8px; }
         .contact-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
         .contact-card p { font-size: 0.9rem; color: var(--gray-600); }
         .contact-card a {
@@ -132,35 +145,10 @@
         }
         .contact-card a:hover { text-decoration: underline; }
 
-        /* QR Code Section */
-        .qr-section {
-            margin-bottom: 3rem;
-        }
-        .qr-section h2 {
-            text-align: center; font-family: var(--font-display);
-            font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem;
-        }
-        .qr-section .qr-sub {
-            text-align: center; color: var(--gray-600); font-size: 0.9rem; margin-bottom: 2rem;
-        }
-        .qr-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.5rem; max-width: 800px; margin: 0 auto;
-        }
-        .qr-card {
-            background: var(--white); border-radius: 12px; padding: 1.25rem;
-            text-align: center; box-shadow: var(--shadow-md);
-            border: 1px solid rgba(10,22,40,0.05); transition: var(--transition);
-        }
-        .qr-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-        .qr-card img { width: 120px; height: 120px; object-fit: contain; border-radius: 8px; margin-bottom: 0.75rem; }
-        .qr-card .qr-label { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
-        .qr-card .qr-id { font-size: 0.8rem; color: var(--gray-600); margin-top: 0.25rem; }
-
         /* Form */
         .form-card {
             background: var(--white); border-radius: 16px; padding: 2.5rem;
-            box-shadow: var(--shadow-md); border: 1px solid rgba(10,22,40,0.05);
+            box-shadow: var(--shadow-md); border: 1px solid rgba(44,24,16,0.05);
         }
         .form-title {
             font-size: 1.3rem; font-weight: 600; color: var(--navy);
@@ -182,37 +170,53 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none; border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(201,169,98,0.15);
+            box-shadow: 0 0 0 3px rgba(196,90,44,0.15);
         }
         .form-group textarea { resize: vertical; min-height: 100px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .form-submit {
             width: 100%; padding: 14px; border: none; border-radius: 8px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--navy); font-weight: 700; font-size: 1rem;
+            background: #C45A2C;
+            color: #FBF8F3; font-weight: 700; font-size: 1rem;
             cursor: pointer; transition: var(--transition);
         }
-        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(201,169,98,0.3); }
+        .form-submit:hover { transform: translateY(-2px); background: #A04820; box-shadow: 0 4px 16px rgba(196,90,44,0.3); }
         .form-note {
             text-align: center; margin-top: 1rem;
             font-size: 0.8rem; color: var(--gray-400);
         }
 
-        /* AI CTA */
+        /* AI CTA — Premium Banner */
         .ai-cta {
             margin-top: 3rem; text-align: center;
-            background: var(--navy); border-radius: 12px; padding: 2rem;
+            background: linear-gradient(135deg, #FBF8F3 0%, #F5F1EB 50%, #E8DFD3 100%);
+            border-radius: 16px; padding: 3rem 2rem;
+            border: 2px solid #C45A2C;
+            position: relative; overflow: hidden;
         }
-        .ai-cta h3 { color: var(--gold); font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .ai-cta p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 1rem; }
+        .ai-cta::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #C45A2C, #D4843D, #C45A2C);
+        }
+        .ai-cta h3 {
+            color: #2C1810; font-size: 1.4rem; margin-bottom: 0.75rem;
+            font-family: 'Playfair Display', 'Noto Serif KR', serif;
+            font-weight: 700;
+        }
+        .ai-cta p { color: #5C4737; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.7; }
         .ai-cta a {
             display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--navy); padding: 10px 24px; border-radius: 8px;
-            text-decoration: none; font-weight: 600; font-size: 0.9rem;
-            transition: var(--transition);
+            background: #C45A2C;
+            color: #FBF8F3; padding: 14px 32px; border-radius: 10px;
+            text-decoration: none; font-weight: 700; font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(196, 90, 44, 0.3);
         }
-        .ai-cta a:hover { transform: translateY(-2px); }
+        .ai-cta a:hover {
+            transform: translateY(-3px);
+            background: #A04820;
+            box-shadow: 0 8px 24px rgba(196, 90, 44, 0.4);
+        }
 
         /* Footer */
         .footer {
@@ -227,7 +231,8 @@
             .nav.open {
                 display: flex; flex-direction: column;
                 position: absolute; top: 100%; left: 0; right: 0;
-                background: rgba(10,22,40,0.98); padding: 1.5rem 2rem;
+                background: rgba(251,248,243,0.98); padding: 1.5rem 2rem;
+                box-shadow: 0 4px 12px rgba(44,24,16,0.08);
             }
             .main { padding: 7rem 1.5rem 3rem; }
             .page-title { font-size: 1.8rem; }
@@ -246,7 +251,6 @@
                 <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
                 <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span></a>
                 <a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span></a>
-                <a href="seminar.html"><span class="lang-ko">세미나</span><span class="lang-zh">講座</span></a>
                 <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span></a>
                 <div class="lang-toggle">
                     <button class="lang-btn active" data-lang="ko">KO</button>
@@ -269,49 +273,24 @@
         <!-- Contact Cards -->
         <div class="contact-grid">
             <div class="contact-card">
-                <img src="images/sns image/메일.jpg" alt="Email" class="icon-img">
+                <div class="icon">&#128231;</div>
                 <h3>Email</h3>
                 <p><a href="mailto:kndli.210@gmail.com">kndli.210@gmail.com</a></p>
             </div>
             <div class="contact-card">
-                <img src="images/sns image/insta logo.jpg" alt="Instagram" class="icon-img">
+                <div class="icon">&#128172;</div>
+                <h3>KakaoTalk / LINE</h3>
+                <p>bellaliv423</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">&#128247;</div>
                 <h3>Instagram</h3>
                 <p><a href="https://instagram.com/bellaliv423" target="_blank">@bellaliv423</a></p>
             </div>
             <div class="contact-card">
-                <img src="images/sns image/thread logo.png" alt="Threads" class="icon-img">
+                <div class="icon">&#128241;</div>
                 <h3>Threads</h3>
                 <p><a href="https://threads.net/@bellaliv423" target="_blank">@bellaliv423</a></p>
-            </div>
-        </div>
-
-        <!-- QR Codes -->
-        <div class="qr-section">
-            <h2 class="lang-ko">QR 코드로 바로 연결</h2>
-            <h2 class="lang-zh">掃描 QR Code 直接聯繫</h2>
-            <p class="qr-sub lang-ko">스마트폰으로 스캔하면 바로 연결됩니다</p>
-            <p class="qr-sub lang-zh">用手機掃描即可直接聯繫</p>
-            <div class="qr-grid">
-                <div class="qr-card">
-                    <img src="images/sns image/kndli_line.png" alt="LINE QR">
-                    <div class="qr-label">LINE</div>
-                    <div class="qr-id">kndli</div>
-                </div>
-                <div class="qr-card">
-                    <img src="images/sns image/kndli_kakaotalk.png" alt="KakaoTalk QR">
-                    <div class="qr-label">KakaoTalk</div>
-                    <div class="qr-id">kndli</div>
-                </div>
-                <div class="qr-card">
-                    <img src="images/sns image/wechat_bella.jpg" alt="WeChat QR">
-                    <div class="qr-label">WeChat</div>
-                    <div class="qr-id">Bella</div>
-                </div>
-                <div class="qr-card">
-                    <img src="images/sns image/what app_bella.jpg" alt="WhatsApp QR">
-                    <div class="qr-label">WhatsApp</div>
-                    <div class="qr-id">Bella</div>
-                </div>
             </div>
         </div>
 
@@ -332,11 +311,11 @@
                 </div>
                 <div class="form-group">
                     <label><span class="lang-ko">문의 유형</span><span class="lang-zh">諮詢類型</span></label>
-                    <select name="type" id="contactType">
-                        <option value="ai" data-ko="AI 자동화 상담" data-zh="AI 自動化諮詢">AI 자동화 상담</option>
-                        <option value="bridge" data-ko="비즈니스 브릿지" data-zh="商業橋樑">비즈니스 브릿지</option>
-                        <option value="collab" data-ko="협업 제안" data-zh="合作提案">협업 제안</option>
-                        <option value="other" data-ko="기타" data-zh="其他">기타</option>
+                    <select name="type">
+                        <option value="ai"><span class="lang-ko">AI 자동화 상담</span></option>
+                        <option value="bridge">비즈니스 브릿지 / 商業橋樑</option>
+                        <option value="collab">협업 제안 / 合作提案</option>
+                        <option value="other">기타 / 其他</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -354,113 +333,66 @@
 
         <!-- AI CTA -->
         <div class="ai-cta">
-            <h3 class="lang-ko">AI 자동화 무료 상담</h3>
-            <h3 class="lang-zh">AI 自動化免費諮詢</h3>
-            <p class="lang-ko">반복 업무 자동화가 가능한지 30분 무료 상담으로 확인하세요.</p>
-            <p class="lang-zh">透過30分鐘免費諮詢確認重複工作是否能自動化。</p>
+            <h3 class="lang-ko">✨ 매일 30분 반복 업무, AI가 대신합니다</h3>
+            <h3 class="lang-zh">✨ 每天30分鐘的重複工作，交給AI處理</h3>
+            <p class="lang-ko">16마리 AI 드림팀이 재고 관리, 바이어 발굴, 이메일 발송까지 자동화합니다.<br>30분 무료 상담으로 귀사의 자동화 가능성을 확인하세요.</p>
+            <p class="lang-zh">16隻AI夢幻團隊自動化處理庫存管理、買家發掘、郵件發送等工作。<br>透過30分鐘免費諮詢確認貴公司的自動化可能性。</p>
             <a href="https://bellaliv423.github.io/bella-ai/" target="_blank">
-                <span class="lang-ko">무료 상담 신청</span>
-                <span class="lang-zh">申請免費諮詢</span>
-                &#10132;
+                <span class="lang-ko">🤖 무료 상담 신청하기</span>
+                <span class="lang-zh">🤖 申請免費諮詢</span>
+                →
             </a>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024-2026 KNDLI Co., Ltd. | <a href="index.html">kndli.com</a></p>
+        <p>&copy; 2024-2026 KNDLI Co., Ltd. · Bella 황영아 · All Rights Reserved</p>
+        <p style="font-size:0.75rem; margin-top:0.3rem;">KNDLI™ (Trademark Pending) · 🔧 Powered by DKM · <a href="index.html">kndli.com</a></p>
     </footer>
 
     <script>
-        // Language Toggle
         const langBtns = document.querySelectorAll('.lang-btn');
         function setLang(lang) {
             document.body.classList.toggle('zh', lang === 'zh');
             langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
             localStorage.setItem('kndli-lang', lang);
-            // Update select options text
-            document.querySelectorAll('#contactType option').forEach(opt => {
-                const text = lang === 'zh' ? opt.dataset.zh : opt.dataset.ko;
-                if (text) opt.textContent = text;
-            });
         }
         langBtns.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
         const savedLang = localStorage.getItem('kndli-lang');
         if (savedLang) setLang(savedLang);
 
-        // Mobile Menu
         const mobileToggle = document.getElementById('mobileToggle');
         const nav = document.getElementById('nav');
         mobileToggle.addEventListener('click', () => nav.classList.toggle('open'));
         nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 
-        // ★ Apps Script 웹앱 URL (배포 후 교체!)
-        var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJwN9EkKPaGLfvCdNooL8khJtENLM1mkkJYFpA-lME-tn0KlnRxKj_N0zd9DuaOC_IhA/exec';
-
-        // Form submit → Google Sheets + 자동응답
+        // Form submit (Google Apps Script endpoint)
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = this.querySelector('.form-submit');
             const origText = btn.innerHTML;
-            const isZh = document.body.classList.contains('zh');
-            btn.innerHTML = isZh ? '傳送中...' : '전송 중...';
+            btn.innerHTML = '전송 중...';
             btn.disabled = true;
 
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
-            // select의 표시 텍스트를 전송 (value "ai" 대신 "AI 자동화 상담")
-            var typeSelect = document.getElementById('contactType');
-            data.type = typeSelect.options[typeSelect.selectedIndex].textContent;
-            data.formType = 'contact';
-            data.lang = isZh ? 'zh' : 'ko';
 
-            fetch(APPS_SCRIPT_URL, {
-                method: 'POST',
-                body: JSON.stringify(data),
-            })
-            .then(r => r.json())
-            .then(res => {
-                if (res.result === 'success') {
-                    btn.innerHTML = isZh ? '✅ 已發送' : '✅ 전송 완료';
-                    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-                    btn.style.color = '#fff';
-                    this.reset();
-                    setTimeout(() => {
-                        btn.innerHTML = origText;
-                        btn.style.background = '';
-                        btn.style.color = '';
-                        btn.disabled = false;
-                    }, 3000);
-                } else {
-                    throw new Error(res.message);
-                }
-            })
-            .catch(err => {
-                console.error('Form error:', err);
-                btn.innerHTML = isZh ? '❌ 發送失敗' : '❌ 전송 실패';
-                btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-                btn.style.color = '#fff';
-                setTimeout(() => {
-                    btn.innerHTML = origText;
-                    btn.style.background = '';
-                    btn.style.color = '';
-                    btn.disabled = false;
-                }, 3000);
-                // mailto 폴백
-                var subject = encodeURIComponent('[KNDLI] ' + data.type + ' - ' + data.name);
-                var body = encodeURIComponent(
-                    (isZh ? '姓名: ' : '이름: ') + data.name + '\n' +
-                    (isZh ? '郵件: ' : '이메일: ') + data.email + '\n' +
-                    (isZh ? '類型: ' : '유형: ') + data.type + '\n\n' +
-                    data.message
-                );
-                if (confirm(isZh ? '發送失敗。是否改用電子郵件發送？' : '전송에 실패했습니다. 이메일로 보낼까요?')) {
-                    window.location.href = 'mailto:kndli.210@gmail.com?subject=' + subject + '&body=' + body;
-                }
-            });
+            // mailto fallback
+            const subject = encodeURIComponent('[KNDLI] ' + data.type + ' 문의 - ' + data.name);
+            const body = encodeURIComponent(
+                '이름: ' + data.name + '\n' +
+                '이메일: ' + data.email + '\n' +
+                '유형: ' + data.type + '\n\n' +
+                data.message
+            );
+            window.location.href = 'mailto:kndli.210@gmail.com?subject=' + subject + '&body=' + body;
+
+            setTimeout(() => {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+            }, 2000);
         });
-        // bella-ai 링크에 현재 언어 파라미터 자동 추가
-        document.querySelectorAll('a[href*="bella-ai"]').forEach(a=>{a.addEventListener('click',function(){var lang=document.body.classList.contains('zh')?'zh':'ko';this.href=this.href.split('?')[0]+'?lang='+lang;});});
     </script>
 </body>
 </html>

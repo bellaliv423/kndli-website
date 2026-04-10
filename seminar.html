@@ -11,19 +11,23 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ===== bella-ai 컬러 오버라이드 ===== */
+        /* ===== Anthropic Warm Palette ===== */
         :root {
-            --gold: #d97757;
-            --gold-light: #fdf0eb;
-            --gold-dark: #c4613c;
-            --navy: #1a1a19;
-            --navy-light: #2d2d2b;
-            --navy-medium: #232321;
-            --cream: #f5f4ed;
+            --gold: #C45A2C;
+            --gold-light: #D4843D;
+            --gold-dark: #A04820;
+            --navy: #2C1810;
+            --navy-light: #5C4737;
+            --navy-medium: #8B7765;
+            --cream: #FBF8F3;
+            --white: #FBF8F3;
+            --font-display: 'Playfair Display', 'Noto Serif KR', serif;
+            --font-ko: 'Pretendard', 'Inter', 'Noto Sans KR', system-ui, sans-serif;
         }
 
         /* ===== Hero ===== */
@@ -38,13 +42,13 @@
             content: '';
             position: absolute; top: -200px; right: -200px;
             width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(217,119,87,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(196,90,44,0.1) 0%, transparent 70%);
         }
         .seminar-hero::after {
             content: '';
             position: absolute; bottom: -100px; left: -100px;
             width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(217,119,87,0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(196,90,44,0.06) 0%, transparent 70%);
         }
         .hero-badge {
             display: inline-block;
@@ -84,13 +88,13 @@
         }
         .hero-cta:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(217,119,87,0.3);
+            box-shadow: 0 12px 30px rgba(196,90,44,0.3);
             color: var(--white);
         }
 
         /* ===== Section overrides ===== */
         .section-tag {
-            background: rgba(217,119,87,0.1);
+            background: rgba(196,90,44,0.1);
             color: var(--gold-dark);
         }
 
@@ -103,10 +107,13 @@
             max-width: 800px; margin: 0 auto;
         }
         .instructor-avatar {
-            width: 120px; height: 120px; border-radius: 50%;
-            background: linear-gradient(135deg, #fdf0eb, #f5d5c8);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 3rem; flex-shrink: 0;
+            width: 140px; height: 140px; border-radius: 50%;
+            flex-shrink: 0; overflow: hidden;
+            border: 4px solid #2C1810;
+            box-shadow: 0 4px 16px rgba(44, 24, 16, 0.12);
+        }
+        .instructor-avatar img {
+            width: 100%; height: 100%; object-fit: cover;
         }
         .instructor-info h3 {
             font-family: var(--font-display);
@@ -156,7 +163,7 @@
             position: absolute; top: 12px; right: 16px;
             font-family: var(--font-display);
             font-size: 3.5rem; font-weight: 700;
-            color: rgba(217,119,87,0.08); line-height: 1;
+            color: rgba(196,90,44,0.08); line-height: 1;
         }
         .curriculum-badge {
             display: inline-block;
@@ -228,7 +235,7 @@
             border-radius: 16px; padding: 3rem;
             text-align: center;
             max-width: 800px; margin: 0 auto;
-            border: 1px solid rgba(217,119,87,0.15);
+            border: 1px solid rgba(196,90,44,0.15);
         }
         .case-card h3 {
             font-family: var(--font-display);
@@ -254,7 +261,7 @@
         }
         .case-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(217,119,87,0.3);
+            box-shadow: 0 8px 20px rgba(196,90,44,0.3);
             color: var(--white);
         }
 
@@ -288,7 +295,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none; border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(217,119,87,0.12);
+            box-shadow: 0 0 0 3px rgba(196,90,44,0.12);
         }
         .form-row {
             display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
@@ -303,7 +310,7 @@
         .submit-btn:hover {
             background: var(--gold-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(217,119,87,0.3);
+            box-shadow: 0 8px 20px rgba(196,90,44,0.3);
         }
 
         /* ===== Footer override ===== */
@@ -385,10 +392,10 @@
         <h1 class="hero-title lang-zh">Claude魔法課</h1>
         <p class="hero-sub lang-ko" style="font-size:1.3rem;color:var(--gray-800);margin-bottom:0.75rem;font-weight:500">코딩 없이 시작하는 AI 활용법</p>
         <p class="hero-sub lang-zh" style="font-size:1.3rem;color:var(--gray-800);margin-bottom:0.75rem;font-weight:500">零程式碼開始的AI應用方法</p>
-        <p class="hero-sub lang-ko" style="font-size:0.95rem;font-style:italic;color:var(--gray-600);margin-bottom:0.5rem">"비개발자가 Claude로 수출 업무 전체를 자동화한 실화"</p>
-        <p class="hero-sub lang-zh" style="font-size:0.95rem;font-style:italic;color:var(--gray-600);margin-bottom:0.5rem">「非開發者用Claude將出口業務全面自動化的真實故事」</p>
-        <p class="hero-sub lang-ko" style="font-size:0.9rem;color:var(--gray-400);margin-bottom:2.5rem">학업부터 업무까지, 누구나 바로 시작할 수 있습니다</p>
-        <p class="hero-sub lang-zh" style="font-size:0.9rem;color:var(--gray-400);margin-bottom:2.5rem">從學業到工作，任何人都能立即開始</p>
+        <p class="hero-sub lang-ko" style="font-size:0.95rem;font-style:italic;color:var(--gray-600);margin-bottom:0.5rem">"비개발자가 Claude로 16마리 AI 드림팀을 만들고, 3대 디바이스로 업무를 자동화한 실화"</p>
+        <p class="hero-sub lang-zh" style="font-size:0.95rem;font-style:italic;color:var(--gray-600);margin-bottom:0.5rem">「非開發者用Claude打造16隻AI夢幻團隊，3台設備全面自動化的真實故事」</p>
+        <p class="hero-sub lang-ko" style="font-size:0.9rem;color:var(--gray-400);margin-bottom:2.5rem">그 시작점이 바로 이 세미나입니다. 누구나 할 수 있습니다.</p>
+        <p class="hero-sub lang-zh" style="font-size:0.9rem;color:var(--gray-400);margin-bottom:2.5rem">這一切的起點就是這堂講座。任何人都做得到。</p>
 
         <div class="hero-stats">
             <div class="hero-stat">
@@ -412,6 +419,45 @@
     </div>
 </section>
 
+<!-- Why This Seminar -->
+<section class="section fade-in" style="background:var(--cream);text-align:center;">
+    <div class="section-header">
+        <div class="section-tag">Why This Seminar?</div>
+        <h2 class="section-title lang-ko">이 세미나가 특별한 이유</h2>
+        <h2 class="section-title lang-zh">這堂講座的特別之處</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;">
+        <div style="background:#fff;border-radius:16px;padding:2rem;border-left:4px solid #C45A2C;text-align:left;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🤖</div>
+            <h4 class="lang-ko" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">16마리 AI 팀 + 3대 디바이스</h4>
+            <h4 class="lang-zh" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">16隻AI團隊 + 3台設備</h4>
+            <p class="lang-ko" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">이론이 아닙니다. 16개 AI 에이전트를 3대 디바이스에서 동시 운영하는 실무자가 직접 알려드립니다.</p>
+            <p class="lang-zh" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">不是理論。在3台設備上同時運營16個AI Agent的實務者親自教授。</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:2rem;border-left:4px solid #C45A2C;text-align:left;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">📊</div>
+            <h4 class="lang-ko" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">AI 트렌드 자동 수집 대시보드</h4>
+            <h4 class="lang-zh" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">AI趨勢自動收集儀表板</h4>
+            <p class="lang-ko" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">7개 소스에서 매일 자동으로 AI 최신 트렌드를 수집하고 3개국어로 번역하는 시스템까지 직접 구축했습니다.</p>
+            <p class="lang-zh" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">從7個來源每日自動收集AI最新趨勢，翻譯成3種語言的系統也是親手打造的。</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:2rem;border-left:4px solid #C45A2C;text-align:left;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">📚</div>
+            <h4 class="lang-ko" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">지식관리 시스템 BKMS + DKM</h4>
+            <h4 class="lang-zh" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">知識管理系統 BKMS + DKM</h4>
+            <p class="lang-ko" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">1,053개 문서를 자동 태깅하는 개인 지식관리(BKMS)와 팀 지식관리(DKM) — 자동화 너머의 시스템을 가르칩니다.</p>
+            <p class="lang-zh" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">自動標籤1,053份文件的個人知識管理(BKMS)和團隊知識管理(DKM) — 教授超越自動化的系統。</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:2rem;border-left:4px solid #C45A2C;text-align:left;">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🚫</div>
+            <h4 class="lang-ko" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">코딩 경험 0 — 그래서 더 쉽게</h4>
+            <h4 class="lang-zh" style="color:#2C1810;margin-bottom:0.5rem;font-size:1.1rem;">零程式經驗 — 所以更容易</h4>
+            <p class="lang-ko" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">이 모든 걸 코딩 없이 만든 사람이 가르칩니다. 개발자 용어 없이, 누구나 따라할 수 있습니다.</p>
+            <p class="lang-zh" style="color:#5C4737;font-size:0.9rem;line-height:1.7;">這一切都是不會寫程式的人打造的。不用開發者術語，任何人都能跟著做。</p>
+        </div>
+    </div>
+</section>
+
 <!-- Instructor -->
 <section class="section fade-in" id="instructor">
     <div class="section-header">
@@ -420,20 +466,27 @@
         <h2 class="section-title lang-zh">講師介紹</h2>
     </div>
     <div class="instructor-card">
-        <div class="instructor-avatar">&#128105;&#8205;&#128187;</div>
+        <div class="instructor-avatar"><img src="bella_ceo.png" alt="Bella 황영아 — AI Automation Expert"></div>
         <div class="instructor-info">
             <h3>Bella (벨라)</h3>
             <div class="title lang-ko">한양대 MBA 경영전략/벤처창업 | KNDLI Co., Ltd.</div>
             <div class="title lang-zh">漢陽大學 MBA 經營策略/創業 | KNDLI Co., Ltd.</div>
-            <p class="lang-ko">비개발자로서 Claude Code만으로 수출 회사의 재고 관리, 바이어 발굴, 주문 처리, 이메일 발송까지 전체 업무를 자동화한 실전 전문가입니다.</p>
-            <p class="lang-zh">非工程師背景，僅用 Claude Code 就實現了出口公司的庫存管理、買家開發、訂單處理、郵件發送等全部業務自動化。</p>
+            <p class="lang-ko">비개발자로서 Claude Code만으로 16마리 AI 드림팀을 구축하고, 3대 디바이스에서 재고 관리·바이어 발굴·주문 처리·이메일 발송까지 전체 업무를 자동화한 실전 전문가입니다.</p>
+            <p class="lang-zh">非工程師背景，僅用 Claude Code 打造了16隻AI夢幻團隊，在3台設備上實現庫存管理、買家開發、訂單處理、郵件發送等全部業務自動化。</p>
             <div class="instructor-tags">
+                <span class="instructor-tag lang-ko">🤖 16마리 AI 드림팀</span>
+                <span class="instructor-tag lang-ko">📊 AI 트렌드 대시보드</span>
+                <span class="instructor-tag lang-ko">📚 BKMS + DKM 지식관리</span>
                 <span class="instructor-tag lang-ko">비개발자 AI 자동화</span>
                 <span class="instructor-tag lang-ko">한양대 MBA</span>
+                <span class="instructor-tag lang-zh">🤖 16隻AI夢幻團隊</span>
+                <span class="instructor-tag lang-zh">📊 AI趨勢儀表板</span>
+                <span class="instructor-tag lang-zh">📚 BKMS + DKM知識管理</span>
                 <span class="instructor-tag lang-zh">非開發者 AI 自動化</span>
                 <span class="instructor-tag lang-zh">漢陽大學 MBA</span>
-                <span class="instructor-tag">3 Languages (KO/中/EN)</span>
-                <span class="instructor-tag">Instagram 1.1K+</span>
+                <span class="instructor-tag">💻 3 Devices</span>
+                <span class="instructor-tag">🌏 3 Languages</span>
+                <span class="instructor-tag">📱 IG 1.1K+</span>
             </div>
         </div>
     </div>
@@ -451,84 +504,82 @@
     <div class="curriculum-grid">
         <div class="curriculum-card">
             <div class="curriculum-num">01</div>
-            <div class="curriculum-badge badge-free"><span class="lang-ko">무료 체험/기초</span><span class="lang-zh">免費體驗/基礎</span></div>
-            <div class="topic lang-ko">Claude Code 쉽게 배우기</div>
-            <div class="topic lang-zh">輕鬆學習Claude Code</div>
-            <h3 class="lang-ko">AI 개념 이해 + Claude 실습</h3>
-            <h3 class="lang-zh">理解AI概念 + Claude實作</h3>
+            <div class="curriculum-badge badge-free"><span class="lang-ko">무료 체험</span><span class="lang-zh">免費體驗</span></div>
+            <div class="topic lang-ko">1줄 프롬프트로 시작한 나의 이야기</div>
+            <div class="topic lang-zh">從一行提示詞開始的我的故事</div>
+            <h3 class="lang-ko">비개발자의 AI 첫날을 그대로 재현</h3>
+            <h3 class="lang-zh">完整重現非開發者的AI第一天</h3>
             <ul>
-                <li class="lang-ko">AI/LLM이란? — 비개발자 눈높이로 쉽게 설명</li>
-                <li class="lang-ko">Claude vs ChatGPT — 뭐가 다를까?</li>
-                <li class="lang-ko">Claude 계정 생성 + 인터페이스 탐색</li>
-                <li class="lang-ko">실습: "내 업무를 AI에게 설명해 보기"</li>
+                <li class="lang-ko">벨라의 실화: 코딩 0에서 16마리 AI 팀까지의 여정</li>
+                <li class="lang-ko">AI/Claude가 뭔지 — 개발자 용어 없이 3분 설명</li>
+                <li class="lang-ko">실습: "내 업무를 AI에게 설명해 보기" (이게 자동화의 시작!)</li>
                 <li class="lang-ko">과제/레포트/이메일에 바로 활용하는 법</li>
-                <li class="lang-ko highlight-item">라이브 데모: 1줄 입력 → AI가 자동 완성</li>
-                <li class="lang-zh">AI/LLM是什麼？— 用非開發者的視角輕鬆理解</li>
-                <li class="lang-zh">Claude vs ChatGPT — 有什麼不同？</li>
-                <li class="lang-zh">創建Claude帳號 + 介面探索</li>
-                <li class="lang-zh">實作：「向AI描述我的工作」</li>
+                <li class="lang-ko highlight-item">라이브 데모: 1줄 입력 → AI가 자동 완성 (직접 체험!)</li>
+                <li class="lang-zh">Bella的真實故事：從零程式到16隻AI團隊的旅程</li>
+                <li class="lang-zh">AI/Claude是什麼 — 不用開發者術語3分鐘說明</li>
+                <li class="lang-zh">實作：「向AI描述我的工作」（這就是自動化的起點！）</li>
                 <li class="lang-zh">作業/報告/郵件立即活用法</li>
-                <li class="lang-zh highlight-item">現場演示：一行輸入 → AI自動完成</li>
+                <li class="lang-zh highlight-item">現場演示：一行輸入 → AI自動完成（親身體驗！）</li>
             </ul>
         </div>
         <div class="curriculum-card">
             <div class="curriculum-num">02</div>
             <div class="curriculum-badge badge-advanced"><span class="lang-ko">심화 과정</span><span class="lang-zh">進階課程</span></div>
-            <div class="topic lang-ko">프롬프트 작성법 + 실습</div>
-            <div class="topic lang-zh">提示詞撰寫法 + 實作</div>
-            <h3 class="lang-ko">AI에게 잘 지시하는 기술</h3>
-            <h3 class="lang-zh">如何有效指示AI的技術</h3>
+            <div class="topic lang-ko">프롬프트에서 자동화까지</div>
+            <div class="topic lang-zh">從提示詞到自動化</div>
+            <h3 class="lang-ko">단순 질문 → 업무 자동화로 진화하는 법</h3>
+            <h3 class="lang-zh">從簡單提問 → 進化為工作自動化</h3>
             <ul>
-                <li class="lang-ko">좋은 프롬프트의 구조 (역할/목표/조건/예시)</li>
-                <li class="lang-ko">실습: 이메일 작성, 번역, 데이터 정리</li>
-                <li class="lang-ko">프롬프트 체이닝 — 복잡한 작업 단계별 분리</li>
-                <li class="lang-ko">자주 하는 실수 TOP 5 + 해결법</li>
-                <li class="lang-ko highlight-item">나만의 프롬프트 템플릿 만들기</li>
-                <li class="lang-zh">好的提示詞結構（角色/目標/條件/範例）</li>
-                <li class="lang-zh">實作：撰寫郵件、翻譯、整理數據</li>
-                <li class="lang-zh">提示詞串接 — 複雜任務分階段處理</li>
-                <li class="lang-zh">常見錯誤 TOP 5 + 解決方法</li>
-                <li class="lang-zh highlight-item">打造專屬的提示詞模板</li>
+                <li class="lang-ko">프롬프트 구조: 역할/목표/조건/예시 (벨라의 실전 템플릿 공개)</li>
+                <li class="lang-ko">실습: 이메일 자동 작성, 3개국어 번역, 데이터 정리</li>
+                <li class="lang-ko">프롬프트 → 스크립트 → 자동 실행: 진화의 3단계</li>
+                <li class="lang-ko">실제 사례: 바이어 이메일 89건 자동 발송 과정</li>
+                <li class="lang-ko highlight-item">나만의 프롬프트 템플릿 + 자동화 시나리오 설계</li>
+                <li class="lang-zh">提示詞結構：角色/目標/條件/範例（Bella的實戰模板公開）</li>
+                <li class="lang-zh">實作：自動撰寫郵件、三語翻譯、數據整理</li>
+                <li class="lang-zh">提示詞 → 腳本 → 自動執行：進化三階段</li>
+                <li class="lang-zh">實際案例：89封買家郵件自動發送過程</li>
+                <li class="lang-zh highlight-item">專屬提示詞模板 + 自動化方案設計</li>
             </ul>
         </div>
         <div class="curriculum-card">
             <div class="curriculum-num">03</div>
             <div class="curriculum-badge badge-advanced"><span class="lang-ko">심화 과정</span><span class="lang-zh">進階課程</span></div>
-            <div class="topic lang-ko">업무 자동화 실전</div>
-            <div class="topic lang-zh">工作自動化實戰</div>
-            <h3 class="lang-ko">한양봇 사례 + Before/After 라이브</h3>
-            <h3 class="lang-zh">漢陽Bot案例 + Before/After 現場演示</h3>
+            <div class="topic lang-ko">AI 에이전트 팀 만들기</div>
+            <div class="topic lang-zh">打造AI Agent團隊</div>
+            <h3 class="lang-ko">1개 자동화 → 16개 에이전트 팀으로 확장한 비밀</h3>
+            <h3 class="lang-zh">從1個自動化 → 擴展到16個Agent團隊的秘訣</h3>
             <ul>
-                <li class="lang-ko">실제 사례: 30분 수작업 → 6분 자동화</li>
+                <li class="lang-ko">실제 사례: 30분 수작업 → 6분 자동화 라이브 시연</li>
+                <li class="lang-ko">드림팀 공개: 골디(본업)·로보(기술)·윈디(전략) 역할 분담법</li>
+                <li class="lang-ko">3대 디바이스 동시 운영 — 회사PC·집PC·맥미니</li>
                 <li class="lang-ko">한양봇 라이브 시연 (교수님 수업에서 검증!)</li>
-                <li class="lang-ko">바이어 375명 자동 발굴 프로세스 공개</li>
-                <li class="lang-ko">자동화 가능한 업무 유형 분류법</li>
-                <li class="lang-ko highlight-item">도구 소개: Claude Code, Playwright, Google API</li>
-                <li class="lang-zh">實際案例：30分鐘手動 → 6分鐘自動</li>
+                <li class="lang-ko highlight-item">에이전트 설계 기초: 나만의 AI 팀 구성법</li>
+                <li class="lang-zh">實際案例：30分鐘手動 → 6分鐘自動化現場演示</li>
+                <li class="lang-zh">夢幻團隊公開：金迪(本業)·羅博(技術)·溫蒂(策略)分工法</li>
+                <li class="lang-zh">3台設備同時運營 — 公司PC·家用PC·Mac Mini</li>
                 <li class="lang-zh">漢陽Bot現場演示（經教授課堂驗證！）</li>
-                <li class="lang-zh">375位買家自動發掘流程公開</li>
-                <li class="lang-zh">可自動化的工作類型分類法</li>
-                <li class="lang-zh highlight-item">工具介紹：Claude Code, Playwright, Google API</li>
+                <li class="lang-zh highlight-item">Agent設計基礎：打造自己的AI團隊組成法</li>
             </ul>
         </div>
         <div class="curriculum-card">
             <div class="curriculum-num">04</div>
             <div class="curriculum-badge badge-advanced"><span class="lang-ko">심화 과정</span><span class="lang-zh">進階課程</span></div>
-            <div class="topic lang-ko">나만의 자동화 실전</div>
-            <div class="topic lang-zh">設計我的自動化實戰</div>
-            <h3 class="lang-ko">내 업무 분석 → 자동화 설계 워크숍</h3>
-            <h3 class="lang-zh">分析我的工作 → 自動化設計工作坊</h3>
+            <div class="topic lang-ko">나만의 DKM 시스템 설계</div>
+            <div class="topic lang-zh">設計我的DKM知識管理系統</div>
+            <h3 class="lang-ko">자동화 + 지식관리 = 나만의 AI 운영 시스템</h3>
+            <h3 class="lang-zh">自動化 + 知識管理 = 我的AI運營系統</h3>
             <ul>
-                <li class="lang-ko">내 업무 프로세스 맵핑 실습</li>
-                <li class="lang-ko">자동화 우선순위 정하기 (시간/반복/실수 기준)</li>
-                <li class="lang-ko">에이전트 시스템 설계 기초</li>
-                <li class="lang-ko">수강생 발표 + 1:1 피드백</li>
-                <li class="lang-ko highlight-item">수료증 + 에이전트 패키지 제공</li>
-                <li class="lang-zh">我的工作流程繪製實作</li>
-                <li class="lang-zh">確定自動化優先順序（時間/重複/錯誤）</li>
-                <li class="lang-zh">Agent系統設計基礎</li>
-                <li class="lang-zh">學員發表 + 1:1 回饋</li>
-                <li class="lang-zh highlight-item">結業證書 + Agent套件提供</li>
+                <li class="lang-ko">DKM이란? — 벨라의 드림팀 지식관리 시스템 공개</li>
+                <li class="lang-ko">내 업무 프로세스 맵핑 → 자동화 우선순위 설계</li>
+                <li class="lang-ko">메모리 시스템: AI가 내 업무를 기억하게 하는 법</li>
+                <li class="lang-ko">수강생 발표 + 벨라의 1:1 피드백</li>
+                <li class="lang-ko highlight-item">수료증 + 나만의 에이전트 설계 템플릿 제공</li>
+                <li class="lang-zh">什麼是DKM？— 公開Bella的夢幻團隊知識管理系統</li>
+                <li class="lang-zh">我的工作流程繪製 → 自動化優先順序設計</li>
+                <li class="lang-zh">記憶系統：讓AI記住我的工作的方法</li>
+                <li class="lang-zh">學員發表 + Bella的1:1回饋</li>
+                <li class="lang-zh highlight-item">結業證書 + 專屬Agent設計模板</li>
             </ul>
         </div>
     </div>
@@ -671,7 +722,8 @@
                 Instagram @bellaliv423
             </a>
         </div>
-        <p style="font-size:0.8rem;">&copy; 2024-2026 KNDLI Co., Ltd. | <span class="lang-ko">한국-대만-중국 비즈니스 브릿지</span><span class="lang-zh">韓國-台灣-中國 商業橋樑</span></p>
+        <p style="font-size:0.8rem;">&copy; 2024-2026 KNDLI Co., Ltd. · Bella 황영아 · All Rights Reserved</p>
+        <p style="font-size:0.7rem; margin-top:0.3rem;">KNDLI™ (Trademark Pending) · 🔧 Powered by DKM</p>
     </div>
 </footer>
 

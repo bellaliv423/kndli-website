@@ -16,30 +16,49 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="style.css">
 
     <style>
         :root {
-            --navy: #0a1628;
-            --navy-light: #1a2d4a;
-            --navy-medium: #142238;
-            --gold: #c9a962;
-            --gold-light: #dfc88a;
-            --gold-dark: #a8893f;
-            --white: #ffffff;
-            --cream: #faf8f5;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-400: #9ca3af;
-            --gray-600: #4b5563;
-            --gray-800: #1f2937;
-            --font-display: 'Playfair Display', serif;
-            --font-ko: 'Noto Sans KR', sans-serif;
-            --font-zh: 'Noto Sans TC', sans-serif;
-            --shadow-sm: 0 1px 3px rgba(10,22,40,0.06);
-            --shadow-md: 0 4px 12px rgba(10,22,40,0.1);
-            --shadow-lg: 0 8px 30px rgba(10,22,40,0.14);
+            /* Surface — Anthropic Warm */
+            --bg-primary: #FBF8F3;
+            --bg-secondary: #F5F1EB;
+            --bg-tertiary: #E8DFD3;
+
+            /* Brand Accent */
+            --accent: #C45A2C;
+            --accent-hover: #A04820;
+            --accent-deep: #8B4513;
+            --gold-subtle: #C9A961;
+
+            /* Text */
+            --text-primary: #2C1810;
+            --text-secondary: #5C4737;
+            --text-muted: #8B7765;
+
+            /* Legacy aliases (기존 var 참조 유지) */
+            --navy: #2C1810;
+            --navy-light: #5C4737;
+            --navy-medium: #8B7765;
+            --gold: #C45A2C;
+            --gold-light: #D4843D;
+            --gold-dark: #A04820;
+            --cream: #FBF8F3;
+            --white: #FBF8F3;
+            --gray-100: #F5F1EB;
+            --gray-200: #E8DFD3;
+            --gray-400: #8B7765;
+            --gray-600: #5C4737;
+            --gray-800: #2C1810;
+
+            --font-display: 'Playfair Display', 'Noto Serif KR', serif;
+            --font-ko: 'Pretendard', 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+            --font-zh: 'Noto Sans TC', system-ui, sans-serif;
+            --shadow-sm: 0 1px 3px rgba(44,24,16,0.06);
+            --shadow-md: 0 2px 8px rgba(44,24,16,0.06);
+            --shadow-lg: 0 8px 24px rgba(44,24,16,0.10);
             --transition: 0.3s ease;
         }
 
@@ -76,9 +95,10 @@
         /* ========== Header ========== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(10,22,40,0.95);
+            background: rgba(251,248,243,0.95);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(201,169,98,0.15);
+            border-bottom: 1px solid rgba(44,24,16,0.08);
+            box-shadow: 0 1px 4px rgba(44,24,16,0.06);
             transition: var(--transition);
         }
         .header-inner {
@@ -89,28 +109,28 @@
         .logo {
             font-family: var(--font-display);
             font-size: 1.5rem; font-weight: 700;
-            color: var(--gold);
+            color: var(--text-primary);
             text-decoration: none; letter-spacing: 2px;
         }
         .nav { display: flex; align-items: center; gap: 1.5rem; }
         .nav a {
-            color: rgba(255,255,255,0.8); text-decoration: none;
+            color: var(--text-secondary); text-decoration: none;
             font-size: 0.9rem; font-weight: 400;
             transition: var(--transition);
         }
-        .nav a:hover { color: var(--gold); }
+        .nav a:hover { color: var(--accent); }
         .lang-toggle {
             display: flex; gap: 0.25rem;
-            background: rgba(255,255,255,0.08); border-radius: 6px;
+            background: rgba(44,24,16,0.06); border-radius: 6px;
             padding: 2px; margin-left: 0.5rem;
         }
         .lang-btn {
             padding: 4px 10px; border: none; border-radius: 4px;
-            background: transparent; color: rgba(255,255,255,0.6);
+            background: transparent; color: var(--text-muted);
             font-size: 0.8rem; cursor: pointer; transition: var(--transition);
         }
         .lang-btn.active {
-            background: var(--gold); color: var(--navy); font-weight: 600;
+            background: var(--accent); color: #FBF8F3; font-weight: 600;
         }
 
         /* Mobile Menu */
@@ -120,37 +140,38 @@
         }
         .mobile-toggle span {
             display: block; width: 22px; height: 2px;
-            background: var(--white); margin: 5px 0;
+            background: var(--text-primary); margin: 5px 0;
             transition: var(--transition);
         }
 
         /* ========== Hero ========== */
         .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-medium) 100%);
+            background: linear-gradient(180deg, #FBF8F3 0%, #F5F1EB 60%, #E8DFD3 100%);
             padding: 7rem 2rem 3rem;
             text-align: center; position: relative; overflow: hidden;
         }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 30% 20%, rgba(201,169,98,0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at 70% 80%, rgba(201,169,98,0.05) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 30% 20%, rgba(196,90,44,0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(196,90,44,0.04) 0%, transparent 50%);
         }
         .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
         .hero-badge {
             display: inline-block;
-            background: rgba(201,169,98,0.15); border: 1px solid rgba(201,169,98,0.3);
-            color: var(--gold-light); padding: 6px 20px; border-radius: 30px;
+            background: rgba(196,90,44,0.1); border: 1px solid rgba(196,90,44,0.25);
+            color: var(--accent); padding: 6px 20px; border-radius: 30px;
             font-size: 0.85rem; margin-bottom: 1.5rem; letter-spacing: 1px;
+            font-weight: 600;
         }
         .hero h1 {
             font-family: var(--font-display);
             font-size: 3.2rem; font-weight: 700;
-            color: var(--white); line-height: 1.25;
+            color: var(--text-primary); line-height: 1.25;
             margin-bottom: 1rem;
         }
-        .hero h1 .gold { color: var(--gold); }
+        .hero h1 .gold { color: var(--accent); }
         .hero-sub {
-            font-size: 1.15rem; color: rgba(255,255,255,0.7);
+            font-size: 1.15rem; color: var(--text-secondary);
             margin-bottom: 2.5rem; line-height: 1.8;
         }
         .hero-stats {
@@ -160,31 +181,31 @@
         .stat-item { text-align: center; }
         .stat-number {
             font-family: var(--font-display);
-            font-size: 2.2rem; font-weight: 700; color: var(--gold);
+            font-size: 2.2rem; font-weight: 700; color: var(--accent);
             display: block;
         }
         .stat-label {
-            font-size: 0.85rem; color: rgba(255,255,255,0.6);
+            font-size: 0.85rem; color: var(--text-muted);
             margin-top: 4px;
         }
         .hero-ctas { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--navy); padding: 14px 32px; border-radius: 8px;
+            background: #C45A2C;
+            color: #FBF8F3; padding: 14px 32px; border-radius: 8px;
             text-decoration: none; font-weight: 600; font-size: 0.95rem;
             transition: var(--transition); border: none; cursor: pointer;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,169,98,0.35); }
+        .btn-primary:hover { transform: translateY(-2px); background: #A04820; box-shadow: 0 6px 20px rgba(196,90,44,0.35); }
         .btn-outline {
             display: inline-flex; align-items: center; gap: 8px;
-            background: transparent; color: var(--white);
+            background: transparent; color: var(--text-primary);
             padding: 14px 32px; border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1.5px solid var(--accent);
             text-decoration: none; font-weight: 500; font-size: 0.95rem;
             transition: var(--transition); cursor: pointer;
         }
-        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+        .btn-outline:hover { background: rgba(196,90,44,0.06); color: var(--accent); }
 
         /* ========== Sections ========== */
         .section {
@@ -215,14 +236,14 @@
         .card {
             background: var(--white);
             border-radius: 12px; padding: 2rem;
-            border: 1px solid rgba(10,22,40,0.06);
+            border: 1px solid rgba(44,24,16,0.06);
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
         }
         .card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: rgba(201,169,98,0.2);
+            border-color: rgba(196,90,44,0.2);
         }
         .card-icon {
             width: 48px; height: 48px;
@@ -239,55 +260,56 @@
         .card-highlight {
             display: inline-block; margin-top: 0.75rem;
             font-size: 0.8rem; color: var(--gold-dark); font-weight: 600;
-            background: rgba(201,169,98,0.1); padding: 4px 12px; border-radius: 20px;
+            background: rgba(196,90,44,0.1); padding: 4px 12px; border-radius: 20px;
         }
 
         .section-ctas { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .btn-gold {
             display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--navy); padding: 12px 28px; border-radius: 8px;
+            background: #C45A2C;
+            color: #FBF8F3; padding: 12px 28px; border-radius: 8px;
             text-decoration: none; font-weight: 600; font-size: 0.9rem;
             transition: var(--transition);
         }
-        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(201,169,98,0.3); }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(196,90,44,0.3); }
         .btn-navy {
             display: inline-flex; align-items: center; gap: 8px;
-            background: var(--navy); color: var(--white);
+            background: var(--text-primary); color: #FBF8F3;
             padding: 12px 28px; border-radius: 8px;
             text-decoration: none; font-weight: 500; font-size: 0.9rem;
             transition: var(--transition);
         }
-        .btn-navy:hover { background: var(--navy-light); }
+        .btn-navy:hover { background: var(--text-secondary); }
 
         /* ========== Bridge Section ========== */
         .bridge-section {
-            background: var(--navy);
+            background: var(--bg-secondary);
             padding: 5rem 2rem;
         }
         .bridge-inner { max-width: 1200px; margin: 0 auto; }
-        .bridge-section .section-tag { color: var(--gold-light); }
-        .bridge-section .section-title { color: var(--white); }
-        .bridge-section .section-desc { color: rgba(255,255,255,0.6); }
+        .bridge-section .section-tag { color: var(--accent); }
+        .bridge-section .section-title { color: var(--text-primary); }
+        .bridge-section .section-desc { color: var(--text-secondary); }
         .bridge-cards {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem; margin-top: 3rem;
         }
         .bridge-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(201,169,98,0.15);
+            background: #FBF8F3;
+            border: 1px solid var(--bg-tertiary);
             border-radius: 12px; padding: 2rem;
             transition: var(--transition);
+            box-shadow: var(--shadow-sm);
         }
-        .bridge-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,169,98,0.3); }
+        .bridge-card:hover { border-color: rgba(196,90,44,0.3); box-shadow: var(--shadow-md); }
         .bridge-card-icon {
             font-size: 2rem; margin-bottom: 1rem;
         }
-        .bridge-card h3 { color: var(--gold-light); font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .bridge-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6; }
+        .bridge-card h3 { color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .bridge-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
         .bridge-note {
             text-align: center; margin-top: 2rem;
-            color: rgba(255,255,255,0.4); font-size: 0.85rem;
+            color: var(--text-muted); font-size: 0.85rem;
         }
 
         /* ========== Profile Preview ========== */
@@ -295,14 +317,14 @@
             display: flex; align-items: center; gap: 3rem;
             padding: 3rem; background: var(--white);
             border-radius: 16px; box-shadow: var(--shadow-md);
-            border: 1px solid rgba(10,22,40,0.06);
+            border: 1px solid rgba(44,24,16,0.06);
         }
         .profile-img {
             width: 180px; height: 180px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            background: var(--bg-tertiary);
             display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; font-size: 4rem; color: var(--gold);
-            border: 3px solid var(--gold);
+            flex-shrink: 0; font-size: 4rem; color: var(--accent);
+            border: 4px solid #2C1810;
         }
         .profile-text { flex: 1; }
         .profile-text h3 {
@@ -313,7 +335,7 @@
         .profile-text p { color: var(--gray-600); font-size: 0.95rem; margin-bottom: 1.5rem; }
         .profile-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
         .profile-tag {
-            background: rgba(10,22,40,0.05); color: var(--navy);
+            background: rgba(44,24,16,0.05); color: var(--navy);
             padding: 4px 14px; border-radius: 20px; font-size: 0.8rem;
         }
 
@@ -327,9 +349,9 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
-        .footer h4 { color: var(--gold); font-size: 0.95rem; margin-bottom: 1rem; }
-        .footer a { color: rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); }
-        .footer a:hover { color: var(--gold); }
+        .footer h4 { color: var(--accent); font-size: 0.95rem; margin-bottom: 1rem; }
+        .footer a { color: rgba(251,248,243,0.6); text-decoration: none; transition: var(--transition); }
+        .footer a:hover { color: var(--accent); }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 0.5rem; }
         .footer-links li a { font-size: 0.9rem; }
@@ -347,8 +369,9 @@
             .nav.open {
                 display: flex; flex-direction: column;
                 position: absolute; top: 100%; left: 0; right: 0;
-                background: rgba(10,22,40,0.98); padding: 1.5rem 2rem;
-                border-bottom: 1px solid rgba(201,169,98,0.15);
+                background: rgba(251,248,243,0.98); padding: 1.5rem 2rem;
+                border-bottom: 1px solid rgba(44,24,16,0.08);
+                box-shadow: 0 4px 12px rgba(44,24,16,0.08);
             }
             .hero { padding: 8rem 1.5rem 3.5rem; }
             .hero h1 { font-size: 2rem; }
@@ -635,9 +658,9 @@
                     <h3 class="lang-ko">유통 대행</h3>
                     <h3 class="lang-zh">代理經銷</h3>
                     <h3 class="lang-en">Distribution Services</h3>
-                    <p class="lang-ko">한국 브랜드의 대만/중국 진출, 중국 제조 수입 대행. OzKiz 아동복 7년+ 실무.</p>
-                    <p class="lang-zh">韓國品牌進入台灣/中國市場、中國製造進口代理。OzKiz童裝7年+實務。</p>
-                    <p class="lang-en">Korean brand expansion to Taiwan/China, import agency. 7+ years with OzKiz children's wear.</p>
+                    <p class="lang-ko">한국 브랜드의 대만/중국 진출, 중국 제조 수입 대행. 글로벌 B2B 7년+ 실무.</p>
+                    <p class="lang-zh">韓國品牌進入台灣/中國市場、中國製造進口代理。全球B2B 7年+實務。</p>
+                    <p class="lang-en">Korean brand expansion to Taiwan/China, import agency. 7+ years in global B2B operations.</p>
                 </div>
                 <div class="bridge-card">
                     <div class="bridge-card-icon">&#128241;</div>
@@ -666,7 +689,7 @@
         </div>
 
         <div class="profile-preview">
-            <div class="profile-img">B</div>
+            <div class="profile-img"><img src="bella_ceo.png" alt="Bella 황영아 — KNDLI Korea CEO" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
             <div class="profile-text">
                 <h3>Bella 黃鈴雅</h3>
                 <div class="subtitle lang-ko">KNDLI Co., Ltd. 한국 영업소장</div>
@@ -680,7 +703,7 @@
                     <span class="profile-tag lang-ko">한양대 MBA</span><span class="profile-tag lang-zh">漢陽MBA</span><span class="profile-tag lang-en">Hanyang MBA</span>
                     <span class="profile-tag lang-ko">3개 국어</span><span class="profile-tag lang-zh">三語能力</span><span class="profile-tag lang-en">Trilingual</span>
                     <span class="profile-tag lang-ko">크로스보더</span><span class="profile-tag lang-zh">跨境商務</span><span class="profile-tag lang-en">Cross-border</span>
-                    <span class="profile-tag">OzKiz 7Y+</span>
+                    <span class="profile-tag">Global B2B 7Y+</span>
                 </div>
                 <a href="profile.html" class="btn-gold">
                     <span class="lang-ko">프로필 자세히 보기</span>
@@ -736,12 +759,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2024-2026 KNDLI Co., Ltd. All rights reserved.</span>
-            <span>
-                <span class="lang-ko">한국-대만-중국 비즈니스 브릿지</span>
-                <span class="lang-zh">韓國-台灣-中國 商業橋樑</span>
-                <span class="lang-en">Korea-Taiwan-China Business Bridge</span>
-            </span>
+            <span>&copy; 2024-2026 KNDLI Co., Ltd. · Bella 황영아 · All Rights Reserved</span>
+            <span>KNDLI™ (Trademark Pending) · 🔧 Powered by DKM</span>
         </div>
     </footer>
 
