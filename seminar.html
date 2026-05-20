@@ -593,7 +593,7 @@
                     <span style="background:#FFE5E5;color:#8B0000;padding:0.3rem 0.7rem;border-radius:100px;font-size:0.72rem;font-weight:600;">입문</span>
                     <span style="background:#FFE5E5;color:#8B0000;padding:0.3rem 0.7rem;border-radius:100px;font-size:0.72rem;font-weight:600;">AI Agent</span>
                 </div>
-                <a href="https://nest.kndli.com/events" target="_blank" style="display:block;text-align:center;padding:1rem;background:linear-gradient(135deg, #DC143C, #8B0000);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;letter-spacing:1px;font-size:0.95rem;box-shadow:0 4px 12px rgba(220,20,60,0.3);transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="#apply" style="display:block;text-align:center;padding:1rem;background:linear-gradient(135deg, #DC143C, #8B0000);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;letter-spacing:1px;font-size:0.95rem;box-shadow:0 4px 12px rgba(220,20,60,0.3);transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                     <span class="lang-ko">📝 신청하기 →</span>
                     <span class="lang-zh">📝 立即報名 →</span>
                     <span class="lang-en">📝 Apply Now →</span>
@@ -638,7 +638,7 @@
                     <span style="background:#FFE8D0;color:#8B4513;padding:0.3rem 0.7rem;border-radius:100px;font-size:0.72rem;font-weight:600;">활용</span>
                     <span style="background:#FFE8D0;color:#8B4513;padding:0.3rem 0.7rem;border-radius:100px;font-size:0.72rem;font-weight:600;">실전</span>
                 </div>
-                <a href="https://nest.kndli.com/events" target="_blank" style="display:block;text-align:center;padding:1rem;background:linear-gradient(135deg, #C45A2C, #8B4513);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;letter-spacing:1px;font-size:0.95rem;box-shadow:0 4px 12px rgba(196,90,44,0.3);transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="#apply" style="display:block;text-align:center;padding:1rem;background:linear-gradient(135deg, #C45A2C, #8B4513);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;letter-spacing:1px;font-size:0.95rem;box-shadow:0 4px 12px rgba(196,90,44,0.3);transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                     <span class="lang-ko">📝 신청하기 →</span>
                     <span class="lang-zh">📝 立即報名 →</span>
                     <span class="lang-en">📝 Apply Now →</span>
@@ -1042,14 +1042,68 @@
 <!-- Apply Form -->
 <section class="section fade-in" id="apply">
     <div class="section-header">
-        <div class="section-tag">Apply</div>
-        <h2 class="section-title lang-ko">무료 세미나 신청</h2>
-        <h2 class="section-title lang-zh">免費講座報名</h2>
-        <p class="section-desc lang-ko">아래 양식을 작성하면 세미나 일정을 안내해드립니다</p>
-        <p class="section-desc lang-zh">填寫以下表單後，我們將通知您講座時間</p>
+        <div class="section-tag">📝 APPLY · 1 폼 + 트랙 선택</div>
+        <h2 class="section-title lang-ko">세미나 신청</h2>
+        <h2 class="section-title lang-zh">講座報名</h2>
+        <p class="section-desc lang-ko">신청 → kndli.210@gmail.com 자동 알림 + Google Sheets 데이터 자동 누적</p>
+        <p class="section-desc lang-zh">報名 → kndli.210@gmail.com自動通知 + Google Sheets資料自動累積</p>
     </div>
+
+    <!-- 📍 위치·진행 매트릭스 -->
+    <div style="max-width:800px;margin:0 auto 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;">
+        <div style="background:#fff;padding:1.3rem 1.5rem;border-radius:12px;border-left:4px solid #C45A2C;box-shadow:0 2px 8px rgba(44,24,16,0.06);">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;">
+                <span style="font-size:1.5rem;">🏢</span>
+                <strong style="color:#2C1810;font-size:1rem;">
+                    <span class="lang-ko">오프라인 장소</span>
+                    <span class="lang-zh">線下場地</span>
+                </strong>
+            </div>
+            <p style="color:#5C4737;font-size:0.92rem;margin:0;line-height:1.6;">
+                <span class="lang-ko"><strong>강남역 4번 출구 · 도보 4분</strong><br>상세 주소는 신청 후 안내</span>
+                <span class="lang-zh"><strong>江南站4號出口·步行4分</strong><br>詳細地址報名後告知</span>
+            </p>
+        </div>
+        <div style="background:#fff;padding:1.3rem 1.5rem;border-radius:12px;border-left:4px solid #4285F4;box-shadow:0 2px 8px rgba(66,133,244,0.08);">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;">
+                <span style="font-size:1.5rem;">💻</span>
+                <strong style="color:#2C1810;font-size:1rem;">
+                    <span class="lang-ko">온라인 진행</span>
+                    <span class="lang-zh">線上進行</span>
+                </strong>
+            </div>
+            <p style="color:#5C4737;font-size:0.92rem;margin:0;line-height:1.6;">
+                <span class="lang-ko"><strong>Google Meet</strong> 진행<br>링크는 신청 후 이메일 안내</span>
+                <span class="lang-zh"><strong>Google Meet</strong> 進行<br>連結報名後Email告知</span>
+            </p>
+        </div>
+    </div>
+
     <div class="form-card">
         <form id="seminarForm">
+            <!-- 🎯 세미나 트랙 선택 (NEW) -->
+            <div class="form-group">
+                <label><strong><span class="lang-ko">🎯 세미나 트랙 선택</span><span class="lang-zh">🎯 講座軌道選擇</span> *</strong></label>
+                <select name="seminar_track" required>
+                    <option value="">선택해주세요 / 請選擇</option>
+                    <option value="cntw_intro">🇨🇳🇹🇼 中華圈 입문 — AI 에이전트 시작하기 (10명 · Zoom)</option>
+                    <option value="cntw_pro">🚀 中華圈 활용 — AI 에이전트 실전 적용 (8명 · Zoom)</option>
+                    <option value="both">📌 둘 다 관심 있음 (상담 요청)</option>
+                    <option value="future">📅 향후 KR/EN 트랙 알림 받기</option>
+                </select>
+            </div>
+
+            <!-- 🎯 참여 방식 (NEW) -->
+            <div class="form-group">
+                <label><strong><span class="lang-ko">📍 참여 방식</span><span class="lang-zh">📍 參與方式</span> *</strong></label>
+                <select name="attendance_mode" required>
+                    <option value="">선택해주세요 / 請選擇</option>
+                    <option value="online">💻 온라인 (Google Meet)</option>
+                    <option value="offline">🏢 오프라인 (강남역 4번 출구 도보 4분)</option>
+                    <option value="either">🔄 둘 다 OK</option>
+                </select>
+            </div>
+
             <div class="form-row">
                 <div class="form-group">
                     <label><span class="lang-ko">이름</span><span class="lang-zh">姓名</span> *</label>
@@ -1069,26 +1123,30 @@
                     <label><span class="lang-ko">언어 선호</span><span class="lang-zh">偏好語言</span></label>
                     <select name="language">
                         <option value="ko">한국어 Korean</option>
-                        <option value="zh">中文 Chinese</option>
+                        <option value="zh">中文 (繁/簡) Chinese</option>
                         <option value="en">English</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label><span class="lang-ko">하고 싶은 말 (선택)</span><span class="lang-zh">想說的話（選填）</span></label>
-                <textarea name="message" rows="3" id="messageField" placeholder="자동화하고 싶은 업무, 궁금한 점 등"></textarea>
+                <textarea name="message" rows="3" id="messageField" placeholder="자동화하고 싶은 업무, 궁금한 점 등 / 想自動化的業務、疑問等"></textarea>
             </div>
             <button type="submit" class="submit-btn">
-                <span class="lang-ko">&#127891; 무료 세미나 신청하기</span>
-                <span class="lang-zh">&#127891; 免費報名講座</span>
+                <span class="lang-ko">📝 세미나 신청하기 →</span>
+                <span class="lang-zh">📝 立即報名 →</span>
             </button>
+            <p style="text-align:center;margin-top:0.8rem;color:#8B7765;font-size:0.82rem;">
+                <span class="lang-ko">💡 신청 후 <strong>24시간 내</strong> 이메일 회신 · 일정·장소 상세 안내</span>
+                <span class="lang-zh">💡 報名後 <strong>24小時內</strong> Email回覆·日程·場地詳細告知</span>
+            </p>
         </form>
         <div id="formSuccess" style="display:none;text-align:center;padding:2rem;">
             <div style="font-size:3rem;margin-bottom:1rem;">&#127881;</div>
             <h3 class="lang-ko" style="color:var(--navy);margin-bottom:0.5rem;">신청이 완료되었습니다!</h3>
             <h3 class="lang-zh" style="color:var(--navy);margin-bottom:0.5rem;">報名已完成！</h3>
-            <p class="lang-ko" style="color:var(--gray-600);">세미나 일정을 이메일로 안내해드리겠습니다.</p>
-            <p class="lang-zh" style="color:var(--gray-600);">我們將透過Email通知您講座時間。</p>
+            <p class="lang-ko" style="color:var(--gray-600);"><strong>kndli.210@gmail.com</strong>로 자동 알림 전송 + 24시간 내 회신해드릴게요.</p>
+            <p class="lang-zh" style="color:var(--gray-600);"><strong>kndli.210@gmail.com</strong>自動通知 + 24小時內回覆。</p>
         </div>
     </div>
 </section>
