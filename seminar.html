@@ -367,15 +367,19 @@
     <div class="header-inner">
         <a href="index.html" class="logo">KNDLI</a>
         <nav class="nav">
-            <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
-            <a href="profile-v4.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span></a>
-            <a href="https://bellaliv423.github.io/bella-ai/" target="_blank" rel="noopener noreferrer"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span></a>
-            <a href="#curriculum"><span class="lang-ko">커리큘럼</span><span class="lang-zh">課程大綱</span></a>
-            <a href="#apply"><span class="lang-ko">신청</span><span class="lang-zh">報名</span></a>
-            <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span></a>
+            <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span><span class="lang-en">Home</span></a>
+            <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span><span class="lang-en">Profile</span></a>
+            <a href="translation.html"><span class="lang-ko">통번역</span><span class="lang-zh">翻譯</span><span class="lang-en">Translation</span></a>
+            <a href="https://bellaliv423.github.io/bella-ai/?lang=ko#services" target="_blank" rel="noopener noreferrer"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span><span class="lang-en">AI Automation</span></a>
+            <a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">Dream Team</span><span class="lang-zh">Dream Team</span><span class="lang-en">Dream Team</span></a>
+            <a href="https://bella-codex-nest.vercel.app" target="_blank"><span class="lang-ko">Co-Nest</span><span class="lang-zh">Co-Nest</span><span class="lang-en">Co-Nest</span></a>
+            <a href="ai-training.html"><span class="lang-ko">맞춤화 AI 교육</span><span class="lang-zh">客製化AI教育</span><span class="lang-en">Custom AI Training</span></a>
+            <a href="seminar.html" class="active"><span class="lang-ko">AI 세미나·교육</span><span class="lang-zh">AI 講座·教育</span><span class="lang-en">AI Seminar·Training</span></a>
+            <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span><span class="lang-en">Contact</span></a>
             <div class="lang-toggle">
                 <button class="lang-btn active" onclick="setLang('ko')">KO</button>
                 <button class="lang-btn" onclick="setLang('zh')">中文</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
             </div>
         </nav>
         <button class="mobile-toggle" onclick="document.querySelector('.nav').classList.toggle('open')">
@@ -387,11 +391,13 @@
 <!-- Hero -->
 <section class="seminar-hero">
     <div style="position:relative;z-index:1">
-        <div class="hero-badge"><span class="lang-ko">1회 무료 체험</span><span class="lang-zh">首堂免費體驗</span></div>
-        <h1 class="hero-title lang-ko">슬기로운 클로드 마법</h1>
-        <h1 class="hero-title lang-zh">Claude魔法課</h1>
-        <p class="hero-sub lang-ko" style="font-size:1.3rem;color:var(--gray-800);margin-bottom:0.75rem;font-weight:500">코딩 없이 시작하는 AI 활용법</p>
-        <p class="hero-sub lang-zh" style="font-size:1.3rem;color:var(--gray-800);margin-bottom:0.75rem;font-weight:500">零程式碼開始的AI應用方法</p>
+        <div class="hero-badge"><span class="lang-ko">AI 세미나 + 소규모 맞춤화 AI 교육</span><span class="lang-zh">AI 講座 + 小規模客製AI教育</span><span class="lang-en">AI Seminar + Small-Group Custom Training</span></div>
+        <h1 class="hero-title lang-ko">AI 세미나 & 맞춤화 AI 교육</h1>
+        <h1 class="hero-title lang-zh">AI 講座 & 客製化AI教育</h1>
+        <h1 class="hero-title lang-en">AI Seminar & Custom Training</h1>
+        <p class="hero-sub lang-ko" style="font-size:1.3rem;color:var(--gray-800);margin-bottom:0.75rem;font-weight:500">코딩 없이 시작하는 AI 활용법 · 1:1·소그룹 맞춤 설계</p>
+        <p class="hero-sub lang-zh" style="font-size:1.3rem;color:var(--gray-800);margin-bottom:0.75rem;font-weight:500">零程式碼開始的AI應用 · 1對1·小組客製設計</p>
+        <p class="hero-sub lang-en" style="font-size:1.3rem;color:var(--gray-800);margin-bottom:0.75rem;font-weight:500">No-code AI · 1:1 & small-group custom design</p>
         <p class="hero-sub lang-ko" style="font-size:0.95rem;font-style:italic;color:var(--gray-600);margin-bottom:0.5rem">"비개발자가 Claude로 16마리 AI 드림팀을 만들고, 3대 디바이스로 업무를 자동화한 실화"</p>
         <p class="hero-sub lang-zh" style="font-size:0.95rem;font-style:italic;color:var(--gray-600);margin-bottom:0.5rem">「非開發者用Claude打造16隻AI夢幻團隊，3台設備全面自動化的真實故事」</p>
         <p class="hero-sub lang-ko" style="font-size:0.9rem;color:var(--gray-400);margin-bottom:2.5rem">그 시작점이 바로 이 세미나입니다. 누구나 할 수 있습니다.</p>
@@ -715,7 +721,7 @@
             <a href="profile-v4.html">
                 <span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span>
             </a>
-            <a href="https://bellaliv423.github.io/bella-ai/" target="_blank">
+            <a href="https://bellaliv423.github.io/bella-ai/?lang=ko#services" target="_blank">
                 <span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span>
             </a>
             <a href="https://instagram.com/bellaliv423" target="_blank" rel="noopener noreferrer">

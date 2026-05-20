@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNDLI | 통번역 서비스 — 한국·대만·중국</title>
+    <meta name="description" content="한국어-중국어-영어 비즈니스 통번역. 미용 교육·계약서·마케팅 자료·영상 자막. 11년 한국 거주 + 4개 언어 + Global B2B 7년+.">
+    <meta name="keywords" content="통번역, 한중영 통역, 미용 교육 통역, 비즈니스 통역, KNDLI, 한니드레이">
+    <meta property="og:title" content="KNDLI | 통번역 서비스">
+    <meta property="og:description" content="한국·대만·중국 비즈니스 통번역 + 미용 교육 + 계약서 + 영상 자막. 1시간 10만원~.">
+    <meta property="og:image" content="images/og-image.png">
+    <link rel="canonical" href="https://kndli.com/translation.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --bg-primary: #FBF8F3;
+            --bg-secondary: #F5F1EB;
+            --bg-tertiary: #E8DFD3;
+            --accent: #C45A2C;
+            --accent-hover: #A04820;
+            --accent-deep: #8B4513;
+            --gold-subtle: #C9A961;
+            --text-primary: #2C1810;
+            --text-secondary: #5C4737;
+            --text-muted: #8B7765;
+            --navy: #2C1810;
+            --navy-light: #5C4737;
+            --gold: #C45A2C;
+            --gold-light: #D4843D;
+            --gold-dark: #A04820;
+            --cream: #FBF8F3;
+            --gray-100: #F5F1EB;
+            --gray-200: #E8DFD3;
+            --gray-400: #8B7765;
+            --gray-800: #2C1810;
+            --font-display: 'Playfair Display', 'Noto Serif KR', serif;
+            --font-ko: 'Pretendard', 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+            --font-zh: 'Noto Sans TC', system-ui, sans-serif;
+            --shadow-sm: 0 1px 3px rgba(44,24,16,0.06);
+            --shadow-md: 0 2px 8px rgba(44,24,16,0.06);
+            --shadow-lg: 0 8px 24px rgba(44,24,16,0.10);
+            --transition: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-ko);
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        body.zh { font-family: var(--font-zh); }
+
+        .lang-ko { display: block; }
+        .lang-zh { display: none; }
+        body.zh .lang-ko { display: none; }
+        body.zh .lang-zh { display: block; }
+        span.lang-ko, a.lang-ko { display: inline; }
+        span.lang-zh, a.lang-zh { display: none; }
+        body.zh span.lang-ko, body.zh a.lang-ko { display: none; }
+        body.zh span.lang-zh, body.zh a.lang-zh { display: inline; }
+        .lang-en { display: none; }
+        body.en .lang-ko { display: none; }
+        body.en .lang-zh { display: none; }
+        body.en .lang-en { display: block; }
+        span.lang-en, a.lang-en { display: none; }
+        body.en span.lang-ko, body.en a.lang-ko { display: none; }
+        body.en span.lang-zh, body.en a.lang-zh { display: none; }
+        body.en span.lang-en, body.en a.lang-en { display: inline; }
+        body.en { font-family: 'Noto Sans KR', sans-serif; }
+
+        /* Header */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(251,248,243,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(44,24,16,0.08);
+            box-shadow: 0 1px 4px rgba(44,24,16,0.06);
+        }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.8rem 2rem;
+        }
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem; font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none; letter-spacing: 2px;
+        }
+        .nav { display: flex; align-items: center; gap: 1.5rem; }
+        .nav a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; font-weight: 400;
+            transition: var(--transition);
+        }
+        .nav a:hover { color: var(--accent); }
+        .nav a.active { color: var(--accent); font-weight: 600; }
+        .lang-toggle { display: flex; gap: 0.3rem; margin-left: 0.5rem; }
+        .lang-btn {
+            background: none; border: 1px solid rgba(44,24,16,0.15);
+            color: var(--text-secondary); padding: 0.3rem 0.6rem;
+            border-radius: 4px; font-size: 0.75rem; cursor: pointer;
+            transition: var(--transition);
+        }
+        .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .mobile-toggle { display: none; }
+
+        /* Hero */
+        .hero-page {
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px; margin: 0 auto;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(196,90,44,0.08);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-page h1 {
+            font-family: var(--font-display);
+            font-size: 3rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+        .hero-page h1 .accent { color: var(--accent); }
+        .hero-page .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .hero-stats-row {
+            display: flex; justify-content: center; gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat .num {
+            font-family: var(--font-display);
+            font-size: 2.5rem; font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .hero-stat .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+        }
+
+        /* Section */
+        .section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-tag {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.2rem; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Service Grid (4 cards) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: #fff;
+            padding: 2rem 1.8rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(44,24,16,0.05);
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(196,90,44,0.2);
+        }
+        .service-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .service-card .tag {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.3rem 0.7rem;
+            background: rgba(196,90,44,0.08);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--bg-secondary);
+            padding: 5rem 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: #fff;
+            padding: 2.5rem 1.8rem;
+            border-radius: 14px;
+            border: 1px solid rgba(44,24,16,0.06);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+        .price-card.featured {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.02);
+        }
+        .price-card .badge {
+            position: absolute;
+            top: -12px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #fff;
+            padding: 0.3rem 0.9rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .price-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .price-card .sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .price-card .price {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+        .price-card .price-unit {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .price-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        .price-card ul li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.4rem;
+            border-bottom: 1px dashed rgba(44,24,16,0.06);
+        }
+        .price-card ul li:last-child { border-bottom: none; }
+        .price-card ul li::before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* Strengths */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .strength {
+            background: #fff;
+            padding: 1.5rem 1.2rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+        .strength .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .strength h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+        .strength p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Reviews */
+        .reviews-section {
+            background: var(--bg-primary);
+            padding: 5rem 2rem;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .review-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(44,24,16,0.05);
+        }
+        .review-card .stars { color: #C9A961; font-size: 1rem; margin-bottom: 0.8rem; }
+        .review-card .quote {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+        .review-card .reviewer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .review-card .reviewer .role {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            padding: 5rem 2rem;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.92;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-white {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: #fff;
+            color: var(--accent);
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .btn-outline-white {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-outline-white:hover {
+            background: #fff;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        .footer p { font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-page h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .nav { display: none; }
+            .mobile-toggle { display: block; background: none; border: none; cursor: pointer; }
+            .price-card.featured { transform: scale(1); }
+            .hero-stats-row { gap: 2rem; }
+            .hero-stat .num { font-size: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">KNDLI</a>
+            <nav class="nav" id="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span><span class="lang-en">Home</span></a>
+                <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span><span class="lang-en">Profile</span></a>
+                <a href="translation.html" class="active"><span class="lang-ko">통번역</span><span class="lang-zh">翻譯</span><span class="lang-en">Translation</span></a>
+                <a href="https://bellaliv423.github.io/bella-ai/?lang=ko#services" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span><span class="lang-en">AI Automation</span></a>
+                <a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">Dream Team</span><span class="lang-zh">Dream Team</span><span class="lang-en">Dream Team</span></a>
+                <a href="https://bella-codex-nest.vercel.app" target="_blank"><span class="lang-ko">Co-Nest</span><span class="lang-zh">Co-Nest</span><span class="lang-en">Co-Nest</span></a>
+                <a href="ai-training.html"><span class="lang-ko">맞춤화 AI 교육</span><span class="lang-zh">客製化AI教育</span><span class="lang-en">Custom AI Training</span></a>
+                <a href="seminar.html"><span class="lang-ko">세미나</span><span class="lang-zh">講座</span><span class="lang-en">Seminar</span></a>
+                <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span><span class="lang-en">Contact</span></a>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-page">
+        <div class="hero-badge">TRANSLATION & INTERPRETATION</div>
+        <h1 class="lang-ko">한국·대만·중국 비즈니스<br><span class="accent">통번역 서비스</span></h1>
+        <h1 class="lang-zh">韓國·台灣·中國 商務<br><span class="accent">翻譯口譯服務</span></h1>
+        <h1 class="lang-en">Korean · Chinese (Simplified · Traditional)<br><span class="accent">Translation & Interpretation</span></h1>
+
+        <p class="hero-sub lang-ko">11년+ 한국 거주 경험 (대만 출신) · <strong>한국어 ↔ 중국어 (간체·번체) 풀 능통</strong> · Global B2B 7년+ 실무 통번역.<br>비즈니스 통역 · 미용 교육 통역 · 계약서·마케팅·이커머스 번역.<br><strong style="color:var(--accent);">📅 주말·평일 저녁 우선 · 사전 예약 3주 전 풀 필수 · 이메일 문의 (kndli.210@gmail.com)</strong></p>
+        <p class="hero-sub lang-zh">11年+韓國居住經驗 (台灣出身) · <strong>韓語 ↔ 中文 (簡體·繁體) 完全流利</strong> · 全球B2B 7年+實務翻譯口譯。<br>商務口譯 · 美容教育口譯 · 合約·行銷·電商翻譯。<br><strong style="color:var(--accent);">📅 週末·平日晚間優先 · 須提前3週預約 · 來信諮詢 (kndli.210@gmail.com)</strong></p>
+        <p class="hero-sub lang-en">11+ years in Korea (from Taiwan) · <strong>Korean ↔ Chinese (Simplified · Traditional) fully fluent</strong> · 7+ years Global B2B translation/interpretation.<br>Business interpretation, beauty education, contracts, marketing & e-commerce translation.<br><strong style="color:var(--accent);">📅 Weekends & evenings priority · 3-week advance booking required · Email (kndli.210@gmail.com)</strong></p>
+
+        <div class="hero-stats-row">
+            <div class="hero-stat">
+                <div class="num">11+</div>
+                <div class="label lang-ko">한국 거주 (대만 출신)</div>
+                <div class="label lang-zh">韓國居住 (台灣出身)</div>
+                <div class="label lang-en">Years in Korea (from Taiwan)</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">3</div>
+                <div class="label lang-ko">개 언어 (한·중 간체·번체)</div>
+                <div class="label lang-zh">種語言 (韓·簡中·繁中)</div>
+                <div class="label lang-en">Languages (KO·CN-Simp·CN-Trad)</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">7+</div>
+                <div class="label lang-ko">Global B2B 통번역 실무</div>
+                <div class="label lang-zh">全球B2B實務</div>
+                <div class="label lang-en">Years Global B2B</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">🏆</div>
+                <div class="label lang-ko">한양 MBA · 홍보대사 · AX 1위 · KCBRI 이사</div>
+                <div class="label lang-zh">漢陽MBA·宣傳大使·AX冠軍·KCBRI理事</div>
+                <div class="label lang-en">Hanyang MBA·Ambassador·AX Prize·KCBRI Director</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <div class="section-tag">SERVICES</div>
+            <h2 class="section-title lang-ko">서비스 매트릭스</h2>
+            <h2 class="section-title lang-zh">服務項目</h2>
+            <h2 class="section-title lang-en">Service Matrix</h2>
+            <p class="section-desc lang-ko">현장 통역부터 문서 번역까지 — 비즈니스·교육·콘텐츠 풀세트 지원</p>
+            <p class="section-desc lang-zh">從現場口譯到文件翻譯 — 商務·教育·內容全方位支援</p>
+            <p class="section-desc lang-en">From on-site interpretation to document translation — Business, Education, Content full support</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">💼</div>
+                <h3 class="lang-ko">비즈니스 통역</h3>
+                <h3 class="lang-zh">商務口譯</h3>
+                <h3 class="lang-en">Business Interpretation</h3>
+                <p class="lang-ko">미팅·전시회·상담·세미나 현장 통역. <strong>한 ↔ 중 (간체·번체)</strong> 풀 지원.</p>
+                <p class="lang-zh">會議·展會·諮商·研討會現場口譯。<strong>韓 ↔ 中 (簡·繁) 全面支援</strong>。</p>
+                <p class="lang-en">Meetings, expos, consulting, seminars. <strong>KO ↔ CN (Simp·Trad) full support</strong>.</p>
+                <span class="tag">B2B 7년+</span>
+            </div>
+            <div class="service-card">
+                <div class="icon">💄</div>
+                <h3 class="lang-ko">미용 교육 통역</h3>
+                <h3 class="lang-zh">美容教育口譯</h3>
+                <h3 class="lang-en">Beauty Education Interpretation</h3>
+                <p class="lang-ko">대만·중국 미용 교육 세미나, K-Beauty 트레이닝, 시술 워크숍 통역.</p>
+                <p class="lang-zh">台灣·中國美容教育研討會、K-Beauty培訓、施術工作坊口譯。</p>
+                <p class="lang-en">Taiwan/China beauty seminars, K-Beauty training, treatment workshops.</p>
+                <span class="tag">K-Beauty 전문</span>
+            </div>
+            <div class="service-card">
+                <div class="icon">📑</div>
+                <h3 class="lang-ko">문서 번역</h3>
+                <h3 class="lang-zh">文件翻譯</h3>
+                <h3 class="lang-en">Document Translation</h3>
+                <p class="lang-ko">계약서·제안서·마케팅 자료·홈페이지·이커머스 상세 페이지.</p>
+                <p class="lang-zh">合約·提案·行銷資料·網站·電商詳情頁。</p>
+                <p class="lang-en">Contracts, proposals, marketing materials, websites, e-commerce details.</p>
+                <span class="tag">정확성 최우선</span>
+            </div>
+            <div class="service-card">
+                <div class="icon">🎬</div>
+                <h3 class="lang-ko">마케팅·영상 번역</h3>
+                <h3 class="lang-zh">行銷·影片翻譯</h3>
+                <h3 class="lang-en">Marketing·Video</h3>
+                <p class="lang-ko">마케팅 자료·이커머스 상세·영상 자막 한 → 중 (간체·번체) 번역 풀. 샤홍슈·인스타 게시물 컨설팅 풀 가능.</p>
+                <p class="lang-zh">行銷資料·電商詳情·影片字幕 韓 → 中 (簡·繁) 翻譯。小紅書·Instagram發文諮詢。</p>
+                <p class="lang-en">Marketing materials, e-commerce details, video subtitles KO → CN (Simp·Trad). Xiaohongshu·Instagram post consulting.</p>
+                <span class="tag">샤홍슈 1.1만 · 한→중</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <div class="section-header">
+            <div class="section-tag">PRICING</div>
+            <h2 class="section-title lang-ko">가격 안내</h2>
+            <h2 class="section-title lang-zh">價格方案</h2>
+            <h2 class="section-title lang-en">Pricing</h2>
+            <p class="section-desc lang-ko">투명한 시간 단위 가격 · 친구 소개 할인 · 패키지 협의 가능</p>
+            <p class="section-desc lang-zh">透明時薪 · 朋友推薦折扣 · 套餐可協商</p>
+            <p class="section-desc lang-en">Transparent hourly rates · Friend referral discount · Package negotiable</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card featured">
+                <div class="badge"><span class="lang-ko">Premium</span><span class="lang-zh">Premium</span><span class="lang-en">Premium</span></div>
+                <h3 class="lang-ko">💼 비즈니스·전문 세미나</h3>
+                <h3 class="lang-zh">💼 商務·專業研討會</h3>
+                <h3 class="lang-en">💼 Business·Pro Seminar</h3>
+                <p class="sub lang-ko">기업·전시회·계약·전문 세미나 통역</p>
+                <p class="sub lang-zh">企業·展會·合約·專業研討會口譯</p>
+                <p class="sub lang-en">Corporate·Expo·Contract·Pro Seminar</p>
+                <div class="price">₩150,000</div>
+                <div class="price-unit lang-ko">/ 1시간</div>
+                <div class="price-unit lang-zh">/ 1小時</div>
+                <div class="price-unit lang-en">/ 1 hour</div>
+                <ul>
+                    <li class="lang-ko">한 ↔ 중 (간체·번체) 풀</li>
+                    <li class="lang-zh">韓 ↔ 中 (簡·繁) 全面</li>
+                    <li class="lang-en">KO ↔ CN (Simp·Trad) full</li>
+                    <li class="lang-ko">현장·온라인 모두 가능</li>
+                    <li class="lang-zh">現場·線上皆可</li>
+                    <li class="lang-en">On-site & online</li>
+                    <li class="lang-ko">B2B 7년+ 실무</li>
+                    <li class="lang-zh">B2B 7年+實務</li>
+                    <li class="lang-en">7+ years Global B2B</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h3 class="lang-ko">💄 미용 교육 통역</h3>
+                <h3 class="lang-zh">💄 美容教育口譯</h3>
+                <h3 class="lang-en">💄 Beauty Education</h3>
+                <p class="sub lang-ko">K-Beauty 트레이닝·세미나</p>
+                <p class="sub lang-zh">K-Beauty培訓·研討會</p>
+                <p class="sub lang-en">K-Beauty Training·Seminar</p>
+                <div class="price">₩100,000</div>
+                <div class="price-unit lang-ko">/ 1시간</div>
+                <div class="price-unit lang-zh">/ 1小時</div>
+                <div class="price-unit lang-en">/ 1 hour</div>
+                <ul>
+                    <li class="lang-ko">대만·중국 미용 교육 풀</li>
+                    <li class="lang-zh">台灣·中國美容教育全範圍</li>
+                    <li class="lang-en">Taiwan·China beauty</li>
+                    <li class="lang-ko">K-Beauty 시술 워크숍</li>
+                    <li class="lang-zh">K-Beauty施術工作坊</li>
+                    <li class="lang-en">K-Beauty treatment workshops</li>
+                    <li class="lang-ko">전문 용어 풀 정확</li>
+                    <li class="lang-zh">專業術語精準</li>
+                    <li class="lang-en">Accurate terminology</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h3 class="lang-ko">🤝 친구 소개</h3>
+                <h3 class="lang-zh">🤝 朋友推薦</h3>
+                <h3 class="lang-en">🤝 Referral</h3>
+                <p class="sub lang-ko">소개·반복 고객 환영</p>
+                <p class="sub lang-zh">推薦·回頭客戶歡迎</p>
+                <p class="sub lang-en">Referral·Returning welcome</p>
+                <div class="price lang-ko" style="font-size:1.5rem;">📧 메일 문의</div>
+                <div class="price lang-zh" style="font-size:1.5rem;">📧 來信諮詢</div>
+                <div class="price lang-en" style="font-size:1.5rem;">📧 Email Us</div>
+                <div class="price-unit lang-ko">친구 소개시 별도 상의</div>
+                <div class="price-unit lang-zh">朋友推薦時個別協商</div>
+                <div class="price-unit lang-en">Referral · personal quote</div>
+                <ul>
+                    <li class="lang-ko">친구 소개 풀 환영</li>
+                    <li class="lang-zh">朋友推薦全面歡迎</li>
+                    <li class="lang-en">Friend referrals welcome</li>
+                    <li class="lang-ko">재방문 고객 우대 풀</li>
+                    <li class="lang-zh">回頭客優惠</li>
+                    <li class="lang-en">Returning client priority</li>
+                    <li class="lang-ko">이메일 풀 안내드려요</li>
+                    <li class="lang-zh">來信獲詳細報價</li>
+                    <li class="lang-en">Email for details</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h3 class="lang-ko">📑 문서·마케팅·영상 번역</h3>
+                <h3 class="lang-zh">📑 文件·行銷·影片翻譯</h3>
+                <h3 class="lang-en">📑 Document·Marketing·Video</h3>
+                <p class="sub lang-ko">건당·분량별 협의 · 한→중 (간체·번체)</p>
+                <p class="sub lang-zh">案件·字數協商 · 韓→中 (簡·繁)</p>
+                <p class="sub lang-en">Per project · KO→CN (Simp·Trad)</p>
+                <div class="price lang-ko">협의</div>
+                <div class="price lang-zh">協商</div>
+                <div class="price lang-en">Quote</div>
+                <div class="price-unit lang-ko">/ 분량·난이도 기준</div>
+                <div class="price-unit lang-zh">/ 字數·難度</div>
+                <div class="price-unit lang-en">/ Volume·complexity</div>
+                <ul>
+                    <li class="lang-ko">계약서·제안서·법률 문서</li>
+                    <li class="lang-zh">合約·提案·法律文件</li>
+                    <li class="lang-en">Contracts·Proposals·Legal</li>
+                    <li class="lang-ko">마케팅·이커머스 페이지</li>
+                    <li class="lang-zh">行銷·電商頁面</li>
+                    <li class="lang-en">Marketing·E-commerce</li>
+                    <li class="lang-ko">영상 자막 (한→중 간체·번체)</li>
+                    <li class="lang-zh">影片字幕 (韓→簡·繁)</li>
+                    <li class="lang-en">Video subtitles (KO→CN Simp·Trad)</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:0.9rem;line-height:1.8;">
+            <span class="lang-ko">💡 하루 6시간 풀 시 ₩900,000~ · 패키지·반복 고객 별도 상의 가능<br>📅 <strong>사전 예약 3주 전 풀 필수</strong> · 주말·평일 저녁 우선 (한양 MBA·스터디 일정 풀 양립)</span>
+            <span class="lang-zh">💡 一天6小時 ₩900,000~ · 套餐·回頭客可協商<br>📅 <strong>須提前3週預約</strong> · 週末·平日晚間優先 (與漢陽MBA·讀書會時間兼顧)</span>
+            <span class="lang-en">💡 6 hours/day from ₩900,000 · Package & repeat negotiable<br>📅 <strong>3-week advance booking required</strong> · Weekends & evenings priority (Hanyang MBA·study group compatible)</span>
+        </p>
+    </section>
+
+    <!-- Strengths -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-tag">STRENGTHS</div>
+            <h2 class="section-title lang-ko">왜 KNDLI 통번역인가</h2>
+            <h2 class="section-title lang-zh">為何選擇 KNDLI</h2>
+            <h2 class="section-title lang-en">Why KNDLI</h2>
+        </div>
+
+        <div class="strengths-grid">
+            <div class="strength">
+                <div class="icon">🌏</div>
+                <h4 class="lang-ko">11년 한국 거주 (대만 출신)</h4>
+                <h4 class="lang-zh">11年韓國居住 (台灣出身)</h4>
+                <h4 class="lang-en">11 Years in Korea (from Taiwan)</h4>
+                <p class="lang-ko">한국·대만 문화 풀 이해 + 비즈니스 매너 풀 체화</p>
+                <p class="lang-zh">深度理解韓國·台灣文化 + 商務禮儀</p>
+                <p class="lang-en">Deep KR·TW culture + business etiquette</p>
+            </div>
+            <div class="strength">
+                <div class="icon">🗣️</div>
+                <h4 class="lang-ko">3개 언어 (한국어·중국어 간체·번체)</h4>
+                <h4 class="lang-zh">3種語言 (韓·簡中·繁中)</h4>
+                <h4 class="lang-en">3 Languages</h4>
+                <p class="lang-ko">대만 출신 = 번체 모국어 + 간체 풀 능통 + 한국어 11년 풀<br><em style="color:var(--text-muted);font-size:0.8rem;">💡 영어 서면 번역은 Dream Team AI 봇 풀 보조 가능</em></p>
+                <p class="lang-zh">台灣出身 = 繁體母語 + 簡體流利 + 韓語11年<br><em style="color:var(--text-muted);font-size:0.8rem;">💡 英文書面翻譯由Dream Team AI機器人協助</em></p>
+                <p class="lang-en">Native Traditional + Fluent Simplified + 11Y Korean<br><em style="color:var(--text-muted);font-size:0.8rem;">💡 English written translation: Dream Team AI support</em></p>
+            </div>
+            <div class="strength">
+                <div class="icon">💼</div>
+                <h4 class="lang-ko">Global B2B 7년+ 실무</h4>
+                <h4 class="lang-zh">全球B2B 7年+實務</h4>
+                <h4 class="lang-en">7+ Years Global B2B</h4>
+                <p class="lang-ko">한국·대만·중국 크로스보더 비즈니스 풀 경험</p>
+                <p class="lang-zh">韓·台·中跨境商務全面經驗</p>
+                <p class="lang-en">KR·TW·CN cross-border business expertise</p>
+            </div>
+            <div class="strength">
+                <div class="icon">🎓</div>
+                <h4 class="lang-ko">한양대 MBA 91기 + 한양 홍보대사</h4>
+                <h4 class="lang-zh">漢陽MBA 91期 + 漢陽宣傳大使</h4>
+                <h4 class="lang-en">Hanyang MBA 91st + Brand Ambassador</h4>
+                <p class="lang-ko">경영전략 & 벤처 트랙 · 한양 홍보대사 활동 · 학과 최초 외국인 운영진</p>
+                <p class="lang-zh">經營策略&創投 · 漢陽宣傳大使 · 學科首位外籍運營</p>
+                <p class="lang-en">Strategy & Venture · Brand Ambassador · 1st int'l leadership</p>
+            </div>
+            <div class="strength">
+                <div class="icon">🏛️</div>
+                <h4 class="lang-ko">한중경영연구원 (KCBRI) 이사</h4>
+                <h4 class="lang-zh">韓中經營研究院 (KCBRI) 理事</h4>
+                <h4 class="lang-en">KCBRI Board Director</h4>
+                <p class="lang-ko">한중 경영 학·산 풀 네트워크 (원장: 최성진 한양대 교수)</p>
+                <p class="lang-zh">韓中經營學界·業界網絡 (院長: 崔成鎮 漢陽大教授)</p>
+                <p class="lang-en">KR-CN Academic·Industry Network (Director: Prof. Choi)</p>
+            </div>
+            <div class="strength">
+                <div class="icon">🏆</div>
+                <h4 class="lang-ko">FastCampus AX 1위 (대상)</h4>
+                <h4 class="lang-zh">FastCampus AX 大獎</h4>
+                <h4 class="lang-en">FastCampus AX Grand Prize</h4>
+                <p class="lang-ko">AX 워크숍 1기 종합 1위 · 2026.05 · AI 자동화 풀</p>
+                <p class="lang-zh">AX工作坊1期綜合冠軍 · 2026.05 · AI自動化</p>
+                <p class="lang-en">AX Workshop 1st Cohort · May 2026 · AI Automation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews-section">
+        <div class="section-header">
+            <div class="section-tag">REVIEWS</div>
+            <h2 class="section-title lang-ko">고객 후기</h2>
+            <h2 class="section-title lang-zh">客戶評價</h2>
+            <h2 class="section-title lang-en">Client Reviews</h2>
+            <p class="section-desc lang-ko">최근 통역 진행 후 받은 풀 양호한 리뷰</p>
+            <p class="section-desc lang-zh">近期口譯後收到的優質評價</p>
+            <p class="section-desc lang-en">Recent positive reviews from interpretation projects</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote lang-ko">"매우 전문적이고, 클라이언트에게 특별히 물어봐서 명확히 해주셨어요. 그리고 무척 친절합니다. 앞으로 친구가 통역 필요하면 꼭 추천할게요!"</p>
+                <p class="quote lang-zh">"我覺得他很專業，而且他會特別幫我特別問清楚，而且很親切。未來有朋友有翻譯需求 會推薦你 😍"</p>
+                <p class="quote lang-en">"Very professional — even goes the extra mile to clarify details for the client. Also very kind. I'll definitely recommend you when friends need translation!"</p>
+                <div class="reviewer">
+                    <span class="lang-ko">★ <span class="role">2026.05 비즈니스 통역</span> · 대만 클라이언트 (친구 추천 LIVE)</span>
+                    <span class="lang-zh">★ <span class="role">2026.05 商務口譯</span> · 台灣客戶 (朋友推薦中)</span>
+                    <span class="lang-en">★ <span class="role">May 2026 Business</span> · Taiwan client (referring friends)</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote lang-ko">"미용 교육 통역 풀 매끄러웠어요. K-Beauty 전문 용어까지 풀 정확하게 전달해주셔서 교육생 만족도 풀 높았습니다."</p>
+                <p class="quote lang-zh">"美容教育口譯非常流暢。連K-Beauty專業術語都精準傳達，學員滿意度極高。"</p>
+                <p class="quote lang-en">"Smooth beauty education interpretation. Accurate K-Beauty terminology — trainees were very satisfied."</p>
+                <div class="reviewer">
+                    <span class="lang-ko">★ <span class="role">미용 교육 통역</span> · K-Beauty 브랜드</span>
+                    <span class="lang-zh">★ <span class="role">美容教育口譯</span> · K-Beauty品牌</span>
+                    <span class="lang-en">★ <span class="role">Beauty Education</span> · K-Beauty brand</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote lang-ko">"계약서 번역 풀 꼼꼼하고 법률 용어까지 풀 정확. 대만 파트너 측에서도 풀 만족했고 거래 풀 성공적으로 마무리됐어요."</p>
+                <p class="quote lang-zh">"合約翻譯細緻入微，法律用語也很精確。台灣合作方也非常滿意，交易圓滿達成。"</p>
+                <p class="quote lang-en">"Meticulous contract translation with accurate legal terminology. Taiwan partners satisfied — deal closed successfully."</p>
+                <div class="reviewer">
+                    <span class="lang-ko">★ <span class="role">계약서 번역</span> · 한국 기업</span>
+                    <span class="lang-zh">★ <span class="role">合約翻譯</span> · 韓國企業</span>
+                    <span class="lang-en">★ <span class="role">Contract Translation</span> · Korean Co.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2 class="lang-ko">📧 이메일로 문의 부탁드려요</h2>
+        <h2 class="lang-zh">📧 請來信諮詢</h2>
+        <h2 class="lang-en">📧 Email Inquiries Welcome</h2>
+        <p class="lang-ko"><strong>📅 사전 예약 3주 전 풀 필수</strong> · 일정·견적·세부 사항 풀 협의 가능 · 주말·평일 저녁 우선 풀 가동 · 평일 빠른 답변 약속</p>
+        <p class="lang-zh"><strong>📅 須提前3週預約</strong> · 日程·報價·細節皆可協商 · 週末·平日晚間優先 · 平日快速回覆</p>
+        <p class="lang-en"><strong>📅 3-week advance booking required</strong> · Schedule, quote, details negotiable · Weekends & evenings priority · Quick weekday email response</p>
+        <div class="cta-buttons">
+            <a href="mailto:kndli.210@gmail.com?subject=통번역 서비스 문의" class="btn-white">
+                <span class="lang-ko">이메일 문의</span>
+                <span class="lang-zh">電子郵件諮詢</span>
+                <span class="lang-en">Email Inquiry</span>
+                &nbsp;&#10132;
+            </a>
+            <a href="contact.html" class="btn-outline-white">
+                <span class="lang-ko">문의 페이지</span>
+                <span class="lang-zh">聯繫頁面</span>
+                <span class="lang-en">Contact Page</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 KNDLI Co., Ltd. | 한니드레이</p>
+        <p><a href="mailto:kndli.210@gmail.com">kndli.210@gmail.com</a></p>
+        <p style="margin-top:1rem;font-size:0.8rem;opacity:0.6;">
+            <span class="lang-ko">통번역 서비스 페이지 · D+28 LIVE</span>
+            <span class="lang-zh">翻譯口譯服務頁面 · D+28 LIVE</span>
+            <span class="lang-en">Translation Service Page · D+28 LIVE</span>
+        </p>
+    </footer>
+
+    <script>
+        // Language toggle
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                document.body.className = lang === 'ko' ? '' : lang;
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                localStorage.setItem('kndli-lang', lang);
+            });
+        });
+
+        // Restore saved language
+        const savedLang = localStorage.getItem('kndli-lang');
+        if (savedLang && savedLang !== 'ko') {
+            document.body.className = savedLang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.lang-btn[data-lang="${savedLang}"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

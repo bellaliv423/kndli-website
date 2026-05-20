@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNDLI | 맞춤화 AI 교육 — Connect to What's Possible with Claude AI</title>
+    <meta name="description" content="비개발자도 4주 후 본인 업무 1건 End-to-End 자동화. 1:1·소그룹·기업 과외. 한국어·중국어 양 언어.">
+    <meta name="keywords" content="맞춤화 AI 교육, Claude Code 과외, 기업 AI 교육, 1:1 AI 교육, KNDLI">
+    <meta property="og:title" content="KNDLI | Connect to What's Possible with Claude AI">
+    <meta property="og:image" content="images/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+    <style>
+        :root {
+            --bg-primary: #FBF8F3;
+            --bg-secondary: #F5F1EB;
+            --accent: #C45A2C;
+            --accent-deep: #8B4513;
+            --gold: #C9A961;
+            --text-primary: #2C1810;
+            --text-secondary: #5C4737;
+            --text-muted: #8B7765;
+            --font-display: 'Playfair Display', 'Noto Serif KR', serif;
+            --font-ko: 'Pretendard', 'Inter', system-ui, sans-serif;
+            --font-zh: 'Noto Sans TC', system-ui, sans-serif;
+            --shadow-sm: 0 1px 3px rgba(44,24,16,0.06);
+            --shadow-md: 0 2px 8px rgba(44,24,16,0.08);
+            --shadow-lg: 0 8px 24px rgba(44,24,16,0.12);
+            --transition: 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-ko); background: var(--bg-primary); color: var(--text-primary); line-height: 1.75; }
+        body.zh { font-family: var(--font-zh); }
+
+        .lang-ko { display: block; }
+        .lang-zh, .lang-en { display: none !important; }
+        body.zh .lang-ko { display: none !important; }
+        body.en .lang-ko { display: none !important; }
+        body.zh .lang-zh { display: block !important; }
+        body.en .lang-en { display: block !important; }
+        span.lang-ko, a.lang-ko { display: inline; }
+        span.lang-zh, a.lang-zh, span.lang-en, a.lang-en { display: none !important; }
+        body.zh span.lang-ko, body.zh a.lang-ko { display: none !important; }
+        body.en span.lang-ko, body.en a.lang-ko { display: none !important; }
+        body.zh span.lang-zh, body.zh a.lang-zh { display: inline !important; }
+        body.en span.lang-en, body.en a.lang-en { display: inline !important; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(251,248,243,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(44,24,16,0.08); }
+        .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 2rem; }
+        .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; letter-spacing: 2px; }
+        .nav { display: flex; align-items: center; gap: 1.5rem; }
+        .nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: var(--transition); }
+        .nav a:hover { color: var(--accent); }
+        .lang-toggle { display: flex; gap: 0.3rem; margin-left: 0.5rem; }
+        .lang-btn { background: none; border: 1px solid rgba(44,24,16,0.15); color: var(--text-secondary); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; }
+        .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* Hero */
+        .hero { padding: 8rem 2rem 5rem; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .hero .date-tag { font-family: var(--font-display); font-size: 0.85rem; color: var(--text-muted); letter-spacing: 3px; margin-bottom: 1.5rem; }
+        .hero h1 { font-family: var(--font-display); font-size: 3.4rem; font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; }
+        .hero h1 .accent { color: var(--accent); font-style: italic; }
+        .hero .sub { font-size: 1.15rem; color: var(--text-secondary); max-width: 720px; margin: 0 auto 2.5rem; }
+        .hero-badges { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .hero-badge { text-align: center; }
+        .hero-badge .num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; }
+        .hero-badge .lbl { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 1px; margin-top: 0.3rem; }
+
+        /* Section */
+        .section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+        .section-num { font-family: var(--font-display); font-size: 5.5rem; font-weight: 300; color: var(--gold); line-height: 0.9; opacity: 0.6; margin-bottom: 0.5rem; }
+        .section-label { font-family: var(--font-display); font-size: 0.85rem; color: var(--accent); letter-spacing: 3px; margin-bottom: 0.5rem; }
+        .section-title { font-family: var(--font-display); font-size: 2.3rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.25; }
+        .section-desc { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 720px; }
+        .divider { width: 60px; height: 1px; background: var(--text-muted); margin: 0 0 2rem; opacity: 0.3; }
+
+        /* Axes */
+        .axes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .axis { padding: 1.8rem 0; border-top: 1px solid rgba(44,24,16,0.1); }
+        .axis-ic { font-size: 1.8rem; margin-bottom: 0.7rem; }
+        .axis h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .axis p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; }
+
+        /* Mutual Value */
+        .mutual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 1rem; }
+        .mutual-col h4 { font-family: var(--font-display); font-size: 1.4rem; color: var(--accent); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--accent); }
+        .mutual-col ul { list-style: none; padding: 0; }
+        .mutual-col ul li { padding: 0.6rem 0; padding-left: 1.4rem; position: relative; font-size: 0.95rem; color: var(--text-secondary); border-bottom: 1px dashed rgba(44,24,16,0.08); }
+        .mutual-col ul li::before { content: "→"; color: var(--accent); position: absolute; left: 0; font-weight: 600; }
+        .mutual-col ul li:last-child { border-bottom: none; }
+
+        /* Instructor */
+        .instructor-card { background: #fff; padding: 3rem 2.5rem; border-radius: 4px; box-shadow: var(--shadow-md); border-left: 4px solid var(--accent); }
+        .instructor-card .name { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .instructor-card .subname { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .credentials { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .cred { padding: 0.8rem 0; border-top: 1px solid rgba(44,24,16,0.08); }
+        .cred .lbl { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 1.5px; margin-bottom: 0.3rem; }
+        .cred .val { font-size: 0.92rem; font-weight: 500; }
+
+        /* Curriculum */
+        .week-grid { display: grid; gap: 1.2rem; margin-top: 2rem; }
+        .week { background: #fff; padding: 1.8rem 2rem; border-radius: 4px; border-left: 3px solid var(--gold); box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 100px 1fr; gap: 1.5rem; align-items: start; }
+        .week .wk-num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .week h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .week p { font-size: 0.92rem; color: var(--text-secondary); }
+
+        /* Outcome */
+        .outcome-box { background: var(--bg-secondary); padding: 3rem 2.5rem; border-radius: 4px; text-align: center; margin-top: 2rem; }
+        .outcome-box .quote { font-family: var(--font-display); font-size: 1.5rem; font-style: italic; color: var(--accent); margin-bottom: 1rem; }
+        .outcome-box p { font-size: 1rem; color: var(--text-secondary); }
+
+        /* CTA */
+        .cta-section { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center; border-top: 1px solid rgba(44,24,16,0.1); }
+        .cta-section .step-label { font-family: var(--font-display); font-size: 0.85rem; color: var(--accent); letter-spacing: 3px; margin-bottom: 0.8rem; }
+        .cta-section h2 { font-family: var(--font-display); font-size: 2.6rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; }
+        .cta-section .cta-sub { font-size: 1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem; }
+        .cta-channels { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-btn { display: inline-block; padding: 1rem 2.2rem; background: var(--text-primary); color: #fff; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: var(--transition); border-radius: 4px; }
+        .cta-btn:hover { background: var(--accent); }
+        .cta-btn.outline { background: transparent; color: var(--text-primary); border: 1px solid var(--text-primary); }
+        .cta-btn.outline:hover { background: var(--text-primary); color: #fff; }
+
+        .nda-note { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px dashed rgba(44,24,16,0.15); }
+
+        .footer { background: var(--text-primary); color: rgba(255,255,255,0.7); padding: 3rem 2rem 2rem; text-align: center; }
+        .footer p { font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .section-num { font-size: 4rem; }
+            .nav { display: none; }
+            .mutual-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .week { grid-template-columns: 1fr; gap: 0.5rem; }
+            .cta-section h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">KNDLI</a>
+            <nav class="nav">
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span><span class="lang-en">Home</span></a>
+                <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span><span class="lang-en">Profile</span></a>
+                <a href="translation.html"><span class="lang-ko">통번역</span><span class="lang-zh">翻譯</span><span class="lang-en">Translation</span></a>
+                <a href="https://bellaliv423.github.io/bella-ai/?lang=ko#services" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span><span class="lang-en">AI Automation</span></a>
+                <a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">Dream Team</span><span class="lang-zh">Dream Team</span><span class="lang-en">Dream Team</span></a>
+                <a href="https://bella-codex-nest.vercel.app" target="_blank"><span class="lang-ko">Co-Nest</span><span class="lang-zh">Co-Nest</span><span class="lang-en">Co-Nest</span></a>
+                <a href="ai-training.html" class="active"><span class="lang-ko">맞춤화 AI 교육</span><span class="lang-zh">客製化AI教育</span><span class="lang-en">Custom AI Training</span></a>
+                <a href="seminar.html"><span class="lang-ko">세미나</span><span class="lang-zh">講座</span><span class="lang-en">Seminar</span></a>
+                <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span><span class="lang-en">Contact</span></a>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="date-tag">CUSTOM AI TRAINING · 2026</div>
+        <h1 class="lang-ko">Claude AI와 함께,<br><span class="accent">가능성을 연결하다</span></h1>
+        <h1 class="lang-zh">用 <span class="accent">Claude AI</span><br>連結無限可能</h1>
+        <h1 class="lang-en">Connect to What's Possible<br>with <span class="accent">Claude AI</span></h1>
+        <p class="sub lang-ko">4주 후, 비개발자도 본인 업무 1건을 End-to-End 자동화로 졸업합니다. 평생 자산이 되는 시간 투자.</p>
+        <p class="sub lang-zh">4週後，非開發者也能完成自己業務一件的End-to-End自動化畢業作品。成為終身資產的時間投資。</p>
+        <p class="sub lang-en">In 4 weeks, even non-developers graduate with one End-to-End workflow automated. A lifetime asset.</p>
+
+        <div class="hero-badges">
+            <div class="hero-badge">
+                <div class="num">50+</div>
+                <div class="lbl lang-ko">AUTOMATION CASES</div>
+                <div class="lbl lang-zh">自動化案例</div>
+                <div class="lbl lang-en">AUTOMATION CASES</div>
+            </div>
+            <div class="hero-badge">
+                <div class="num">3yr</div>
+                <div class="lbl lang-ko">GPTERS PROGRAM</div>
+                <div class="lbl lang-zh">GPTERS 3年</div>
+                <div class="lbl lang-en">GPTERS PROGRAM</div>
+            </div>
+            <div class="hero-badge">
+                <div class="num">2</div>
+                <div class="lbl lang-ko">LECTURE LANGUAGES</div>
+                <div class="lbl lang-zh">講課語言</div>
+                <div class="lbl lang-en">LECTURE LANGUAGES</div>
+            </div>
+            <div class="hero-badge">
+                <div class="num">🏆</div>
+                <div class="lbl lang-ko">AX 1위 (대상)</div>
+                <div class="lbl lang-zh">AX 大獎</div>
+                <div class="lbl lang-en">AX GRAND PRIZE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01 Four Axes -->
+    <section class="section">
+        <div class="section-num">01</div>
+        <div class="section-label">FOUR AXES</div>
+        <h2 class="section-title lang-ko">4가지 임직원 니즈에<br>딱 맞는 설계</h2>
+        <h2 class="section-title lang-zh">針對4種員工需求<br>量身設計</h2>
+        <h2 class="section-title lang-en">Designed Around<br>4 Employee Needs</h2>
+        <div class="divider"></div>
+        <p class="section-desc lang-ko">기업·1:1·소그룹 어떤 형태든, 학습자의 실제 업무에서 시작합니다.</p>
+        <p class="section-desc lang-zh">企業·1對1·小組 — 從學員實際業務出發。</p>
+        <p class="section-desc lang-en">Enterprise · 1:1 · Small group — start from real work.</p>
+
+        <div class="axes-grid">
+            <div class="axis">
+                <div class="axis-ic">📊</div>
+                <h4 class="lang-ko">반복 업무 절감</h4>
+                <h4 class="lang-zh">減少重複工作</h4>
+                <h4 class="lang-en">Cut Repetitive Work</h4>
+                <p class="lang-ko">데이터 수집·정리·보고를 AI에 위임. 매일 2시간+ 절감 가능.</p>
+                <p class="lang-zh">資料收集·整理·回報交給AI。每日節省2小時+。</p>
+                <p class="lang-en">Delegate data, sorting, reporting to AI. Save 2+ hours daily.</p>
+            </div>
+            <div class="axis">
+                <div class="axis-ic">🤖</div>
+                <h4 class="lang-ko">에이전트 협업</h4>
+                <h4 class="lang-zh">智慧代理協作</h4>
+                <h4 class="lang-en">Agent Collaboration</h4>
+                <p class="lang-ko">여러 AI가 팀처럼 일하는 구조. 혼자서도 팀 효율.</p>
+                <p class="lang-zh">多AI如團隊般協作。一人也能團隊效率。</p>
+                <p class="lang-en">Multiple AI working as a team. Solo team productivity.</p>
+            </div>
+            <div class="axis">
+                <div class="axis-ic">📚</div>
+                <h4 class="lang-ko">지식관리</h4>
+                <h4 class="lang-zh">知識管理</h4>
+                <h4 class="lang-en">Knowledge Management</h4>
+                <p class="lang-ko">문서·노트·메모를 AI가 자동 분류·검색·요약.</p>
+                <p class="lang-zh">文件·筆記·備忘錄AI自動分類·搜尋·摘要。</p>
+                <p class="lang-en">AI auto-classifies, searches, summarizes docs.</p>
+            </div>
+            <div class="axis">
+                <div class="axis-ic">🌐</div>
+                <h4 class="lang-ko">크로스보더 커뮤니케이션</h4>
+                <h4 class="lang-zh">跨境溝通</h4>
+                <h4 class="lang-en">Cross-border Communication</h4>
+                <p class="lang-ko">한·중 비즈니스 자료·이메일·미팅을 AI가 보조.</p>
+                <p class="lang-zh">韓中商務資料·郵件·會議由AI輔助。</p>
+                <p class="lang-en">AI assists KO·CN business materials, emails, meetings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 Mutual Value -->
+    <section class="section">
+        <div class="section-num">02</div>
+        <div class="section-label">MUTUAL VALUE</div>
+        <h2 class="section-title lang-ko">우리가 함께 약속하는 것</h2>
+        <h2 class="section-title lang-zh">我們共同的承諾</h2>
+        <h2 class="section-title lang-en">Our Mutual Commitment</h2>
+        <div class="divider"></div>
+
+        <div class="mutual-grid">
+            <div class="mutual-col">
+                <h4 class="lang-ko">학습자 측 약속</h4>
+                <h4 class="lang-zh">學員的承諾</h4>
+                <h4 class="lang-en">Learner Commits</h4>
+                <ul>
+                    <li><span class="lang-ko">실제 업무 1건을 가져오기</span><span class="lang-zh">帶來實際業務1件</span><span class="lang-en">Bring 1 real workflow</span></li>
+                    <li><span class="lang-ko">주 1회 90분 + 자가 실습 시간</span><span class="lang-zh">每週1次90分 + 自學時間</span><span class="lang-en">90min/week + self-practice</span></li>
+                    <li><span class="lang-ko">사고 방식의 전환을 환영</span><span class="lang-zh">歡迎思維方式的轉變</span><span class="lang-en">Welcome mindset shift</span></li>
+                </ul>
+            </div>
+            <div class="mutual-col">
+                <h4 class="lang-ko">강사 측 약속</h4>
+                <h4 class="lang-zh">講師的承諾</h4>
+                <h4 class="lang-en">Instructor Commits</h4>
+                <ul>
+                    <li><span class="lang-ko">본인 업무 1건 End-to-End 자동화 졸업</span><span class="lang-zh">畢業成果：1件End-to-End自動化</span><span class="lang-en">Graduation: 1 End-to-End automation</span></li>
+                    <li><span class="lang-ko">평생 Q&A 채널 (분기 업데이트)</span><span class="lang-zh">終身Q&A頻道 (季度更新)</span><span class="lang-en">Lifelong Q&A (quarterly updates)</span></li>
+                    <li><span class="lang-ko">실습 자료·코드 풀 제공</span><span class="lang-zh">實作資料·代碼完整提供</span><span class="lang-en">All materials & code provided</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 Instructor -->
+    <section class="section">
+        <div class="section-num">03</div>
+        <div class="section-label">INSTRUCTOR</div>
+        <h2 class="section-title lang-ko">강사 신뢰도</h2>
+        <h2 class="section-title lang-zh">講師可信度</h2>
+        <h2 class="section-title lang-en">Instructor Credibility</h2>
+        <div class="divider"></div>
+
+        <div class="instructor-card">
+            <div class="name lang-ko">황영아 (Bella)</div>
+            <div class="name lang-zh">黃鈴雅 (Bella)</div>
+            <div class="name lang-en">HUANG LING YA (Bella)</div>
+            <div class="subname">KNDLI Co., Ltd.</div>
+            <p class="lang-ko">대만 출신, 한국 11년 거주. 비개발자 출신으로 Claude Code를 활용해 50+ 자동화 사례를 실제 운영 중. 지피터스 3년 · 다수 우수 사례 선정.</p>
+            <p class="lang-zh">台灣出身，韓國11年居住。非開發者出身運用Claude Code實際運營50+自動化案例。GPTers 3年·多次優秀案例。</p>
+            <p class="lang-en">From Taiwan, 11 years in Korea. Non-developer running 50+ automation cases with Claude Code. GPTers 3 years · multiple top cases.</p>
+
+            <div class="credentials">
+                <div class="cred">
+                    <div class="lbl">AWARD</div>
+                    <div class="val lang-ko">🏆 FastCampus AX 1위 (대상)</div>
+                    <div class="val lang-zh">🏆 FastCampus AX 大獎</div>
+                    <div class="val lang-en">🏆 FastCampus AX Grand Prize</div>
+                </div>
+                <div class="cred">
+                    <div class="lbl">MBA</div>
+                    <div class="val lang-ko">한양대 MBA 91기 + 홍보대사 1·2기</div>
+                    <div class="val lang-zh">漢陽MBA 91期 + 宣傳大使1·2屆</div>
+                    <div class="val lang-en">Hanyang MBA 91st + Ambassador 1·2</div>
+                </div>
+                <div class="cred">
+                    <div class="lbl">DIRECTOR</div>
+                    <div class="val lang-ko">한중경영연구원 (KCBRI) 이사</div>
+                    <div class="val lang-zh">韓中經營研究院 (KCBRI) 理事</div>
+                    <div class="val lang-en">KCBRI Board Director</div>
+                </div>
+                <div class="cred">
+                    <div class="lbl">LANGUAGES</div>
+                    <div class="val lang-ko">한국어 · 중국어 (간체·번체)</div>
+                    <div class="val lang-zh">韓語 · 中文 (簡·繁)</div>
+                    <div class="val lang-en">Korean · Chinese (Simp·Trad)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 Curriculum -->
+    <section class="section">
+        <div class="section-num">04</div>
+        <div class="section-label">CURRICULUM</div>
+        <h2 class="section-title lang-ko">4주 커리큘럼</h2>
+        <h2 class="section-title lang-zh">4週課程</h2>
+        <h2 class="section-title lang-en">4-Week Curriculum</h2>
+        <div class="divider"></div>
+        <p class="section-desc lang-ko">초·중·고급 학습자의 레벨에 따라 맞춤 설계. 한국어 또는 중국어로 진행.</p>
+        <p class="section-desc lang-zh">依初·中·高級學員量身設計。可選韓語或中文進行。</p>
+        <p class="section-desc lang-en">Customized to Beginner/Intermediate/Advanced. In Korean or Chinese.</p>
+
+        <div class="week-grid">
+            <div class="week">
+                <div class="wk-num">WK 01</div>
+                <div>
+                    <h4 class="lang-ko">사고 방식 전환 · Claude 기본 다루기</h4>
+                    <h4 class="lang-zh">思維轉換 · Claude基礎操作</h4>
+                    <h4 class="lang-en">Mindset Shift · Claude Basics</h4>
+                    <p class="lang-ko">무료 시연 + 본인 업무 1건 진단 + Claude 첫 프롬프트 설계.</p>
+                    <p class="lang-zh">免費演示 + 自己業務1件診斷 + Claude首個提示詞設計。</p>
+                    <p class="lang-en">Free demo + diagnose 1 real workflow + first Claude prompt.</p>
+                </div>
+            </div>
+            <div class="week">
+                <div class="wk-num">WK 02</div>
+                <div>
+                    <h4 class="lang-ko">에이전트 설계 · 도구 연결</h4>
+                    <h4 class="lang-zh">代理設計 · 工具連結</h4>
+                    <h4 class="lang-en">Agent Design · Tool Connection</h4>
+                    <p class="lang-ko">멀티 에이전트 구조 + MCP 도구 (Notion·Gmail·Slack 등) 연결.</p>
+                    <p class="lang-zh">多代理結構 + MCP工具 (Notion·Gmail·Slack等) 連結。</p>
+                    <p class="lang-en">Multi-agent + MCP tools (Notion·Gmail·Slack) connected.</p>
+                </div>
+            </div>
+            <div class="week">
+                <div class="wk-num">WK 03</div>
+                <div>
+                    <h4 class="lang-ko">자동화 구축 · 디버깅</h4>
+                    <h4 class="lang-zh">自動化建構 · 除錯</h4>
+                    <h4 class="lang-en">Build & Debug</h4>
+                    <p class="lang-ko">본인 워크플로우 End-to-End 자동화 1차 구축 + 라이브 디버깅.</p>
+                    <p class="lang-zh">個人工作流程End-to-End自動化第一版+即時除錯。</p>
+                    <p class="lang-en">First End-to-End build + live debugging.</p>
+                </div>
+            </div>
+            <div class="week">
+                <div class="wk-num">WK 04</div>
+                <div>
+                    <h4 class="lang-ko">졸업 작품 · 사내 확장</h4>
+                    <h4 class="lang-zh">畢業作品 · 公司內推廣</h4>
+                    <h4 class="lang-en">Graduation · Team Rollout</h4>
+                    <p class="lang-ko">졸업 결과물 시연 + 사내 AI 챔피언으로 확장하는 전략.</p>
+                    <p class="lang-zh">畢業成果展示 + 公司內AI Champion擴展策略。</p>
+                    <p class="lang-en">Showcase + rolling out as in-house AI champion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 Outcome -->
+    <section class="section">
+        <div class="section-num">05</div>
+        <div class="section-label">OUTCOME</div>
+        <h2 class="section-title lang-ko">와, 정말 배울 수 있다</h2>
+        <h2 class="section-title lang-zh">哇，真的能學會</h2>
+        <h2 class="section-title lang-en">Wow — You Really Can Learn</h2>
+        <div class="divider"></div>
+
+        <div class="outcome-box">
+            <div class="quote lang-ko">"본인 업무 1건이 End-to-End로 돌아갑니다."</div>
+            <div class="quote lang-zh">「自己的1件業務開始End-to-End運作。」</div>
+            <div class="quote lang-en">"One workflow now runs End-to-End."</div>
+            <p class="lang-ko">사고 방식의 전환 · 사내 AI 챔피언 양성 · 평생 자산이 되는 시간 투자.<br>케이스 사례: <strong>Be***회사</strong> 5명 맞춤 AI 과외 (NDA 보호 · 회사명·내부 자료 비공개).</p>
+            <p class="lang-zh">思維方式轉變 · 培養公司內AI Champion · 成為終身資產的時間投資。<br>案例：<strong>Be***公司</strong> 5人客製AI培訓 (NDA保護 · 公司名·內部資料保密)。</p>
+            <p class="lang-en">Mindset shift · In-house AI champion · Lifelong asset investment.<br>Case: <strong>Be***Co.</strong> 5-person custom training (NDA-protected · company name & internals confidential).</p>
+        </div>
+    </section>
+
+    <!-- Next Step -->
+    <section class="cta-section">
+        <div class="step-label">NEXT STEP</div>
+        <h2 class="lang-ko">맞춤 견적·커리큘럼<br>이메일로 회신</h2>
+        <h2 class="lang-zh">客製報價·課程<br>來信回覆</h2>
+        <h2 class="lang-en">Custom Quote & Curriculum<br>Email Us</h2>
+        <p class="cta-sub lang-ko">레벨·인원·기간·언어에 맞춰 설계합니다. 24시간 내 확정 회신.</p>
+        <p class="cta-sub lang-zh">依級別·人數·期間·語言客製設計。24小時內確定回覆。</p>
+        <p class="cta-sub lang-en">Custom-designed by level, size, duration, language. Reply within 24h.</p>
+
+        <div class="cta-channels">
+            <a href="mailto:kndli.210@gmail.com?subject=맞춤화 AI 교육 문의" class="cta-btn">
+                <span class="lang-ko">📧 이메일 회신</span>
+                <span class="lang-zh">📧 來信</span>
+                <span class="lang-en">📧 Email Us</span>
+            </a>
+            <a href="contact.html" class="cta-btn outline">
+                <span class="lang-ko">전체 연락 채널</span>
+                <span class="lang-zh">所有聯繫方式</span>
+                <span class="lang-en">All Channels</span>
+            </a>
+        </div>
+
+        <p class="nda-note lang-ko">※ NDA 보호 — 학습자 케이스·자료는 강의 후 즉시 폐기. 회사명·내부 자료는 공개 영역에서 마스킹.</p>
+        <p class="nda-note lang-zh">※ NDA保護 — 學員案例·資料於課後即時銷毀。公司名·內部資料於公開區域遮罩。</p>
+        <p class="nda-note lang-en">※ NDA Protected — Learner cases & materials destroyed after training. Company names masked in public.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 KNDLI Co., Ltd. | 한니드레이</p>
+        <p><a href="mailto:kndli.210@gmail.com">kndli.210@gmail.com</a></p>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            document.body.classList.remove('zh', 'en');
+            if (lang !== 'ko') document.body.classList.add(lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            const t = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+            if (t) t.classList.add('active');
+            localStorage.setItem('kndli-lang', lang);
+        }
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+        setLang(localStorage.getItem('kndli-lang') || 'ko');
+    </script>
+</body>
+</html>

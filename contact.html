@@ -64,13 +64,18 @@
         body.zh { font-family: var(--font-zh); }
 
         .lang-ko { display: block; }
-        .lang-zh { display: none; }
-        body.zh .lang-ko { display: none; }
-        body.zh .lang-zh { display: block; }
+        .lang-zh { display: none !important; }
+        .lang-en { display: none !important; }
+        body.zh .lang-ko { display: none !important; }
+        body.en .lang-ko { display: none !important; }
+        body.zh .lang-zh { display: block !important; }
+        body.en .lang-en { display: block !important; }
         span.lang-ko, a.lang-ko { display: inline; }
-        span.lang-zh, a.lang-zh { display: none; }
-        body.zh span.lang-ko, body.zh a.lang-ko { display: none; }
-        body.zh span.lang-zh, body.zh a.lang-zh { display: inline; }
+        span.lang-zh, a.lang-zh, span.lang-en, a.lang-en { display: none !important; }
+        body.zh span.lang-ko, body.zh a.lang-ko { display: none !important; }
+        body.en span.lang-ko, body.en a.lang-ko { display: none !important; }
+        body.zh span.lang-zh, body.zh a.lang-zh { display: inline !important; }
+        body.en span.lang-en, body.en a.lang-en { display: inline !important; }
 
         /* Header */
         .header {
@@ -248,13 +253,19 @@
         <div class="header-inner">
             <a href="index.html" class="logo">KNDLI</a>
             <nav class="nav" id="nav">
-                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span></a>
-                <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span></a>
-                <a href="https://bellaliv423.github.io/bella-ai/" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span></a>
-                <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span></a>
+                <a href="index.html"><span class="lang-ko">홈</span><span class="lang-zh">首頁</span><span class="lang-en">Home</span></a>
+                <a href="profile.html"><span class="lang-ko">프로필</span><span class="lang-zh">個人檔案</span><span class="lang-en">Profile</span></a>
+                <a href="translation.html"><span class="lang-ko">통번역</span><span class="lang-zh">翻譯</span><span class="lang-en">Translation</span></a>
+                <a href="https://bellaliv423.github.io/bella-ai/?lang=ko#services" target="_blank"><span class="lang-ko">AI 자동화</span><span class="lang-zh">AI 自動化</span><span class="lang-en">AI Automation</span></a>
+                <a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">Dream Team</span><span class="lang-zh">Dream Team</span><span class="lang-en">Dream Team</span></a>
+                <a href="https://bella-codex-nest.vercel.app" target="_blank"><span class="lang-ko">Co-Nest</span><span class="lang-zh">Co-Nest</span><span class="lang-en">Co-Nest</span></a>
+                <a href="ai-training.html"><span class="lang-ko">맞춤화 AI 교육</span><span class="lang-zh">客製化AI教育</span><span class="lang-en">Custom AI Training</span></a>
+                <a href="seminar.html"><span class="lang-ko">세미나</span><span class="lang-zh">講座</span><span class="lang-en">Seminar</span></a>
+                <a href="contact.html" class="active"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span><span class="lang-en">Contact</span></a>
                 <div class="lang-toggle">
                     <button class="lang-btn active" data-lang="ko">KO</button>
                     <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
                 </div>
             </nav>
             <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴">
@@ -279,13 +290,31 @@
             </div>
             <div class="contact-card">
                 <div class="icon">&#128172;</div>
-                <h3>KakaoTalk / LINE</h3>
+                <h3>KakaoTalk</h3>
                 <p>bellaliv423</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">&#128241;</div>
+                <h3>LINE</h3>
+                <div style="margin-top:0.5rem;">
+                    <img src="images/line_qr.jpg" alt="LINE QR Code — Bella" style="width:140px;height:auto;border-radius:8px;display:block;margin:0 auto;border:1px solid rgba(44,24,16,0.1);">
+                </div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.6rem;">
+                    <span class="lang-ko">QR 코드 스캔 → 친구 추가</span>
+                    <span class="lang-zh">掃描QR → 加好友</span>
+                </p>
             </div>
             <div class="contact-card">
                 <div class="icon">&#128247;</div>
                 <h3>Instagram</h3>
-                <p><a href="https://instagram.com/bellaliv423" target="_blank">@bellaliv423</a></p>
+                <p style="line-height:1.8;">
+                    <a href="https://instagram.com/bellaliv423" target="_blank">@bellaliv423</a><br>
+                    <a href="https://instagram.com/bella_ai_auto" target="_blank">@bella_ai_auto</a>
+                    <span style="display:block;font-size:0.8rem;color:var(--text-muted);margin-top:0.3rem;">
+                        <span class="lang-ko">DM 부탁드려요</span>
+                        <span class="lang-zh">歡迎私訊</span>
+                    </span>
+                </p>
             </div>
             <div class="contact-card">
                 <div class="icon">&#128241;</div>
@@ -337,7 +366,7 @@
             <h3 class="lang-zh">✨ 每天30分鐘的重複工作，交給AI處理</h3>
             <p class="lang-ko">16마리 AI 드림팀이 재고 관리, 바이어 발굴, 이메일 발송까지 자동화합니다.<br>30분 무료 상담으로 귀사의 자동화 가능성을 확인하세요.</p>
             <p class="lang-zh">16隻AI夢幻團隊自動化處理庫存管理、買家發掘、郵件發送等工作。<br>透過30分鐘免費諮詢確認貴公司的自動化可能性。</p>
-            <a href="https://bellaliv423.github.io/bella-ai/" target="_blank">
+            <a href="https://bellaliv423.github.io/bella-ai/?lang=ko#services" target="_blank">
                 <span class="lang-ko">🤖 무료 상담 신청하기</span>
                 <span class="lang-zh">🤖 申請免費諮詢</span>
                 →
