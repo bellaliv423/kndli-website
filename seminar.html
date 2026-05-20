@@ -1220,6 +1220,27 @@
         btn.disabled = true;
         btn.textContent = '전송 중...';
 
+        // 트랙·참여방식 라벨 매핑 (시트·메일에 한 눈에 보이게 message 앞에 prefix)
+        var trackLabels = {
+            'cn':     '🇨🇳🇹🇼 CN 세미나 (中華圈 AI)',
+            'kr':     '🇰🇷 KO 세미나 (맞춤화 AI)',
+            'both':   '📌 둘 다 관심 (상담 요청)',
+            'future': '📅 향후 회차 알림'
+        };
+        var modeLabels = {
+            'online':  '💻 온라인 (Google Meet)',
+            'offline': '🏢 오프라인 (강남역 4번 출구)',
+            'either':  '🔄 둘 다 OK'
+        };
+        var trackLabel = trackLabels[form.seminar_track.value] || '(미선택)';
+        var modeLabel  = modeLabels[form.attendance_mode.value] || '(미선택)';
+        var userMessage = form.message.value || '';
+        var combinedMessage =
+            '🎯 트랙: ' + trackLabel + '\n' +
+            '📍 참여: ' + modeLabel + '\n' +
+            '─────────────────────\n' +
+            (userMessage || '(원하는 주제·피드백 없음)');
+
         var formData = {
             formType: 'seminar',
             lang: document.body.classList.contains('zh') ? 'zh' : 'ko',
@@ -1229,7 +1250,7 @@
             email: form.email.value,
             affiliation: form.affiliation.value,
             language: form.language.value,
-            message: form.message.value
+            message: combinedMessage
         };
 
         fetch('https://script.google.com/macros/s/AKfycbyJwN9EkKPaGLfvCdNooL8khJtENLM1mkkJYFpA-lME-tn0KlnRxKj_N0zd9DuaOC_IhA/exec', {
