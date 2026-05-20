@@ -1223,6 +1223,8 @@
         var formData = {
             formType: 'seminar',
             lang: document.body.classList.contains('zh') ? 'zh' : 'ko',
+            seminar_track: form.seminar_track.value,
+            attendance_mode: form.attendance_mode.value,
             name: form.name.value,
             email: form.email.value,
             affiliation: form.affiliation.value,
