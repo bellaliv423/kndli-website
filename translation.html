@@ -972,19 +972,5 @@
         }
     </script>
 
-<script>
-(function(){
-  var btn = document.getElementById('mobileToggle');
-  var nav = document.getElementById('nav');
-  if (btn) btn.classList.add('kndli-v1');
-  if (btn && nav) {
-    btn.addEventListener('click', function(){ nav.classList.toggle('open'); });
-    nav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ nav.classList.remove('open'); });
-    });
-  }
-})();
-</script>
-
 </body>
 </html>
