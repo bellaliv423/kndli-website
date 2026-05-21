@@ -391,7 +391,17 @@
             .hero-ctas { flex-direction: column; align-items: center; }
             .btn-primary, .btn-outline { width: 100%; justify-content: center; }
         }
-    </style>
+    
+/* ===== Mobile dropdown 가운데 정렬 정정 v1 (D+29) ===== */
+@media (max-width: 768px) {
+  .nav.open { align-items: center !important; gap: 0.6rem !important; padding: 1.5rem 1rem !important; text-align: center !important; box-shadow: 0 6px 20px rgba(44,24,16,0.12) !important; }
+  .nav.open > a { width: 100%; padding: 0.6rem 1rem !important; text-align: center !important; display: block; }
+  .nav.open .lang-toggle { justify-content: center !important; margin-top: 0.5rem; }
+  .mobile-toggle { background: rgba(196,90,44,0.1) !important; border: 1px solid rgba(196,90,44,0.25) !important; border-radius: 8px !important; padding: 10px 12px !important; }
+  .mobile-toggle span { width: 24px !important; height: 3px !important; background: #C45A2C !important; border-radius: 2px; }
+}
+
+</style>
 </head>
 
 <body>
@@ -407,7 +417,7 @@
                 <a href="https://nest.kndli.com" target="_blank"><span class="lang-ko">Dream Team</span><span class="lang-zh">Dream Team</span><span class="lang-en">Dream Team</span></a>
                 <a href="https://bella-codex-nest.vercel.app" target="_blank"><span class="lang-ko">Co-Nest</span><span class="lang-zh">Co-Nest</span><span class="lang-en">Co-Nest</span></a>
                 <a href="ai-training.html"><span class="lang-ko">맞춤화 AI 교육</span><span class="lang-zh">客製化AI教育</span><span class="lang-en">Custom AI Training</span></a>
-                <a href="seminar.html"><span class="lang-ko">세미나</span><span class="lang-zh">講座</span><span class="lang-en">Seminar</span></a>
+                <a href="seminar.html"><span class="lang-ko">AI 세미나</span><span class="lang-zh">AI 講座</span><span class="lang-en">AI Seminar</span></a>
                 <a href="contact.html"><span class="lang-ko">문의</span><span class="lang-zh">聯繫</span><span class="lang-en">Contact</span></a>
                 <div class="lang-toggle">
                     <button class="lang-btn active" data-lang="ko">KO</button>

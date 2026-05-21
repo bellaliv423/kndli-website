@@ -371,7 +371,18 @@
             .hero-stats { gap: 1rem; }
             .section { padding: 3rem 1rem; }
         }
-    </style>
+    
+/* ===== Mobile Nav 풀 패치 v1 (D+29) ===== */
+.mobile-toggle.kndli-v1 { background: rgba(196,90,44,0.1) !important; border: 1px solid rgba(196,90,44,0.25) !important; border-radius: 8px !important; padding: 10px 12px !important; cursor: pointer; }
+.mobile-toggle.kndli-v1:hover { background: rgba(196,90,44,0.2) !important; }
+.mobile-toggle.kndli-v1 span { display: block; width: 24px; height: 3px; background: #C45A2C; margin: 5px 0; border-radius: 2px; transition: all 0.3s; }
+@media (max-width: 768px) {
+  .nav.open { display: flex !important; flex-direction: column; align-items: center; gap: 0.6rem; position: absolute; top: 100%; left: 0; right: 0; background: rgba(251,248,243,0.98); padding: 1.5rem 1rem; border-bottom: 1px solid rgba(196,90,44,0.15); box-shadow: 0 6px 20px rgba(44,24,16,0.12); text-align: center; box-sizing: border-box; z-index: 100; }
+  .nav.open a { width: 100%; padding: 0.7rem 1rem; text-align: center; display: block; }
+  .nav.open .lang-toggle { justify-content: center; margin-top: 0.5rem; }
+}
+
+</style>
 </head>
 <body>
 
@@ -1279,6 +1290,21 @@
             document.getElementById('formSuccess').style.display = 'block';
         });
     });
+</script>
+
+
+<script>
+(function(){
+  var btn = document.getElementById('mobileToggle');
+  var nav = document.getElementById('nav');
+  if (btn) btn.classList.add('kndli-v1');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){ nav.classList.toggle('open'); });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ nav.classList.remove('open'); });
+    });
+  }
+})();
 </script>
 
 </body>
