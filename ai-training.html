@@ -179,14 +179,43 @@
             .cta-section h2 { font-size: 1.8rem; }
         }
     
-/* ===== Mobile Nav 풀 패치 v1 (D+29) ===== */
-.mobile-toggle { background: rgba(196,90,44,0.12) !important; border: 1px solid rgba(196,90,44,0.3) !important; border-radius: 8px !important; padding: 10px 12px !important; cursor: pointer !important; }
-.mobile-toggle:hover { background: rgba(196,90,44,0.22) !important; }
-.mobile-toggle span { display: block !important; width: 24px !important; height: 3px !important; background: #C45A2C !important; margin: 5px 0 !important; border-radius: 2px !important; transition: all 0.3s !important; }
+/* ===== Mobile Nav Final v3 (D+29 evening) — 풀 보장 버전 ===== */
 @media (max-width: 768px) {
-  .nav.open { display: flex !important; flex-direction: column; align-items: center; gap: 0.6rem; position: absolute; top: 100%; left: 0; right: 0; background: rgba(251,248,243,0.98); padding: 1.5rem 1rem; border-bottom: 1px solid rgba(196,90,44,0.15); box-shadow: 0 6px 20px rgba(44,24,16,0.12); text-align: center; box-sizing: border-box; z-index: 100; }
-  .nav.open a { width: 100%; padding: 0.7rem 1rem; text-align: center; display: block; }
-  .nav.open .lang-toggle { justify-content: center; margin-top: 0.5rem; }
+  .mobile-toggle {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 46px !important;
+    min-height: 38px !important;
+    padding: 9px 10px !important;
+    background: rgba(196,90,44,0.12) !important;
+    border: 1px solid rgba(196,90,44,0.35) !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    gap: 5px !important;
+    position: relative !important;
+    z-index: 101 !important;
+  }
+  .mobile-toggle:hover { background: rgba(196,90,44,0.22) !important; }
+  .mobile-toggle span {
+    display: block !important;
+    width: 24px !important;
+    height: 2.5px !important;
+    background: #C45A2C !important;
+    border-radius: 2px !important;
+    margin: 0 !important;
+    transition: all 0.3s ease !important;
+    pointer-events: none !important;
+  }
+  .mobile-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg) !important; }
+  .mobile-toggle.open span:nth-child(2) { opacity: 0 !important; }
+  .mobile-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg) !important; }
+  .nav.open { display: flex !important; flex-direction: column; align-items: stretch; gap: 0.3rem; position: absolute; top: 100%; left: 0; right: 0; background: rgba(251,248,243,0.98); padding: 1.2rem 1.5rem; border-bottom: 1px solid rgba(196,90,44,0.15); box-shadow: 0 6px 20px rgba(44,24,16,0.12); box-sizing: border-box; z-index: 100; }
+  .nav.open a { width: 100%; padding: 0.75rem 0.5rem; text-align: left; display: block; border-bottom: 1px solid rgba(44,24,16,0.06); font-size: 0.95rem; }
+  .nav.open .lang-toggle { display: none !important; }
 }
 
 </style>
