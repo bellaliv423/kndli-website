@@ -1100,6 +1100,43 @@
     </div>
 
     <!-- 🔗 링크 복사 (한양 AI 톡방 공유용) -->
+    <script>
+    function copySeminarLink() {
+        var link = document.getElementById('shareLink').textContent.trim();
+        var btn = document.getElementById('copyBtn');
+        var koSpan = btn.querySelector('.lang-ko');
+        var zhSpan = btn.querySelector('.lang-zh');
+        var origKo = koSpan ? koSpan.textContent : '';
+        var origZh = zhSpan ? zhSpan.textContent : '';
+        function showDone() {
+            if (koSpan) koSpan.textContent = '✅ 복사 완료!';
+            if (zhSpan) zhSpan.textContent = '✅ 已複製！';
+            btn.style.background = 'linear-gradient(135deg, #2E7D32, #1B5E20)';
+            setTimeout(function(){
+                if (koSpan) koSpan.textContent = origKo;
+                if (zhSpan) zhSpan.textContent = origZh;
+                btn.style.background = 'linear-gradient(135deg, #C45A2C, #8B4513)';
+            }, 2000);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(link).then(showDone).catch(fallback);
+        } else {
+            fallback();
+        }
+        function fallback() {
+            var ta = document.createElement('textarea');
+            ta.value = link;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            try { document.execCommand('copy'); showDone(); }
+            catch(e) { alert('복사 실패 — 링크를 직접 선택해주세요: ' + link); }
+            document.body.removeChild(ta);
+        }
+    }
+    </script>
     <div style="max-width:800px;margin:0 auto 1.5rem;background:linear-gradient(135deg, #FFF9F0, #F5E4D8);padding:1.3rem 1.8rem;border-radius:14px;border:1px solid rgba(196,90,44,0.15);">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
             <div style="flex:1;min-width:200px;">
